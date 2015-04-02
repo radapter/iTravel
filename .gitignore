@@ -13,3 +13,6 @@ hs_err_pid*
 
 # node js ignore
 *node_modules*
+
+# for local test.
+hello.js

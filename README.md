@@ -27,3 +27,19 @@ Run the server
 ```
 node bin/www
 ```
+
+## Run Tests
+Need to install mocha globally to run unit test
+```
+sudo npm install -g mocha
+```
+
+Run test
+```
+mocha
+```
+
+Run a specific test, e.g. run utils_spec.js under test/ folder
+```
+mocha test/utils_spec.js
+```

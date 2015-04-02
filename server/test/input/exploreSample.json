@@ -1,0 +1,3550 @@
+{
+    "meta": {
+        "code": 200
+    },
+    "response": {
+        "suggestedFilters": {
+            "header": "Tap to show:",
+            "filters": [
+                {
+                    "name": "$-$$$$",
+                    "key": "price"
+                },
+                {
+                    "name": "Open now",
+                    "key": "openNow"
+                }
+            ]
+        },
+        "geocode": {
+            "what": "",
+            "where": "san francisco",
+            "center": {
+                "lat": 37.77493,
+                "lng": -122.41942
+            },
+            "displayString": "San Francisco, CA, United States",
+            "cc": "US",
+            "geometry": {
+                "bounds": {
+                    "ne": {
+                        "lat": 37.833687,
+                        "lng": -122.34905
+                    },
+                    "sw": {
+                        "lat": 37.708085,
+                        "lng": -122.536232
+                    }
+                }
+            },
+            "slug": "san-francisco-california",
+            "longId": "72057594043319895"
+        },
+        "headerLocation": "San Francisco",
+        "headerFullLocation": "San Francisco",
+        "headerLocationGranularity": "city",
+        "totalResults": 274,
+        "suggestedBounds": {
+            "ne": {
+                "lat": 37.83736267537132,
+                "lng": -122.38708610947742
+            },
+            "sw": {
+                "lat": 37.73863920007397,
+                "lng": -122.51725100543015
+            }
+        },
+        "groups": [
+            {
+                "type": "Recommended Places",
+                "name": "recommended",
+                "items": [
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "4c29567f9fb5d13aa2139b57",
+                            "name": "Twin Peaks Summit",
+                            "contact": {
+                                "phone": "4158316331",
+                                "formattedPhone": "(415) 831-6331"
+                            },
+                            "location": {
+                                "address": "100 Christmas Tree Point Rd",
+                                "lat": 37.75468625308481,
+                                "lng": -122.44641694942544,
+                                "postalCode": "94114",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "100 Christmas Tree Point Rd",
+                                    "San Francisco, CA 94114",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d165941735",
+                                    "name": "Scenic Lookout",
+                                    "pluralName": "Scenic Lookouts",
+                                    "shortName": "Scenic Lookout",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/sceniclookout_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": false,
+                            "stats": {
+                                "checkinsCount": 23996,
+                                "usersCount": 15316,
+                                "tipCount": 180
+                            },
+                            "url": "http://sfrecpark.org/destination/twin-peaks/",
+                            "rating": 9.7,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 394,
+                            "hours": {
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 4309,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 2,
+                                "summary": "2 people are checked in here",
+                                "groups": [
+                                    {
+                                        "type": "others",
+                                        "name": "Other people here",
+                                        "count": 2,
+                                        "items": []
+                                    }
+                                ]
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "4ee235060e61689f53b80baf",
+                                "createdAt": 1323447558,
+                                "text": "The geographic center of the city – with an amazing view! As seen on Travel Channel’s The Layover with Anthony Bourdain.",
+                                "type": "user",
+                                "canonicalUrl": "https://foursquare.com/item/4ee235060e61689f53b80baf",
+                                "likes": {
+                                    "count": 157,
+                                    "groups": [],
+                                    "summary": "157 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 25
+                                },
+                                "user": {
+                                    "id": "4579353",
+                                    "firstName": "Travel Channel",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://irs0.4sqi.net/img/user/",
+                                        "suffix": "/ZGHRWHQBJWG3G2A5.jpg"
+                                    },
+                                    "type": "page"
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-4c29567f9fb5d13aa2139b57-0"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "445e36bff964a520fb321fe3",
+                            "name": "Golden Gate Park",
+                            "contact": {
+                                "phone": "4158312700",
+                                "formattedPhone": "(415) 831-2700",
+                                "twitter": "recparksf",
+                                "facebook": "111004257911",
+                                "facebookUsername": "sfrecpark",
+                                "facebookName": "San Francisco Recreation and Park Department"
+                            },
+                            "location": {
+                                "address": "501 Stanyan St",
+                                "crossStreet": "btwn Fulton St & Lincoln Way",
+                                "lat": 37.76878957103581,
+                                "lng": -122.4819052219391,
+                                "postalCode": "94117",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "501 Stanyan St (btwn Fulton St & Lincoln Way)",
+                                    "San Francisco, CA 94117",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d163941735",
+                                    "name": "Park",
+                                    "pluralName": "Parks",
+                                    "shortName": "Park",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/park_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": false,
+                            "stats": {
+                                "checkinsCount": 46802,
+                                "usersCount": 26537,
+                                "tipCount": 196
+                            },
+                            "url": "http://sfrecpark.org",
+                            "hasMenu": true,
+                            "rating": 9.7,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 537,
+                            "menu": {
+                                "type": "Menu",
+                                "label": "Menu",
+                                "anchor": "View Menu",
+                                "url": "https://foursquare.com/v/golden-gate-park/445e36bff964a520fb321fe3/menu",
+                                "mobileUrl": "https://foursquare.com/v/445e36bff964a520fb321fe3/device_menu"
+                            },
+                            "hours": {
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 2775,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "4d1cf4220f0f2d43391dabc4",
+                                "createdAt": 1293743138,
+                                "text": "Did this landmark turn (RED) on World AIDS Day?",
+                                "type": "user",
+                                "url": "http://t.joinred.com/8fD",
+                                "canonicalUrl": "https://foursquare.com/item/4d1cf4220f0f2d43391dabc4",
+                                "likes": {
+                                    "count": 130,
+                                    "groups": [],
+                                    "summary": "130 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 35
+                                },
+                                "user": {
+                                    "id": "1759442",
+                                    "firstName": "(RED)",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://irs2.4sqi.net/img/user/",
+                                        "suffix": "/5AWHPUSMOBHWC1BA.jpg"
+                                    },
+                                    "type": "page"
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-445e36bff964a520fb321fe3-1"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "49bacd63f964a520b0531fe3",
+                            "name": "Lands End",
+                            "contact": {},
+                            "location": {
+                                "address": "El Camino Del Mar",
+                                "crossStreet": "at Point Lobos Ave",
+                                "lat": 37.78315503056424,
+                                "lng": -122.51118555665016,
+                                "postalCode": "94121",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "El Camino Del Mar (at Point Lobos Ave)",
+                                    "San Francisco, CA 94121",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d159941735",
+                                    "name": "Trail",
+                                    "pluralName": "Trails",
+                                    "shortName": "Trail",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/hikingtrail_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": false,
+                            "stats": {
+                                "checkinsCount": 8586,
+                                "usersCount": 5660,
+                                "tipCount": 70
+                            },
+                            "rating": 9.6,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 141,
+                            "hours": {
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 1210,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "508eca94e4b0ae9e16d1ff36",
+                                "createdAt": 1351535252,
+                                "text": "Runners, take a break and enjoy the Lands End views. Recovery runs allow \"active rest\" and still apply some training benefits.",
+                                "type": "user",
+                                "url": "http://bit.ly/Um0Aqt",
+                                "canonicalUrl": "https://foursquare.com/item/508eca94e4b0ae9e16d1ff36",
+                                "likes": {
+                                    "count": 86,
+                                    "groups": [],
+                                    "summary": "86 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 7
+                                },
+                                "user": {
+                                    "id": "3907781",
+                                    "firstName": "Sony",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://irs0.4sqi.net/img/user/",
+                                        "suffix": "/3907781-AMYKOBKYUP5PRVXV.png"
+                                    },
+                                    "type": "chain"
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-49bacd63f964a520b0531fe3-2"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "409ad180f964a520eef21ee3",
+                            "name": "Ocean Beach",
+                            "contact": {
+                                "phone": "4155614323",
+                                "formattedPhone": "(415) 561-4323",
+                                "twitter": "parks4all"
+                            },
+                            "location": {
+                                "address": "Point Lobos Ave",
+                                "crossStreet": "at Great Hwy",
+                                "lat": 37.769391721310974,
+                                "lng": -122.51133441925049,
+                                "postalCode": "94121",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "Point Lobos Ave (at Great Hwy)",
+                                    "San Francisco, CA 94121",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d1e2941735",
+                                    "name": "Beach",
+                                    "pluralName": "Beaches",
+                                    "shortName": "Beach",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/beach_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": false,
+                            "stats": {
+                                "checkinsCount": 38566,
+                                "usersCount": 17918,
+                                "tipCount": 180
+                            },
+                            "url": "http://parksconservancy.org",
+                            "rating": 9.6,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 335,
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 5247,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "4beafef970c603bbe8399bb4",
+                                "createdAt": 1273691897,
+                                "text": "Take off your shoes. Go to the water and let the waves wash over your feet. Think about the fact that you're now standing in the biggest, wettest wilderness on the face of the earth.",
+                                "type": "user",
+                                "canonicalUrl": "https://foursquare.com/item/4beafef970c603bbe8399bb4",
+                                "likes": {
+                                    "count": 60,
+                                    "groups": [],
+                                    "summary": "60 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 2
+                                },
+                                "user": {
+                                    "id": "832770",
+                                    "firstName": "Ocean Beach Bulletin",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://irs0.4sqi.net/img/user/",
+                                        "suffix": "/DDREYXUV2L10N3WK.jpg"
+                                    }
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-409ad180f964a520eef21ee3-3"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "5105ed2fe4b02d11de1bae8d",
+                            "name": "B. Patisserie",
+                            "contact": {
+                                "phone": "4154401700",
+                                "formattedPhone": "(415) 440-1700",
+                                "twitter": "b_patisserie"
+                            },
+                            "location": {
+                                "address": "2821 California St.",
+                                "crossStreet": "btwn Divisadero & Broderick",
+                                "lat": 37.78802455159373,
+                                "lng": -122.44077705105629,
+                                "postalCode": "94115",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "2821 California St. (btwn Divisadero & Broderick)",
+                                    "San Francisco, CA 94115",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d16a941735",
+                                    "name": "Bakery",
+                                    "pluralName": "Bakeries",
+                                    "shortName": "Bakery",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/bakery_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": false,
+                            "stats": {
+                                "checkinsCount": 4386,
+                                "usersCount": 2093,
+                                "tipCount": 100
+                            },
+                            "url": "http://bpatisserie.com",
+                            "price": {
+                                "tier": 2,
+                                "message": "Moderate",
+                                "currency": "$"
+                            },
+                            "hasMenu": true,
+                            "rating": 9.6,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 270,
+                            "menu": {
+                                "type": "Menu",
+                                "label": "Menu",
+                                "anchor": "View Menu",
+                                "url": "https://foursquare.com/v/b-patisserie/5105ed2fe4b02d11de1bae8d/menu",
+                                "mobileUrl": "https://foursquare.com/v/5105ed2fe4b02d11de1bae8d/device_menu",
+                                "externalUrl": "http://bpatisserie.com/menu/"
+                            },
+                            "hours": {
+                                "status": "Closed until 8:00 AM",
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 394,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "54c95b08498e64b8ce24d678",
+                                "createdAt": 1422482184,
+                                "text": "The kouign-amann is the best croissant in SF, making our list of \"The Tastes That Make the City: SF Edition.\"",
+                                "type": "user",
+                                "url": "https://foursquare.com/top-places/san-francisco/tastes-that-make-the-city",
+                                "canonicalUrl": "https://foursquare.com/item/54c95b08498e64b8ce24d678",
+                                "likes": {
+                                    "count": 105,
+                                    "groups": [],
+                                    "summary": "105 likes"
+                                },
+                                "logView": true,
+                                "editedAt": 1424715890,
+                                "todo": {
+                                    "count": 3
+                                },
+                                "user": {
+                                    "id": "107525669",
+                                    "firstName": "The Tastes that Make the City",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://irs1.4sqi.net/img/user/",
+                                        "suffix": "/107525669-FY3QZSWU1VI2QFKE"
+                                    }
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-5105ed2fe4b02d11de1bae8d-4"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "4ab595e1f964a520877520e3",
+                            "name": "Mission Dolores Park",
+                            "contact": {
+                                "twitter": "dpworks"
+                            },
+                            "location": {
+                                "address": "Dolores St",
+                                "crossStreet": "btwn 18th & 20th St",
+                                "lat": 37.758833392975696,
+                                "lng": -122.42712945320125,
+                                "postalCode": "94110",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "Dolores St (btwn 18th & 20th St)",
+                                    "San Francisco, CA 94110",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d163941735",
+                                    "name": "Park",
+                                    "pluralName": "Parks",
+                                    "shortName": "Park",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/park_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": false,
+                            "stats": {
+                                "checkinsCount": 95330,
+                                "usersCount": 31897,
+                                "tipCount": 355
+                            },
+                            "url": "http://sfrecpark.org/destination/mission-dolores-park/",
+                            "rating": 9.6,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 845,
+                            "hours": {
+                                "status": "Closed until 6:00 AM",
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 8390,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "4cc60adf4935bfb74b2cd1d8",
+                                "createdAt": 1288047327,
+                                "text": "Dolores Park is named after Mission Dolores, established by Spanish missionaries in 1776.",
+                                "type": "user",
+                                "canonicalUrl": "https://foursquare.com/item/4cc60adf4935bfb74b2cd1d8",
+                                "likes": {
+                                    "count": 208,
+                                    "groups": [],
+                                    "summary": "208 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 66
+                                },
+                                "user": {
+                                    "id": "3053550",
+                                    "firstName": "Mazda",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://irs2.4sqi.net/img/user/",
+                                        "suffix": "/EH0NJWMWMTKQMQVX.jpg"
+                                    },
+                                    "type": "page"
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-4ab595e1f964a520877520e3-5"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "4c65ee1e7abde21e01516268",
+                            "name": "Señor Sisig",
+                            "contact": {
+                                "phone": "8557474455",
+                                "formattedPhone": "(855) 747-4455",
+                                "twitter": "senorsisig"
+                            },
+                            "location": {
+                                "lat": 37.785196502549006,
+                                "lng": -122.39959107361376,
+                                "postalCode": "94123",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "San Francisco, CA 94123",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d1cb941735",
+                                    "name": "Food Truck",
+                                    "pluralName": "Food Trucks",
+                                    "shortName": "Food Truck",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/streetfood_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": false,
+                            "stats": {
+                                "checkinsCount": 5841,
+                                "usersCount": 2555,
+                                "tipCount": 75
+                            },
+                            "url": "http://www.senorsisig.com",
+                            "price": {
+                                "tier": 1,
+                                "message": "Cheap",
+                                "currency": "$"
+                            },
+                            "hasMenu": true,
+                            "rating": 9.6,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 172,
+                            "menu": {
+                                "type": "Menu",
+                                "label": "Menu",
+                                "anchor": "View Menu",
+                                "url": "https://foursquare.com/v/se%C3%B1or-sisig/4c65ee1e7abde21e01516268/menu",
+                                "mobileUrl": "https://foursquare.com/v/4c65ee1e7abde21e01516268/device_menu"
+                            },
+                            "hours": {
+                                "status": "Closed until 11:00 AM",
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 296,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "4dd55981b3adf8876d227dd3",
+                                "createdAt": 1305827713,
+                                "text": "SF Weekly Best Of 2011 Winner - Reader's Poll - BEST FOOD TRUCK",
+                                "type": "user",
+                                "canonicalUrl": "https://foursquare.com/item/4dd55981b3adf8876d227dd3",
+                                "likes": {
+                                    "count": 18,
+                                    "groups": [],
+                                    "summary": "18 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 7
+                                },
+                                "user": {
+                                    "id": "3212130",
+                                    "firstName": "SF Weekly",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://irs2.4sqi.net/img/user/",
+                                        "suffix": "/IVFMI42RHDGPZJNQ.jpg"
+                                    },
+                                    "type": "page"
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-4c65ee1e7abde21e01516268-6"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "4aa6b24ff964a520b24a20e3",
+                            "name": "Bernal Heights Park",
+                            "contact": {},
+                            "location": {
+                                "address": "Bernal Heights Rd",
+                                "crossStreet": "at Anderson",
+                                "lat": 37.743126630769304,
+                                "lng": -122.4147300559314,
+                                "postalCode": "94110",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "Bernal Heights Rd (at Anderson)",
+                                    "San Francisco, CA 94110",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d163941735",
+                                    "name": "Park",
+                                    "pluralName": "Parks",
+                                    "shortName": "Park",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/park_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": false,
+                            "stats": {
+                                "checkinsCount": 8355,
+                                "usersCount": 2806,
+                                "tipCount": 30
+                            },
+                            "rating": 9.6,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 100,
+                            "hours": {
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 1622,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "4ad6b2f970c603bb9e9a8eb4",
+                                "createdAt": 1255584505,
+                                "text": "Great for a quiet evening stroll or for a breathtaking photo shoot.",
+                                "type": "user",
+                                "canonicalUrl": "https://foursquare.com/item/4ad6b2f970c603bb9e9a8eb4",
+                                "likes": {
+                                    "count": 10,
+                                    "groups": [],
+                                    "summary": "10 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 3
+                                },
+                                "user": {
+                                    "id": "38889",
+                                    "firstName": "Veronica",
+                                    "lastName": "Lujan",
+                                    "gender": "female",
+                                    "photo": {
+                                        "prefix": "https://irs2.4sqi.net/img/user/",
+                                        "suffix": "/4aac8ae39ec07.gif"
+                                    }
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-4aa6b24ff964a520b24a20e3-7"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "40b7d280f964a52093001fe3",
+                            "name": "Crissy Field",
+                            "contact": {
+                                "phone": "4155617690",
+                                "formattedPhone": "(415) 561-7690"
+                            },
+                            "location": {
+                                "address": "1199 East Beach",
+                                "crossStreet": "Golden Gate National Recreation Area",
+                                "lat": 37.803748566132015,
+                                "lng": -122.46129512786865,
+                                "postalCode": "94129",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "1199 East Beach (Golden Gate National Recreation Area)",
+                                    "San Francisco, CA 94129",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d163941735",
+                                    "name": "Park",
+                                    "pluralName": "Parks",
+                                    "shortName": "Park",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/park_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": false,
+                            "stats": {
+                                "checkinsCount": 22502,
+                                "usersCount": 11624,
+                                "tipCount": 102
+                            },
+                            "url": "http://parksconservancy.org‎",
+                            "rating": 9.6,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 198,
+                            "hours": {
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 2333,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "4e0e2249814d61a706ffeb6a",
+                                "createdAt": 1309549129,
+                                "text": "Dog friendly sandy beach, playground and the Warming Hut for snacks and well… warming up.",
+                                "type": "user",
+                                "canonicalUrl": "https://foursquare.com/item/4e0e2249814d61a706ffeb6a",
+                                "likes": {
+                                    "count": 63,
+                                    "groups": [],
+                                    "summary": "63 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 30
+                                },
+                                "user": {
+                                    "id": "9281615",
+                                    "firstName": "Pepsi",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://irs1.4sqi.net/img/user/",
+                                        "suffix": "/EQ2P5YP2Y34WPQUU.jpg"
+                                    },
+                                    "type": "page"
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-40b7d280f964a52093001fe3-8"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "49c94f32f964a52054581fe3",
+                            "name": "Yerba Buena Gardens",
+                            "contact": {
+                                "phone": "4158203550",
+                                "formattedPhone": "(415) 820-3550"
+                            },
+                            "location": {
+                                "address": "745 Mission St",
+                                "lat": 37.784732177766266,
+                                "lng": -122.4025011062622,
+                                "postalCode": "94103",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "745 Mission St",
+                                    "San Francisco, CA 94103",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d163941735",
+                                    "name": "Park",
+                                    "pluralName": "Parks",
+                                    "shortName": "Park",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/park_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": false,
+                            "stats": {
+                                "checkinsCount": 26565,
+                                "usersCount": 14925,
+                                "tipCount": 107
+                            },
+                            "url": "http://www.yerbabuenagardens.com",
+                            "rating": 9.6,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 294,
+                            "hours": {
+                                "status": "Closed until 6:00 AM",
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 2835,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "4b6373da70c603bb0f1991b4",
+                                "createdAt": 1264808922,
+                                "text": "Don't just admire the fountain - walk behind the falls to read inspiring quotes from Martin Luther King Jr.",
+                                "type": "user",
+                                "url": "http://sfg.ly/ct18C6",
+                                "canonicalUrl": "https://foursquare.com/item/4b6373da70c603bb0f1991b4",
+                                "likes": {
+                                    "count": 332,
+                                    "groups": [],
+                                    "summary": "332 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 70
+                                },
+                                "user": {
+                                    "id": "211360",
+                                    "firstName": "SFGate",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://irs1.4sqi.net/img/user/",
+                                        "suffix": "/211360-2ORG12H4W3XCKT5Z.jpg"
+                                    },
+                                    "type": "page"
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-49c94f32f964a52054581fe3-9"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "49cc413df964a5205a591fe3",
+                            "name": "California Academy of Sciences",
+                            "contact": {
+                                "phone": "4153798000",
+                                "formattedPhone": "(415) 379-8000",
+                                "twitter": "calacademy",
+                                "facebook": "19356432310",
+                                "facebookUsername": "calacademy",
+                                "facebookName": "California Academy of Sciences"
+                            },
+                            "location": {
+                                "address": "55 Music Concourse Dr",
+                                "crossStreet": "at Martin Luther King Jr Dr",
+                                "lat": 37.7697648824009,
+                                "lng": -122.46631622314455,
+                                "postalCode": "94118",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "55 Music Concourse Dr (at Martin Luther King Jr Dr)",
+                                    "San Francisco, CA 94118",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d191941735",
+                                    "name": "Science Museum",
+                                    "pluralName": "Science Museums",
+                                    "shortName": "Science Museum",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/museum_science_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": true,
+                            "stats": {
+                                "checkinsCount": 51091,
+                                "usersCount": 33269,
+                                "tipCount": 368
+                            },
+                            "url": "http://www.calacademy.org",
+                            "rating": 9.5,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 1573,
+                            "hours": {
+                                "status": "Closed until 9:30 AM",
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 4807,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            },
+                            "venuePage": {
+                                "id": "68180815"
+                            },
+                            "storeId": ""
+                        },
+                        "tips": [
+                            {
+                                "id": "4cfeaf0c2c6459410f80464a",
+                                "createdAt": 1291759372,
+                                "text": "The only place on Earth with an aquarium, a planetarium, a natural history museum, and a 4-story rainforest all under one roof!  The Morrison Planetarium is the largest all-digital dome in the world.",
+                                "type": "user",
+                                "url": "http://www.calacademy.org",
+                                "canonicalUrl": "https://foursquare.com/item/4cfeaf0c2c6459410f80464a",
+                                "likes": {
+                                    "count": 526,
+                                    "groups": [],
+                                    "summary": "526 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 182
+                                },
+                                "user": {
+                                    "id": "3965355",
+                                    "firstName": "NASA",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://irs1.4sqi.net/img/user/",
+                                        "suffix": "/3965355-DTSWZLLQU2ZMJ32G.jpg"
+                                    },
+                                    "type": "chain"
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-49cc413df964a5205a591fe3-10"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "4460d38bf964a5200a331fe3",
+                            "name": "Alamo Square",
+                            "contact": {},
+                            "location": {
+                                "address": "Steiner St",
+                                "crossStreet": "btwn Fulton & Hayes St",
+                                "lat": 37.77635425776032,
+                                "lng": -122.43469834327698,
+                                "postalCode": "94117",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "Steiner St (btwn Fulton & Hayes St)",
+                                    "San Francisco, CA 94117",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d163941735",
+                                    "name": "Park",
+                                    "pluralName": "Parks",
+                                    "shortName": "Park",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/park_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": true,
+                            "stats": {
+                                "checkinsCount": 28785,
+                                "usersCount": 13434,
+                                "tipCount": 116
+                            },
+                            "hasMenu": true,
+                            "rating": 9.5,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 308,
+                            "menu": {
+                                "type": "Menu",
+                                "label": "Menu",
+                                "anchor": "View Menu",
+                                "url": "https://foursquare.com/v/alamo-square/4460d38bf964a5200a331fe3/menu",
+                                "mobileUrl": "https://foursquare.com/v/4460d38bf964a5200a331fe3/device_menu"
+                            },
+                            "hours": {
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 2980,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            },
+                            "venuePage": {
+                                "id": "40437521"
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "4e137375814d60ce660646d6",
+                                "createdAt": 1309897589,
+                                "text": "In front of the row of Victorian “Painted Ladies” houses (made famous by the Full House opening sequence), but on nice days you can spy the ocean and the Bay from here.",
+                                "type": "user",
+                                "url": "http://alamosq.wordpress.com/",
+                                "canonicalUrl": "https://foursquare.com/item/4e137375814d60ce660646d6",
+                                "likes": {
+                                    "count": 220,
+                                    "groups": [],
+                                    "summary": "220 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 13
+                                },
+                                "user": {
+                                    "id": "311503",
+                                    "firstName": "AskMen",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://irs1.4sqi.net/img/user/",
+                                        "suffix": "/W12HFINBWKQZJ15Z.jpg"
+                                    },
+                                    "type": "page"
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-4460d38bf964a5200a331fe3-11"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "40c3b000f964a520e7001fe3",
+                            "name": "The Fillmore",
+                            "contact": {
+                                "phone": "4153466000",
+                                "formattedPhone": "(415) 346-6000"
+                            },
+                            "location": {
+                                "address": "1805 Geary Blvd",
+                                "crossStreet": "at Fillmore St.",
+                                "lat": 37.78395985760533,
+                                "lng": -122.43303551986902,
+                                "postalCode": "94115",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "1805 Geary Blvd (at Fillmore St.)",
+                                    "San Francisco, CA 94115",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d1e5931735",
+                                    "name": "Music Venue",
+                                    "pluralName": "Music Venues",
+                                    "shortName": "Music Venue",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/musicvenue_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": true,
+                            "stats": {
+                                "checkinsCount": 20203,
+                                "usersCount": 11536,
+                                "tipCount": 106
+                            },
+                            "url": "http://www.thefillmore.com",
+                            "rating": 9.5,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 424,
+                            "hours": {
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 1911,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 1,
+                                "summary": "One person is checked in here",
+                                "groups": [
+                                    {
+                                        "type": "others",
+                                        "name": "Other people here",
+                                        "count": 1,
+                                        "items": []
+                                    }
+                                ]
+                            },
+                            "venuePage": {
+                                "id": "39508222"
+                            },
+                            "storeId": ""
+                        },
+                        "tips": [
+                            {
+                                "id": "4c3394ae3ffc952112a190f5",
+                                "createdAt": 1278448814,
+                                "text": "SF: Be sure to grab a free apple and free concert poster at SF's most historic (and hospitable) live music venue. -IFC Staff",
+                                "type": "user",
+                                "canonicalUrl": "https://foursquare.com/item/4c3394ae3ffc952112a190f5",
+                                "likes": {
+                                    "count": 389,
+                                    "groups": [],
+                                    "summary": "389 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 268
+                                },
+                                "user": {
+                                    "id": "470491",
+                                    "firstName": "IFC",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://irs3.4sqi.net/img/user/",
+                                        "suffix": "/SINIVGETGJ3JBZVC.jpg"
+                                    },
+                                    "type": "page"
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-40c3b000f964a520e7001fe3-12"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "4a49961cf964a52076ab1fe3",
+                            "name": "Ferry Plaza Farmers Market",
+                            "contact": {
+                                "phone": "4152913276",
+                                "formattedPhone": "(415) 291-3276",
+                                "twitter": "cuesa"
+                            },
+                            "location": {
+                                "address": "1 Ferry Building",
+                                "crossStreet": "Market Street & The Embarcadero",
+                                "lat": 37.794730564142,
+                                "lng": -122.39300269565709,
+                                "postalCode": "94111",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "1 Ferry Building (Market Street & The Embarcadero)",
+                                    "San Francisco, CA 94111",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d1fa941735",
+                                    "name": "Farmers Market",
+                                    "pluralName": "Farmers Markets",
+                                    "shortName": "Farmer's Market",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/food_farmersmarket_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": true,
+                            "stats": {
+                                "checkinsCount": 41696,
+                                "usersCount": 20732,
+                                "tipCount": 205
+                            },
+                            "url": "http://www.cuesa.org/cuesa",
+                            "rating": 9.5,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 747,
+                            "hours": {
+                                "status": "Closed until 10:00 AM",
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 1859,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            },
+                            "venuePage": {
+                                "id": "33258768"
+                            },
+                            "storeId": ""
+                        },
+                        "tips": [
+                            {
+                                "id": "4cdd78a9d6656a314ff9fe3e",
+                                "createdAt": 1289582761,
+                                "text": "Chef or not, one of the most beautiful sights to behold. From the views of the bay to all the amazing local products. A seratonin rush for any foodie. Say hello to my favorite farms, Tory Farms and Ha",
+                                "type": "user",
+                                "canonicalUrl": "https://foursquare.com/item/4cdd78a9d6656a314ff9fe3e",
+                                "likes": {
+                                    "count": 506,
+                                    "groups": [],
+                                    "summary": "506 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 86
+                                },
+                                "user": {
+                                    "id": "282219",
+                                    "firstName": "Bravo",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://irs1.4sqi.net/img/user/",
+                                        "suffix": "/NNF50Z2WRF3DQMRR.gif"
+                                    },
+                                    "type": "page"
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-4a49961cf964a52076ab1fe3-13"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "44c3724df964a520c6351fe3",
+                            "name": "Baker Beach",
+                            "contact": {
+                                "phone": "4155614323",
+                                "formattedPhone": "(415) 561-4323",
+                                "twitter": "parks4all"
+                            },
+                            "location": {
+                                "address": "1504 Pershing Dr",
+                                "crossStreet": "at Lincoln Blvd",
+                                "lat": 37.792880235482244,
+                                "lng": -122.48378276824951,
+                                "postalCode": "94129",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "1504 Pershing Dr (at Lincoln Blvd)",
+                                    "San Francisco, CA 94129",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d1e2941735",
+                                    "name": "Beach",
+                                    "pluralName": "Beaches",
+                                    "shortName": "Beach",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/beach_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": false,
+                            "stats": {
+                                "checkinsCount": 13398,
+                                "usersCount": 8028,
+                                "tipCount": 88
+                            },
+                            "url": "http://parksconservancy.org",
+                            "rating": 9.5,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 182,
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 2180,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "4bf89d1270c603bb419c9cb4",
+                                "createdAt": 1274584338,
+                                "text": "Gorgeous view of the goldengate bridge!!!",
+                                "type": "user",
+                                "canonicalUrl": "https://foursquare.com/item/4bf89d1270c603bb419c9cb4",
+                                "likes": {
+                                    "count": 31,
+                                    "groups": [],
+                                    "summary": "31 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 8
+                                },
+                                "user": {
+                                    "id": "872577",
+                                    "firstName": "Angel",
+                                    "lastName": "Lo",
+                                    "gender": "female",
+                                    "photo": {
+                                        "prefix": "https://irs1.4sqi.net/img/user/",
+                                        "suffix": "/UEVA1IPMEHXIG4X1.jpg"
+                                    }
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-44c3724df964a520c6351fe3-14"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "44646408f964a52026331fe3",
+                            "name": "Nopa",
+                            "contact": {
+                                "phone": "4158648643",
+                                "formattedPhone": "(415) 864-8643",
+                                "twitter": "nopalize"
+                            },
+                            "location": {
+                                "address": "560 Divisadero St",
+                                "crossStreet": "at Hayes St",
+                                "lat": 37.77494821103535,
+                                "lng": -122.43765838868448,
+                                "postalCode": "94117",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "560 Divisadero St (at Hayes St)",
+                                    "San Francisco, CA 94117",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d157941735",
+                                    "name": "New American Restaurant",
+                                    "pluralName": "New American Restaurants",
+                                    "shortName": "New American",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/newamerican_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": true,
+                            "stats": {
+                                "checkinsCount": 23139,
+                                "usersCount": 11662,
+                                "tipCount": 393
+                            },
+                            "url": "http://www.nopasf.com",
+                            "price": {
+                                "tier": 3,
+                                "message": "Expensive",
+                                "currency": "$"
+                            },
+                            "hasMenu": true,
+                            "rating": 9.5,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 879,
+                            "menu": {
+                                "type": "Menu",
+                                "label": "Menu",
+                                "anchor": "View Menu",
+                                "url": "https://foursquare.com/v/nopa/44646408f964a52026331fe3/menu",
+                                "mobileUrl": "https://foursquare.com/v/44646408f964a52026331fe3/device_menu"
+                            },
+                            "hours": {
+                                "status": "Closed until 5:00 PM",
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 1315,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 5,
+                                "summary": "5 people are checked in here",
+                                "groups": [
+                                    {
+                                        "type": "others",
+                                        "name": "Other people here",
+                                        "count": 5,
+                                        "items": []
+                                    }
+                                ]
+                            },
+                            "venuePage": {
+                                "id": "50071951"
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "4cf6c7f311e76a311989ac3b",
+                                "createdAt": 1291241459,
+                                "text": "It's an updated take on the Zuni formula, with the success to show. Both neighborhood standby and destination restaurant, Nopa continues to grow admirably under Chef Jossel. [Eater 38 Member]",
+                                "type": "user",
+                                "url": "http://sf.eater.com/places/nopa",
+                                "canonicalUrl": "https://foursquare.com/item/4cf6c7f311e76a311989ac3b",
+                                "photo": {
+                                    "id": "531e29b711d235cb7bd7f1b2",
+                                    "createdAt": 1394485687,
+                                    "source": {
+                                        "name": "Foursquare Web",
+                                        "url": "https://foursquare.com"
+                                    },
+                                    "prefix": "https://irs2.4sqi.net/img/general/",
+                                    "suffix": "/3343327_beW5w04L4GlJwYOGga-RV_ueg9GYlGjouPYDZ--1HHk.png",
+                                    "width": 633,
+                                    "height": 418
+                                },
+                                "photourl": "https://irs2.4sqi.net/img/general/original/3343327_beW5w04L4GlJwYOGga-RV_ueg9GYlGjouPYDZ--1HHk.png",
+                                "likes": {
+                                    "count": 295,
+                                    "groups": [],
+                                    "summary": "295 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 164
+                                },
+                                "user": {
+                                    "id": "3343327",
+                                    "firstName": "Eater",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://irs1.4sqi.net/img/user/",
+                                        "suffix": "/4HBAAMCL4WUF3IEU.png"
+                                    },
+                                    "type": "page"
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-44646408f964a52026331fe3-15"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "4451c80ef964a520a5321fe3",
+                            "name": "Alcatraz Island",
+                            "contact": {
+                                "phone": "4155614900",
+                                "formattedPhone": "(415) 561-4900",
+                                "twitter": "alcatrazisland",
+                                "facebook": "71042621553",
+                                "facebookUsername": "alcatraz",
+                                "facebookName": "Alcatraz Island"
+                            },
+                            "location": {
+                                "address": "Golden Gate National Recreation Area",
+                                "crossStreet": "San Francisco Bay",
+                                "lat": 37.82664990419708,
+                                "lng": -122.42161989212036,
+                                "postalCode": "94123",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "Golden Gate National Recreation Area (San Francisco Bay)",
+                                    "San Francisco, CA 94123",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4deefb944765f83613cdba6e",
+                                    "name": "Historic Site",
+                                    "pluralName": "Historic Sites",
+                                    "shortName": "Historic Site",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/historicsite_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": true,
+                            "stats": {
+                                "checkinsCount": 37130,
+                                "usersCount": 33002,
+                                "tipCount": 355
+                            },
+                            "url": "http://www.nps.gov/alcatraz",
+                            "rating": 9.5,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 1071,
+                            "hours": {
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 5035,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            },
+                            "venuePage": {
+                                "id": "51682732"
+                            },
+                            "storeId": ""
+                        },
+                        "tips": [
+                            {
+                                "id": "4bb257da70c603bb653896b4",
+                                "createdAt": 1269979098,
+                                "text": "Robert Stroud, \"The Birdman of Alcatraz\" spent 17 years in cell #42. Segregated from the prisoners, he turned to birds for company. He was the inspiration for the 1962 movie starring Burt Lancaster.",
+                                "type": "user",
+                                "canonicalUrl": "https://foursquare.com/item/4bb257da70c603bb653896b4",
+                                "likes": {
+                                    "count": 1080,
+                                    "groups": [],
+                                    "summary": "1080 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 308
+                                },
+                                "user": {
+                                    "id": "376887",
+                                    "firstName": "HISTORY",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://irs2.4sqi.net/img/user/",
+                                        "suffix": "/376887-OIRR1JFP12GKD01V.jpg"
+                                    },
+                                    "type": "chain"
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-4451c80ef964a520a5321fe3-16"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "43fed1fff964a520fe2f1fe3",
+                            "name": "Hog Island Oyster Co.",
+                            "contact": {
+                                "phone": "4153917117",
+                                "formattedPhone": "(415) 391-7117",
+                                "twitter": "hogislandoyster"
+                            },
+                            "location": {
+                                "address": "1 Ferry Building",
+                                "crossStreet": "at The Embarcadero",
+                                "lat": 37.7960679927155,
+                                "lng": -122.39360690116882,
+                                "postalCode": "94111",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "1 Ferry Building (at The Embarcadero)",
+                                    "San Francisco, CA 94111",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d1ce941735",
+                                    "name": "Seafood Restaurant",
+                                    "pluralName": "Seafood Restaurants",
+                                    "shortName": "Seafood",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/seafood_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": true,
+                            "stats": {
+                                "checkinsCount": 10639,
+                                "usersCount": 8005,
+                                "tipCount": 217
+                            },
+                            "url": "http://www.hogislandoysters.com",
+                            "price": {
+                                "tier": 2,
+                                "message": "Moderate",
+                                "currency": "$"
+                            },
+                            "hasMenu": true,
+                            "rating": 9.5,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 424,
+                            "menu": {
+                                "type": "Menu",
+                                "label": "Menu",
+                                "anchor": "View Menu",
+                                "url": "https://foursquare.com/v/hog-island-oyster-co/43fed1fff964a520fe2f1fe3/menu",
+                                "mobileUrl": "https://foursquare.com/v/43fed1fff964a520fe2f1fe3/device_menu"
+                            },
+                            "hours": {
+                                "status": "Closed until 11:30 AM",
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 1256,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            },
+                            "venuePage": {
+                                "id": "52311147"
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "4b60c96870c603bb21f690b4",
+                                "createdAt": 1264634216,
+                                "text": "Nothing like a hot clam chowder...it's #99 on 7x7's Big Eat SF 2010.",
+                                "type": "user",
+                                "url": "http://7x7.com/content/eat-drink/coming-soonthe-big-eat-sf-2010-100-things-eat-drink-you-die",
+                                "canonicalUrl": "https://foursquare.com/item/4b60c96870c603bb21f690b4",
+                                "likes": {
+                                    "count": 48,
+                                    "groups": [],
+                                    "summary": "48 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 21
+                                },
+                                "user": {
+                                    "id": "300441",
+                                    "firstName": "7x7 Magazine",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://irs1.4sqi.net/img/user/",
+                                        "suffix": "/4RR5J0HA5Q12DXD5.png"
+                                    },
+                                    "type": "page"
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-43fed1fff964a520fe2f1fe3-17"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "4bcafba50687ef3b9ad7dccc",
+                            "name": "Vista Point",
+                            "contact": {},
+                            "location": {
+                                "address": "Golden Gate Bridge",
+                                "crossStreet": "Hwy. 101",
+                                "lat": 37.83287524467598,
+                                "lng": -122.47996062040329,
+                                "postalCode": "94965",
+                                "cc": "US",
+                                "city": "Sausalito",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "Golden Gate Bridge (Hwy. 101)",
+                                    "Sausalito, CA 94965",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d165941735",
+                                    "name": "Scenic Lookout",
+                                    "pluralName": "Scenic Lookouts",
+                                    "shortName": "Scenic Lookout",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/sceniclookout_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": false,
+                            "stats": {
+                                "checkinsCount": 20725,
+                                "usersCount": 17598,
+                                "tipCount": 75
+                            },
+                            "url": "http://goldengatebridge.org",
+                            "rating": 9.5,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 209,
+                            "hours": {
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 3436,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "4d16ab66f4ee6a3110794812",
+                                "createdAt": 1293331302,
+                                "text": "What's good here? The view; what were you expecting?",
+                                "type": "user",
+                                "canonicalUrl": "https://foursquare.com/item/4d16ab66f4ee6a3110794812",
+                                "likes": {
+                                    "count": 23,
+                                    "groups": [],
+                                    "summary": "23 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 2
+                                },
+                                "user": {
+                                    "id": "3890557",
+                                    "firstName": "Stephen",
+                                    "lastName": "Foster",
+                                    "gender": "male",
+                                    "photo": {
+                                        "prefix": "https://irs3.4sqi.net/img/user/",
+                                        "suffix": "/UWEPRAL4RD2QO5IH.jpg"
+                                    }
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-4bcafba50687ef3b9ad7dccc-18"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "4089ae00f964a520bff21ee3",
+                            "name": "Castro Theatre",
+                            "contact": {
+                                "phone": "4158645000",
+                                "formattedPhone": "(415) 864-5000"
+                            },
+                            "location": {
+                                "address": "429 Castro St",
+                                "crossStreet": "btwn 18th & Market",
+                                "lat": 37.76200019942784,
+                                "lng": -122.43500679731368,
+                                "postalCode": "94114",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "429 Castro St (btwn 18th & Market)",
+                                    "San Francisco, CA 94114",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d17e941735",
+                                    "name": "Indie Movie Theater",
+                                    "pluralName": "Indie Movie Theaters",
+                                    "shortName": "Indie Theater",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/movietheater_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": false,
+                            "stats": {
+                                "checkinsCount": 19249,
+                                "usersCount": 9105,
+                                "tipCount": 89
+                            },
+                            "url": "http://www.castrotheatre.com",
+                            "rating": 9.5,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 437,
+                            "hours": {
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 2310,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "4cdd7cacd6656a31effcfe3e",
+                                "createdAt": 1289583788,
+                                "text": "Beautiful SF landmark which is a movie house as well as live performances. Sing-along sound of music is a tradition. -Yigit Pura, Top Chef Just Desserts",
+                                "type": "user",
+                                "canonicalUrl": "https://foursquare.com/item/4cdd7cacd6656a31effcfe3e",
+                                "likes": {
+                                    "count": 306,
+                                    "groups": [],
+                                    "summary": "306 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 75
+                                },
+                                "user": {
+                                    "id": "282219",
+                                    "firstName": "Bravo",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://irs1.4sqi.net/img/user/",
+                                        "suffix": "/NNF50Z2WRF3DQMRR.gif"
+                                    },
+                                    "type": "page"
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-4089ae00f964a520bff21ee3-19"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "42cc7080f964a520e7251fe3",
+                            "name": "Burma Superstar",
+                            "contact": {
+                                "phone": "4153872147",
+                                "formattedPhone": "(415) 387-2147",
+                                "twitter": "burmasuperstar"
+                            },
+                            "location": {
+                                "address": "309 Clement St",
+                                "crossStreet": "btwn 4th & 5th Ave",
+                                "lat": 37.78303039321439,
+                                "lng": -122.46254427645594,
+                                "postalCode": "94118",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "309 Clement St (btwn 4th & 5th Ave)",
+                                    "San Francisco, CA 94118",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d142941735",
+                                    "name": "Asian Restaurant",
+                                    "pluralName": "Asian Restaurants",
+                                    "shortName": "Asian",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/asian_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": true,
+                            "stats": {
+                                "checkinsCount": 10951,
+                                "usersCount": 7742,
+                                "tipCount": 251
+                            },
+                            "url": "http://www.burmasuperstar.com",
+                            "price": {
+                                "tier": 2,
+                                "message": "Moderate",
+                                "currency": "$"
+                            },
+                            "hasMenu": true,
+                            "rating": 9.5,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 510,
+                            "menu": {
+                                "type": "Menu",
+                                "label": "Menu",
+                                "anchor": "View Menu",
+                                "url": "https://foursquare.com/v/burma-superstar/42cc7080f964a520e7251fe3/menu",
+                                "mobileUrl": "https://foursquare.com/v/42cc7080f964a520e7251fe3/device_menu"
+                            },
+                            "hours": {
+                                "status": "Closed until 11:30 AM",
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 471,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            },
+                            "venuePage": {
+                                "id": "95715367"
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "49f22d4570c603bb5e208eb4",
+                                "createdAt": 1240608069,
+                                "text": "17. Tea-leaf salad at Burma Superstar(from 7x7's 100 Things to Try Before You Die | http://tr.im/7x7list)",
+                                "entities": [
+                                    {
+                                        "indices": [
+                                            84,
+                                            104
+                                        ],
+                                        "type": "url",
+                                        "object": {
+                                            "url": "http://tr.im/7x7list"
+                                        }
+                                    }
+                                ],
+                                "type": "user",
+                                "canonicalUrl": "https://foursquare.com/item/49f22d4570c603bb5e208eb4",
+                                "likes": {
+                                    "count": 60,
+                                    "groups": [],
+                                    "summary": "60 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 13
+                                },
+                                "user": {
+                                    "id": "4738",
+                                    "firstName": "Chris",
+                                    "lastName": "Maliwat",
+                                    "gender": "male",
+                                    "photo": {
+                                        "prefix": "https://irs2.4sqi.net/img/user/",
+                                        "suffix": "/IGFSJV3CIBXBDBJM.png"
+                                    }
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-42cc7080f964a520e7251fe3-20"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "45eaff58f964a5208e431fe3",
+                            "name": "Bi-Rite Creamery",
+                            "contact": {
+                                "phone": "4156265600",
+                                "formattedPhone": "(415) 626-5600",
+                                "twitter": "biritesf"
+                            },
+                            "location": {
+                                "address": "3692 18th St",
+                                "crossStreet": "at Dolores St",
+                                "lat": 37.76145789091707,
+                                "lng": -122.42577455019926,
+                                "postalCode": "94110",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "3692 18th St (at Dolores St)",
+                                    "San Francisco, CA 94110",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d1c9941735",
+                                    "name": "Ice Cream Shop",
+                                    "pluralName": "Ice Cream Shops",
+                                    "shortName": "Ice Cream",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/icecream_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": true,
+                            "stats": {
+                                "checkinsCount": 33005,
+                                "usersCount": 19268,
+                                "tipCount": 505
+                            },
+                            "url": "http://biritecreamery.com",
+                            "price": {
+                                "tier": 1,
+                                "message": "Cheap",
+                                "currency": "$"
+                            },
+                            "hasMenu": true,
+                            "rating": 9.5,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 1275,
+                            "menu": {
+                                "type": "Menu",
+                                "label": "Menu",
+                                "anchor": "View Menu",
+                                "url": "https://foursquare.com/v/birite-creamery/45eaff58f964a5208e431fe3/menu",
+                                "mobileUrl": "https://foursquare.com/v/45eaff58f964a5208e431fe3/device_menu"
+                            },
+                            "hours": {
+                                "status": "Closed until 11:00 AM",
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 1507,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            },
+                            "venuePage": {
+                                "id": "48020337"
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "4b636c6c70c603bb891891b4",
+                                "createdAt": 1264807020,
+                                "text": "Trust us, you can't go wrong with the Salted Caramel…until you're addicted.",
+                                "type": "user",
+                                "url": "http://sfg.ly/d6ZDSa",
+                                "canonicalUrl": "https://foursquare.com/item/4b636c6c70c603bb891891b4",
+                                "photo": {
+                                    "id": "53eaa74f11d2d0dcbb566099",
+                                    "createdAt": 1407887183,
+                                    "source": {
+                                        "name": "Foursquare Web",
+                                        "url": "https://foursquare.com"
+                                    },
+                                    "prefix": "https://irs2.4sqi.net/img/general/",
+                                    "suffix": "/211360_E1opFWrwrpuXkUcmGErdqDhMFbZx6YPwR2pk1ujRPCA.jpg",
+                                    "width": 500,
+                                    "height": 500
+                                },
+                                "photourl": "https://irs2.4sqi.net/img/general/original/211360_E1opFWrwrpuXkUcmGErdqDhMFbZx6YPwR2pk1ujRPCA.jpg",
+                                "likes": {
+                                    "count": 324,
+                                    "groups": [],
+                                    "summary": "324 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 81
+                                },
+                                "user": {
+                                    "id": "211360",
+                                    "firstName": "SFGate",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://irs1.4sqi.net/img/user/",
+                                        "suffix": "/211360-2ORG12H4W3XCKT5Z.jpg"
+                                    },
+                                    "type": "page"
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-45eaff58f964a5208e431fe3-21"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "4bb2595c42959c7430b7202c",
+                            "name": "Deli Board",
+                            "contact": {
+                                "phone": "4155527687",
+                                "formattedPhone": "(415) 552-7687",
+                                "twitter": "deliboard"
+                            },
+                            "location": {
+                                "address": "1058 Folsom St",
+                                "crossStreet": "at Russ St",
+                                "lat": 37.777485367788515,
+                                "lng": -122.4070253220108,
+                                "postalCode": "94103",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "1058 Folsom St (at Russ St)",
+                                    "San Francisco, CA 94103",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d1c5941735",
+                                    "name": "Sandwich Place",
+                                    "pluralName": "Sandwich Places",
+                                    "shortName": "Sandwiches",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/deli_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": true,
+                            "stats": {
+                                "checkinsCount": 9371,
+                                "usersCount": 3332,
+                                "tipCount": 166
+                            },
+                            "url": "http://www.deliboardsf.com",
+                            "price": {
+                                "tier": 2,
+                                "message": "Moderate",
+                                "currency": "$"
+                            },
+                            "hasMenu": true,
+                            "rating": 9.5,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 366,
+                            "menu": {
+                                "type": "Menu",
+                                "label": "Menu",
+                                "anchor": "View Menu",
+                                "url": "https://foursquare.com/v/deli-board/4bb2595c42959c7430b7202c/menu",
+                                "mobileUrl": "https://foursquare.com/v/4bb2595c42959c7430b7202c/device_menu"
+                            },
+                            "hours": {
+                                "status": "Closed until 11:00 AM",
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 391,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            },
+                            "venuePage": {
+                                "id": "93615021"
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "4f1e1d1fe4b03ae364effd64",
+                                "createdAt": 1327373599,
+                                "text": "7x7's Big Eat 2012 says the Munsoned is delicious. Yum!",
+                                "type": "user",
+                                "canonicalUrl": "https://foursquare.com/item/4f1e1d1fe4b03ae364effd64",
+                                "likes": {
+                                    "count": 17,
+                                    "groups": [],
+                                    "summary": "17 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 8
+                                },
+                                "user": {
+                                    "id": "16478",
+                                    "firstName": "Brian",
+                                    "gender": "male",
+                                    "photo": {
+                                        "prefix": "https://irs0.4sqi.net/img/user/",
+                                        "suffix": "/4a6ba59d2f4c0.jpg"
+                                    }
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-4bb2595c42959c7430b7202c-22"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "49972b39f964a52089521fe3",
+                            "name": "Humphry Slocombe",
+                            "contact": {
+                                "phone": "4155506971",
+                                "formattedPhone": "(415) 550-6971",
+                                "twitter": "humphryslocombe"
+                            },
+                            "location": {
+                                "address": "2790 Harrison St",
+                                "crossStreet": "at 24th St.",
+                                "lat": 37.7528095950639,
+                                "lng": -122.41196125745773,
+                                "postalCode": "94110",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "2790 Harrison St (at 24th St.)",
+                                    "San Francisco, CA 94110",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d1c9941735",
+                                    "name": "Ice Cream Shop",
+                                    "pluralName": "Ice Cream Shops",
+                                    "shortName": "Ice Cream",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/icecream_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": false,
+                            "stats": {
+                                "checkinsCount": 16230,
+                                "usersCount": 9287,
+                                "tipCount": 290
+                            },
+                            "url": "http://humphryslocombe.com",
+                            "price": {
+                                "tier": 2,
+                                "message": "Moderate",
+                                "currency": "$"
+                            },
+                            "hasMenu": true,
+                            "rating": 9.5,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 588,
+                            "menu": {
+                                "type": "Menu",
+                                "label": "Menu",
+                                "anchor": "View Menu",
+                                "url": "https://foursquare.com/v/humphry-slocombe/49972b39f964a52089521fe3/menu",
+                                "mobileUrl": "https://foursquare.com/v/49972b39f964a52089521fe3/device_menu"
+                            },
+                            "hours": {
+                                "status": "Closed until Noon",
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 764,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "49b0591c70c603bb940d8eb4",
+                                "createdAt": 1236293916,
+                                "text": "Try the Secret Breakfast for breakfast.  Cornflakes and bourbon to start the day.",
+                                "type": "user",
+                                "canonicalUrl": "https://foursquare.com/item/49b0591c70c603bb940d8eb4",
+                                "likes": {
+                                    "count": 112,
+                                    "groups": [],
+                                    "summary": "112 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 27
+                                },
+                                "user": {
+                                    "id": "360",
+                                    "firstName": "Eris",
+                                    "lastName": "Stassi",
+                                    "gender": "female",
+                                    "photo": {
+                                        "prefix": "https://irs0.4sqi.net/img/user/",
+                                        "suffix": "/RDW0LXYEU3LZTG43.jpg"
+                                    }
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-49972b39f964a52089521fe3-23"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "3fd66200f964a52018ed1ee3",
+                            "name": "Slanted Door",
+                            "contact": {
+                                "phone": "4158618032",
+                                "formattedPhone": "(415) 861-8032"
+                            },
+                            "location": {
+                                "address": "1 Ferry Building #3",
+                                "crossStreet": "at The Embarcadero",
+                                "lat": 37.79619516102866,
+                                "lng": -122.3938000202179,
+                                "postalCode": "94111",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "1 Ferry Building #3 (at The Embarcadero)",
+                                    "San Francisco, CA 94111",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d14a941735",
+                                    "name": "Vietnamese Restaurant",
+                                    "pluralName": "Vietnamese Restaurants",
+                                    "shortName": "Vietnamese",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/vietnamese_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": true,
+                            "stats": {
+                                "checkinsCount": 18368,
+                                "usersCount": 14577,
+                                "tipCount": 344
+                            },
+                            "url": "http://www.slanteddoor.com",
+                            "price": {
+                                "tier": 3,
+                                "message": "Expensive",
+                                "currency": "$"
+                            },
+                            "hasMenu": true,
+                            "rating": 9.5,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 686,
+                            "reservations": {
+                                "url": "http://www.opentable.com/single.aspx?rid=7740&ref=9601"
+                            },
+                            "menu": {
+                                "type": "Menu",
+                                "label": "Menu",
+                                "anchor": "View Menu",
+                                "url": "https://foursquare.com/v/slanted-door/3fd66200f964a52018ed1ee3/menu",
+                                "mobileUrl": "https://foursquare.com/v/3fd66200f964a52018ed1ee3/device_menu"
+                            },
+                            "hours": {
+                                "status": "Closed until 11:00 AM",
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 1216,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            },
+                            "venuePage": {
+                                "id": "91895188"
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "4b60b96570c603bbf7f490b4",
+                                "createdAt": 1264630117,
+                                "text": "Try Charles Phan's take on Chinese cuisine for late night supper. -Roy Yamaguchi, Top Chef Masters",
+                                "type": "user",
+                                "canonicalUrl": "https://foursquare.com/item/4b60b96570c603bbf7f490b4",
+                                "likes": {
+                                    "count": 339,
+                                    "groups": [],
+                                    "summary": "339 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 156
+                                },
+                                "user": {
+                                    "id": "282219",
+                                    "firstName": "Bravo",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://irs1.4sqi.net/img/user/",
+                                        "suffix": "/NNF50Z2WRF3DQMRR.gif"
+                                    },
+                                    "type": "page"
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-3fd66200f964a52018ed1ee3-24"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "49ca8f4df964a520b9581fe3",
+                            "name": "Blue Bottle Coffee",
+                            "contact": {
+                                "phone": "5106533394",
+                                "formattedPhone": "(510) 653-3394",
+                                "twitter": "bluebottlemint"
+                            },
+                            "location": {
+                                "address": "66 Mint Plaza",
+                                "crossStreet": "at Jessie St",
+                                "lat": 37.78246395814844,
+                                "lng": -122.40782260894775,
+                                "postalCode": "94103",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "66 Mint Plaza (at Jessie St)",
+                                    "San Francisco, CA 94103",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d1e0931735",
+                                    "name": "Coffee Shop",
+                                    "pluralName": "Coffee Shops",
+                                    "shortName": "Coffee Shop",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": true,
+                            "stats": {
+                                "checkinsCount": 39542,
+                                "usersCount": 15367,
+                                "tipCount": 499
+                            },
+                            "url": "http://www.bluebottlecoffee.com/cafes/mint-plaza",
+                            "price": {
+                                "tier": 2,
+                                "message": "Moderate",
+                                "currency": "$"
+                            },
+                            "hasMenu": true,
+                            "rating": 9.4,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 1345,
+                            "menu": {
+                                "type": "Menu",
+                                "label": "Menu",
+                                "anchor": "View Menu",
+                                "url": "https://foursquare.com/v/blue-bottle-coffee/49ca8f4df964a520b9581fe3/menu",
+                                "mobileUrl": "https://foursquare.com/v/49ca8f4df964a520b9581fe3/device_menu"
+                            },
+                            "hours": {
+                                "status": "Closed until 7:00 AM",
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 2346,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            },
+                            "venuePage": {
+                                "id": "67189389"
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "4cf6cb8e11e76a31d38cac3b",
+                                "createdAt": 1291242382,
+                                "text": "The gourmet coffee company has been multiplying throughout the Bay, but as charming as the Hayes Valley original garage outpost is, the Mint Plaza location was BB's coming-out party. [Eater 38 Member]",
+                                "type": "user",
+                                "url": "http://sf.eater.com/places/blue-bottle-coffee",
+                                "canonicalUrl": "https://foursquare.com/item/4cf6cb8e11e76a31d38cac3b",
+                                "photo": {
+                                    "id": "531e290611d235cb7bd7b3ba",
+                                    "createdAt": 1394485510,
+                                    "source": {
+                                        "name": "Foursquare Web",
+                                        "url": "https://foursquare.com"
+                                    },
+                                    "prefix": "https://irs0.4sqi.net/img/general/",
+                                    "suffix": "/3343327_53rzqwDC2wBn-NA-O6u59-kHHMcQFIbw3qsd2O0-260.png",
+                                    "width": 773,
+                                    "height": 546
+                                },
+                                "photourl": "https://irs0.4sqi.net/img/general/original/3343327_53rzqwDC2wBn-NA-O6u59-kHHMcQFIbw3qsd2O0-260.png",
+                                "likes": {
+                                    "count": 258,
+                                    "groups": [],
+                                    "summary": "258 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 78
+                                },
+                                "user": {
+                                    "id": "3343327",
+                                    "firstName": "Eater",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://irs1.4sqi.net/img/user/",
+                                        "suffix": "/4HBAAMCL4WUF3IEU.png"
+                                    },
+                                    "type": "page"
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-49ca8f4df964a520b9581fe3-25"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "4fa9da5be4b0c4df8b720fbf",
+                            "name": "Golden Gate Overlook",
+                            "contact": {
+                                "twitter": "parks4all",
+                                "facebook": "8964022759",
+                                "facebookUsername": "parksconservancy",
+                                "facebookName": "Golden Gate National Parks Conservancy"
+                            },
+                            "location": {
+                                "address": "Lincoln Blvd & Merchant Rd",
+                                "crossStreet": "Presidio of San Francisco",
+                                "lat": 37.80410459983463,
+                                "lng": -122.47678756713866,
+                                "postalCode": "94129",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "Lincoln Blvd & Merchant Rd (Presidio of San Francisco)",
+                                    "San Francisco, CA 94129",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d165941735",
+                                    "name": "Scenic Lookout",
+                                    "pluralName": "Scenic Lookouts",
+                                    "shortName": "Scenic Lookout",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/sceniclookout_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": true,
+                            "stats": {
+                                "checkinsCount": 9720,
+                                "usersCount": 8771,
+                                "tipCount": 36
+                            },
+                            "rating": 9.4,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 159,
+                            "hours": {
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 1959,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            },
+                            "venuePage": {
+                                "id": "58155835"
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "4ff39b29e4b01ead00ad0d26",
+                                "createdAt": 1341365033,
+                                "text": "\"The coldest winter I ever spent was a summer in San Francisco.\" ~Mark Twain",
+                                "type": "user",
+                                "canonicalUrl": "https://foursquare.com/item/4ff39b29e4b01ead00ad0d26",
+                                "photo": {
+                                    "id": "4ff39b2ce4b0484031afeec7",
+                                    "createdAt": 1341365036,
+                                    "source": {
+                                        "name": "Foursquare for iOS",
+                                        "url": "https://foursquare.com/download/#/iphone"
+                                    },
+                                    "prefix": "https://irs1.4sqi.net/img/general/",
+                                    "suffix": "/QBUJXXDpohIimYL0y837jPlGxP7jsy-mKF8u55hqJ2k.jpg",
+                                    "width": 714,
+                                    "height": 540
+                                },
+                                "photourl": "https://irs1.4sqi.net/img/general/original/QBUJXXDpohIimYL0y837jPlGxP7jsy-mKF8u55hqJ2k.jpg",
+                                "likes": {
+                                    "count": 14,
+                                    "groups": [],
+                                    "summary": "14 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 2
+                                },
+                                "user": {
+                                    "id": "6906856",
+                                    "firstName": "Keri",
+                                    "lastName": "Corfield",
+                                    "gender": "female",
+                                    "photo": {
+                                        "prefix": "https://irs3.4sqi.net/img/user/",
+                                        "suffix": "/B5VES3W2BV2TYELW.jpg"
+                                    }
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-4fa9da5be4b0c4df8b720fbf-26"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "43d3901ef964a5201f2e1fe3",
+                            "name": "Blue Bottle Coffee",
+                            "contact": {
+                                "phone": "4152527535",
+                                "formattedPhone": "(415) 252-7535",
+                                "twitter": "bluebottlealley"
+                            },
+                            "location": {
+                                "address": "315 Linden St",
+                                "crossStreet": "btwn Gough & Octavia St",
+                                "lat": 37.776407,
+                                "lng": -122.42325067520142,
+                                "postalCode": "94102",
+                                "cc": "US",
+                                "neighborhood": "Hayes Valley",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "315 Linden St (btwn Gough & Octavia St)",
+                                    "San Francisco, CA 94102",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d1e0931735",
+                                    "name": "Coffee Shop",
+                                    "pluralName": "Coffee Shops",
+                                    "shortName": "Coffee Shop",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": false,
+                            "stats": {
+                                "checkinsCount": 18650,
+                                "usersCount": 5964,
+                                "tipCount": 167
+                            },
+                            "url": "http://www.bluebottlecoffee.com/locations/kiosk/",
+                            "price": {
+                                "tier": 1,
+                                "message": "Cheap",
+                                "currency": "$"
+                            },
+                            "hasMenu": true,
+                            "rating": 9.4,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 427,
+                            "menu": {
+                                "type": "Menu",
+                                "label": "Menu",
+                                "anchor": "View Menu",
+                                "url": "https://foursquare.com/v/blue-bottle-coffee/43d3901ef964a5201f2e1fe3/menu",
+                                "mobileUrl": "https://foursquare.com/v/43d3901ef964a5201f2e1fe3/device_menu"
+                            },
+                            "hours": {
+                                "status": "Closed until 7:00 AM",
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 587,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "54c95b06498e894b1fec6c0f",
+                                "createdAt": 1422482182,
+                                "text": "The drip coffee is the best coffee in SF, making our list of \"The Tastes That Make the City: SF Edition.\"",
+                                "type": "user",
+                                "url": "https://foursquare.com/top-places/san-francisco/tastes-that-make-the-city",
+                                "canonicalUrl": "https://foursquare.com/item/54c95b06498e894b1fec6c0f",
+                                "likes": {
+                                    "count": 404,
+                                    "groups": [],
+                                    "summary": "404 likes"
+                                },
+                                "logView": true,
+                                "editedAt": 1424717116,
+                                "todo": {
+                                    "count": 0
+                                },
+                                "user": {
+                                    "id": "107525669",
+                                    "firstName": "The Tastes that Make the City",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://irs1.4sqi.net/img/user/",
+                                        "suffix": "/107525669-FY3QZSWU1VI2QFKE"
+                                    }
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-43d3901ef964a5201f2e1fe3-27"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "4468f484f964a5204f331fe3",
+                            "name": "Palace of Fine Arts",
+                            "contact": {
+                                "phone": "4155636504",
+                                "formattedPhone": "(415) 563-6504"
+                            },
+                            "location": {
+                                "address": "3301 Lyon St",
+                                "crossStreet": "btwn Bay St and Jefferson St",
+                                "lat": 37.802697408996096,
+                                "lng": -122.44807720184326,
+                                "postalCode": "94123",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "3301 Lyon St (btwn Bay St and Jefferson St)",
+                                    "San Francisco, CA 94123",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4deefb944765f83613cdba6e",
+                                    "name": "Historic Site",
+                                    "pluralName": "Historic Sites",
+                                    "shortName": "Historic Site",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/historicsite_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": false,
+                            "stats": {
+                                "checkinsCount": 24570,
+                                "usersCount": 18306,
+                                "tipCount": 119
+                            },
+                            "url": "http://www.palaceoffinearts.org",
+                            "rating": 9.4,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 554,
+                            "hours": {
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 3816,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "5226201411d251d99e9c2792",
+                                "createdAt": 1378230292,
+                                "text": "The Palace of Fine Arts is a neo-classical \"ruin\" originally constructed for the 1915 World's Fair and is the only structure from the historic event that is still situated on its original site.",
+                                "type": "user",
+                                "canonicalUrl": "https://foursquare.com/item/5226201411d251d99e9c2792",
+                                "likes": {
+                                    "count": 54,
+                                    "groups": [],
+                                    "summary": "54 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 3
+                                },
+                                "user": {
+                                    "id": "9930647",
+                                    "firstName": "The Ritz-Carlton",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://irs2.4sqi.net/img/user/",
+                                        "suffix": "/IRWPFAQATW3Z1ELH.jpg"
+                                    },
+                                    "type": "chain"
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-4468f484f964a5204f331fe3-28"
+                    },
+                    {
+                        "reasons": {
+                            "count": 0,
+                            "items": [
+                                {
+                                    "summary": "This spot is popular",
+                                    "type": "general",
+                                    "reasonName": "globalInteractionReason"
+                                }
+                            ]
+                        },
+                        "venue": {
+                            "id": "4249ec00f964a5208f201fe3",
+                            "name": "The Independent",
+                            "contact": {
+                                "phone": "4157711421",
+                                "formattedPhone": "(415) 771-1421",
+                                "twitter": "indysf"
+                            },
+                            "location": {
+                                "address": "628 Divisadero St",
+                                "crossStreet": "btwn Hayes & Grove St",
+                                "lat": 37.77556099469608,
+                                "lng": -122.43771921454707,
+                                "postalCode": "94117",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "628 Divisadero St (btwn Hayes & Grove St)",
+                                    "San Francisco, CA 94117",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d1e9931735",
+                                    "name": "Rock Club",
+                                    "pluralName": "Rock Clubs",
+                                    "shortName": "Rock Club",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/musicvenue_rockclub_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": true,
+                            "stats": {
+                                "checkinsCount": 18296,
+                                "usersCount": 9018,
+                                "tipCount": 74
+                            },
+                            "url": "http://www.theindependentsf.com",
+                            "rating": 9.4,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 375,
+                            "hours": {
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "events": {
+                                "count": 1,
+                                "summary": "Kitty, Daisy & Lewis",
+                                "items": [
+                                    {
+                                        "id": "54800f62498e76919e5f3c51",
+                                        "name": "Kitty, Daisy & Lewis",
+                                        "categories": [
+                                            {
+                                                "id": "4e0a4b91bd41eda0d6092f89",
+                                                "name": "Concert",
+                                                "pluralName": "Concerts",
+                                                "shortName": "Concert",
+                                                "icon": {
+                                                    "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/musicvenue_",
+                                                    "suffix": ".png"
+                                                },
+                                                "primary": true
+                                            }
+                                        ],
+                                        "allDay": true,
+                                        "date": 1427889600,
+                                        "timeZone": "America/Los_Angeles",
+                                        "text": "",
+                                        "url": "http://www.songkick.com/concerts/22324568-kitty-daisy-and-lewis-at-independent?utm_source=4436&utm_medium=partner",
+                                        "images": [],
+                                        "provider": {
+                                            "name": "songkick",
+                                            "iconUrl": {
+                                                "prefix": "https://playfoursquare.s3.amazonaws.com/events/images/partners/sk/",
+                                                "sizes": [
+                                                    20,
+                                                    40
+                                                ],
+                                                "name": "/logo.png"
+                                            },
+                                            "urlText": "more info"
+                                        },
+                                        "stats": {
+                                            "checkinsCount": 2,
+                                            "usersCount": 2
+                                        }
+                                    }
+                                ]
+                            },
+                            "photos": {
+                                "count": 1687,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
+                            },
+                            "venuePage": {
+                                "id": "90554194"
+                            }
+                        },
+                        "tips": [
+                            {
+                                "id": "4ce4590312a3594126362bd4",
+                                "createdAt": 1290033411,
+                                "text": "The Independent promotes positive change by proactively reducing our venue’s environmental footprint.",
+                                "type": "user",
+                                "canonicalUrl": "https://foursquare.com/item/4ce4590312a3594126362bd4",
+                                "likes": {
+                                    "count": 49,
+                                    "groups": [],
+                                    "summary": "49 likes"
+                                },
+                                "logView": true,
+                                "todo": {
+                                    "count": 15
+                                },
+                                "user": {
+                                    "id": "3053550",
+                                    "firstName": "Mazda",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://irs2.4sqi.net/img/user/",
+                                        "suffix": "/EH0NJWMWMTKQMQVX.jpg"
+                                    },
+                                    "type": "page"
+                                }
+                            }
+                        ],
+                        "referralId": "e-0-4249ec00f964a5208f201fe3-29"
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -17,13 +17,13 @@
         url = url + "?" + querystring.stringify(params) + "&" + querystring.stringify(credentials);
         return request(url, function(error, response, body){
           return wrap(response, body, callback);
-          // console.log(JSON.stringify(body, null, 4));
         });
       }
     };
   };
 
   wrap = function(response, body, callback){
+    // callback(error, body)
     if (response.statusCode >= 300) {
       return callback(body, null);
     } else {
