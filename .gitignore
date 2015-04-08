@@ -11,6 +11,11 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
+
+# bower_components and bower main files
+**/bower_components/**
+**/vendor/**
+
 # node js ignore
 *node_modules*
 *.log
