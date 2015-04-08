@@ -12,8 +12,9 @@
 hs_err_pid*
 
 
-#bower_components
+# bower_components and bower main files
 **/bower_components/**
+**/vendor/**
 
 # node js ignore
 *node_modules*

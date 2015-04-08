@@ -19,6 +19,11 @@
     "angular-ui-router": "~0.2.13",
     "angular-ui-bootstrap": "~0.12.1",
     "jquery": "~2.1.3",
-    "jquery-mobile": "~1.4.5"
+    "jquery-mobile": "~1.4.5",
+    "bootstrap": "~3.3.4",
+    "font-awesome": "~4.3.0"
+  },
+  "resolutions": {
+    "jquery": "1.10.2"
   }
 }
