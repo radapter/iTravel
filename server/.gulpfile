@@ -1,0 +1,77 @@
+var gulp           = require('gulp');
+var gutil          = require('gulp-util');
+var mainBowerFiles = require('main-bower-files');
+var autoprefixer   = require('gulp-autoprefixer');
+var minifycss      = require('gulp-minify-css');
+var concat         = require('gulp-concat');
+var uglify         = require('gulp-uglify');
+var inject         = require('gulp-inject');
+var rimraf         = require('gulp-rimraf')
+
+var path           = require('path');
+var _              = require('lodash');
+
+// Configuration
+var config = {
+  port: 8080,
+  paths: {
+    source:   {
+      root:   './',
+      views:  './public/views',
+      tmpls:  './public/templates',
+      js:     './public/js',
+      styles: './public/stylesheets',
+      images: './public/img',
+      fonts:  './public/fonts',
+      vendor: './vendor'
+    },
+    build: {
+      root:   './build',
+      views:  './build/public/views',
+      tmpls:  './build/public/templates',
+      js:     './build/pulic/js',
+      styles: './build/pulic/css',
+      images: './build/pulic/img',
+      fonts:  './build/pulic/fonts',
+    },
+    bowerRoot: './bower_components'
+    injectionPoints: ['./public/views/index.ejs']
+  }
+}
+
+
+gulp.task('default', ['dev:build']);
+
+// install dependencies and inject assets into index.html
+gulp.task('dev:build', ['dev:style', 'dev:js'] function(){
+	var assetsStream = gulp.src([
+			config.paths.source.vendor,
+			config.paths.source.js,
+			config.paths.source.styles
+			]);
+	var injectPointStream = gulp.src(config.paths.injectionPoints, {base:'./'});
+
+	gutil.log('Inject static assets to all injection points...')
+
+	return injectPointStream.pipe(inject(assetsStream))
+			.pipe(gulp.dest('./'));
+})
+
+// do nothing for now; compile scss files in future if needed
+gulp.task('dev:style', ['clean', 'bower']);
+
+// do nothing
+gulp.task('dev:js', ['clean','bower']);
+
+// clean build folder
+gulp.task('clean', function() {
+	gutil.log('Clean build folder...');
+	return rimraf(config.paths.build.root);
+})
+
+// install 3rd party front-end dependencies and copy main files to vendor folder
+gulp.task('bower', function(){
+	gutil.log('Install bower component and move all main files to', config.paths.source.vendor, '...');
+	return gulp.src(mainBowerFiles(), { base: config.paths.bowerRoot })
+	        .pipe(gulp.dest(config.paths.source.vendor));
+})
