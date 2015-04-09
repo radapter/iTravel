@@ -8,6 +8,7 @@ var uglify         = require('gulp-uglify');
 var inject         = require('gulp-inject');
 var rimraf         = require('gulp-rimraf');
 var plumber        = require('gulp-plumber');
+var nodemon        = require('gulp-nodemon');
 
 var path           = require('path');
 var series         = require('stream-series');
@@ -25,71 +26,90 @@ var config = {
       styles: './public/stylesheets',
       images: './public/img',
       fonts:  './public/fonts',
-      vendor: './vendor'
     },
     build: {
       root:   './build',
       views:  './build/views',
       tmpls:  './build/public/templates',
-      js:     './build/pulic/js',
-      styles: './build/pulic/css',
-      images: './build/pulic/img',
-      fonts:  './build/pulic/fonts',
+      js:     './build/public/js',
+      styles: './build/public/stylesheets',
+      images: './build/public/img',
+      fonts:  './build/public/fonts',
+      vendor: './build/public/vendor'
     },
     bowerRoot: './bower_components',
     injectionPoints: ['./views/index.ejs']
   }
 };
 
-gulp.task('default', ['dev:build']);
+gulp.task('default', ['dev:build', 'dev:server']);
 
-// prepare js/css files and inject them into index.ejs
-gulp.task('dev:build', ['dev:style', 'dev:js'], function(next){
-	var dependencyStream = gulp.src([
-			config.paths.source.vendor + '/**/*.js',
-			config.paths.source.vendor + '/**/*.css'
-			]);
-	var assetsStream = gulp.src([
-			config.paths.source.js + '/**/*.js',
-			config.paths.source.styles + '/**/*.css'
+gulp.task('dev:server', ['dev:build'], function() {
+	nodemon({
+	  	script: './bin/www',
+		env: { 'NODE_ENV': 'development' }
+	});
+});
+
+gulp.task('dev:build', ['dev:inject']);
+
+// inject css/js into index.ejs in development environment
+gulp.task('dev:inject', ['dev:style', 'dev:js', 'copy'], function(){
+	var dependencyStream, assetsStream, injectPointStream;
+
+	gutil.log('dev:inject start...');
+	dependencyStream = gulp.src([
+			config.paths.build.vendor + '/**/*.js',
+			config.paths.build.vendor + '/**/*.css'
 			], {read: false});
-	var injectPointStream = gulp.src(config.paths.injectionPoints, {base: './'});
-
-	// inject dependencies(jquery, angular) and other assets
-	injectPointStream.pipe(inject(series(dependencyStream, assetsStream)))
+	assetsStream = gulp.src([
+			config.paths.build.js + '/**/*.js',
+			config.paths.build.styles + '/**/*.css'
+			], {read: false});
+	injectPointStream = gulp.src(config.paths.injectionPoints, {base: './'});
+	// inject dependencies(jquery, angular) and other assets to injection points
+	// and copy them to build dir, overwriting original files if needed 
+	return injectPointStream.pipe(inject(series(dependencyStream, assetsStream), {ignorePath:'build/public', addRootSlash: false}))
 		.pipe(gulp.dest('./'));
-
-	next();
 });
 
 //  process css files in development environment
-gulp.task('dev:style', ['clean', 'bower'], function(next) {
+gulp.task('dev:style', ['clean', 'bower'], function() {
 	// add vendor prefixes and replace the original file
-	gulp.src(config.paths.source.styles + '/**/*.css', {base: './'})
+	return gulp.src(config.paths.source.styles + '/**/*.css', {base: './'})
 	    .pipe(autoprefixer({
 	        browsers: ['last 3 versions'],
 	        cascade: false
 	    }))
-	    .pipe(gulp.dest('./'));
-	next();
+	    .pipe(gulp.dest('./build'));
 });
 
 // process js files in development environment
-gulp.task('dev:js', ['clean','bower'], function(next) {
-	next();
+gulp.task('dev:js', ['clean', 'bower'], function() {
+	return gulp.src(config.paths.source.js + '/**/*.js', {base: './'})
+		.pipe(gulp.dest('./build'));
+});
+
+// copy images, fonts and templates to build dir
+gulp.task('copy', ['clean'], function() {
+	return gulp.src(
+		[
+			config.paths.source.images + '/**/*',
+			config.paths.source.fonts + '/**/*',
+			config.paths.source.tmpls + '/**/*',
+		],
+		{base: './'}
+		)
+		.pipe(gulp.dest('./build'));
 });
 
 // clean build folder
-gulp.task('clean', function(next) {
-	gutil.log('Clean up build folder...');
+gulp.task('clean', function() {
+	return gutil.log('Clean up build folder...');
 	rimraf(config.paths.build.root);
-	next();
 });
 
-gulp.task('bower', ['bower-install', 'bower-mainfiles'], function(next){
-
-	next();
-});
+gulp.task('bower', ['bower-install', 'bower-mainfiles']);
 
 // install 3rd party front-end libraries with bower
 gulp.task('bower-install', function(){
@@ -97,9 +117,9 @@ gulp.task('bower-install', function(){
 });
 
 // copy main files of 3rd libraries to vendor folder
-gulp.task('bower-mainfiles', ['bower-install'], function(){
-	gutil.log('Move all main files to', config.paths.source.vendor, '...');
+gulp.task('bower-mainfiles', ['clean', 'bower-install'], function(){
+	gutil.log('Move all main files to', config.paths.build.vendor, '...');
 
     return gulp.src(mainBowerFiles(), { base: config.paths.bowerRoot })
-            .pipe(gulp.dest(config.paths.source.vendor));
+            .pipe(gulp.dest(config.paths.build.vendor));
 });
