@@ -39,7 +39,7 @@ Install node.js dependencies
 cd server
 npm install
 ```
-Run the server
+Manually run the server
 ```
 node bin/www
 ```
