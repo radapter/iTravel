@@ -24,3 +24,8 @@ build/
 
 # for local test.
 hello.js
+.idea
+
+*.sublime-project
+*.sublime-workspace
+*.orig

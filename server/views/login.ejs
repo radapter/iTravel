@@ -1,0 +1,29 @@
+<% var title = "Login @ iTravel"%>
+<% include header.ejs %>
+
+<div class="jumbotron">
+    <h2 class="text-center">Login @ iTravel</h2>
+    <form>
+        <div class="form-group row">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                <input type="text" class="form-control input-lg"
+                       id="login" placeholder="userid">
+                <input type="password" class="form-control input-lg"
+                       id="password" placeholder="password">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-xs-12 text-center">
+                <button type="submit" class="btn btn-success btn-lg">
+                    Login</button>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-xs-12 text-center">
+                <p>Don't have a login? <a href="/signup">Sign up</a>!</p>
+            </div>
+        </div>
+    </form>
+</div>
+
+<% include footer.ejs %>
