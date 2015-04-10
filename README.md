@@ -60,39 +60,10 @@ This project will follow the Git braching model describe in this [post](http://n
 - The `master` branch is always in a production-ready state, and it is not meant to be updated frequently. Avoid committing any code to this branch except when new releases are ready.
 - Use `develop` as the main line of development and the code base that everyone shares. The `develop` branch should represent a edging version of the code with new features that are added since last release and are under active development.
 - Create a feature branch named `feature/x` for each feature or topic you are working on. For example, if you are implementing user login UI, create a branch called `feature/login-ui` from `develop`. When the feature is finished, merge it back to `develop` so other developers can see the changes and resolve conflicts as needed.
-- Sync the `feature/x` branches with `develop` branch frequently (by merging or rebasing the feature branch to `develop`) to avoid potential hard-to-resolve conflicts in future.
-- Delete the feature branch that are no longer needed, for example when the feature is completed and already merged back to `develop`, to keep the project branche structure clean and reflect the current progress.
-- When the code in `develop` branch is ready for the next release, merge it back to `master`. Optionally create a `release` branch and run tests thoroughly on a staging server before merging it to `master`.
-- To fix urgent bugs on deployed code, create a `hotfix/x` branch directly from `master` branch; fix the bug, carefully test the code then merge the `hotfix` back to `master`.
-
-## Steps to update your working branch with new changes made by others
-1. checkout the latest develop branch from remote repo(GitHub)
-```
-git checkout develop
-git pull origin
-```
-
-2. merge the latest develop to your working branch
-```
-git checkout feature/xxx
-git merge develop
-```
-
-Alternatively, use rebase instead of merge for cleaner commit history. Unlike merge, rebase can rewrites commit history, so be very careful and follow the [golden rules of rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing/workflow-walkthrough)
-In case of code conflicts, resolve them carefully because when you merge your changes back to `develop`, other people's work may be corrupted and things will break. A good practice is to always discuss with the author of the code that causes conflicts before you resolve them. Again, sync feature branches with remote `develop` frenquently because the longer a branch is isolated the more likely it will have hard-to-resolve conflicts.
-
-3. install npm packages
-
-your teammates may have added new dependencies to package.json, make sure you run
-```
-npm install
-```
-before you move on.
-
-4. install front-end depedencies and build the project
-```
-gulp
-```
+- Sync the `feature/x` branches with `develop` branch frequently (by merging or rebasing the feature branch to `develop`) to avoid potential hard-to-resolve conflicts in the future.
+- Delete the feature branches that are no longer needed, such as when the feature is completed and already merged back to `develop`, to keep the project branch structure clean and reflect the current progress.
+- When the code in `develop` branch is ready for the next release, merge it back to `master`. Optionally, create a `release` branch and run tests thoroughly on a staging server before merging it to `master`.
+- To fix urgent bugs for deployed code, create a `hotfix/x` branch directly from `master` branch, fix the bug, carefully test the code, then merge the `hotfix` back to `master`.
 
 ## Git Steps
 1. Checkout the latest develop branch from remote repo(GitHub)
@@ -105,6 +76,7 @@ gulp
 
  - Alternatively, use rebase instead of merge for cleaner commit history. Unlike merge, rebase can rewrites commit history, so be very careful and follow the [golden rules of rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing/workflow-walkthrough)
 In case of code conflicts, resolve them carefully because when you merge your changes back to `develop`, other people's work may be corrupted and things will break. A good practice is to always discuss with the author of the code that causes conflicts before you resolve them. Again, sync feature branches with remote `develop` frenquently because the longer a branch is isolated the more likely it will have hard-to-resolve conflicts.
+
 
 3. Install any new npm packages
  - New dependencies may have been added to package.json, so make sure to run
