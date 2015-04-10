@@ -81,15 +81,18 @@ This project will follow the Git braching model describe in this [post](http://n
 git checkout develop
 git pull origin
 ```
+
 2. merge the latest develop to your working branch
 ```
 git checkout feature/xxx
 git merge develop
 ```
+
 Alternatively, use rebase instead of merge for cleaner commit history. Unlike merge, rebase can rewrites commit history, so be very careful and follow the [golden rules of rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing/workflow-walkthrough)
 In case of code conflicts, resolve them carefully because when you merge your changes back to `develop`, other people's work may be corrupted and things will break. A good practice is to always discuss with the author of the code that causes conflicts before you resolve them. Again, sync feature branches with remote `develop` frenquently because the longer a branch is isolated the more likely it will have hard-to-resolve conflicts.
 
 3. install npm packages
+
 your teammates may have added new dependencies to package.json, make sure you run
 ```
 npm install
