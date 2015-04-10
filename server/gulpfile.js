@@ -9,6 +9,7 @@ var inject         = require('gulp-inject');
 var rimraf         = require('gulp-rimraf');
 var plumber        = require('gulp-plumber');
 var nodemon        = require('gulp-nodemon');
+var livereload     = require('gulp-livereload');
 
 var path           = require('path');
 var series         = require('stream-series');
@@ -45,6 +46,7 @@ var config = {
 gulp.task('default', ['dev:build', 'dev:server']);
 
 gulp.task('dev:server', ['dev:build'], function() {
+	livereload.listen();
 	nodemon({
 	  	script: './bin/www',
 		env: { 'NODE_ENV': 'development' }
