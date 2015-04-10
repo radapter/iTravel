@@ -23,15 +23,17 @@ var config = {
       root:   './',
       views:  './views',
       tmpls:  './public/templates',
+        partials: './public/partials',
       js:     './public/js',
       styles: './public/stylesheets',
       images: './public/img',
-      fonts:  './public/fonts',
+      fonts:  './public/fonts'
     },
     build: {
       root:   './build',
       views:  './build/views',
       tmpls:  './build/public/templates',
+        partials: './build/public/partials',
       js:     './build/public/js',
       styles: './build/public/stylesheets',
       images: './build/public/img',
@@ -71,7 +73,8 @@ gulp.task('dev:inject', ['dev:style', 'dev:js', 'copy'], function(){
 	injectPointStream = gulp.src(config.paths.injectionPoints, {base: './'});
 	// inject dependencies(jquery, angular) and other assets to injection points
 	// and copy them to build dir, overwriting original files if needed 
-	return injectPointStream.pipe(inject(series(dependencyStream, assetsStream), {ignorePath:'build/public', addRootSlash: false}))
+	return injectPointStream.pipe(inject(series(dependencyStream, assetsStream),
+        {ignorePath:'build/public', addRootSlash: false}))
 		.pipe(gulp.dest('./'));
 });
 
@@ -92,13 +95,14 @@ gulp.task('dev:js', ['clean', 'bower'], function() {
 		.pipe(gulp.dest('./build'));
 });
 
-// copy images, fonts and templates to build dir
+// copy images, fonts, templates, and partials to build dir
 gulp.task('copy', ['clean'], function() {
 	return gulp.src(
 		[
 			config.paths.source.images + '/**/*',
 			config.paths.source.fonts + '/**/*',
 			config.paths.source.tmpls + '/**/*',
+            config.paths.source.partials + '/**/*'
 		],
 		{base: './'}
 		)

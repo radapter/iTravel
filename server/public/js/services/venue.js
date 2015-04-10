@@ -55,4 +55,4 @@ var Venue = function($http, $q) {
 
 Venue.$inject(['$http', '$q']);
 
-angular.module('iTravel').factory('Venue', Venue);
+//angular.module('iTravel').factory('Venue', Venue);

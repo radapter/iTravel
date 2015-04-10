@@ -13,6 +13,5 @@ $(document).ready(function() {
         }
     });
 
-
 	//$("#attraction-price-range").bootstrapSlider({});
 });

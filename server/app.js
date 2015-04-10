@@ -7,10 +7,6 @@ var bodyParser = require('body-parser');
 
 // routing import
 var routes = require('./routes/index');
-var explore = require('./routes/explore');
-var login = require('./routes/login');
-var signup = require('./routes/signup');
-var travel = require('./routes/travel');
 var app = express();
 
 // view engine setup
@@ -27,17 +23,13 @@ app.use(express.static(path.join(__dirname, 'build/public')));
 
 // routing
 app.use('/', routes);
-app.use('/explore', explore);
-app.use('/login', login);
-app.use('/signup', signup);
-app.use('/travel', travel);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+/*app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
-});
+});*/
 
 // error handlers
 
