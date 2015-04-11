@@ -7,13 +7,102 @@ a {
   color: #00B7FF;
 }*/
 
+
 .jumbotron{
   padding: 10px 0px;
+  margin-top: 60px;
+}
+
+/*********************** Page styling*************************/
+.container-fluid {
+  margin-top: 10px;
 }
 
 /******************* Footer styling   **********************/
 .footer-list ul{
   list-style: none;
+}
+
+
+/******************* Landing styling   **********************/
+
+.top-nav-collapse{
+  background-color: rgba(24, 188, 156, 0.35);
+}
+
+.header {
+  display: table;
+  position: relative;
+  width: 100%;
+  height: 900px;
+  background: url(../img/landing/sky.jpg) no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.text-vertical-center {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.text-vertical-center h1 {
+  color: #FFFFFF;
+  margin: 0;
+  padding: 0;
+  font-size: 4.5em;
+  font-weight: 700;
+}
+
+.text-vertical-center h3 {
+  color: #FFFFFF;
+}
+
+/*landing form*/
+.landing-form{
+  width:40%;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*How it works panner*/
+.content {
+  /*width: 90%;*/
+  margin: 40px;
+  text-align: center;
+}
+
+
+
+.upperhead {
+  margin-bottom: 3%;
+  border-bottom: 1px solid #34495e;
+  text-transform: uppercase;
+  font-size: 14px;
+  display: inline-block;
+  padding-bottom: 5px;
+  font-weight: 600;
+  margin-top: 3%;
+}
+.pannelTitle,
+.pannelIcon {
+  margin: 30px;
+}
+
+.pannelTitle {
+  color: #1abc9c;
+}
+
+.step h5 {
+  margin: 10px;
+}
+
+.step p{
+  margin: 10px;
+  /*text-align:left;*/
 }
 
 
