@@ -20,25 +20,25 @@ var config = {
   port: 8080,
   paths: {
     source:   {
-      root:   './',
-      views:  './views',
-      tmpls:  './public/templates',
-        partials: './public/partials',
-      js:     './public/js',
-      styles: './public/stylesheets',
-      images: './public/img',
-      fonts:  './public/fonts'
+		root:   	'./',
+		views:  	'./views',
+		tmpls:  	'./public/templates',
+		partials: 	'./public/partials',
+		js:     	'./public/js',
+		styles: 	'./public/stylesheets',
+		images: 	'./public/img',
+		fonts:  	'./public/fonts'
     },
     build: {
-      root:   './build',
-      views:  './build/views',
-      tmpls:  './build/public/templates',
-        partials: './build/public/partials',
-      js:     './build/public/js',
-      styles: './build/public/stylesheets',
-      images: './build/public/img',
-      fonts:  './build/public/fonts',
-      vendor: './build/public/vendor'
+		root:   	'./build',
+		views:  	'./build/views',
+		tmpls:  	'./build/public/templates',
+		partials: 	'./build/public/partials',
+		js:     	'./build/public/js',
+		styles: 	'./build/public/stylesheets',
+		images: 	'./build/public/img',
+		fonts:  	'./build/public/fonts',
+		vendor: 	'./build/public/vendor',
     },
     bowerRoot: './bower_components',
     injectionPoints: ['./views/index.ejs']
@@ -48,7 +48,7 @@ var config = {
 gulp.task('default', ['dev:build', 'dev:server']);
 
 gulp.task('dev:server', ['dev:build'], function() {
-	livereload.listen();
+	// livereload.listen();
 	nodemon({
 	  	script: './bin/www',
 		env: { 'NODE_ENV': 'development' }
@@ -62,20 +62,17 @@ gulp.task('dev:inject', ['dev:style', 'dev:js', 'copy'], function(){
 	var dependencyStream, assetsStream, injectPointStream;
 
 	gutil.log('dev:inject start...');
-	dependencyStream = gulp.src([
-			config.paths.build.vendor + '/**/*.js',
-			config.paths.build.vendor + '/**/*.css'
-			], {read: false});
+	dependencyStream = gulp.src(mainBowerFiles({paths: {bowerDirectory: config.paths.build.vendor}}), {base: config.paths.build.vendor});
 	assetsStream = gulp.src([
 			config.paths.build.js + '/**/*.js',
 			config.paths.build.styles + '/**/*.css'
 			], {read: false});
-	injectPointStream = gulp.src(config.paths.injectionPoints, {base: './'});
+	injectPointStream = gulp.src(config.paths.injectionPoints, {base: './views'});
 	// inject dependencies(jquery, angular) and other assets to injection points
 	// and copy them to build dir, overwriting original files if needed 
 	return injectPointStream.pipe(inject(series(dependencyStream, assetsStream),
         {ignorePath:'build/public', addRootSlash: false}))
-		.pipe(gulp.dest('./'));
+		.pipe(gulp.dest(config.paths.build.views));
 });
 
 //  process css files in development environment
@@ -122,10 +119,10 @@ gulp.task('bower-install', function(){
 	return bower();
 });
 
-// copy main files of 3rd libraries to vendor folder
+// copy all files of 3rd libraries to vendor folder
 gulp.task('bower-mainfiles', ['clean', 'bower-install'], function(){
-	gutil.log('Move all main files to', config.paths.build.vendor, '...');
+	gutil.log('Move all vendor files to', config.paths.build.vendor, '...');
 
-    return gulp.src(mainBowerFiles(), { base: config.paths.bowerRoot })
+    return gulp.src([config.paths.bowerRoot+'/**/*'], { base: config.paths.bowerRoot })
             .pipe(gulp.dest(config.paths.build.vendor));
 });
