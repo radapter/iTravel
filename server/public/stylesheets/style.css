@@ -11,3 +11,12 @@ a {
 .footer-list ul{
   list-style: none;
 }
+
+
+/******************* Login styling   **********************/
+/*override login-field-icon*/
+.login-form .login-field-icon {
+  font-size: 22px;
+  top:10px;
+  right: 25px;
+}

@@ -1,18 +1,26 @@
 <div class="jumbotron">
     <h2 class="text-center">Login @ iTravel</h2>
-    <form>
+
+    <form class="form-group login-form">
         <div class="form-group row">
-            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-                <input type="text" class="form-control input-lg"
-                       id="login" placeholder="userid">
-                <input type="password" class="form-control input-lg"
-                       id="password" placeholder="password">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                <input type="text" class="form-control input-lg login-field"
+                       id="login" placeholder="Enter Your ID">
+                <label class="login-field-icon glyphicon glyphicon-user" for="login"></label>
             </div>
         </div>
+
         <div class="form-group row">
-            <div class="col-xs-12 text-center">
-                <button type="submit" class="btn btn-success btn-lg">
-                    Login</button>
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                <input type="password" class="form-control input-lg login-field"
+                   id="password" placeholder="Password">
+                <label class="login-field-icon glyphicon glyphicon-lock" for="password"></label>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
             </div>
         </div>
         <div class="form-group row">
