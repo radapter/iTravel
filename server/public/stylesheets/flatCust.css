@@ -103,19 +103,3 @@ fieldset[disabled] .navbar-inverse .btn-link:hover,
 fieldset[disabled] .navbar-inverse .btn-link:focus {
     color: #cccccc;
 }
-
-
-
-/**************** customize navbar font ***************/
-.navbar-lg .navbar-nav > li > a {
-    font-size: 20px;
-    line-height: 1.6;
-}
-
-.navbar-brand {
-    font-size: 30px;
-    /*line-height: 1.042;*/
-    /*height: 53px;*/
-    /*font-weight: 700;*/
-    /*padding: 14px 21px;*/
-}

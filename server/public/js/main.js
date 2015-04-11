@@ -19,19 +19,6 @@ app.config(['$routeProvider', function ($routeProvider) {
         .otherwise("/error", {templateUrl: "partials/error.html", controller: "PageCtrl"});
 }]);
 
-app.controller('PageCtrl', function (/* $scope, $location, $http */) {
-    console.log("Page Controller reporting for duty.");
-
-    // Activates the Carousel
-    /*$('.carousel').carousel({
-        interval: 5000
-    });
-
-    // Activates Tooltips for Social Links
-    $('.tooltip-social').tooltip({
-        selector: "a[data-toggle=tooltip]"
-    })*/
-});
 
 /*angular.module('iTravel', ['ui.router', 'ui.bootstrap'])
 	.config(function($stateProvider, $urlRouterProvider) {
