@@ -10,6 +10,7 @@ var rimraf         = require('gulp-rimraf');
 var plumber        = require('gulp-plumber');
 var nodemon        = require('gulp-nodemon');
 var livereload     = require('gulp-livereload');
+var runSequence    = require('run-sequence');
 
 var path           = require('path');
 var series         = require('stream-series');
@@ -45,20 +46,52 @@ var config = {
   }
 };
 
-gulp.task('default', ['dev:build', 'dev:server']);
+gulp.task('default', ['dev:build', 'dev:server', 'dev:watch']);
 
 gulp.task('dev:server', ['dev:build'], function() {
 	// livereload.listen();
 	nodemon({
 	  	script: './bin/www',
+	  	ext: 'js',
+	  	ignore: ['public/*', 'build/*'],
 		env: { 'NODE_ENV': 'development' }
 	});
 });
 
-gulp.task('dev:build', ['dev:inject']);
+gulp.task('dev:watch', ['dev:build'], function() {
+	gutil.log('[dev:watch] Start watching for changes in public/ and views/');
+	gulp.watch([
+		config.paths.source.js+'/**/*',
+		config.paths.source.styles+'/**/*',
+		config.paths.injectionPoints
+	], function(evt){
+		if (evt.type !== 'deleted') {
+			gutil.log('[dev:watch] File ' + evt.path + ' has been' + evt.type + ', now injecting it to views...');
+			runSequence(['dev:styles', 'dev:scripts'],'dev:inject');
+		}
+	});
 
-// inject css/js into index.ejs in development environment
-gulp.task('dev:inject', ['dev:style', 'dev:js', 'copy'], function(){
+	// TODO: not working now; check globs
+	gulp.watch([
+		config.paths.source+'/**/*',
+		'!'+config.paths.source.styles+'/**/*',
+		'!'+config.paths.source.js+'/**/*'
+	], function(evt) {
+		if (evt.type !== 'deleted') {
+			gutil.log('[dev:watch] File ' + evt.path + ' has been' + evt.type + ', now syncing it to build DIR...');
+			gulp.src(evt.path, {base: './'})
+				.pipe(gulp.dest(config.paths.build.root));
+		}
+	});
+});
+
+
+gulp.task('dev:build', function(next) {
+	runSequence('clean',['copy', 'bower', 'dev:styles', 'dev:scripts'], 'dev:inject', next);
+});
+
+// inject all assets into index.ejs in development environment
+gulp.task('dev:inject', function() {
 	var dependencyStream, assetsStream, injectPointStream;
 
 	gutil.log('dev:inject start...');
@@ -76,24 +109,24 @@ gulp.task('dev:inject', ['dev:style', 'dev:js', 'copy'], function(){
 });
 
 //  process css files in development environment
-gulp.task('dev:style', ['clean', 'bower'], function() {
+gulp.task('dev:styles', function() {
 	// add vendor prefixes and replace the original file
 	return gulp.src(config.paths.source.styles + '/**/*.css', {base: './'})
 	    .pipe(autoprefixer({
 	        browsers: ['last 3 versions'],
 	        cascade: false
 	    }))
-	    .pipe(gulp.dest('./build'));
+	    .pipe(gulp.dest(config.paths.build.root));
 });
 
 // process js files in development environment
-gulp.task('dev:js', ['clean', 'bower'], function() {
+gulp.task('dev:scripts', function() {
 	return gulp.src(config.paths.source.js + '/**/*.js', {base: './'})
-		.pipe(gulp.dest('./build'));
+		.pipe(gulp.dest(config.paths.build.root));
 });
 
 // copy images, fonts, templates, and partials to build dir
-gulp.task('copy', ['clean'], function() {
+gulp.task('copy', function () {
 	return gulp.src(
 		[
 			config.paths.source.images + '/**/*',
@@ -103,26 +136,15 @@ gulp.task('copy', ['clean'], function() {
 		],
 		{base: './'}
 		)
-		.pipe(gulp.dest('./build'));
+		.pipe(gulp.dest(config.paths.build.root));
 });
 
 // clean build folder
 gulp.task('clean', function() {
-	return gutil.log('Clean up build folder...');
-	rimraf(config.paths.build.root);
+	gutil.log('Clean up build folder...');
+	return gulp.src(config.paths.build.root).pipe(rimraf());
 });
 
-gulp.task('bower', ['bower-install', 'bower-mainfiles']);
-
-// install 3rd party front-end libraries with bower
-gulp.task('bower-install', function(){
-	return bower();
-});
-
-// copy all files of 3rd libraries to vendor folder
-gulp.task('bower-mainfiles', ['clean', 'bower-install'], function(){
-	gutil.log('Move all vendor files to', config.paths.build.vendor, '...');
-
-    return gulp.src([config.paths.bowerRoot+'/**/*'], { base: config.paths.bowerRoot })
-            .pipe(gulp.dest(config.paths.build.vendor));
+gulp.task('bower', function() {
+	return bower().pipe(gulp.dest(config.paths.build.vendor));
 });
