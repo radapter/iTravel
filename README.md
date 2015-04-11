@@ -29,18 +29,18 @@ Tuo Lei: leituo56@gmail.com
 
 - ```cd iTravel```
 
-### 3. Install project dependencies
+### 4. Install project dependencies
 
 - Install node.js dependencies
  - ```cd server```
  - ```npm install```
 
 
-### 4a. Run server
+### 5a. Run server
 - Manually run the server:
  - `node bin/www`
 
-### 4b. Or, install dependencies for front-end, build project and run development server all in one command:
+### 5b. Or, install dependencies for front-end, build project and run development server all in one command:
 - `gulp`
 
  - A development server will be started automatically and restarted automatically any there are file changes.
