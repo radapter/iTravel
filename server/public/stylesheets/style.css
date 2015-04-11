@@ -6,3 +6,8 @@
 a {
   color: #00B7FF;
 }*/
+
+/******************* Footer styling   **********************/
+.footer-list ul{
+  list-style: none;
+}
