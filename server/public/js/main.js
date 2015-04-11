@@ -15,11 +15,12 @@ app.config(['$routeProvider', function ($routeProvider) {
         .when("/login", {templateUrl: "partials/login.html", controller: "PageCtrl"})
         .when("/signup", {templateUrl: "partials/signup.html", controller: "PageCtrl"})
         .when("/travel", {templateUrl: "partials/travel.html", controller: "PageCtrl"})
+        .when("/aboutus", {templateUrl: "partials/aboutus.html", controller: "PageCtrl"})
         // else error
         .otherwise("/error", {templateUrl: "partials/error.html", controller: "PageCtrl"});
 }]);
 
-app.controller('PageCtrl', function (/* $scope, $location, $http */) {
+app.controller('PageCtrl', function (/*$scope, $location, $http */) {
     console.log("Page Controller reporting for duty.");
 
     // Activates the Carousel

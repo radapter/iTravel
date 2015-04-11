@@ -9,9 +9,13 @@
 <body ng-app="iTravelApp">
 	<!-- iTravel Content Goes Here -->
 	<div ng-include='"templates/header.html"'></div>
-	<div class="container-fluid">
-        <div ng-view></div>
-    </div>
+
+	<div class="jumbotron">
+		<div class="container-fluid">
+			<div ng-view></div>
+		</div>
+	</div>
+
 	<div ng-include='"templates/footer.html"'></div>
 	
 	<!-- inject:js -->

@@ -7,6 +7,10 @@ a {
   color: #00B7FF;
 }*/
 
+.jumbotron{
+  padding: 10px 0px;
+}
+
 /******************* Footer styling   **********************/
 .footer-list ul{
   list-style: none;
