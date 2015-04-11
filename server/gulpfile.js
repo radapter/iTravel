@@ -38,7 +38,7 @@ var config = {
 		styles: 	'./build/public/stylesheets',
 		images: 	'./build/public/img',
 		fonts:  	'./build/public/fonts',
-		vendor: 	'./build/public/vendor',
+		vendor: 	'./build/public/vendor'
     },
     bowerRoot: './bower_components',
     injectionPoints: ['./views/index.ejs']
