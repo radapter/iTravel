@@ -106,7 +106,8 @@ The gulp tasks of this project can be found in the file `gulpfile.js`. More Gulp
 
 ## Flat UI Kit Free
 [Flat UI Kit Free](http://designmodo.github.io/Flat-UI/#) is a Twitter Bootstrap Framework design and Theme, this responsive framework includes a PSD and HTML version.
-Please refer the elements and color swatches when you design pages. 
+
+Please refer the [elements and color swatches] (http://designmodo.github.io/Flat-UI/docs/components.html#fui-progress) when you design pages. 
 
 # IMPORTANT NOTES
 - Never commit any confidential credentials (for example, AWS username/password, DB connection username/password) be it in the documentation or IN THE CODE. 
