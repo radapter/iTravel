@@ -23,6 +23,7 @@ var config = {
     source:   {
 		root:   	'./',
 		views:  	'./views',
+		public:		'./public',
 		tmpls:  	'./public/templates',
 		partials: 	'./public/partials',
 		js:     	'./public/js',
@@ -48,6 +49,7 @@ var config = {
 
 gulp.task('default', ['dev:build', 'dev:server', 'dev:watch']);
 
+// start server and watch for changes of all .js files, excpet static assets
 gulp.task('dev:server', ['dev:build'], function() {
 	// livereload.listen();
 	nodemon({
@@ -60,25 +62,30 @@ gulp.task('dev:server', ['dev:build'], function() {
 
 gulp.task('dev:watch', ['dev:build'], function() {
 	gutil.log('[dev:watch] Start watching for changes in public/ and views/');
+	
+	// watch for js and css changes
+	// TODO: gulp.watch des not watch for added file, and gulp-watch package throw exceptions, so keep it as is for now
 	gulp.watch([
 		config.paths.source.js+'/**/*',
 		config.paths.source.styles+'/**/*',
 		config.paths.injectionPoints
 	], function(evt){
+		gutil.log('[dev:watch] File ' + evt.path + ' has been ' + evt.type + ', now updating the views...');
 		if (evt.type !== 'deleted') {
-			gutil.log('[dev:watch] File ' + evt.path + ' has been' + evt.type + ', now injecting it to views...');
-			runSequence(['dev:styles', 'dev:scripts'],'dev:inject');
+			runSequence(['dev:styles', 'dev:scripts'], 'dev:inject');
+		} else {
+			runSequence('dev:inject');
 		}
 	});
 
-	// TODO: not working now; check globs
+	// watch for other changes under server/public folder
 	gulp.watch([
-		config.paths.source+'/**/*',
-		'!'+config.paths.source.styles+'/**/*',
-		'!'+config.paths.source.js+'/**/*'
+		config.paths.source.public+'/**/*',
+		'!'+config.paths.source.styles+'/**',
+		'!'+config.paths.source.js+'/**'
 	], function(evt) {
 		if (evt.type !== 'deleted') {
-			gutil.log('[dev:watch] File ' + evt.path + ' has been' + evt.type + ', now syncing it to build DIR...');
+			gutil.log('[dev:watch] File ' + evt.path + ' has been ' + evt.type + ', now syncing it to build DIR...');
 			gulp.src(evt.path, {base: './'})
 				.pipe(gulp.dest(config.paths.build.root));
 		}
