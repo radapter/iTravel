@@ -86,12 +86,12 @@ a {
   font-weight: 600;
   margin-top: 3%;
 }
-.pannelTitle,
-.pannelIcon {
+.panelTitle,
+.panelIcon {
   margin: 30px;
 }
 
-.pannelTitle {
+.panelTitle {
   color: #1abc9c;
 }
 
