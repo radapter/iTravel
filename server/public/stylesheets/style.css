@@ -10,7 +10,6 @@ a {
 
 .jumbotron{
   padding: 10px 0px;
-  margin-top: 60px;
 }
 
 /*********************** Page styling*************************/
@@ -27,7 +26,7 @@ a {
 /******************* Landing styling   **********************/
 
 .top-nav-collapse{
-  background-color: rgba(24, 188, 156, 0.35);
+  background-color: rgba(24, 188, 156, 0.55);
 }
 
 .header {
