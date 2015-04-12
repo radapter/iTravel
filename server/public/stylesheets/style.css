@@ -112,3 +112,12 @@ a {
   top:10px;
   right: 25px;
 }
+
+/******************* Maps styling   **********************/
+#map-canvas {
+  width: 500px;
+  height: 400px;
+  background-color: #CCC;
+  margin: 2% auto;
+}
+
