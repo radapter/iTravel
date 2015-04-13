@@ -64,5 +64,5 @@ function VenueFactory($http, $q) {
 		 */
 	}
 
-	return VenueType;
+	return Venue;
 };
