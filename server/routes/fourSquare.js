@@ -10,7 +10,6 @@ router.get('/', function(req, res) {
 });
 
 router.get('/explore', function(req, res) {
-	console.log('route explore is visited');
 	var query = req.query;
 	fourSquareProxy.explore(query, function(err, data) {
 		if (err) {

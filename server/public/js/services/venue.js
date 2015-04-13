@@ -1,27 +1,26 @@
 'use strict';
 
-Venue.$inject = ['$http', '$q', '$rootScope'];
-angular.module('iTravelApp').factory('Venue', Venue);
+VenueFactory.$inject = ['$http', '$q'];
+angular.module('iTravelApp').factory('Venue', VenueFactory);
 
-function Venue($http, $q, $rootScope) {
+function VenueFactory($http, $q) {
 	
-	var dataStore;
-
 	/**
 	 * constructor
 	 */
-	function VenueType(config) {
+	function Venue(config) {
 		angular.extend(this, config);
 	}
 
-	// instance methods
-	VenueType.prototype = {
+	// instance properties/methods
+	Venue.prototype = {
 		addToTrip: addToTrip,
 		removeFromTrip: removeFromTrip
 	};
 
-	// static methods
-	VenueType.explore = explore;
+	// static properties/methods
+	Venue.data = [];
+	Venue.explore = explore;
 
 
 	/**
@@ -41,11 +40,10 @@ function Venue($http, $q, $rootScope) {
 				deferred.reject(res.meta.message);
 			} else {
 				venueArray = _.map(res.data.items, function(item){
-					return new VenueType(item.venue);
+					return new Venue(item.venue);
 				});
-				dataStore = venueArray;
-				$rootScope.$broadcast('venue:reload', dataStore);
-				deferred.resolve(dataStore);
+				Venue.data = venueArray;
+				deferred.resolve(Venue.data);
 			}
 		}, function(err) {
 			deferred.reject(err);
@@ -54,9 +52,17 @@ function Venue($http, $q, $rootScope) {
 		return deferred.promise;
 	}
 
-	function addToTrip() {}
+	function addToTrip() {
+		/*
+		implementation
+		 */
+	}
 
-	function removeFromTrip() {}
+	function removeFromTrip() {
+		/*
+		implementation
+		 */
+	}
 
 	return VenueType;
 };
