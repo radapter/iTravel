@@ -1,3 +1,5 @@
+'use strict';
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -12,7 +14,7 @@ app.set('views', path.join(__dirname, 'build/views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+// app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -21,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'build/public')));
 
 // routing
 app.use('/', require('./routes/index'));
-app.use('/foursquare', require('./routes/fourSquareController'));
+app.use('/foursquare', require('./routes/fourSquare'));
 
 // catch 404 and forward to error handler
 /*app.use(function(req, res, next) {
