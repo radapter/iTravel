@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp           = require('gulp');
 var gutil          = require('gulp-util');
 var bower          = require('gulp-bower');
@@ -55,7 +57,7 @@ gulp.task('dev:server', ['dev:build'], function() {
 	nodemon({
 	  	script: './bin/www',
 	  	ext: 'js',
-	  	ignore: ['public/*', 'build/*'],
+	  	ignore: ['public/*', 'build/*', 'node_modules/*', 'bower_components/*'],
 		env: { 'NODE_ENV': 'development' }
 	});
 });
