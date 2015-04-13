@@ -1,7 +1,12 @@
 'use strict';
 
-var Venue = function($http, $q) {
+Venue.$inject = ['$http', '$q', '$rootScope'];
+angular.module('iTravelApp').factory('Venue', Venue);
+
+function Venue($http, $q, $rootScope) {
 	
+	var dataStore;
+
 	/**
 	 * constructor
 	 */
@@ -11,37 +16,36 @@ var Venue = function($http, $q) {
 
 	// instance methods
 	VenueType.prototype = {
-
+		addToTrip: addToTrip,
+		removeFromTrip: removeFromTrip
 	};
 
 	// static methods
-	VenueType.getNearby = getNearby;
+	VenueType.explore = explore;
+
 
 	/**
-	 * call the search API and return a venue
+	 * call the backend foursquare proxy
 	 * @return {promise}
 	 */
-	function getNearby(ll, radius, categoryId, query, limit) {
+	function explore(params) {
 		var deferred = $q.defer();
 
-		$http.get('https://api.foursquare.com/v2/venues/search', {
+		$http.get('foursquare/explore', {
 			cache: true,
-			params: {
-				ll: ll,
-				radius: +radius,
-				categoryId: categoryId,
-				query: query,
-				limit: limit
-			}
+			params: params
 		}).then(function(res) {
 			var venueArray;
-			if(res.meta.code > 399) {
-				deferred.reject('error');
+			console.log('res from calling backend', res);
+			if(res.status > 399) {
+				deferred.reject(res.meta.message);
 			} else {
-				venueArray = _.map(res.response.venues, function(rawVenue){
-					return new Venue(rawVenue);
+				venueArray = _.map(res.data.items, function(item){
+					return new VenueType(item.venue);
 				});
-				deferred.resolve(venueArray);
+				dataStore = venueArray;
+				$rootScope.$broadcast('venue:reload', dataStore);
+				deferred.resolve(dataStore);
 			}
 		}, function(err) {
 			deferred.reject(err);
@@ -50,9 +54,9 @@ var Venue = function($http, $q) {
 		return deferred.promise;
 	}
 
+	function addToTrip() {}
+
+	function removeFromTrip() {}
+
 	return VenueType;
 };
-
-Venue.$inject(['$http', '$q']);
-
-//angular.module('iTravel').factory('Venue', Venue);
