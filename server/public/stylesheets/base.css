@@ -1,0 +1,13 @@
+
+/* ==========================================================================
+   reusable CSS classes namespaced with rd(radapter)
+   ========================================================================== */
+
+/* allow transition for all properties */
+.rd-transition-all {
+	transition: all 0.5s;
+}
+
+.rd-transition-all.rd-top-n100 {
+	top: -100px;
+}
