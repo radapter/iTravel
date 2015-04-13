@@ -10,7 +10,7 @@
    * @return {Object}               Foursquare Object
    */
   module.exports = function(client_id, client_secret){
-    var date = '20150331'
+    var date = '20150331';
     var credentials = {
       'v': date,
       'client_id': client_id,
@@ -27,8 +27,9 @@
       explore: function(params, callback){
         var url = "https://api.foursquare.com/v2/venues/explore";
         url = url + "?" + querystring.stringify(params) + "&" + querystring.stringify(credentials);
-        return request(url, function(error, response, body){
-          return wrap(response, body, callback);
+        console.log('call foursquare api;', url);
+        request(url, function(error, response, body){
+          wrap(response, body, callback);
         });
       }
     };
@@ -38,10 +39,10 @@
   wrap = function(response, body, callback){
     // callback(error, body)
     if (response.statusCode >= 300) {
-      return callback(body, null);
+      callback(body, null);
     } else {
-      return callback(null, JSON.parse(body));
+      callback(null, JSON.parse(body));
     }
-  }
+  };
 
 }).call(this);

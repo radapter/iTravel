@@ -1,47 +1,49 @@
 'use strict';
 
-var Venue = function($http, $q) {
+VenueFactory.$inject = ['$http', '$q'];
+angular.module('iTravelApp').factory('Venue', VenueFactory);
+
+function VenueFactory($http, $q) {
 	
 	/**
 	 * constructor
 	 */
-	function VenueType(config) {
+	function Venue(config) {
 		angular.extend(this, config);
 	}
 
-	// instance methods
-	VenueType.prototype = {
-
+	// instance properties/methods
+	Venue.prototype = {
+		addToTrip: addToTrip,
+		removeFromTrip: removeFromTrip
 	};
 
-	// static methods
-	VenueType.getNearby = getNearby;
+	// static properties/methods
+	Venue.data = [];
+	Venue.explore = explore;
+
 
 	/**
-	 * call the search API and return a venue
+	 * call the backend foursquare proxy
 	 * @return {promise}
 	 */
-	function getNearby(ll, radius, categoryId, query, limit) {
+	function explore(params) {
 		var deferred = $q.defer();
 
-		$http.get('https://api.foursquare.com/v2/venues/search', {
+		$http.get('foursquare/explore', {
 			cache: true,
-			params: {
-				ll: ll,
-				radius: +radius,
-				categoryId: categoryId,
-				query: query,
-				limit: limit
-			}
+			params: params
 		}).then(function(res) {
 			var venueArray;
-			if(res.meta.code > 399) {
-				deferred.reject('error');
+			console.log('res from calling backend', res);
+			if(res.status > 399) {
+				deferred.reject(res.meta.message);
 			} else {
-				venueArray = _.map(res.response.venues, function(rawVenue){
-					return new Venue(rawVenue);
+				venueArray = _.map(res.data.items, function(item){
+					return new Venue(item.venue);
 				});
-				deferred.resolve(venueArray);
+				Venue.data = venueArray;
+				deferred.resolve(Venue.data);
 			}
 		}, function(err) {
 			deferred.reject(err);
@@ -50,9 +52,17 @@ var Venue = function($http, $q) {
 		return deferred.promise;
 	}
 
+	function addToTrip() {
+		/*
+		implementation
+		 */
+	}
+
+	function removeFromTrip() {
+		/*
+		implementation
+		 */
+	}
+
 	return VenueType;
 };
-
-Venue.$inject(['$http', '$q']);
-
-//angular.module('iTravel').factory('Venue', Venue);
