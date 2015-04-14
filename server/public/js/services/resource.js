@@ -1,7 +1,7 @@
 'use strict';
 
 ResourceFactory.$inject = ['$q', '$http'];
-angular.module('iTravel')
+angular.module('iTravelApp')
 .factory('Resource', ResourceFactory);
 
 // a base type that all other resources(e.g plan, activity etc) inherit from
