@@ -28,6 +28,8 @@ app.use('/foursquare', require('./routes/fourSquare'));
 
 //restify-mongoose url='/api/v1/Venues'
 app.use(require('./routes/venues'));
+//restify-mongoose url='/api/v1/Users'
+app.use(require('./routes/users'));
 
 
 
