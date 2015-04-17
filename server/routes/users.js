@@ -16,7 +16,21 @@ var User = new Schema({
     //id: { type: String, required: true },
     username: { type: String, required: true },
     password: { type: String, required: true },
-    email: { type: String, required: true }
+    email: { type: String, required: true },
+    plans:[{
+        destAddr: String,
+        destLat: Number,
+        destLng: Number,
+        startDate: Date,
+        endDate: Date,
+        active: {type: Boolean, default: true },
+        activities:[{
+            venue: String,
+            startTime: String, //store time as string????
+            duration: Number,
+            category: String
+        }]
+    }]
 });
 
 var UserModel = mongoose.model('User', User);
