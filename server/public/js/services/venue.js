@@ -5,21 +5,17 @@ angular.module('iTravelApp').factory('Venue', VenueFactory);
 
 function VenueFactory($http, $q) {
 	
-	/**
-	 * constructor
-	 */
+	// constructor
 	function Venue(config) {
 		angular.extend(this, config);
 	}
 
 	// instance properties/methods
 	Venue.prototype = {
-		addToTrip: addToTrip,
-		removeFromTrip: removeFromTrip
 	};
 
 	// static properties/methods
-	Venue.data = [];
+	Venue.searchResults = [];
 	Venue.explore = explore;
 
 
@@ -42,8 +38,8 @@ function VenueFactory($http, $q) {
 				venueArray = _.map(res.data.items, function(item){
 					return new Venue(item.venue);
 				});
-				Venue.data = venueArray;
-				deferred.resolve(Venue.data);
+				Venue.searchResults = venueArray;
+				deferred.resolve(Venue.searchResults);
 			}
 		}, function(err) {
 			deferred.reject(err);
@@ -52,17 +48,5 @@ function VenueFactory($http, $q) {
 		return deferred.promise;
 	}
 
-	function addToTrip() {
-		/*
-		implementation
-		 */
-	}
-
-	function removeFromTrip() {
-		/*
-		implementation
-		 */
-	}
-
 	return Venue;
-};
+}
