@@ -1,13 +1,13 @@
 'use strict';
 
-angular.module('iTravelApp', [
+var app = angular.module('iTravelApp', [
 	'ngRoute'
-])
+]);
 
 /**
  * Configure the Routes
  */
-.config(['$routeProvider', function ($routeProvider) {
+app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         // Home
         .when("/", {templateUrl: "partials/home.html", controller: "PageCtrl"})
