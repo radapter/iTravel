@@ -103,6 +103,27 @@ There are gulp plugins on `npm` that virtually cover all types of tasks. There a
 
 The gulp tasks of this project can be found in the file `gulpfile.js`. More Gulp tasks (auto-testing, minification, etc.) will be added to the project at a later time.
 
+## MongoDB 
+### Mongoose
+[Mongoose](http://mongoosejs.com/) is a elegant mongodb object modeling for node.js.
+
+### Express-Restify-Mongoose
+[express-restify-mongoose](https://github.com/florianholzapfel/express-restify-mongoose) is a node.js library provides mongoose database models with a REST interface.
+
+##### API format:
+```
+GET http://localhost/api/v1/Venues/count
+GET http://localhost/api/v1/Venues
+PUT http://localhost/api/v1/Venues
+POST http://localhost/api/v1/Venues
+DELETE http://localhost/api/v1/Venues
+
+GET http://localhost/api/v1/Venues/:id
+GET http://localhost/api/v1/Venues/:id/shallow
+PUT http://localhost/api/v1/Venues/:id
+POST http://localhost/api/v1/Venues/:id
+DELETE http://localhost/api/v1/Venues/:id
+```
 
 ## Flat UI Kit Free
 [Flat UI Kit Free](http://designmodo.github.io/Flat-UI/#) is a Twitter Bootstrap Framework design and Theme, this responsive framework includes a PSD and HTML version.
