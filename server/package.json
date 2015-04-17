@@ -2,9 +2,6 @@
   "name": "iTravel",
   "version": "0.0.1",
   "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
-  },
   "dependencies": {
     "body-parser": "~1.8.1",
     "bower": "^1.4.1",
@@ -49,7 +46,7 @@
 
   },
   "script": {
-    "start": "node bin/www",
+    "starts": "node ./bin/www",
     "postinstall": "gulp dev:build"
   }
 }
