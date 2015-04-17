@@ -105,7 +105,7 @@ The gulp tasks of this project can be found in the file `gulpfile.js`. More Gulp
 
 ## MongoDB 
 ### Mongoose
-[Mongoose](http://mongoosejs.com/)is a elegant mongodb object modeling for node.js.
+[Mongoose](http://mongoosejs.com/) is a elegant mongodb object modeling for node.js.
 
 ### Express-Restify-Mongoose
 [express-restify-mongoose](https://github.com/florianholzapfel/express-restify-mongoose) is a node.js library provides mongoose database models with a REST interface.
