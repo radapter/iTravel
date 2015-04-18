@@ -41,6 +41,7 @@
     "main-bower-files": "^2.6.2",
     "mocha": "^2.2.1",
     "mongoose": "^4.0.1",
+    "mongoose-unique-validator": "^0.4.1",
     "morgan": "~1.3.0",
     "request": "^2.54.0",
     "run-sequence": "^1.0.2",
