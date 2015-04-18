@@ -1,27 +1,29 @@
-angular.module('iTravelApp')
-.directive('hideWhenScroll', [function(){
-	return {
-		restrict: 'A',
-		link:link
-	};
-}]);
+(function(){
+	'use strict';
 
-function link(scope, elem, attr) {
-	var lastScrollTop = 0;
+	angular.module('iTravelApp')
+	.directive('hideWhenScroll', [function(){
+		return {
+			restrict: 'A',
+			link:link
+		};
+	}]);
 
-	angular.element(window).on('scroll', scrollHandler);
+	function link(scope, elem) {
+		var lastScrollTop = 0;
 
-	function scrollHandler(evt) {
-		var currScrollTop = $(this).scrollTop();
-		if (currScrollTop > lastScrollTop){
-			// console.log('scroll down, sliding up...');
-		    elem.addClass('rd-top-n100');
-			// elem.slideUp();
-		} else {
-			// console.log('scroll up, sliding down...');
-		    elem.removeClass('rd-top-n100');
-			// elem.slideDown();
+		angular.element(window).on('scroll', scrollHandler);
+
+		function scrollHandler() {
+			var currScrollTop = $(this).scrollTop();
+			var allowHide = elem.hasClass('allow-hide');
+			console.log('allowHide', allowHide);
+			if (allowHide && currScrollTop > lastScrollTop){
+			    elem.addClass('rd-top-n100');
+			} else {
+			    elem.removeClass('rd-top-n100');
+			}
+			lastScrollTop = currScrollTop;
 		}
-		lastScrollTop = currScrollTop;
 	}
-}
+})();
