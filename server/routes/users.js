@@ -56,7 +56,7 @@ router.post('/signup', function(req, res) {
 
 // POST /logout
 router.post('/logout', function(req, res) {
-    auth.destroyToken(req, res, function() {
+    auth.signoutUser(req, res, function() {
         res.sendStatus(200);
     });
 });

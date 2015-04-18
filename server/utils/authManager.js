@@ -20,7 +20,7 @@ var TOKEN_EXPIRATION_TIME_IN_MINUTE = 60;
 var authManager = {
 	authenticate: authenticate,
 	signInUser: signInUser,
-	destroyToken: destroyToken
+	signoutUser: signoutUser
 };
 
 module.exports = authManager;
@@ -53,7 +53,7 @@ function authenticate(req, res, next) {
 			// check if token is expired
 			if (expirationTime <= Date.now()) {
 				console.log('token expired');
-				destroyToken(req, res, function() {
+				signoutUser(req, res, function() {
 			  		res.sendStatus(401);
 				});
 			}
@@ -113,12 +113,12 @@ function signInUser(user, req, res, next) {
 }
 
 /**
- * Helper function for remove token
+ * Helper function for removing token cookie
  * @param  {object}   req  express req obj
  * @param  {object}   res  express res obj
  * @return {void}
  */
-function destroyToken(req, res, next) {
+function signoutUser(req, res, next) {
 	if (req.cookies.token) {
 		res.user = null;
 		res.clearCookie('token');
