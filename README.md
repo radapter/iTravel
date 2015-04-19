@@ -133,6 +133,6 @@ Please refer the [components and color swatches] (http://designmodo.github.io/Fl
 # IMPORTANT NOTES
 - Never commit any confidential credentials (for example, AWS username/password, DB connection username/password) be it in the documentation or IN THE CODE. 
 - GitHub is public and people scan for these confidential credentials to abuse them. Someone I knew committed his AWS confidentials as part of the API call code to GitHub and got a bill for hundreds of dollars from AWS within a month. 
-- Solution: put all confidential infomation in a configuration file and export it as a node module. Make sure to add it to .gitignore. When you need to use username/password in your code (such as for DB connection), just use `require('your_confidentials.js')`
+- Solution: put all confidential infomation in a configuration file and export it as a node module. Make sure to add it to .gitignore. When you need to use username/password in your code (such as for DB connection), just use `require('secrets.js')`
 - Never make changes to the files under `server/build` folder. These files are temporary and will be cleaned after each build. Instead, edit the files under `/server/public` and run `gulp` to rebuild the `build` directory.
 
