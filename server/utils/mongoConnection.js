@@ -2,7 +2,9 @@
 
 //mongoose connection
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://itravel:itravel1@ds061681.mongolab.com:61681/heroku_app35953932');
+var secrets = require('../secrets');
+
+mongoose.connect(secrets.mongoConnStr);
 
 var db = mongoose.connection;
 
