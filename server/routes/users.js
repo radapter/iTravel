@@ -1,6 +1,8 @@
-'use strict';
+/**
+ * users router and login/logout/signup routers
+ */
 
-//users router
+'use strict';
 
 var express = require('express');
 var restify = require('express-restify-mongoose');
@@ -13,16 +15,44 @@ var router = express.Router();
 // PUT /api/v1/users
 // POST /api/v1/users
 // DELETE /api/v1/users
-
 // GET /api/v1/users/:id
 // GET /api/v1/users/:id/shallow
 // PUT /api/v1/users/:id
 // POST /api/v1/users/:id
 // DELETE /api/v1/users/:id
-restify.serve(router, User);
+restify.serve(router, User, {
+    strict: true,
+    middleware: [auth.authMiddleware],
+    access: grantPrivillege,
+    private: 'password'
+});
+
+
 
 // POST /logout
-router.post('/login', function(req, res) {
+router.post('/login', loginHandler);
+// POST /signup
+router.post('/signup', signupHandler);
+// POST /logout
+router.post('/logout', logoutHandler);
+
+// not a real route in use, just for testing authentication middleware
+router.get('/dashboard', auth.authMiddleware, function(req,res) {
+    res.sendStatus(200);
+});
+
+function grantPrivillege(req) {
+    if (req.params.id === req.user._id.toString()) {
+        // console.log('same user, grant private access privillege');
+        return 'private';
+    } else {
+        // console.log('not the same user, grant public access privillege');
+        // other users only have privellege to access infomation that is public 
+        return 'public';
+    }
+}
+
+function loginHandler(req, res) {
     console.log('login request received. req.body', req.body);
     User.findOne({email: req.body.email, password: req.body.password}, function(err, user) {
         if (err || !user) {
@@ -33,10 +63,9 @@ router.post('/login', function(req, res) {
             res.json(user);
         });
     });
-});
+}
 
-// POST /signup
-router.post('/signup', function(req, res) {
+function signupHandler(req, res) {
     console.log('signup request received. req.body', req.body);
     var user = User(req.body);
 
@@ -52,18 +81,13 @@ router.post('/signup', function(req, res) {
         }
 
     });
-});
+}
 
-// POST /logout
-router.post('/logout', function(req, res) {
-    auth.signoutUser(req, res, function() {
+function logoutHandler(req, res) {
+    auth.signOutUser(req, res, function() {
         res.sendStatus(200);
     });
-});
-
-router.get('/dashboard', auth.authenticate, function(req,res) {
-    res.sendStatus(200);
-});
+}
 
 module.exports = router;
 

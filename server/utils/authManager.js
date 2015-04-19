@@ -15,12 +15,12 @@ var jwt = require('jwt-simple');
 var User = require('../models/user');
 var secrets = require('../secrets');
 
-var TOKEN_EXPIRATION_TIME_IN_MINUTE = 60;
+var TOKEN_EXPIRATION_TIME_IN_MINUTE = 30;
 
 var authManager = {
-	authenticate: authenticate,
+	authMiddleware: authMiddleware,
 	signInUser: signInUser,
-	signoutUser: signoutUser
+	signOutUser: signOutUser
 };
 
 module.exports = authManager;
@@ -32,14 +32,14 @@ module.exports = authManager;
  * @param  {Function} next middleware callback
  * @return {void}
  */
-function authenticate(req, res, next) {
+function authMiddleware(req, res, next) {
 	// check / verify token, set req.user 
 	var token = req.cookies.token;
 	var payload;
 	var userId;
 	var expirationTime;
 
-	console.log('authenticate is called. token:', token);
+	console.log('authMiddleware is called. token:', token);
 	if (typeof token === 'undefined') {
 		res.sendStatus(401);
 	} else {
@@ -49,11 +49,11 @@ function authenticate(req, res, next) {
 			userId = payload.sub;
 			expirationTime = payload.exp;
 
-			console.log('decoded payload:', payload);
+			// console.log('decoded payload:', payload);
 			// check if token is expired
 			if (expirationTime <= Date.now()) {
 				console.log('token expired');
-				signoutUser(req, res, function() {
+				signOutUser(req, res, function() {
 			  		res.sendStatus(401);
 				});
 			}
@@ -61,6 +61,7 @@ function authenticate(req, res, next) {
 			// check if the user exist
 			User.findOne({ _id: userId }, function(err, user) {
 				if (err || !user) {
+					// console.log('can\'t find user in authentication')
 					res.sendStatus(400);
 				}
 
@@ -73,6 +74,7 @@ function authenticate(req, res, next) {
 
 				// set req.user
 			  	req.user = user;
+				console.log('auth passed. req.user:', req.user);
 			  	next();
 			});
 
@@ -118,7 +120,7 @@ function signInUser(user, req, res, next) {
  * @param  {object}   res  express res obj
  * @return {void}
  */
-function signoutUser(req, res, next) {
+function signOutUser(req, res, next) {
 	if (req.cookies.token) {
 		res.user = null;
 		res.clearCookie('token');
