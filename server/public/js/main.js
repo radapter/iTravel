@@ -60,7 +60,6 @@ angular.module('iTravelApp')
             controller: "VenuesShowCtrl"
         })
 
-
         //footer url pages
         .when("/aboutus", {templateUrl: "templates/footerPages/aboutus.html"})
         .when("/contact", {templateUrl: "templates/footerPages/contact.html"})

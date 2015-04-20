@@ -1,5 +1,4 @@
 (function() {
-
     'use strict';
 
     angular.module("iTravelApp")
@@ -41,10 +40,10 @@
                 {"attractions": [
                     {
                         "id": "4c29567f9fb5d13aa2139b57",
-                        "name": "Twin Peaks Summit",
-                        "contact": {
+                            "name": "Twin Peaks Summit",
+                            "contact": {
                             "phone": "4158316331",
-                            "formattedPhone": "(415) 831-6331"
+                                "formattedPhone": "(415) 831-6331"
                         },
                         "location": {
                             "address": "100 Christmas Tree Point Rd",
@@ -74,40 +73,40 @@
                                 "primary": true
                             }
                         ],
-                        "verified": false,
-                        "stats": {
+                            "verified": false,
+                            "stats": {
                             "checkinsCount": 23996,
-                            "usersCount": 15316,
-                            "tipCount": 180
+                                "usersCount": 15316,
+                                "tipCount": 180
                         },
                         "url": "http://sfrecpark.org/destination/twin-peaks/",
-                        "rating": 9.7,
-                        "ratingColor": "00B551",
-                        "ratingSignals": 394,
-                        "hours": {
-                            "isOpen": false
+                            "rating": 9.7,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 394,
+                            "hours": {
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 4309,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 2,
+                                "summary": "2 people are checked in here",
+                                "groups": [
+                                    {
+                                        "type": "others",
+                                        "name": "Other people here",
+                                        "count": 2,
+                                        "items": []
+                                    }
+                                ]
+                            }
                         },
-                        "specials": {
-                            "count": 0,
-                            "items": []
-                        },
-                        "photos": {
-                            "count": 4309,
-                            "groups": []
-                        },
-                        "hereNow": {
-                            "count": 2,
-                            "summary": "2 people are checked in here",
-                            "groups": [
-                                {
-                                    "type": "others",
-                                    "name": "Other people here",
-                                    "count": 2,
-                                    "items": []
-                                }
-                            ]
-                        }
-                    },
                     {
                         "id": "445e36bff964a520fb321fe3",
                         "name": "Golden Gate Park",
@@ -184,64 +183,64 @@
                         }
                     },
                     {
-                        "id": "49bacd63f964a520b0531fe3",
-                        "name": "Lands End",
-                        "contact": {},
-                        "location": {
-                            "address": "El Camino Del Mar",
-                            "crossStreet": "at Point Lobos Ave",
-                            "lat": 37.78315503056424,
-                            "lng": -122.51118555665016,
-                            "postalCode": "94121",
-                            "cc": "US",
-                            "city": "San Francisco",
-                            "state": "CA",
-                            "country": "United States",
-                            "formattedAddress": [
-                                "El Camino Del Mar (at Point Lobos Ave)",
-                                "San Francisco, CA 94121",
-                                "United States"
-                            ]
-                        },
-                        "categories": [
-                            {
-                                "id": "4bf58dd8d48988d159941735",
-                                "name": "Trail",
-                                "pluralName": "Trails",
-                                "shortName": "Trail",
-                                "icon": {
-                                    "prefix": "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/hikingtrail_",
-                                    "suffix": ".png"
-                                },
-                                "primary": true
+                            "id": "49bacd63f964a520b0531fe3",
+                            "name": "Lands End",
+                            "contact": {},
+                            "location": {
+                                "address": "El Camino Del Mar",
+                                "crossStreet": "at Point Lobos Ave",
+                                "lat": 37.78315503056424,
+                                "lng": -122.51118555665016,
+                                "postalCode": "94121",
+                                "cc": "US",
+                                "city": "San Francisco",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "El Camino Del Mar (at Point Lobos Ave)",
+                                    "San Francisco, CA 94121",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d159941735",
+                                    "name": "Trail",
+                                    "pluralName": "Trails",
+                                    "shortName": "Trail",
+                                    "icon": {
+                                        "prefix": "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/hikingtrail_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "verified": false,
+                            "stats": {
+                                "checkinsCount": 8586,
+                                "usersCount": 5660,
+                                "tipCount": 70
+                            },
+                            "rating": 9.6,
+                            "ratingColor": "00B551",
+                            "ratingSignals": 141,
+                            "hours": {
+                                "isOpen": false
+                            },
+                            "specials": {
+                                "count": 0,
+                                "items": []
+                            },
+                            "photos": {
+                                "count": 1210,
+                                "groups": []
+                            },
+                            "hereNow": {
+                                "count": 0,
+                                "summary": "Nobody here",
+                                "groups": []
                             }
-                        ],
-                        "verified": false,
-                        "stats": {
-                            "checkinsCount": 8586,
-                            "usersCount": 5660,
-                            "tipCount": 70
-                        },
-                        "rating": 9.6,
-                        "ratingColor": "00B551",
-                        "ratingSignals": 141,
-                        "hours": {
-                            "isOpen": false
-                        },
-                        "specials": {
-                            "count": 0,
-                            "items": []
-                        },
-                        "photos": {
-                            "count": 1210,
-                            "groups": []
-                        },
-                        "hereNow": {
-                            "count": 0,
-                            "summary": "Nobody here",
-                            "groups": []
                         }
-                    }
                 ]},
                 {"restaurants": [
                     {
@@ -339,45 +338,45 @@
                         "rating": 8.6
                     },
                     {
-                        "id": "42cc7080f964a520ea251fe3",
-                        "name": "Aqui Cal-Mex",
-                        "contact": {
-                            "phone": "4089950381",
-                            "formattedPhone": "(408) 995-0381"
-                        },
-                        "location": {
-                            "address": "1145 Lincoln Ave",
-                            "crossStreet": "at Willow St.",
-                            "lat": 37.307631637547466,
-                            "lng": -121.90084218978882,
-                            "distance": 2031,
-                            "postalCode": "95125",
-                            "cc": "US",
-                            "city": "San Jose",
-                            "state": "CA",
-                            "country": "United States",
-                            "formattedAddress": [
-                                "1145 Lincoln Ave (at Willow St.)",
-                                "San Jose, CA 95125",
-                                "United States"
-                            ]
-                        },
-                        "categories": [
-                            {
-                                "id": "4bf58dd8d48988d1c1941735",
-                                "name": "Mexican Restaurant",
-                                "pluralName": "Mexican Restaurants",
-                                "shortName": "Mexican",
-                                "icon": {
-                                    "prefix": "https:\/\/ss3.4sqi.net\/img\/categories_v2\/food\/mexican_",
-                                    "suffix": ".png"
-                                },
-                                "primary": true
-                            }
-                        ],
-                        "url": "http:\/\/www.aquicalmex.com",
-                        "rating": 9.1
-                    }
+                            "id": "42cc7080f964a520ea251fe3",
+                            "name": "Aqui Cal-Mex",
+                            "contact": {
+                                "phone": "4089950381",
+                                "formattedPhone": "(408) 995-0381"
+                            },
+                            "location": {
+                                "address": "1145 Lincoln Ave",
+                                "crossStreet": "at Willow St.",
+                                "lat": 37.307631637547466,
+                                "lng": -121.90084218978882,
+                                "distance": 2031,
+                                "postalCode": "95125",
+                                "cc": "US",
+                                "city": "San Jose",
+                                "state": "CA",
+                                "country": "United States",
+                                "formattedAddress": [
+                                    "1145 Lincoln Ave (at Willow St.)",
+                                    "San Jose, CA 95125",
+                                    "United States"
+                                ]
+                            },
+                            "categories": [
+                                {
+                                    "id": "4bf58dd8d48988d1c1941735",
+                                    "name": "Mexican Restaurant",
+                                    "pluralName": "Mexican Restaurants",
+                                    "shortName": "Mexican",
+                                    "icon": {
+                                        "prefix": "https:\/\/ss3.4sqi.net\/img\/categories_v2\/food\/mexican_",
+                                        "suffix": ".png"
+                                    },
+                                    "primary": true
+                                }
+                            ],
+                            "url": "http:\/\/www.aquicalmex.com",
+                            "rating": 9.1
+                        }
                 ]},
                 {"hotels": [
                     {
@@ -651,94 +650,93 @@
                         "storeId":"1511"
                     },
                     {
-                        "id":"49c978d2f964a5206b581fe3",
-                        "name":"W San Francisco",
-                        "contact":{
-                            "phone":"4157775300",
-                            "formattedPhone":"(415) 777-5300",
-                            "twitter":"spg",
-                            "facebook":"8038492631",
-                            "facebookUsername":"SPG",
-                            "facebookName":"Starwood Preferred Guest® (SPG)"
-                        },
-                        "location":{
-                            "address":"181 3rd St",
-                            "crossStreet":"at Howard St",
-                            "lat":37.78527484428987,
-                            "lng":-122.400481402874,
-                            "postalCode":"94103",
-                            "cc":"US",
-                            "city":"San Francisco",
-                            "state":"CA",
-                            "country":"United States",
-                            "formattedAddress":[
-                                "181 3rd St (at Howard St)",
-                                "San Francisco, CA 94103",
-                                "United States"
-                            ]
-                        },
-                        "categories":[
-                            {
-                                "id":"4bf58dd8d48988d1fa931735",
-                                "name":"Hotel",
-                                "pluralName":"Hotels",
-                                "shortName":"Hotel",
-                                "icon":{
-                                    "prefix":"https:\/\/ss3.4sqi.net\/img\/categories_v2\/travel\/hotel_",
-                                    "suffix":".png"
-                                },
-                                "primary":true
-                            }
-                        ],
-                        "verified":true,
-                        "stats":{
-                            "checkinsCount":37602,
-                            "usersCount":18291,
-                            "tipCount":161
-                        },
-                        "url":"http:\/\/www.wsanfrancisco.com",
-                        "hasMenu":true,
-                        "rating":8.8,
-                        "ratingColor":"73CF42",
-                        "ratingSignals":331,
-                        "menu":{
-                            "type":"Menu",
-                            "label":"Menu",
-                            "anchor":"View Menu",
-                            "url":"https:\/\/foursquare.com\/v\/w-san-francisco\/49c978d2f964a5206b581fe3\/menu",
-                            "mobileUrl":"https:\/\/foursquare.com\/v\/49c978d2f964a5206b581fe3\/device_menu"
-                        },
-                        "specials":{
-                            "count":0,
-                            "items":[
-
-                            ]
-                        },
-                        "photos":{
-                            "count":1652,
-                            "groups":[
-
-                            ]
-                        },
-                        "hereNow":{
-                            "count":2,
-                            "summary":"2 people are checked in here",
-                            "groups":[
+                            "id":"49c978d2f964a5206b581fe3",
+                            "name":"W San Francisco",
+                            "contact":{
+                                "phone":"4157775300",
+                                "formattedPhone":"(415) 777-5300",
+                                "twitter":"spg",
+                                "facebook":"8038492631",
+                                "facebookUsername":"SPG",
+                                "facebookName":"Starwood Preferred Guest® (SPG)"
+                            },
+                            "location":{
+                                "address":"181 3rd St",
+                                "crossStreet":"at Howard St",
+                                "lat":37.78527484428987,
+                                "lng":-122.400481402874,
+                                "postalCode":"94103",
+                                "cc":"US",
+                                "city":"San Francisco",
+                                "state":"CA",
+                                "country":"United States",
+                                "formattedAddress":[
+                                    "181 3rd St (at Howard St)",
+                                    "San Francisco, CA 94103",
+                                    "United States"
+                                ]
+                            },
+                            "categories":[
                                 {
-                                    "type":"others",
-                                    "name":"Other people here",
-                                    "count":2,
-                                    "items":[
-
-                                    ]
+                                    "id":"4bf58dd8d48988d1fa931735",
+                                    "name":"Hotel",
+                                    "pluralName":"Hotels",
+                                    "shortName":"Hotel",
+                                    "icon":{
+                                        "prefix":"https:\/\/ss3.4sqi.net\/img\/categories_v2\/travel\/hotel_",
+                                        "suffix":".png"
+                                    },
+                                    "primary":true
                                 }
-                            ]
-                        },
-                        "storeId":"1153"
-                    }
+                            ],
+                            "verified":true,
+                            "stats":{
+                                "checkinsCount":37602,
+                                "usersCount":18291,
+                                "tipCount":161
+                            },
+                            "url":"http:\/\/www.wsanfrancisco.com",
+                            "hasMenu":true,
+                            "rating":8.8,
+                            "ratingColor":"73CF42",
+                            "ratingSignals":331,
+                            "menu":{
+                                "type":"Menu",
+                                "label":"Menu",
+                                "anchor":"View Menu",
+                                "url":"https:\/\/foursquare.com\/v\/w-san-francisco\/49c978d2f964a5206b581fe3\/menu",
+                                "mobileUrl":"https:\/\/foursquare.com\/v\/49c978d2f964a5206b581fe3\/device_menu"
+                            },
+                            "specials":{
+                                "count":0,
+                                "items":[
+
+                                ]
+                            },
+                            "photos":{
+                                "count":1652,
+                                "groups":[
+
+                                ]
+                            },
+                            "hereNow":{
+                                "count":2,
+                                "summary":"2 people are checked in here",
+                                "groups":[
+                                    {
+                                        "type":"others",
+                                        "name":"Other people here",
+                                        "count":2,
+                                        "items":[
+
+                                        ]
+                                    }
+                                ]
+                            },
+                            "storeId":"1153"
+                        }
                 ]}
             ];
 
         });
 })();
-
