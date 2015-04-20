@@ -11,26 +11,27 @@ angular.module('iTravelApp')
     $routeProvider
         // Home
         .when("/", {
-            templateUrl: "partials/home.html"
+            templateUrl: "templates/home.html"
         })
+
         //user pages
         .when("/login", {
-            templateUrl: "partials/login.html"
+            templateUrl: "templates/login.html"
         })
         .when("/signup", {
-            templateUrl: "partials/signup.html"
+            templateUrl: "templates/signup.html"
         })
 
         //venue selector pages
-        .when("/attraction", {
-            templateUrl: "partials/attraction.html"
-        })
-        .when("/restaurant", {
-            templateUrl: "partials/restaurant.html"
-        })
-        .when("/hotel", {
-            templateUrl: "partials/hotel.html"
-        })
+        //.when("/attraction", {
+        //    templateUrl: "partials/attraction.html"
+        //})
+        //.when("/restaurant", {
+        //    templateUrl: "partials/restaurant.html"
+        //})
+        //.when("/hotel", {
+        //    templateUrl: "partials/hotel.html"
+        //})
 
         //-- sample venue selector page, using the same controller
         .when("/attractionsSelect", {
@@ -54,27 +55,27 @@ angular.module('iTravelApp')
 
 
         //what's this for???
-        .when("/plan", {
-            templateUrl: "partials/plan.html"
-        })
-        .when("/travel", {
-            templateUrl: "partials/travel.html"
-        })
+        //.when("/plan", {
+        //    templateUrl: "partials/plan.html"
+        //})
+        //.when("/travel", {
+        //    templateUrl: "partials/travel.html"
+        //})
 
         //footer url pages
-        .when("/aboutus", {templateUrl: "partials/aboutus.html"})
-        .when("/contact", {templateUrl: "partials/contact.html"})
+        .when("/aboutus", {templateUrl: "templates/aboutus.html"})
+        .when("/contact", {templateUrl: "templates/contact.html"})
         .when("/locations", {
-            templateUrl: "partials/locations.html",
+            templateUrl: "templates/locations.html",
             controller: "GoogleMapCtrl"
         })
-        .when("/tech", {templateUrl: "partials/tech.html"})
-        .when("/privacy", {templateUrl: "partials/privacy.html"})
-        .when("/security", {templateUrl: "partials/security.html"})
-        .when("/developer", {templateUrl: "partials/developer.html"})
+        .when("/tech", {templateUrl: "templates/tech.html"})
+        .when("/privacy", {templateUrl: "templates/privacy.html"})
+        .when("/security", {templateUrl: "templates/security.html"})
+        .when("/developer", {templateUrl: "templates/developer.html"})
 
         // else error
-        .otherwise("/error", {templateUrl: "partials/error.html"});
+        .otherwise("/error", {templateUrl: "templates/error.html"});
 })
 
     .config(function(uiGmapGoogleMapApiProvider) {
