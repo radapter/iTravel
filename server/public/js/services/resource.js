@@ -1,51 +1,55 @@
-'use strict';
+/**
+ * README: this module is deprecated now
+ */
 
-ResourceFactory.$inject = ['$q', '$http'];
-angular.module('iTravelApp')
-.factory('Resource', ResourceFactory);
+// 'use strict';
 
-// a base type that all other resources(e.g plan, activity etc) inherit from
-function ResourceFactory() {
+// ResourceFactory.$inject = ['$q', '$http'];
+// angular.module('iTravelApp')
+// .factory('Resource', ResourceFactory);
 
-	function Resource() {};
+// // a base type that all other resources(e.g plan, activity etc) inherit from
+// function ResourceFactory() {
 
-	Resource.prototype.save = save;
-	Resource.prototype.reqTransfrom = reqTransfrom;
+// 	function Resource() {};
 
-	/**
-	 * Save the resource to backend
-	 * @return {promise} The saved resource as a promise
-	 */
-	function save() {
-		var _this = this;
-		var pk = _this.pk || 'id';
-		var resourceName = _this.resourceName || pluralize(_this.constructor.name.toLowerCase());
+// 	Resource.prototype.save = save;
+// 	Resource.prototype.reqTransfrom = reqTransfrom;
 
-		return $http({
-			url: _this[pk] ? '/' + resourceName + '/' + this[pk] : '/' + resourceName,
-			method: _this[pk] ? 'PUT' : 'POST',
-			data: reqTransfrom(_this)
-		}).then(function(res) {
-			if (res.status < 400) {
-				// update id for newly created Plan
-				if ( !_this[pk] && res.data[pk] ) {
-					_this[pk] = res.data[pk];
-				}
-				return _this; // as a promise
-			} else {
-				// TODO: handle errors here
-			}
-		});
-	}
+// 	/**
+// 	 * Save the resource to backend
+// 	 * @return {promise} The saved resource as a promise
+// 	 */
+// 	function save() {
+// 		var _this = this;
+// 		var pk = _this.pk || 'id';
+// 		var resourceName = _this.resourceName || pluralize(_this.constructor.name.toLowerCase());
 
-	/**
-	 * Transfrom the data so it conforms backend API
-	 * @param  {Resource} data A resource object on front end
-	 * @return {object}        A object that conforms backend API
-	 */
-	function reqTransfrom(data) {
-		return data;
-	}
+// 		return $http({
+// 			url: _this[pk] ? '/' + resourceName + '/' + this[pk] : '/' + resourceName,
+// 			method: _this[pk] ? 'PUT' : 'POST',
+// 			data: reqTransfrom(_this)
+// 		}).then(function(res) {
+// 			if (res.status < 400) {
+// 				// update id for newly created Plan
+// 				if ( !_this[pk] && res.data[pk] ) {
+// 					_this[pk] = res.data[pk];
+// 				}
+// 				return _this; // as a promise
+// 			} else {
+// 				// TODO: handle errors here
+// 			}
+// 		});
+// 	}
 
-	return Resource;
-}
+// 	/**
+// 	 * Transfrom the data so it conforms backend API
+// 	 * @param  {Resource} data A resource object on front end
+// 	 * @return {object}        A object that conforms backend API
+// 	 */
+// 	function reqTransfrom(data) {
+// 		return data;
+// 	}
+
+// 	return Resource;
+// }

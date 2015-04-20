@@ -7,7 +7,7 @@ angular.module('iTravelApp', ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps']);
  * Configure the Routes
  */
 angular.module('iTravelApp')
-    .config( function ($routeProvider) {
+.config( ['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
     $routeProvider
         // Home
         .when("/", {
@@ -16,10 +16,12 @@ angular.module('iTravelApp')
 
         //user pages
         .when("/login", {
-            templateUrl: "templates/login.html"
+            templateUrl: "templates/user/login.html",
+            controller: "LoginCtrl"
         })
         .when("/signup", {
-            templateUrl: "templates/signup.html"
+            templateUrl: "templates/user/signup.html",
+            controller: "SignupCtrl"
         })
 
         //venue selector pages
@@ -53,7 +55,6 @@ angular.module('iTravelApp')
             controller: "VenuesShowCtrl"
         })
 
-
         //what's this for???
         //.when("/plan", {
         //    templateUrl: "partials/plan.html"
@@ -62,7 +63,7 @@ angular.module('iTravelApp')
         //    templateUrl: "partials/travel.html"
         //})
 
-        //footer url pages
+	//footer url pages
         .when("/aboutus", {templateUrl: "templates/aboutus.html"})
         .when("/contact", {templateUrl: "templates/contact.html"})
         .when("/locations", {
@@ -76,13 +77,28 @@ angular.module('iTravelApp')
 
         // else error
         .otherwise("/error", {templateUrl: "templates/error.html"});
-})
 
-    .config(function(uiGmapGoogleMapApiProvider) {
-        uiGmapGoogleMapApiProvider.configure({
-            key: 'AIzaSyDT32xVCkqxlZQz5DQly-1-6j7RlsouvM8',
-            v: '3.17',
-            libraries: 'weather,geometry,visualization'
-        });
+        $httpProvider.interceptors.push(['$q', '$location', function($q, $location) {
+          return {
+            'response': function(originalRes) {
+
+                if(originalRes.status === 401) {
+                    return deferred.reject(originalRes.status);
+                    $location.url('/login');
+               } else {
+                    return originalRes;
+               }
+
+            }
+            };
+        }]);
+
+}])
+.config(['uiGmapGoogleMapApiProvider', function(uiGmapGoogleMapApiProvider) {
+    uiGmapGoogleMapApiProvider.configure({
+        key: 'AIzaSyDT32xVCkqxlZQz5DQly-1-6j7RlsouvM8',
+        v: '3.17',
+        libraries: 'weather,geometry,visualization'
     });
+}]);
 
