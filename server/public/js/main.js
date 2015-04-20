@@ -1,13 +1,7 @@
 'use strict';
 
-var app = angular.module('iTravelApp', [
-	'ngRoute'
-]);
-
-/**
- * Configure the Routes
- */
-app.config(['$routeProvider', function ($routeProvider) {
+angular.module('iTravelApp', ['ngRoute'])
+.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
     $routeProvider
         // Home
         .when("/", {templateUrl: "partials/home.html", controller: "PageCtrl"})
@@ -26,4 +20,19 @@ app.config(['$routeProvider', function ($routeProvider) {
 
         // else error
         .otherwise("/error", {templateUrl: "partials/error.html", controller: "PageCtrl"});
-}]);
+
+
+}])
+.run(['$httpProvider',' $location', function($httpProvider, $location) {
+    $httpProvider.interceptors.push(['$q', function($q) {
+      return {
+        'response': function(res) {
+           if(res.status === 401) {
+                $location.url('/login')
+                return $q.reject(res.status);
+           }
+        }
+      };
+    }]);
+}])
+
