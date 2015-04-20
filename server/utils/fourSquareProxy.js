@@ -1,3 +1,5 @@
+'use strict';
+
 (function(){
   var request = require("request");
   var querystring = require('querystring');
@@ -10,12 +12,14 @@
    * @return {Object}               Foursquare Object
    */
   module.exports = function(client_id, client_secret){
+    //TODO date should automaticly get yyyymmdd from local server
     var date = '20150331';
     var credentials = {
       'v': date,
       'client_id': client_id,
       'client_secret': client_secret
     };
+    var baseURL = "https://api.foursquare.com/v2/";
 
     return {
       /**
@@ -25,9 +29,30 @@
        * @return {Function}            callback(error, body)
        */
       explore: function(params, callback){
-        var url = "https://api.foursquare.com/v2/venues/explore";
+        // TODO param validation
+        var url = baseURL + "venues/explore";
         url = url + "?" + querystring.stringify(params) + "&" + querystring.stringify(credentials);
-        console.log('call foursquare api;', url);
+
+        // TODO better log
+        // console.log('call foursquare api:', url);
+        request(url, function(error, response, body){
+          wrap(response, body, callback);
+        });
+      },
+
+      /**
+       * Foursquare search api. see
+       * @param  {Object}   params   a json object of parameters to send to the end point
+       * @param  {Function} callback function to call back
+       * @return {function}            callback(error, body)
+       */
+      search: function(params, callback){
+        // TODO param validation
+        var url = baseURL + "venues/search";
+        url = url + "?" + querystring.stringify(params) + "&" + querystring.stringify(credentials);
+
+        // TODO better log
+        // console.log('call foursquare api:', url);
         request(url, function(error, response, body){
           wrap(response, body, callback);
         });

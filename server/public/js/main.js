@@ -1,28 +1,65 @@
+
 'use strict';
 
-angular.module('iTravelApp', ['ngRoute'])
-.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
+angular.module('iTravelApp', ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps']);
+
+/**
+ * Configure the Routes
+ */
+angular.module('iTravelApp')
+    .config( function ($routeProvider) {
     $routeProvider
         // Home
-        .when("/", {templateUrl: "partials/home.html", controller: "PageCtrl"})
+        .when("/", {
+            templateUrl: "partials/home.html"
+        })
+        //user pages
+        .when("/login", {
+            templateUrl: "partials/login.html"
+        })
+        .when("/signup", {
+            templateUrl: "partials/signup.html"
+        })
 
-        // Pages
-        .when("/login", {templateUrl: "partials/login.html", controller: "PageCtrl"})
-        .when("/signup", {templateUrl: "partials/signup.html", controller: "PageCtrl"})
-        .when("/travel", {templateUrl: "partials/travel.html", controller: "PageCtrl"})
-        .when("/aboutus", {templateUrl: "partials/aboutus.html", controller: "PageCtrl"})
-		.when("/contact", {templateUrl: "partials/contact.html", controller: "PageCtrl"})
-        .when("/locations", {templateUrl: "partials/locations.html", controller: "PageCtrl"})
-        .when("/tech", {templateUrl: "partials/tech.html", controller: "PageCtrl"})
-        .when("/privacy", {templateUrl: "partials/privacy.html", controller: "PageCtrl"})
-        .when("/security", {templateUrl: "partials/security.html", controller: "PageCtrl"})
-        .when("/developer", {templateUrl: "partials/developer.html", controller: "PageCtrl"})
+        //venue selector pages
+        .when("/attraction", {
+            templateUrl: "partials/attraction.html"
+        })
+        .when("/restaurant", {
+            templateUrl: "partials/restaurant.html"
+        })
+        .when("/hotel", {
+            templateUrl: "partials/hotel.html"
+        })
 
-        // else error
-        .otherwise("/error", {templateUrl: "partials/error.html", controller: "PageCtrl"});
+        //-- sample venue selector page, using the same controller
+        .when("/attractionsSelect", {
+            templateUrl: "templates/venueSelector/attractionsSelect.html",
+            controller: "VenueSelectorCtrl"
+        })
+        .when("/restaurantsSelect", {
+            templateUrl: "templates/venueSelector/restaurantsSelect.html",
+            controller: "VenueSelectorCtrl"
+        })
+        .when("/hotelsSelect", {
+            templateUrl: "templates/venueSelector/hotelsSelect.html",
+            controller: "VenueSelectorCtrl"
+        })
 
+        //venue pages
+        .when("/venues/:id", {
+            templateUrl: "templates/venues/venues-show.html",
+            controller: "VenuesShowCtrl"
+        })
 
 }])
+.config(function(uiGmapGoogleMapApiProvider) {
+uiGmapGoogleMapApiProvider.configure({
+    key: 'AIzaSyDT32xVCkqxlZQz5DQly-1-6j7RlsouvM8',
+    v: '3.17',
+    libraries: 'weather,geometry,visualization'
+});
+});
 .run(['$httpProvider',' $location', function($httpProvider, $location) {
     $httpProvider.interceptors.push(['$q', function($q) {
       return {

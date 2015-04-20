@@ -1,0 +1,37 @@
+<div class="container">
+    <h3>Attractions</h3>
+
+    <div class="container-fluid">
+
+        <tabset>
+            <tab ng-repeat="category in categories" heading="{{category}}">
+                <!--hasCategory filter function for filter venues-->
+                <div class="well" ng-repeat="venue in venues | hasCategory: category | orderBy:'-rating'">
+
+                    <h5 class="margin-top-zero"><a ng-href="#/venues/{{venue.id}}">{{venue.name}}</a></h5>
+                    <h5>{{venue.contact.phone}}</h5>
+                    <h5>{{venue.rating}}</h5>
+                    <h5 ng-repeat="category in venue.categories">{{category.shortName}}</h5>
+                    <h5>{{venue.location.formattedAddress}}</h5>
+                </div>
+
+            </tab>
+        </tabset>
+
+
+        <!--filter param model-->
+        name:<input class="form-control" type="text" name="name" ng-model="filterParams.name"/>
+        state: <input class="form-control" type="text" name="state" ng-model="filterParams.state"/>
+
+        <div class="well" ng-repeat="venue in venues | filterVenues: filterParams | orderBy:'-rating'">
+
+            <h5 class="margin-top-zero"><a ng-href="#/venues/{{venue.id}}">{{venue.name}}</a></h5>
+            <h5>{{venue.contact.phone}}</h5>
+            <h5>{{venue.rating}}</h5>
+            <h5 ng-repeat="category in venue.categories">{{category.shortName}}</h5>
+            <h5>{{venue.location.formattedAddress}}</h5>
+        </div>
+
+    </div>
+
+</div>
