@@ -7,7 +7,7 @@ angular.module('iTravelApp', ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps']);
  * Configure the Routes
  */
 angular.module('iTravelApp')
-.config( ['$routeProvider', function ($routeProvider) {
+.config( ['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
     $routeProvider
         // Home
         .when("/", {
@@ -53,6 +53,21 @@ angular.module('iTravelApp')
             controller: "VenuesShowCtrl"
         });
 
+        $httpProvider.interceptors.push(['$q', '$location', function($q, $location) {
+          return {
+            'response': function(originalRes) {
+
+                if(originalRes.status === 401) {
+                    return deferred.reject(originalRes.status);
+                    $location.url('/login');
+               } else {
+                    return originalRes;
+               }
+
+            }
+            };
+        }]);
+
 }])
 .config(['uiGmapGoogleMapApiProvider', function(uiGmapGoogleMapApiProvider) {
     uiGmapGoogleMapApiProvider.configure({
@@ -60,32 +75,5 @@ angular.module('iTravelApp')
         v: '3.17',
         libraries: 'weather,geometry,visualization'
     });
-}])
-.run(['$httpProvider',' $location', 'User', function($httpProvider, $location, User) {
-    $httpProvider.interceptors.push(['$q', function($q) {
-      return {
-        'response': function(originalRes) {
-
-            var deferred = $q.defer();
-            if(originalRes.status === 401) {
-                // try to rescue
-                if(User.currentUser) {
-                    User.login(User.currentUser.email, User.currentUser.password)
-                        .then(function success() {
-                            deferred.resolve(originalRes);
-                        }, function fail() {
-                             deferred.reject(originalRes.status);
-                            $location.url('/login');
-                        });
-                } else {
-                    deferred.reject(originalRes.status);
-                    $location.url('/login');
-                }
-           }
-
-           return deferred.promise;
-        }
-      };
-    }]);
 }]);
 
