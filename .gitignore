@@ -29,3 +29,7 @@ hello.js
 *.sublime-project
 *.sublime-workspace
 *.orig
+
+
+# for confidentials
+server/secrets.js

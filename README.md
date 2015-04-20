@@ -103,6 +103,27 @@ There are gulp plugins on `npm` that virtually cover all types of tasks. There a
 
 The gulp tasks of this project can be found in the file `gulpfile.js`. More Gulp tasks (auto-testing, minification, etc.) will be added to the project at a later time.
 
+## MongoDB 
+### Mongoose
+[Mongoose](http://mongoosejs.com/) is a elegant mongodb object modeling for node.js.
+
+### Express-Restify-Mongoose
+[express-restify-mongoose](https://github.com/florianholzapfel/express-restify-mongoose) is a node.js library provides mongoose database models with a REST interface.
+
+##### API format:
+```
+GET http://localhost/api/v1/Venues/count
+GET http://localhost/api/v1/Venues
+PUT http://localhost/api/v1/Venues
+POST http://localhost/api/v1/Venues
+DELETE http://localhost/api/v1/Venues
+
+GET http://localhost/api/v1/Venues/:id
+GET http://localhost/api/v1/Venues/:id/shallow
+PUT http://localhost/api/v1/Venues/:id
+POST http://localhost/api/v1/Venues/:id
+DELETE http://localhost/api/v1/Venues/:id
+```
 
 ## Flat UI Kit Free
 [Flat UI Kit Free](http://designmodo.github.io/Flat-UI/#) is a Twitter Bootstrap Framework design and Theme, this responsive framework includes a PSD and HTML version.
@@ -112,6 +133,6 @@ Please refer the [components and color swatches] (http://designmodo.github.io/Fl
 # IMPORTANT NOTES
 - Never commit any confidential credentials (for example, AWS username/password, DB connection username/password) be it in the documentation or IN THE CODE. 
 - GitHub is public and people scan for these confidential credentials to abuse them. Someone I knew committed his AWS confidentials as part of the API call code to GitHub and got a bill for hundreds of dollars from AWS within a month. 
-- Solution: put all confidential infomation in a configuration file and export it as a node module. Make sure to add it to .gitignore. When you need to use username/password in your code (such as for DB connection), just use `require('your_confidentials.js')`
+- Solution: put all confidential infomation in a configuration file and export it as a node module. Make sure to add it to .gitignore. When you need to use username/password in your code (such as for DB connection), just use `require('secrets.js')`
 - Never make changes to the files under `server/build` folder. These files are temporary and will be cleaned after each build. Instead, edit the files under `/server/public` and run `gulp` to rebuild the `build` directory.
 

@@ -5,7 +5,7 @@
             <div class="form-group row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                     <input type="text" class="form-control input-lg login-field"
-                           id="signup" placeholder="User ID">
+                           id="signup" ng-model="uiModel.email" placeholder="Enter Your Email">
                     <label class="login-field-icon glyphicon glyphicon-user" for="signup"></label>
                 </div>
             </div>
@@ -13,7 +13,7 @@
             <div class="form-group row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                     <input type="password" class="form-control input-lg login-field"
-                           id="password1" placeholder="Password">
+                           id="password1" ng-model="uiModel.password" placeholder="Password">
                     <label class="login-field-icon glyphicon glyphicon-lock" for="password1"></label>
                 </div>
             </div>
@@ -21,14 +21,14 @@
             <div class="form-group row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                     <input type="password" class="form-control input-lg login-field"
-                           id="password2" placeholder="Confirm Password">
+                           id="password2" ng-model="uiModel.passwordConf" placeholder="Confirm Password">
                     <label class="login-field-icon glyphicon glyphicon-lock" for="password2"></label>
                 </div>
             </div>
 
             <div class="form-group row">
                 <div class="col-sm-4 col-sm-offset-2 col-xs-12">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="signup()">Submit</button>
                 </div>
                 <div class="col-sm-4 col-xs-12">
                     <button type="reset" class="btn btn-danger btn-lg btn-block">Reset</button>

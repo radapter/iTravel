@@ -16,6 +16,11 @@ router.get('/explore', function(req, res) {
 			console.log('foursquare/explore Err:', err);
 			res.sendStatus(500);
 		}
+
+		//modify and save venues to db .... TO BE DONE
+
+
+
 		res.json(data.response.groups[0]);
 	});
 });

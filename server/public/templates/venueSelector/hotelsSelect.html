@@ -1,0 +1,34 @@
+<div class="container">
+    <h3>Hotels</h3>
+
+    <div class="container-fluid">
+
+        <tabset>
+            <!--<tab ng-repeat="category in categories" heading="{{category}}">-->
+            <!--hasCategory filter function for filter venues-->
+            <div ng-repeat="venue in venues">
+                <!--{{venue.hotels}}-->
+                <div class="well" ng-repeat="hotel in venue.hotels">
+                    <h5 class="margin-top-zero">
+                        <a ng-href="#/venues/{{hotel.id}}">
+                            {{hotel.name}}
+                        </a>
+                    </h5>
+                    <h5>{{hotel.location.address}}, {{hotel.location.city}},
+                        {{hotel.location.state}} {{hotel.location.postalCode}}</h5>
+                    <h5>{{hotel.contact.formattedPhone}}</h5>
+                </div>
+
+                <!--<h5 class="margin-top-zero"><a ng-href="#/venues/{{venue.id}}">{{venue.name}}</a></h5>
+                <h5>{{venue.contact.phone}}</h5>
+                <h5>{{venue.rating}}</h5>
+                <h5 ng-repeat="category in venue.categories">{{category.shortName}}</h5>
+                <h5>{{venue.location.formattedAddress}}</h5>-->
+            </div>
+
+            </tab>
+        </tabset>
+
+    </div>
+
+</div>
