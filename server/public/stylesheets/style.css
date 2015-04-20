@@ -1,11 +1,33 @@
-/*body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+
+/*********** to working with navbar fixed top & footer***********/
+
+/*stick footer*/
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /*padding-top: 60px;*/
+  /* Margin bottom by footer height */
+  margin-bottom: 350px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  /*height: 200px;*/
+  /*background-color: #464545;*/
 }
 
-a {
-  color: #00B7FF;
-}*/
+/*.container {*/
+  /*margin-top: 40px;*/
+/*}*/
+
+.footer-container {
+  margin-top: 10px;
+}
 
 
 .jumbotron{
