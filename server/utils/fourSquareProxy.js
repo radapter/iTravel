@@ -1,3 +1,5 @@
+'use strict';
+
 (function(){
   var request = require("request");
   var querystring = require('querystring');
@@ -37,6 +39,13 @@
           wrap(response, body, callback);
         });
       },
+
+      /**
+       * Foursquare search api. see
+       * @param  {Object}   params   a json object of parameters to send to the end point
+       * @param  {Function} callback function to call back
+       * @return {function}            callback(error, body)
+       */
       search: function(params, callback){
         // TODO param validation
         var url = baseURL + "venues/search";

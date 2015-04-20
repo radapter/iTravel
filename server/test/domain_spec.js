@@ -1,5 +1,6 @@
-var expect = require('chai').expect
+'use strict';
 
+var expect = require('chai').expect;
 var Query = require('../domain/query');
 var fs = require('fs');
 
@@ -22,4 +23,17 @@ describe('domain/query.js testing', function(){
 
 
   });
+
+  var searchResult = JSON.parse(fs.readFileSync('test/input/searchSample.json', 'utf8'));
+
+  describe('#construct by search result', function(){
+    var query = new Query(searchResult);
+
+    it('should get a list of names ', function(){
+      var names = query.getNames();
+      expect(names.length).to.equal(30);
+      expect(names[0]).to.equal('BXL Zoute');
+    });
+  });
+
 });
