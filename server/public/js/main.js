@@ -16,10 +16,12 @@ angular.module('iTravelApp')
 
         //user pages
         .when("/login", {
-            templateUrl: "templates/login.html"
+            templateUrl: "templates/user/login.html",
+            controller: "LoginCtrl"
         })
         .when("/signup", {
-            templateUrl: "templates/signup.html"
+            templateUrl: "templates/user/signup.html",
+            controller: "SignupCtrl"
         })
 
         //venue selector pages

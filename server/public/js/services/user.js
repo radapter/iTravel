@@ -76,14 +76,17 @@
 			});
 		}
 
-		function signup(username, email, password) {
+		function signup(email, password) {
 			/*
 			backend implementation needed
 			 */
-			return $http.post('/signup', {
-				username: username,
-				email: email,
-				password: password
+			return $http({
+				url: '/signup',
+				method: 'POST',
+				data: {
+					email: email,
+					password: password
+				}
 			}).then(function(res) {
 				if (res.data.success) {
 					User.currentUser = new User(res.data.user);

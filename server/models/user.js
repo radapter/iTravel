@@ -6,7 +6,6 @@ var uniqueValidator = require('mongoose-unique-validator');
 var userSchema = mongoose.Schema({
     //user schema
     //id: { type: String, required: true },
-    username: { type: String, required: true, unique : true, dropDups: true },
     password: { type: String, required: true },
     email: { type: String, required: true, unique : true, dropDups: true },
     plans:[{
