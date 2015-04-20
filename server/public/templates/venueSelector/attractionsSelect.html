@@ -4,15 +4,27 @@
     <div class="container-fluid">
 
         <tabset>
-            <tab ng-repeat="category in categories" heading="{{category}}">
+            <!--<tab ng-repeat="category in categories" heading="{{category}}">-->
                 <!--hasCategory filter function for filter venues-->
-                <div class="well" ng-repeat="venue in venues | hasCategory: category | orderBy:'-rating'">
+                <div ng-repeat="venue in venues">
+                    <!--{{venue.attractions}}-->
+                    <div class="well" ng-repeat="attraction in venue.attractions">
+                        <h5 class="margin-top-zero">
+                            <a ng-href="#/venues/{{attraction.id}}">
+                                {{attraction.name}}
+                            </a>
+                        </h5>
+                        <h5>{{attraction.location.address}}, {{attraction.location.city}},
+                            {{attraction.location.state}} {{attraction.location.postalCode}}</h5>
+                        <h5>{{attraction.contact.formattedPhone}}</h5>
+                    </div>
 
-                    <h5 class="margin-top-zero"><a ng-href="#/venues/{{venue.id}}">{{venue.name}}</a></h5>
+
+                    <!--<h5 class="margin-top-zero"><a ng-href="#/venues/{{venue.id}}">{{venue.name}}</a></h5>
                     <h5>{{venue.contact.phone}}</h5>
                     <h5>{{venue.rating}}</h5>
                     <h5 ng-repeat="category in venue.categories">{{category.shortName}}</h5>
-                    <h5>{{venue.location.formattedAddress}}</h5>
+                    <h5>{{venue.location.formattedAddress}}</h5>-->
                 </div>
 
             </tab>
@@ -20,7 +32,7 @@
 
 
         <!--filter param model-->
-        name:<input class="form-control" type="text" name="name" ng-model="filterParams.name"/>
+        <!--name:<input class="form-control" type="text" name="name" ng-model="filterParams.name"/>
         state: <input class="form-control" type="text" name="state" ng-model="filterParams.state"/>
 
         <div class="well" ng-repeat="venue in venues | filterVenues: filterParams: attraction | orderBy:'sortParam'">
@@ -30,7 +42,7 @@
             <h5>{{venue.rating}}</h5>
             <h5 ng-repeat="category in venue.categories">{{category.shortName}}</h5>
             <h5>{{venue.location.formattedAddress}}</h5>
-        </div>
+        </div>-->
 
     </div>
 

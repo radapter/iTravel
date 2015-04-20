@@ -35,7 +35,7 @@ angular.module('iTravelApp')
         //    templateUrl: "partials/hotel.html"
         //})
 
-        //-- sample venue selector page, using the same controller
+        //venue selection pages
         .when("/attractionsSelect", {
             templateUrl: "templates/venueSelector/attractionsSelect.html",
             controller: "VenueSelectorCtrl"
@@ -55,25 +55,18 @@ angular.module('iTravelApp')
             controller: "VenuesShowCtrl"
         })
 
-        //what's this for???
-        //.when("/plan", {
-        //    templateUrl: "partials/plan.html"
-        //})
-        //.when("/travel", {
-        //    templateUrl: "partials/travel.html"
-        //})
 
-	//footer url pages
-        .when("/aboutus", {templateUrl: "templates/aboutus.html"})
-        .when("/contact", {templateUrl: "templates/contact.html"})
+        //footer url pages
+        .when("/aboutus", {templateUrl: "templates/footerPages/aboutus.html"})
+        .when("/contact", {templateUrl: "templates/footerPages/contact.html"})
         .when("/locations", {
-            templateUrl: "templates/locations.html",
+            templateUrl: "templates/footerPages/locations.html",
             controller: "GoogleMapCtrl"
         })
-        .when("/tech", {templateUrl: "templates/tech.html"})
-        .when("/privacy", {templateUrl: "templates/privacy.html"})
-        .when("/security", {templateUrl: "templates/security.html"})
-        .when("/developer", {templateUrl: "templates/developer.html"})
+        .when("/tech", {templateUrl: "templates/footerPages/tech.html"})
+        .when("/privacy", {templateUrl: "templates/footerPages/privacy.html"})
+        .when("/security", {templateUrl: "templates/footerPages/security.html"})
+        .when("/developer", {templateUrl: "templates/footerPages/developer.html"})
 
         // else error
         .otherwise("/error", {templateUrl: "templates/error.html"});

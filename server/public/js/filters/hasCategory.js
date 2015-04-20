@@ -7,21 +7,24 @@ angular.module("iTravelApp")
             if(category == "All") return venues;
 
             var filtered = [];
-            for(var i = 0; i< venues.length; i++){
+            for(var i = 0; i < venues.length; i++){
+                var venueByType = venues[i];
+                for(var j = 0; j < venueByType[j]; j++){
+                    var hasCat = false;
 
-                var hasCat = false;
+                    var venue = venueByType[i];
 
-                var venue = venues[i];
-
-                for(var j= 0; j<venue.categories.length ; j++ ) {
-                    if(venue.categories[j].shortName == category) {
-                        hasCat = true;
-                        break;
+                    for(var k= 0; k < venue.categories.length ; k++ ) {
+                        if(venue.categories[k].shortName == category) {
+                            hasCat = true;
+                            console.log(venue.categories[k].shortName);
+                            break;
+                        }
                     }
-                }
 
-                if(hasCat){
-                    filtered.push(venues[i]);
+                    if(hasCat){
+                        filtered.push(venueByType[i]);
+                    }
                 }
             }
             return filtered;
