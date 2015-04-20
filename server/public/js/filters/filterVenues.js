@@ -2,7 +2,7 @@
 
 angular.module("iTravelApp")
     .filter('filterVenues', function () {
-        return function (venues, filterParams) {
+        return function (venues, filterParams, filterTypes) {
 
             console.log(filterParams);
 

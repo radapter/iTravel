@@ -23,7 +23,7 @@
         name:<input class="form-control" type="text" name="name" ng-model="filterParams.name"/>
         state: <input class="form-control" type="text" name="state" ng-model="filterParams.state"/>
 
-        <div class="well" ng-repeat="venue in venues | filterVenues: filterParams | orderBy:'-rating'">
+        <div class="well" ng-repeat="venue in venues | filterVenues: filterParams: attraction | orderBy:'sortParam'">
 
             <h5 class="margin-top-zero"><a ng-href="#/venues/{{venue.id}}">{{venue.name}}</a></h5>
             <h5>{{venue.contact.phone}}</h5>
