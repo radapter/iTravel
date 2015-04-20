@@ -1,7 +1,7 @@
 
 'use strict';
 
-angular.module('iTravelApp', ['ngRoute', 'ui.bootstrap']);
+angular.module('iTravelApp', ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps']);
 
 /**
  * Configure the Routes
@@ -64,7 +64,10 @@ angular.module('iTravelApp')
         //footer url pages
         .when("/aboutus", {templateUrl: "partials/aboutus.html"})
         .when("/contact", {templateUrl: "partials/contact.html"})
-        .when("/locations", {templateUrl: "partials/locations.html"})
+        .when("/locations", {
+            templateUrl: "partials/locations.html",
+            controller: "GoogleMapCtrl"
+        })
         .when("/tech", {templateUrl: "partials/tech.html"})
         .when("/privacy", {templateUrl: "partials/privacy.html"})
         .when("/security", {templateUrl: "partials/security.html"})
@@ -72,5 +75,13 @@ angular.module('iTravelApp')
 
         // else error
         .otherwise("/error", {templateUrl: "partials/error.html"});
-});
+})
+
+    .config(function(uiGmapGoogleMapApiProvider) {
+        uiGmapGoogleMapApiProvider.configure({
+            key: 'AIzaSyDT32xVCkqxlZQz5DQly-1-6j7RlsouvM8',
+            v: '3.17',
+            libraries: 'weather,geometry,visualization'
+        });
+    });
 
