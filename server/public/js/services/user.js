@@ -20,18 +20,18 @@ function UserFactory($http, $q, $rootScope) {
 	User.login = login;
 	User.signup = signup;
 
-	function login(username, password) {
+	function login(email, password) {
 		/*
 		backend implementation needed
 		 */
-		$http.get('/user/login', {
+		$http.post('/login', {
 			cache: false,
 			params: {
-				username: username,
+				email: email,
 				password: password
 			}
 		}).then(function(res) {
-			if (res.data.success) {
+			if (res.status === 200) {
 				User.currentUser = new User(res.data.user);
 
 				// TODO: populate other models
@@ -60,7 +60,7 @@ function UserFactory($http, $q, $rootScope) {
 		/*
 		backend implementation needed
 		 */
-		$http.post('/user/signup', {
+		$http.post('/signup', {
 			username: username,
 			email: email,
 			password: password
