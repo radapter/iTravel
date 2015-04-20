@@ -7,7 +7,7 @@ angular.module('iTravelApp', ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps']);
  * Configure the Routes
  */
 angular.module('iTravelApp')
-    .config( function ($routeProvider) {
+.config( ['$routeProvider', function ($routeProvider) {
     $routeProvider
         // Home
         .when("/", {
@@ -15,7 +15,8 @@ angular.module('iTravelApp')
         })
         //user pages
         .when("/login", {
-            templateUrl: "partials/login.html"
+            templateUrl: "partials/login.html",
+            controller: "LoginCtrl"
         })
         .when("/signup", {
             templateUrl: "partials/signup.html"
@@ -50,26 +51,41 @@ angular.module('iTravelApp')
         .when("/venues/:id", {
             templateUrl: "templates/venues/venues-show.html",
             controller: "VenuesShowCtrl"
-        })
+        });
 
 }])
-.config(function(uiGmapGoogleMapApiProvider) {
-uiGmapGoogleMapApiProvider.configure({
-    key: 'AIzaSyDT32xVCkqxlZQz5DQly-1-6j7RlsouvM8',
-    v: '3.17',
-    libraries: 'weather,geometry,visualization'
-});
-});
-.run(['$httpProvider',' $location', function($httpProvider, $location) {
+.config(['uiGmapGoogleMapApiProvider', function(uiGmapGoogleMapApiProvider) {
+    uiGmapGoogleMapApiProvider.configure({
+        key: 'AIzaSyDT32xVCkqxlZQz5DQly-1-6j7RlsouvM8',
+        v: '3.17',
+        libraries: 'weather,geometry,visualization'
+    });
+}])
+.run(['$httpProvider',' $location', 'User', function($httpProvider, $location, User) {
     $httpProvider.interceptors.push(['$q', function($q) {
       return {
-        'response': function(res) {
-           if(res.status === 401) {
-                $location.url('/login')
-                return $q.reject(res.status);
+        'response': function(originalRes) {
+
+            var deferred = $q.defer();
+            if(originalRes.status === 401) {
+                // try to rescue
+                if(User.currentUser) {
+                    User.login(User.currentUser.email, User.currentUser.password)
+                        .then(function success() {
+                            deferred.resolve(originalRes);
+                        }, function fail() {
+                             deferred.reject(originalRes.status);
+                            $location.url('/login');
+                        });
+                } else {
+                    deferred.reject(originalRes.status);
+                    $location.url('/login');
+                }
            }
+
+           return deferred.promise;
         }
       };
     }]);
-}])
+}]);
 

@@ -5,7 +5,7 @@
             <div class="form-group row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                     <input type="text" class="form-control input-lg login-field"
-                           id="login" placeholder="Enter Your ID">
+                           id="login" ng-model="uiModel.email" placeholder="Enter Your EMail">
                     <label class="login-field-icon glyphicon glyphicon-user" for="login"></label>
                 </div>
             </div>
@@ -13,14 +13,14 @@
             <div class="form-group row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                     <input type="password" class="form-control input-lg login-field"
-                           id="password" placeholder="Password">
+                           id="password" ng-model="uiModel.email" placeholder="Password">
                     <label class="login-field-icon glyphicon glyphicon-lock" for="password"></label>
                 </div>
             </div>
 
             <div class="form-group row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="login()">Login</button>
                 </div>
             </div>
             <div class="form-group row">

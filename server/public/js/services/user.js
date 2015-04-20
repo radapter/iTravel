@@ -12,7 +12,8 @@ function UserFactory($http, $q, $rootScope) {
 
 	// instance properties/methods
 	User.prototype = {
-		logout: logout
+		logout: logout,
+		save: save
 	};
 
 	// static properties/methods
@@ -20,11 +21,22 @@ function UserFactory($http, $q, $rootScope) {
 	User.login = login;
 	User.signup = signup;
 
+	function save() {
+		var pk = '_id';
+		var resourceName = 'users';
+
+		return $http({
+			url: '/api/v1/' + resourceName + '/' + this[pk],
+			method: 'PUT',
+			data: this
+		});
+	}
+
 	function login(email, password) {
 		/*
 		backend implementation needed
 		 */
-		$http.post('/login', {
+		return $http.post('/login', {
 			cache: false,
 			params: {
 				email: email,
@@ -35,7 +47,6 @@ function UserFactory($http, $q, $rootScope) {
 				User.currentUser = new User(res.data.user);
 
 				// TODO: populate other models
-
 				$rootScope.$broadcast('userLoginSuccess', User.currentUser);
 			}
 		});
@@ -45,7 +56,7 @@ function UserFactory($http, $q, $rootScope) {
 		/*
 		backend implementation needed
 		 */
-		$http.get('/user/logout', {
+		return $http.get('/user/logout', {
 			cache: false
 		}).then(function(res) {
 			if (res.data.success) {
@@ -60,7 +71,7 @@ function UserFactory($http, $q, $rootScope) {
 		/*
 		backend implementation needed
 		 */
-		$http.post('/signup', {
+		return $http.post('/signup', {
 			username: username,
 			email: email,
 			password: password
