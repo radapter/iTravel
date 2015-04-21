@@ -94,8 +94,6 @@ body {
   text-align: center;
 }
 
-
-
 .upperhead {
   margin-bottom: 3%;
   border-bottom: 1px solid #34495e;
@@ -143,6 +141,12 @@ body {
 
 .angular-google-map-container { height: 400px; }
 
+
+/************** Select2 styling ******************/
+.input-select {
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /******************* Selection sstyling   ******************/
 .filters {

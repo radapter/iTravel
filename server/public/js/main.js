@@ -1,7 +1,7 @@
 
 'use strict';
 
-angular.module('iTravelApp', ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps']);
+angular.module('iTravelApp', ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps','ngSanitize', 'ui.select']);
 
 /**
  * Configure the Routes

@@ -22,15 +22,16 @@
         //console.log($scope.attractionSortDefault);
         //console.log($scope.categories);
 
-        //connection to Venue service to get all the venues
-        //Venue.explore.then(function () {
-        //    //$scope.venues = Venue.searchResults; //?how to triger retrieve the data?
-        //    $scope.attractionsVenues = Venue.searchResults.attractions;
-        //    $scope.restVenues = Venue.searchResults.restVenues;
-        //    $scope.hotelVenues = Venue.searchResults.hotelVenues;
-        //
-        //});
 
+        //use this one OR test data
+        //connection to Venue service to get all the venues
+        //console.log(Venue.searchResults);
+        //$scope.venues = Venue.searchResults;
+
+        //for LATER modified use
+        //$scope.attractionsVenues = Venue.searchResults.attractions;
+        //$scope.restVenues = Venue.searchResults.restVenues;
+        //$scope.hotelVenues = Venue.searchResults.hotelVenues;
 
         $scope.saveAttractions = function (attractions) {
             console.log(attractions);
