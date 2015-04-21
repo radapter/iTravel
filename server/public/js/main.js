@@ -1,7 +1,7 @@
 
 'use strict';
 
-angular.module('iTravelApp', ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps','ngSanitize', 'ui.select']);
+angular.module('iTravelApp', ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps','ngSanitize', 'ui.select', 'angular-loading-bar']);
 
 /**
  * Configure the Routes
@@ -98,7 +98,10 @@ angular.module('iTravelApp')
         libraries: 'weather,geometry,visualization'
     });
 }])
-.run(['User', function(User) {
+.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.includeSpinner = false;
+}])
+.run(['User', 'Venue', function(User, Venue) {
     // detect if there is valid user token upon app start, and load user data if there is one
     User.restore();
 }]);

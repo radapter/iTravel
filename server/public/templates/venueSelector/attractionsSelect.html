@@ -28,8 +28,8 @@
             </div>
         </div>
 
-        <div ng-repeat="venue in venues">
-            <div class="well venue-result" ng-repeat="attraction in venue.attractions"
+        <!-- <div ng-repeat="venue in venues"> -->
+            <div class="well venue-result" ng-repeat="attraction in venues.attractions"
                  ng-click="addVenue(attraction);"
                  ng-class="{'selectedVenue': (tempSelectedVenues.indexOf(attraction) > -1)}">
                 <div class="row">
@@ -84,7 +84,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        <!-- </div> -->
 
 
         <!-- <tabset>

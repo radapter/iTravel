@@ -6,25 +6,23 @@
         <tabset>
             <!--<tab ng-repeat="category in categories" heading="{{category}}">-->
             <!--hasCategory filter function for filter venues-->
-            <div ng-repeat="venue in venues">
-                <!--{{venue.restaurants}}-->
-                <div class="well" ng-repeat="restaurant in venue.restaurants">
-                    <h5 class="margin-top-zero">
-                        <a ng-href="#/venues/{{restaurant.id}}">
-                            {{restaurant.name}}
-                        </a>
-                    </h5>
-                    <h5>{{restaurant.location.address}}, {{restaurant.location.city}},
-                        {{restaurant.location.state}} {{restaurant.location.postalCode}}</h5>
-                    <h5>{{restaurant.contact.formattedPhone}}</h5>
-                </div>
-
-                <!--<h5 class="margin-top-zero"><a ng-href="#/venues/{{venue.id}}">{{venue.name}}</a></h5>
-                <h5>{{venue.contact.phone}}</h5>
-                <h5>{{venue.rating}}</h5>
-                <h5 ng-repeat="category in venue.categories">{{category.shortName}}</h5>
-                <h5>{{venue.location.formattedAddress}}</h5>-->
+            <!--{{venue.restaurants}}-->
+            <div class="well" ng-repeat="restaurant in venues.restaurants">
+                <h5 class="margin-top-zero">
+                    <a ng-href="#/venues/{{restaurant.id}}">
+                        {{restaurant.name}}
+                    </a>
+                </h5>
+                <h5>{{restaurant.location.address}}, {{restaurant.location.city}},
+                    {{restaurant.location.state}} {{restaurant.location.postalCode}}</h5>
+                <h5>{{restaurant.contact.formattedPhone}}</h5>
             </div>
+
+            <!--<h5 class="margin-top-zero"><a ng-href="#/venues/{{venue.id}}">{{venue.name}}</a></h5>
+            <h5>{{venue.contact.phone}}</h5>
+            <h5>{{venue.rating}}</h5>
+            <h5 ng-repeat="category in venue.categories">{{category.shortName}}</h5>
+            <h5>{{venue.location.formattedAddress}}</h5>-->
 
             </tab>
         </tabset>
