@@ -97,5 +97,9 @@ angular.module('iTravelApp')
         v: '3.17',
         libraries: 'weather,geometry,visualization'
     });
+}])
+.run(['User', function(User) {
+    // detect if there is valid user token upon app start, and load user data if there is one
+    User.restore();
 }]);
 

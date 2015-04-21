@@ -36,6 +36,8 @@ router.post('/signup', signupHandler);
 // POST /logout
 router.post('/logout', logoutHandler);
 
+router.post('/restore', auth.authMiddleware, restoreHandler);
+
 // not a real route in use, just for testing authentication middleware
 router.get('/dashboard', auth.authMiddleware, function(req,res) {
     res.sendStatus(200);
@@ -55,8 +57,9 @@ function grantPrivillege(req) {
 function loginHandler(req, res) {
     console.log('login request received. req.body', req.body);
     User.findOne({email: req.body.email, password: req.body.password}, function(err, user) {
-        if (err || !user) {
+        if (err || !user || !user._id) {
             res.sendStatus(400);
+            return;
         }
 
         auth.signInUser(user, req, res, function() {
@@ -87,6 +90,10 @@ function logoutHandler(req, res) {
     auth.signOutUser(req, res, function() {
         res.sendStatus(200);
     });
+}
+
+function restoreHandler(req, res) {
+    res.json(req.user);
 }
 
 module.exports = router;
