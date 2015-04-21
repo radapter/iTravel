@@ -36,8 +36,17 @@
                 <a href="#/signup" class="btn btn-info navbar-btn">Signup</a>
             </div>            
             <div class="nav navbar-nav navbar-right" ng-show="currentUser">
-<!--                 <a href="#/login" class="btn btn-success navbar-btn">Login</a>
-                <a href="#/signup" class="btn btn-info navbar-btn">Signup</a> -->
+
+
+                <div class="btn-group" dropdown is-open="status.isopen">
+                    <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+                        {{currentUser.email}} <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu width100" role="menu">
+                        <li><a href="#/users/{{currentUser._id}}"><img src="../img/user-avatars/1.png" alt="" height="25"/> Profile</a></li>
+                        <li><a href="#" ng-click="logout()">Log Out</a></li>
+                    </ul>
+                </div>
             </div>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
