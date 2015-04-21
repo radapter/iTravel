@@ -15,7 +15,7 @@
                     'http://maps.googleapis.com/maps/api/geocode/json',
                     {params: params}
                 ).then(function(response) {
-                        console.log(response);
+                        // console.log(response);
                         $scope.addresses = response.data.results
                     });
             };

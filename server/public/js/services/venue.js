@@ -26,21 +26,25 @@ function VenueFactory($http, $q) {
 		angular.extend(params, {limit: 50});
 
 		var promiseHash = {
-			drinks: singleExplore(angular.extend(params, {dining: 'drinks'})),
-			food: singleExplore(angular.extend(params, {dining: 'food'})),
-			arts: singleExplore(angular.extend(params, {attraction: 'arts'})),
-			outdoors: singleExplore(angular.extend(params, {attraction: 'outdoors'})),
-			sights: singleExplore(angular.extend(params, {attraction: 'sights'})),
-			hotels: singleExplore(angular.extend(params, {query: 'Hotel'}))
+			drinks: singleExplore(copyAndExtend(params, {section: 'drinks'})),
+			food: singleExplore(copyAndExtend(params, {section: 'food'})),
+			arts: singleExplore(copyAndExtend(params, {section: 'arts'})),
+			outdoors: singleExplore(copyAndExtend(params, {section: 'outdoors'})),
+			sights: singleExplore(copyAndExtend(params, {section: 'sights'})),
+			hotels: singleExplore(copyAndExtend(params, {query: 'Hotel'}))
 		};
+
+		function copyAndExtend(src, ext) {
+			return angular.extend(angular.copy(src), ext);
+		}
 
 		return $q.all(promiseHash)
 			.then(function success(resultsHash) {
 				var sortedResults = {};
-				sortedResults.restaurants = _.uniq([].concat(resultsHash.drinks, resultsHash.food), '_id');
-				sortedResults.attractions = _.uniq([].concat(resultsHash.arts, resultsHash.outdoors, resultsHash.sights), '_id');
+				sortedResults.restaurants = _.uniq([].concat(resultsHash.drinks, resultsHash.food), 'id');
+				sortedResults.attractions = _.uniq([].concat(resultsHash.arts, resultsHash.outdoors, resultsHash.sights), 'id');
 				sortedResults.hotels = resultsHash.hotels;
-
+				Venue.searchResults = sortedResults;
 				return sortedResults;
 			}, function fail() {
 				return $q.reject();
@@ -59,14 +63,14 @@ function VenueFactory($http, $q) {
 			params: params
 		}).then(function(res) {
 			var venueArray;
-			console.log('res from calling backend', res);
+			// console.log('res from calling backend', res);
 			if(res.status > 399) {
 				deferred.reject(res.meta.message);
 			} else {
 				venueArray = _.map(res.data.items, function(item){
 					return new Venue(item.venue);
 				});
-				deferred.resolve(Venue.venueArray);
+				deferred.resolve(venueArray);
 			}
 		}, function(err) {
 			deferred.reject(err);
