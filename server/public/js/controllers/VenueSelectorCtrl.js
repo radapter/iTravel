@@ -10,14 +10,15 @@
             //should we predefine some categories or dynamiclly generate form the results
             $scope.categories = ['All', 'Asian', 'Mexican', 'Fast Food'];
 
+            //use this one OR test data
             //connection to Venue service to get all the venues
-            //Venue.explore.then(function () {
-            //    //$scope.venues = Venue.searchResults; //?how to triger retrieve the data?
-            //    $scope.attractionsVenues = Venue.searchResults.attractions;
-            //    $scope.restVenues = Venue.searchResults.restVenues;
-            //    $scope.hotelVenues = Venue.searchResults.hotelVenues;
-            //
-            //});
+            //console.log(Venue.searchResults);
+            //$scope.venues = Venue.searchResults;
+
+            //for LATER modified use
+            //$scope.attractionsVenues = Venue.searchResults.attractions;
+            //$scope.restVenues = Venue.searchResults.restVenues;
+            //$scope.hotelVenues = Venue.searchResults.hotelVenues;
 
             $scope.saveAttractions = function (attractions) {
                 console.log(attractions);
@@ -34,7 +35,6 @@
                 $scope.tempSelectedVenues.push(hotels);
 
             };
-
 
             //test venue data
             $scope.venues = [
