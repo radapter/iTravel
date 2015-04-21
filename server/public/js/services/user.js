@@ -21,6 +21,7 @@
 		User.currentUser = null;
 		User.login = login;
 		User.signup = signup;
+		User.restore = restore;
 
 		function save() {
 			var pk = '_id';
@@ -50,9 +51,7 @@
 				}
 			}).then(function(res) {
 				if (res.status === 200) {
-					User.currentUser = new User(res.data);
-
-					// TODO: populate other models
+					populateData();
 					$rootScope.$broadcast('userLoginSuccess', User.currentUser);
 				}
 			});
@@ -87,12 +86,32 @@
 				}
 			}).then(function(res) {
 				if (res.status === 200) {
-					User.currentUser = new User(res.data);
+					populateData();
+					$rootScope.$broadcast('userLoginSuccess', User.currentUser);
+				}
+			});
+		}
+
+		function restore() {
+			return $http({
+				url: '/restore',
+				method: 'POST'
+			}).then(function(res) {
+				if (res.status === 200) {
+					populateData();
 
 					// TODO: populate other models
 					$rootScope.$broadcast('userLoginSuccess', User.currentUser);
 				}
+			}, function() {
+				console.log('no user can be restored, fail block called');
 			});
+		}
+
+		function populateData() {
+			User.currentUser = new User(res.data);
+
+			// TODO: populate other models
 		}
 
 		return User;

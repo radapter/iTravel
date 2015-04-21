@@ -36,6 +36,8 @@ router.post('/signup', signupHandler);
 // POST /logout
 router.post('/logout', logoutHandler);
 
+router.post('/restore', auth.authMiddleware, restoreHandler);
+
 // not a real route in use, just for testing authentication middleware
 router.get('/dashboard', auth.authMiddleware, function(req,res) {
     res.sendStatus(200);
@@ -88,6 +90,10 @@ function logoutHandler(req, res) {
     auth.signOutUser(req, res, function() {
         res.sendStatus(200);
     });
+}
+
+function restoreHandler(req, res) {
+    res.json(req.user);
 }
 
 module.exports = router;
