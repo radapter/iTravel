@@ -56,10 +56,9 @@ angular.module('iTravelApp')
 
         //venue pages
         .when("/venues/:id", {
-            templateUrl: "templates/venues/venues-show.html",
+            templateUrl: "templates/venues/venueDetails.html",
             controller: "VenuesShowCtrl"
         })
-
 
         //footer url pages
         .when("/aboutus", {templateUrl: "templates/footerPages/aboutus.html"})

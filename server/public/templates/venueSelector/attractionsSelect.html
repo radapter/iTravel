@@ -1,34 +1,107 @@
-<div class="container">
-    <h3>Attractions</h3>
-
+<div class="jumbotron">
     <div class="container-fluid">
+        <h2 class="text-center">Attractions</h2>
 
-        <tabset>
-            <!--<tab ng-repeat="category in categories" heading="{{category}}">-->
-                <!--hasCategory filter function for filter venues-->
-                <div ng-repeat="venue in venues">
-                    <!--{{venue.attractions}}-->
-                    <div class="well" ng-repeat="attraction in venue.attractions">
-                        <h5 class="margin-top-zero">
-                            <a ng-href="#/venues/{{attraction.id}}">
-                                {{attraction.name}}
-                            </a>
-                        </h5>
-                        <h5>{{attraction.location.address}}, {{attraction.location.city}},
-                            {{attraction.location.state}} {{attraction.location.postalCode}}</h5>
-                        <h5>{{attraction.contact.formattedPhone}}</h5>
-                    </div>
-
-
-                    <!--<h5 class="margin-top-zero"><a ng-href="#/venues/{{venue.id}}">{{venue.name}}</a></h5>
-                    <h5>{{venue.contact.phone}}</h5>
-                    <h5>{{venue.rating}}</h5>
-                    <h5 ng-repeat="category in venue.categories">{{category.shortName}}</h5>
-                    <h5>{{venue.location.formattedAddress}}</h5>-->
+        <div class="row filters bg-primary text-center">
+            <div class="col-sm-4">
+                <label>Filter By Category</label><br>
+                <div class="btn-group">
+                    <label class="btn btn-info" ng-repeat="category in attractionCategories"
+                           ng-model="category.val" btn-checkbox checked="category.val">
+                        {{category.cat}}
+                    </label>
                 </div>
+            </div>
+            <div class="col-sm-4">
+                <label>Filter By Venue Name</label><br>
+                <input class="form-control" type="text" name="name" placeholder="Venue Name"
+                       ng-model="filterParams.name"/>
+            </div>
+            <div class="col-sm-4">
+                <label>Sort By</label><br>
+                <div class="btn-group">
+                    <label class="btn btn-info" ng-repeat="sort in attractionSorts"
+                           ng-model="attractionSortDefault.value" btn-radio="sort.sort" uncheckable>
+                        {{sort.sort}} <i class="fa fa-sort-desc"></i>
+                    </label>
+                </div>
+            </div>
+        </div>
 
-            </tab>
-        </tabset>
+        <div ng-repeat="venue in venues">
+            <div class="well venue-result" ng-repeat="attraction in venue.attractions"
+                 ng-click="addVenue(attraction);"
+                 ng-class="{'selectedVenue': (tempSelectedVenues.indexOf(attraction) > -1)}">
+                <div class="row">
+                    <div class="col-sm-2 venue-img"><!--venue img here--></div>
+                    <div class="col-sm-10">
+                        <div class="h5">
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    <a ng-href="#/venues/{{attraction.id}}">
+                                        {{attraction.name}}
+                                    </a>
+                                </div>
+                                <div class="col-sm-1">
+                                    <span style="color:#{{attraction.ratingColor}};">
+                                        {{attraction.rating}}
+                                    </span>
+                                </div>
+                                <div class="col-sm-1">
+                                    <span class="badge">
+                                        <span class="glyphicon glyphicon-gift" aria-hidden="true"></span>
+                                        &nbsp;{{attraction.specials.count}}
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="p">
+                            <div class="row" ng-show="attraction.location.address">
+                                <div class="col-sm-12">
+                                    <i class="fa fa-map-marker"></i>
+                                    <a ng-href="http://maps.google.com/?q={{attraction.location.address}}, {{attraction.location.city}}, {{attraction.location.state}},{{attraction.location.postalCode}}"
+                                       target="_blank">
+                                        {{attraction.location.address}}, {{attraction.location.city}},
+                                        {{attraction.location.state}} {{attraction.location.postalCode}}
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6" ng-show="attraction.contact.formattedPhone">
+                                    <i class="fa fa-phone-square"></i>
+                                    <a ng-href="tel:{{attraction.contact.phone}}">
+                                        {{attraction.contact.formattedPhone}}
+                                    </a>
+                                </div>
+                                <div class="col-sm-6" ng-show="attraction.url">
+                                    <i class="fa fa-link"></i>
+                                    <a ng-href="{{attraction.url}}" target="_blank">Website</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- <tabset>
+             <tab ng-repeat="category in categories" heading="{{category}}">
+                    <!--hasCategory filter function for filter venues
+                        <h5 class="margin-top-zero"><a ng-href="#/venues/{{venue.id}}">{{venue.name}}</a></h5>
+                        <h5>{{venue.contact.phone}}</h5>
+                        <h5>{{venue.rating}}</h5>
+                        <h5 ng-repeat="category in venue.categories">{{category.shortName}}</h5>
+                        <h5>{{venue.location.formattedAddress}}</h5>
+                    </div>
+                </tab>
+            </tabset>-->
+
+            <!--filter param model-->
+            <!--name:<input class="form-control" type="text" name="name" ng-model="filterParams.name"/>
+            state: <input class="form-control" type="text" name="state" ng-model="filterParams.state"/>
 
 
         <!--filter param model, using with REAL data-->
@@ -44,6 +117,14 @@
             <!--<h5>{{venue.location.formattedAddress}}</h5>-->
         <!--</div>-->
 
-    </div>
+            <div class="well" ng-repeat="venue in venues | filterVenues: filterParams: attraction | orderBy:'sortParam'">
+                <h5 class="margin-top-zero"><a ng-href="#/venues/{{venue.id}}">{{venue.name}}</a></h5>
+                <h5>{{venue.contact.phone}}</h5>
+                <h5>{{venue.rating}}</h5>
+                <h5 ng-repeat="category in venue.categories">{{category.shortName}}</h5>
+                <h5>{{venue.location.formattedAddress}}</h5>
+            </div>-->
+        
 
+    </div>
 </div>

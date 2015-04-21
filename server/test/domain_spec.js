@@ -36,4 +36,17 @@ describe('domain/query.js testing', function(){
     });
   });
 
+  describe('#add category Hierarchy', function(){
+    var query1 = new Query(exploreResult);
+    var query2 = new Query(exploreResult);
+    it('should have Hierarcky on venue categories', function(){
+      var venues1 = query1.getVenues();
+      var venues2 = query2.getVenues();
+      query2.addCategoryHierarchy();//This will turn venues2 to Hierarchy Categories
+      for(var i=0; i<venues1.length; i++){
+        expect(venues1[i].categories.length).to.be.below(venues2[i].categories.length);
+      }
+    });
+  });
+
 });
