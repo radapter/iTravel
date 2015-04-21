@@ -23,6 +23,10 @@ angular.module('iTravelApp')
             templateUrl: "templates/user/signup.html",
             controller: "SignupCtrl"
         })
+        .when("/users/:id", {
+            templateUrl: "templates/user/profile.html",
+            controller: "UserShowCtrl"
+        })
 
         //venue selector pages
         //.when("/attraction", {
