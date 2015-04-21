@@ -13,12 +13,22 @@
         ];
 
         $scope.attractionSorts = [
-            {"sort": "Rating"},
-            {"sort": "Distance (m)"},
-            {"sort": "Popularity"}
+            {"display": "Rating", "sort": "rating"},
+            {"display": "Distance (m)", "sort": ""},
+            {"display": "Popularity", "sort": "stats.checkinsCount"}
         ];
 
-        $scope.attractionSortDefault = {value: "Rating"};
+        $scope.attractionSortDefault = {value: "rating"};
+
+        /*var orderBy = $filter('orderBy');
+        $scope.order = function(predicate, reverse) {
+            $scope.venues.attractions = orderBy($scope.venues.attractions, predicate, reverse);
+        };
+        $scope.order('-rating',false);
+        //$scope.attractionSorter = $scope.attractionSortDefault.sort;*/
+
+
+            //console.log($scope.attractionSorter);
         //console.log($scope.attractionSortDefault);
         //console.log($scope.categories);
 

@@ -167,3 +167,13 @@ body {
 .selectedVenue {
     border: 3px solid #1abc9c;
 }
+
+div > .badge {
+    vertical-align: top;
+    height: 30px;
+}
+
+.badge
+{
+    font-size: 0.8em;
+}
