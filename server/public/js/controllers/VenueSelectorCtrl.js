@@ -1,13 +1,27 @@
 (function() {
     'use strict';
-
     angular.module("iTravelApp")
         .controller("VenueSelectorCtrl", function ($scope, Venue) {
 
-            $scope.tempSelectedVenues = [];
+        $scope.tempSelectedVenues = [];
 
-            //should we predefine some categories or dynamiclly generate form the results
-            $scope.categories = ['All', 'Asian', 'Mexican', 'Fast Food'];
+        //should we predefine some categories or dynamiclly generate form the results
+
+        $scope.attractionCategories = [
+            {"cat": "All", "val": true},
+            {"cat": "Scenic", "val": false},
+            {"cat": "Park", "val": false}
+        ];
+
+        $scope.attractionSorts = [
+            {"sort": "Rating"},
+            {"sort": "Distance (m)"},
+            {"sort": "Popularity"}
+        ];
+        $scope.attractionSortDefault = {value: "Rating"};
+        //console.log($scope.attractionSortDefault);
+
+        //console.log($scope.categories);
 
             //connection to Venue service to get all the venues
             //Venue.explore.then(function () {
@@ -18,6 +32,7 @@
             //
             //});
 
+
             $scope.saveAttractions = function (attractions) {
                 console.log(attractions);
                 $scope.tempSelectedVenues.push(attractions);
@@ -27,11 +42,22 @@
                 console.log(restaurants);
                 $scope.tempSelectedVenues.push(restaurants);
 
-            };
             $scope.saveHotels = function (hotels) {
                 console.log(hotels);
                 $scope.tempSelectedVenues.push(hotels);
 
+            };
+
+            $scope.addVenue = function(attraction){
+                console.log("clicked");
+                if($scope.tempSelectedVenues.indexOf(attraction) == -1){
+                    $scope.saveAttractions(attraction);
+                }
+                else{
+                    var index = $scope.tempSelectedVenues.indexOf(attraction);
+                    $scope.tempSelectedVenues.splice(index, 1);
+                    console.log($scope.tempSelectedVenues);
+                }
             };
 
 
@@ -737,6 +763,5 @@
                         }
                 ]}
             ];
-
         });
 })();
