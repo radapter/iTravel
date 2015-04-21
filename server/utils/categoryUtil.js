@@ -50,7 +50,10 @@
       return result.reverse();
     };
 
-
+    /**
+     * Get the root category of an existing category
+     * @param {String} id Foursquare UUID of category
+     */
     this.getRootCategory = function(id){
       return this.getCategoryHierarchy(id)[0];
     };
