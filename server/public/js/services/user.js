@@ -51,7 +51,7 @@
 				}
 			}).then(function(res) {
 				if (res.status === 200) {
-					populateData();
+					populateData(res.data);
 					$rootScope.$broadcast('userLoginSuccess', User.currentUser);
 				}
 			});
@@ -86,7 +86,7 @@
 				}
 			}).then(function(res) {
 				if (res.status === 200) {
-					populateData();
+					populateData(res.data);
 					$rootScope.$broadcast('userLoginSuccess', User.currentUser);
 				}
 			});
@@ -98,7 +98,7 @@
 				method: 'POST'
 			}).then(function(res) {
 				if (res.status === 200) {
-					populateData();
+					populateData(res.data);
 
 					// TODO: populate other models
 					$rootScope.$broadcast('userLoginSuccess', User.currentUser);
@@ -108,8 +108,8 @@
 			});
 		}
 
-		function populateData() {
-			User.currentUser = new User(res.data);
+		function populateData(data) {
+			User.currentUser = new User(data);
 
 			// TODO: populate other models
 		}
