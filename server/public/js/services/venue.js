@@ -16,13 +16,13 @@ function VenueFactory($http, $q) {
 
 	// static properties/methods
 	Venue.searchResults = [];
-	Venue.explore = sortedExplore;
+	Venue.explore = sectionedExplore;
 
 
 	/**
 	 * 
 	 */
-	function sortedExplore(params) {
+	function sectionedExplore(params) {
 		angular.extend(params, {limit: 50});
 
 		var promiseHash = {
