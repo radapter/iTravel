@@ -177,3 +177,11 @@ div > .badge {
 {
     font-size: 0.8em;
 }
+
+
+/******************** user profile page **********************/
+.user-panner {
+    margin: 20px;
+    padding: 20px;
+}
+
