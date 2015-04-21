@@ -40,12 +40,12 @@ function VenueFactory($http, $q) {
 
 		return $q.all(promiseHash)
 			.then(function success(resultsHash) {
-				var sortedResults = {};
-				sortedResults.restaurants = _.uniq([].concat(resultsHash.drinks, resultsHash.food), 'id');
-				sortedResults.attractions = _.uniq([].concat(resultsHash.arts, resultsHash.outdoors, resultsHash.sights), 'id');
-				sortedResults.hotels = resultsHash.hotels;
-				Venue.searchResults = sortedResults;
-				return sortedResults;
+				var sectionedresults = {};
+				sectionedresults.restaurants = _.uniq([].concat(resultsHash.drinks, resultsHash.food), 'id');
+				sectionedresults.attractions = _.uniq([].concat(resultsHash.arts, resultsHash.outdoors, resultsHash.sights), 'id');
+				sectionedresults.hotels = resultsHash.hotels;
+				Venue.searchResults = sectionedresults;
+				return sectionedresults;
 			}, function fail() {
 				return $q.reject();
 			});
