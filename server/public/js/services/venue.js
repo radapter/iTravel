@@ -16,14 +16,42 @@ function VenueFactory($http, $q) {
 
 	// static properties/methods
 	Venue.searchResults = [];
-	Venue.explore = explore;
+	Venue.explore = sortedExplore;
 
+
+	/**
+	 * 
+	 */
+	function sortedExplore(params) {
+		angular.extend(params, {limit: 50});
+
+		var promiseHash = {
+			drinks: singleExplore(angular.extend(params, {dining: 'drinks'})),
+			food: singleExplore(angular.extend(params, {dining: 'food'})),
+			arts: singleExplore(angular.extend(params, {attraction: 'arts'})),
+			outdoors: singleExplore(angular.extend(params, {attraction: 'outdoors'})),
+			sights: singleExplore(angular.extend(params, {attraction: 'sights'})),
+			hotels: singleExplore(angular.extend(params, {query: 'Hotel'}))
+		};
+
+		return $q.all(promiseHash)
+			.then(function success(resultsHash) {
+				var sortedResults = {};
+				sortedResults.restaurants = _.uniq([].concat(resultsHash.drinks, resultsHash.food), '_id');
+				sortedResults.attractions = _.uniq([].concat(resultsHash.arts, resultsHash.outdoors, resultsHash.sights), '_id');
+				sortedResults.hotels = resultsHash.hotels;
+
+				return sortedResults;
+			}, function fail() {
+				return $q.reject();
+			});
+	}
 
 	/**
 	 * call the backend foursquare proxy
 	 * @return {promise}
 	 */
-	function explore(params) {
+	function singleExplore(params) {
 		var deferred = $q.defer();
 
 		$http.get('foursquare/explore', {
@@ -38,8 +66,7 @@ function VenueFactory($http, $q) {
 				venueArray = _.map(res.data.items, function(item){
 					return new Venue(item.venue);
 				});
-				Venue.searchResults = venueArray;
-				deferred.resolve(Venue.searchResults);
+				deferred.resolve(Venue.venueArray);
 			}
 		}, function(err) {
 			deferred.reject(err);
