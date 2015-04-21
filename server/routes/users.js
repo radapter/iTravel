@@ -55,8 +55,9 @@ function grantPrivillege(req) {
 function loginHandler(req, res) {
     console.log('login request received. req.body', req.body);
     User.findOne({email: req.body.email, password: req.body.password}, function(err, user) {
-        if (err || !user) {
+        if (err || !user || !user._id) {
             res.sendStatus(400);
+            return;
         }
 
         auth.signInUser(user, req, res, function() {

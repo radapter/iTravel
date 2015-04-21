@@ -50,10 +50,7 @@
 				}
 			}).then(function(res) {
 				if (res.status === 200) {
-					console.log('login res', res);
 					User.currentUser = new User(res.data);
-
-					console.log('User.currentUser', User.currentUser);
 
 					// TODO: populate other models
 					$rootScope.$broadcast('userLoginSuccess', User.currentUser);
@@ -65,10 +62,11 @@
 			/*
 			backend implementation needed
 			 */
-			return $http.get('/logout', {
-				cache: false
+			return $http({
+				url: '/logout', 
+				method: 'POST'
 			}).then(function(res) {
-				if (res.data.success) {
+				if (res.status === 200) {
 					User.currentUser = null;
 
 					$rootScope.$broadcast('userLogout');
@@ -88,11 +86,10 @@
 					password: password
 				}
 			}).then(function(res) {
-				if (res.data.success) {
-					User.currentUser = new User(res.data.user);
+				if (res.status === 200) {
+					User.currentUser = new User(res.data);
 
 					// TODO: populate other models
-
 					$rootScope.$broadcast('userLoginSuccess', User.currentUser);
 				}
 			});
