@@ -8,23 +8,26 @@
 	        $scope.showStatus = ($location.$$path === "/") ? true : false;
 	    });
 
-	    $scope.$on('userLoginSuccess', function() {
-	    	$scope.currentUser = User.currentUser;
-	    });
+	    $scope.$on('userLoginSuccess', userLoginStateHandler);
+
+	    $scope.$on('userLogout', userLoginStateHandler);
 
         $scope.logout = function () {
 
             //logout is not working .........
 
-            //User.logout()
-            //.then(function success() {
-            //    console.log('user logged out successfully');
-            //    $location.url('/');
-            //}, function fail(err) {
-            //    console.log('user logout failed. res:', err);
-            //});
+            User.currentUser.logout()
+            .then(function success() {
+               console.log('user logged out successfully');
+               $location.url('/');
+            }, function fail(err) {
+               console.log('user logout failed. res:', err);
+            });
         };
 
+        function userLoginStateHandler() {
+        	$scope.currentUser = User.currentUser;
+        }
 
 	}]);
 })();

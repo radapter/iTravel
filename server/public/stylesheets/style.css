@@ -94,8 +94,6 @@ body {
   text-align: center;
 }
 
-
-
 .upperhead {
   margin-bottom: 3%;
   border-bottom: 1px solid #34495e;
@@ -142,3 +140,30 @@ body {
 }
 
 .angular-google-map-container { height: 400px; }
+
+
+/************** Select2 styling ******************/
+.input-select {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/******************* Selection sstyling   ******************/
+.filters {
+    margin: 10px 0;
+    padding: 20px;
+}
+
+.venue-img {
+    background-color: #ccc;
+    width: 150px;
+    height: 150px;
+}
+
+.venue-result:hover {
+    background: white;
+}
+
+.selectedVenue {
+    border: 3px solid #1abc9c;
+}

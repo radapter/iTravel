@@ -3,28 +3,37 @@
 <header id="top" class="header">
     <div class="text-vertical-center">
         <br/>
-        <br/>
-        <br/>
-        <h1>iTravel</h1>
-        <h3>Your Personal &amp; Adaptive Travel Companion</h3>
+        <h4>iTravel</h4>
+        <h3>You Pick a place</h3>
+        <h3>We take care of the rest.</h3>
         <br>
 
-        <form class="landing-form">
-            <div class="form-group row">
-                <input type="text" class="form-control input-hg" placeholder="Destination" />
-            </div>
+        <!--ui.select for location-->
+        <p>Selected: {{address.selected.geometry.location}}</p>
+        <ui-select class="input-select"
+                   ng-model="address.selected"
+                   theme="bootstrap"
+                   reset-search-input="false"
+                   style="width: 300px;">
+            <ui-select-match placeholder="Enter an address...">{{$select.selected.formatted_address}}</ui-select-match>
+            <ui-select-choices repeat="address in addresses track by $index"
+                               refresh="refreshAddresses($select.search)"
+                               refresh-delay="0">
+                <div ng-bind-html="address.formatted_address | highlight: $select.search"></div>
+            </ui-select-choices>
+        </ui-select>
+        <br/>
+        <input type="submit" value="{{isSubmitting ? 'saving...' : 'Let\'s GO'}}" class="btn btn-danger btn-hg" ng-click="explore(address.selected)" ng-disabled="isSubmitting">
 
-            <a href="" class="btn btn-hg btn-primary">Explore Nearby</a>
-            <input type="submit" value="Let's Go!" class="btn btn-danger btn-hg"/>
-        </form>
 
-    </div>
+        <!--<a href="" class="btn btn-hg btn-primary">Explore Nearby</a>-->
+        </div>
 </header>
 
 <div class="container">
     <div class="content">
         <h6 class="upperhead">How It Works</h6>
-        <h3 class="panelTitle">Pick a place.</h3>
+        <h3 class="panelTitle">Your Personal &amp; Adaptive Travel Companion</h3>
         <h3 class="panelTitle">We take care of the rest.</h3>
 
         <div class="row">

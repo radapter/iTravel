@@ -1,7 +1,7 @@
 
 'use strict';
 
-angular.module('iTravelApp', ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps']);
+angular.module('iTravelApp', ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps','ngSanitize', 'ui.select']);
 
 /**
  * Configure the Routes
@@ -56,10 +56,9 @@ angular.module('iTravelApp')
 
         //venue pages
         .when("/venues/:id", {
-            templateUrl: "templates/venues/venues-show.html",
+            templateUrl: "templates/venues/venueDetails.html",
             controller: "VenuesShowCtrl"
         })
-
 
         //footer url pages
         .when("/aboutus", {templateUrl: "templates/footerPages/aboutus.html"})
@@ -98,5 +97,9 @@ angular.module('iTravelApp')
         v: '3.17',
         libraries: 'weather,geometry,visualization'
     });
+}])
+.run(['User', function(User) {
+    // detect if there is valid user token upon app start, and load user data if there is one
+    User.restore();
 }]);
 
