@@ -167,3 +167,10 @@ body {
 .selectedVenue {
     border: 3px solid #1abc9c;
 }
+
+
+/******************** user profile page **********************/
+.user-panner {
+    margin: 20px;
+    padding: 20px;
+}
