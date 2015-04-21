@@ -22,20 +22,24 @@
 
             $scope.explore = function(seleceAddress) {
                 console.log(seleceAddress);
-                $scope.isSubmitting = true;
-                var param = {
-                    ll: seleceAddress.geometry.location.lat +"," +seleceAddress.geometry.location.lng
-                };
-                console.log(param);
-                Venue.explore(param)
-                    .then(function success() {
-                        $scope.isSubmitting = false;
-                        console.log(Venue.searchResults);
-                        console.log('get searchedResult successfully');
-                        $location.url('/attractionsSelect');
-                    }, function fail(err) {
-                        console.log('get searchedResult failed. res:', err);
-                    });
+                if(seleceAddress) {
+                    $scope.isSubmitting = true;
+                    var param = {
+                        ll: seleceAddress.geometry.location.lat +"," +seleceAddress.geometry.location.lng
+                    };
+                    console.log(param);
+                    Venue.explore(param)
+                        .then(function success() {
+                            $scope.isSubmitting = false;
+                            console.log(Venue.searchResults);
+                            console.log('get searchedResult successfully');
+                            $location.url('/attractionsSelect');
+                        }, function fail(err) {
+                            console.log('get searchedResult failed. res:', err);
+                        });
+                } else {
+                    alert("Please find a place your want to go....");
+                }
 
             };
         }]);
