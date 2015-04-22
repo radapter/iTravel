@@ -3,76 +3,75 @@
     angular.module("iTravelApp")
         .controller("VenueSelectorCtrl", function ($scope, Venue) {
 
-        $scope.tempSelectedVenues = [];
+            $scope.tempSelectedVenues = [];
 
-        //should we predefine some categories or dynamiclly generate form the results
-        $scope.attractionCategories = [
-            {"cat": "All", "val": true},
-            {"cat": "Scenic", "val": false},
-            {"cat": "Park", "val": false}
-        ];
+            //should we predefine some categories or dynamiclly generate form the results
+            $scope.attractionCategories = [
+                {"cat": "All", "val": true},
+                {"cat": "Scenic", "val": false},
+                {"cat": "Park", "val": false}
+            ];
 
-        $scope.attractionSorts = [
-            {"display": "Rating", "sort": "rating"},
-            {"display": "Distance (m)", "sort": ""},
-            {"display": "Popularity", "sort": "stats.checkinsCount"}
-        ];
+            $scope.attractionSorts = [
+                {"display": "Rating", "sort": "rating"},
+                {"display": "Distance", "sort": "location.distance"},
+                {"display": "Popularity", "sort": "stats.checkinsCount"}
+            ];
 
-        $scope.attractionSortDefault = {value: "rating"};
+            $scope.attractionSortDefault = {value: "rating"};
 
-        /*var orderBy = $filter('orderBy');
-        $scope.order = function(predicate, reverse) {
-            $scope.venues.attractions = orderBy($scope.venues.attractions, predicate, reverse);
-        };
-        $scope.order('-rating',false);
-        //$scope.attractionSorter = $scope.attractionSortDefault.sort;*/
+            $scope.direction = true;
+            $scope.orderProp = "rating";
+            $scope.sorter = function(column) {
+                if ($scope.orderProp === column) {
+                    $scope.direction = !$scope.direction;
+                } else {
+                    $scope.orderProp = column;
+                    $scope.direction = true;
+                }
+                //console.log($scope.orderProp);
+                //console.log($scope.direction);
+            };
 
+            //use this one OR test data
+            //connection to Venue service to get all the venues
+            //console.log(Venue.searchResults);
+            //$scope.venues = Venue.searchResults;
 
-            //console.log($scope.attractionSorter);
-        //console.log($scope.attractionSortDefault);
-        //console.log($scope.categories);
+            //for LATER modified use
+            //$scope.attractionsVenues = Venue.searchResults.attractions;
+            //$scope.restVenues = Venue.searchResults.restVenues;
+            //$scope.hotelVenues = Venue.searchResults.hotelVenues;
 
+            $scope.saveAttractions = function (attractions) {
+                console.log(attractions);
+                $scope.tempSelectedVenues.push(attractions);
+            };
 
-        //use this one OR test data
-        //connection to Venue service to get all the venues
-        //console.log(Venue.searchResults);
-        //$scope.venues = Venue.searchResults;
+            $scope.saveRestaurants = function (restaurants) {
+                console.log(restaurants);
+                $scope.tempSelectedVenues.push(restaurants);
+            };
 
-        //for LATER modified use
-        //$scope.attractionsVenues = Venue.searchResults.attractions;
-        //$scope.restVenues = Venue.searchResults.restVenues;
-        //$scope.hotelVenues = Venue.searchResults.hotelVenues;
+            $scope.saveHotels = function (hotels) {
+                console.log(hotels);
+                $scope.tempSelectedVenues.push(hotels);
+            };
 
-        $scope.saveAttractions = function (attractions) {
-            console.log(attractions);
-            $scope.tempSelectedVenues.push(attractions);
-        };
+            $scope.addVenue = function (attraction) {
+                console.log("clicked");
+                if ($scope.tempSelectedVenues.indexOf(attraction) == -1) {
+                    $scope.saveAttractions(attraction);
+                }
+                else {
+                    var index = $scope.tempSelectedVenues.indexOf(attraction);
+                    $scope.tempSelectedVenues.splice(index, 1);
+                    console.log($scope.tempSelectedVenues);
+                }
+            };
 
-        $scope.saveRestaurants = function (restaurants) {
-            console.log(restaurants);
-            $scope.tempSelectedVenues.push(restaurants);
-        };
+            //test venue data
+            $scope.venues = Venue.searchResults;
 
-        $scope.saveHotels = function (hotels) {
-            console.log(hotels);
-            $scope.tempSelectedVenues.push(hotels);
-        };
-
-        $scope.addVenue = function (attraction) {
-            console.log("clicked");
-            if ($scope.tempSelectedVenues.indexOf(attraction) == -1) {
-                $scope.saveAttractions(attraction);
-            }
-            else {
-                var index = $scope.tempSelectedVenues.indexOf(attraction);
-                $scope.tempSelectedVenues.splice(index, 1);
-                console.log($scope.tempSelectedVenues);
-            }
-        };
-
-
-        //test venue data
-        $scope.venues = Venue.searchResults;
-
-    });
+        });
 })();

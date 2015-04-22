@@ -20,12 +20,12 @@
                     });
             };
 
-            $scope.explore = function(seleceAddress) {
-                console.log(seleceAddress);
-                if(seleceAddress) {
+            $scope.explore = function(selectedAddress) {
+                console.log(selectedAddress);
+                if(selectedAddress) {
                     $scope.isSubmitting = true;
                     var param = {
-                        ll: seleceAddress.geometry.location.lat +"," +seleceAddress.geometry.location.lng
+                        ll: selectedAddress.geometry.location.lat +"," +selectedAddress.geometry.location.lng
                     };
                     console.log(param);
                     Venue.explore(param)
