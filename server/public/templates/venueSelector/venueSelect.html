@@ -25,74 +25,82 @@
                         <div class="btn-group">
                             <label class="btn btn-info" ng-repeat="sort in steps.sortCat"
                                    ng-click="sorter(sort.sort)"
-                                   ng-model="attractionSortDefault.value" btn-radio="sort.sort">
+                                   ng-model="steps.sortDefault" btn-radio="sort.sort">
                                 {{sort.display}}
                                 <i ng-show="orderProp==sort.sort && direction" class="fa fa-sort-desc"></i>
                                 <i ng-show="orderProp==sort.sort && !direction" class="fa fa-sort-asc"></i>
                             </label>
                         </div>
                     </div>
-
                 </div>
 
-                <div class="well venue-result" ng-click="addVenue(attraction);"
-                     ng-repeat="attraction in venues.attractions | filterVenues: filterParams
+                <div class="well venue-result" ng-click="addVenue(venueItem);"
+                     ng-repeat="venueItem in steps.items | filterVenues: filterParams
                         | orderBy: orderProp: direction"
-                     ng-class="{'selectedVenue': (tempSelectedVenues.indexOf(attraction) > -1)}"
-                        ng-show="steps.category=='Attractions'">
+                     ng-class="{'selectedVenue': (tempSelectedVenues.indexOf(venueItem) > -1)}">
                     <div class="row">
                         <div class="col-sm-2 venue-img"><!--venue img here--></div>
                         <div class="col-sm-10">
                             <div class="h5">
                                 <div class="row">
-                                    <div class="col-sm-10">
-                                        <a ng-href="#/venues/{{attraction.id}}">
-                                            {{attraction.name}}
+                                    <div class="col-sm-8">
+                                        <a ng-href="#/venues/{{venueItem.id}}">
+                                            {{venueItem.name}}
                                         </a>
                                     </div>
-                                    <div class="col-sm-1">
-                                <span style="color:#{{attraction.ratingColor}};">
-                                    {{attraction.rating}}
-                                </span>
+                                    <div class="col-sm-2">
+                                        <span ng-show="venueItem.price.tier==1">$</span>
+                                        <span ng-show="venueItem.price.tier==2">$$</span>
+                                        <span ng-show="venueItem.price.tier==3">$$$</span>
+                                        <span ng-show="venueItem.price.tier==4">$$$$</span>
                                     </div>
                                     <div class="col-sm-1">
-                                <span class="badge">
-                                    <span class="glyphicon glyphicon-gift" aria-hidden="true"></span>
-                                    &nbsp;{{attraction.specials.count}}
-                                </span>
+                                        <span style="color:#{{venueItem.ratingColor}};">
+                                            {{venueItem.rating}}
+                                        </span>
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <span class="badge" ng-show="venueItem.specials.count">
+                                            <span class="glyphicon glyphicon-gift" aria-hidden="true"></span>
+                                            &nbsp;{{venueItem.specials.count}}
+                                        </span>
                                     </div>
                                 </div>
 
                             </div>
                             <div class="p">
-                                <div class="row" ng-show="attraction.location.address">
+                                <div class="row" ng-show="venueItem.location.address">
                                     <div class="col-sm-12">
                                         <i class="fa fa-map-marker"></i>
-                                        <a ng-href="http://maps.google.com/?q={{attraction.location.address}}, {{attraction.location.city}}, {{attraction.location.state}},{{attraction.location.postalCode}}"
+                                        <a ng-href="http://maps.google.com/?q={{venueItem.location.address}}, {{venueItem.location.city}}, {{venueItem.location.state}},{{venueItem.location.postalCode}}"
                                            target="_blank">
-                                            {{attraction.location.address}}, {{attraction.location.city}},
-                                            {{attraction.location.state}} {{attraction.location.postalCode}}
+                                            {{venueItem.location.address}}, {{venueItem.location.city}},
+                                            {{venueItem.location.state}} {{venueItem.location.postalCode}}
                                         </a>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-5" ng-show="attraction.contact.formattedPhone">
-                                        <i class="fa fa-phone-square"></i>
-                                        <a ng-href="tel:{{attraction.contact.phone}}">
-                                            {{attraction.contact.formattedPhone}}
+                                    <div class="col-sm-5">
+                                        <i class="fa fa-phone-square" ng-show="venueItem.contact.formattedPhone"></i>
+                                        <a ng-href="tel:{{venueItem.contact.phone}}"
+                                           ng-show="venueItem.contact.formattedPhone">
+                                            {{venueItem.contact.formattedPhone}}
                                         </a>
                                     </div>
-                                    <div class="col-sm-3" ng-show="attraction.url">
-                                        <i class="fa fa-link"></i>
-                                        <a ng-href="{{attraction.url}}" target="_blank">Website</a>
+                                    <div class="col-sm-3">
+                                        <i class="fa fa-link" ng-show="venueItem.url"></i>
+                                        <a ng-show="venueItem.url"
+                                           ng-href="{{venueItem.url}}" target="_blank">Website</a>
                                     </div>
-                                    <div class="col-sm-2" ng-show="attraction.stats.checkinsCount">
-                                        <i class="fa fa-foursquare"></i>
-                                        {{attraction.stats.checkinsCount}}
+                                    <div class="col-sm-2">
+                                        <i class="fa fa-foursquare" ng-show="venueItem.stats.checkinsCount"></i>
+                                        {{venueItem.stats.checkinsCount}}
                                     </div>
-                                    <div class="col-sm-2" ng-show="attraction.location.distance">
-                                        <i class="fa fa-car"></i>
-                                        {{attraction.location.distance*0.000621371 | number:0}} mi
+                                    <div class="col-sm-2">
+                                        <i class="fa fa-car" ng-show="venueItem.location.distance"></i>
+                                        <span ng-show="venueItem.location.distance">
+                                            {{venueItem.location.distance*0.000621371 | number:0}} mi
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -100,36 +108,10 @@
                     </div>
                 </div>
 
-                <div class="well venue-result"
-                     ng-repeat="restaurant in venues.restaurants | filterVenues: filterParams
-                        | orderBy: orderProp: direction"
-                     ng-show="steps.category=='Restaurants'">
-                    <h5 class="margin-top-zero">
-                        <a ng-href="#/venues/{{restaurant.id}}">
-                            {{restaurant.name}}
-                        </a>
-                    </h5>
-                    <h5>{{restaurant.location.address}}, {{restaurant.location.city}},
-                        {{restaurant.location.state}} {{restaurant.location.postalCode}}</h5>
-                    <h5>{{restaurant.contact.formattedPhone}}</h5>
-                </div>
-
-                <div class="well"
-                     ng-repeat="hotel in venues.hotels | filterVenues: filterParams
-                        | orderBy: orderProp: direction"
-                        ng-show="steps.category=='Hotels'">
-                    <h5 class="margin-top-zero">
-                        <a ng-href="#/venues/{{hotel.id}}">
-                            {{hotel.name}}
-                        </a>
-                    </h5>
-                    <h5>{{hotel.location.address}}, {{hotel.location.city}},
-                        {{hotel.location.state}} {{hotel.location.postalCode}}</h5>
-                    <h5>{{hotel.contact.formattedPhone}}</h5>
-                </div>
-
-                <div class="well" ng-show="venues.length==0">
-                    <p>No results. Please input a location or try again <a href="#/">here</a></p>
+                <div class="well" ng-show="steps.items.length==0 || venues.length==0">
+                    <p class="text-center">No results.<br>
+                        <span class="h4"><a href="#/">Go Back &amp; Try Again</a></span>
+                    </p>
                 </div>
             </tab>
         </tabset>

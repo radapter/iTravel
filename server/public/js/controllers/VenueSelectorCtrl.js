@@ -41,7 +41,9 @@
             ];
 
             //For all venues
-            $scope.venueSortDefault = {value: "rating"};
+            $scope.attractionSortDefault = {value: "rating"};
+            $scope.restaurantSortDefault = {value: "rating"};
+            $scope.hotelSortDefault = {value: "rating"};
 
             $scope.venueCategories = [
                 {
@@ -49,21 +51,24 @@
                     "percentage": 33,
                     "filterCat": $scope.attractionCategories,
                     "sortCat": $scope.attractionAndHotelSorts,
-                    "sortDefault": $scope.venueSortDefault
+                    "sortDefault": $scope.attractionSortDefault.value,
+                    "items": $scope.venues.attractions
                 },
                 {
                     "category": "Restaurants",
                     "percentage": 66,
                     "filterCat": $scope.restaurantCategories,
                     "sortCat": $scope.restaurantSorts,
-                    "sortDefault": $scope.venueSortDefault
+                    "sortDefault": $scope.restaurantSortDefault.value,
+                    "items": $scope.venues.restaurants
                 },
                 {
                     "category": "Hotels",
                     "percentage": 100,
                     "filterCat": null,
                     "sortCat": $scope.attractionAndHotelSorts,
-                    "sortDefault": $scope.venueSortDefault
+                    "sortDefault": $scope.hotelSortDefault.value,
+                    "items": $scope.venues.hotels
                 }
             ];
 
