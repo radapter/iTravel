@@ -3,9 +3,8 @@
 <header id="top" class="header">
     <div class="text-vertical-center">
         <br/>
-        <h4>iTravel</h4>
-        <h3>You Pick a place</h3>
-        <h3>We take care of the rest.</h3>
+        <h2>iTravel</h2>
+        <h3>Pick a place. We do the rest.</h3>
         <br>
 
         <!--ui.select for location-->
@@ -23,7 +22,8 @@
             </ui-select-choices>
         </ui-select>
         <br/>
-        <input type="submit" value="{{isSubmitting ? 'saving...' : 'Let\'s GO'}}" class="btn btn-danger btn-hg" ng-click="explore(address.selected)" ng-disabled="isSubmitting">
+        <input type="submit" value="{{isSubmitting ? 'Saving...' : 'GO'}}"
+               class="btn btn-danger btn-hg" ng-click="explore(address.selected)" ng-disabled="isSubmitting">
 
 
         <!--<a href="" class="btn btn-hg btn-primary">Explore Nearby</a>-->
@@ -33,8 +33,7 @@
 <div class="container">
     <div class="content">
         <h6 class="upperhead">How It Works</h6>
-        <h3 class="panelTitle">Your Personal &amp; Adaptive Travel Companion</h3>
-        <h3 class="panelTitle">We take care of the rest.</h3>
+        <h3 class="panelTitle">iTravel: <br>Your Personal &amp; Adaptive Travel Companion</h3>
 
         <div class="row">
             <div class="col-sm-4">
@@ -67,11 +66,32 @@
     </div>
 </div>
 
-<div class="container">
-    <div class="jumbotron">
-        <h1>Pricing</h1>
-        <br/>
-        <br/>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="text-center">Pricing</h1>
+        <div class="row">
+            <div class="col-sm-6 well">
+                <h4>Free Tier</h4>
+                <ul>
+                    <li>Save up to 10 travel plans</li>
+                    <li>Plan unlimited travel plans</li>
+                    <li>Routing support</li>
+                    <li>Real-time push notifications and plan recalculation</li>
+                    <li>Customization filters</li>
+                </ul>
+            </div>
+            <div class="col-sm-6 well">
+                <h4>Paid Tier</h4>
+                <p>In addition to the free tier features: </p>
+                <ul>
+                    <li>Save an unlimited number of travel plans</li>
+                    <li>Share travel plans via Facebook</li>
+                    <li>Advanced customization features</li>
+                </ul>
+            </div>
+        </div>
+
     </div>
 </div>
 
