@@ -2,23 +2,70 @@
     'use strict';
     angular.module("iTravelApp")
         .controller("VenueSelectorCtrl", function ($scope, Venue) {
+            //test venue data
+            $scope.venues = Venue.searchResults;
 
             $scope.tempSelectedVenues = [];
 
             //should we predefine some categories or dynamiclly generate form the results
+
+
+            //For attractions
             $scope.attractionCategories = [
                 {"cat": "All", "val": true},
                 {"cat": "Scenic", "val": false},
-                {"cat": "Park", "val": false}
+                {"cat": "Park", "val": false},
+                {"cat": "Indoor", "val": false}
             ];
 
-            $scope.attractionSorts = [
+            $scope.attractionAndHotelSorts = [
                 {"display": "Rating", "sort": "rating"},
                 {"display": "Distance", "sort": "location.distance"},
                 {"display": "Popularity", "sort": "stats.checkinsCount"}
             ];
 
-            $scope.attractionSortDefault = {value: "rating"};
+            //For restaurants
+            $scope.restaurantCategories = [
+                {"cat": "All", "val": true},
+                {"cat": "Asian", "val": false},
+                {"cat": "American", "val": false},
+                {"cat": "Indian", "val": false},
+                {"cat": "Italian", "val": false}
+            ];
+
+            $scope.restaurantSorts = [
+                {"display": "Rating", "sort": "rating"},
+                {"display": "Price", "sort": "price.tier"},
+                {"display": "Distance", "sort": "location.distance"},
+                {"display": "Popularity", "sort": "stats.checkinsCount"}
+            ];
+
+            //For all venues
+            $scope.venueSortDefault = {value: "rating"};
+
+            $scope.venueCategories = [
+                {
+                    "category": "Attractions",
+                    "percentage": 33,
+                    "filterCat": $scope.attractionCategories,
+                    "sortCat": $scope.attractionAndHotelSorts,
+                    "sortDefault": $scope.venueSortDefault
+                },
+                {
+                    "category": "Restaurants",
+                    "percentage": 66,
+                    "filterCat": $scope.restaurantCategories,
+                    "sortCat": $scope.restaurantSorts,
+                    "sortDefault": $scope.venueSortDefault
+                },
+                {
+                    "category": "Hotels",
+                    "percentage": 100,
+                    "filterCat": null,
+                    "sortCat": $scope.attractionAndHotelSorts,
+                    "sortDefault": $scope.venueSortDefault
+                }
+            ];
 
             $scope.direction = true;
             $scope.orderProp = "rating";
@@ -69,9 +116,6 @@
                     console.log($scope.tempSelectedVenues);
                 }
             };
-
-            //test venue data
-            $scope.venues = Venue.searchResults;
 
         });
 })();

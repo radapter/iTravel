@@ -1,0 +1,137 @@
+<div class="jumbotron">
+    <div class="container-fluid">
+        <tabset justified="true">
+            <tab ng-repeat="steps in venueCategories" heading="{{steps.category}}">
+                <h2 class="text-center">{{steps.category}}</h2>
+
+                <div class="row filters bg-primary">
+                    <div class="col-sm-{{steps.filterCat.length}}" ng-hide="steps.category=='Hotels'">
+                        <label>Filter By Category</label><br>
+                        <div class="btn-group">
+                            <label class="btn btn-info" ng-repeat="category in steps.filterCat"
+                                   ng-model="category.val" btn-checkbox checked="category.val">
+                                {{category.cat}}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-sm-{{12-steps.filterCat.length-steps.sortCat.length-1}}">
+                        <label>Filter By Name</label><br>
+                        <input class="form-control" type="text" name="name" placeholder="Venue Name"
+                               ng-model="filterParams.name"/>
+                    </div>
+
+                    <div class="col-sm-{{steps.sortCat.length+1}}">
+                        <label>Sort By</label><br>
+                        <div class="btn-group">
+                            <label class="btn btn-info" ng-repeat="sort in steps.sortCat"
+                                   ng-click="sorter(sort.sort)"
+                                   ng-model="attractionSortDefault.value" btn-radio="sort.sort">
+                                {{sort.display}}
+                                <i ng-show="orderProp==sort.sort && direction" class="fa fa-sort-desc"></i>
+                                <i ng-show="orderProp==sort.sort && !direction" class="fa fa-sort-asc"></i>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="well venue-result" ng-click="addVenue(attraction);"
+                     ng-repeat="attraction in venues.attractions | filterVenues: filterParams
+                        | orderBy: orderProp: direction"
+                     ng-class="{'selectedVenue': (tempSelectedVenues.indexOf(attraction) > -1)}"
+                        ng-show="steps.category=='Attractions'">
+                    <div class="row">
+                        <div class="col-sm-2 venue-img"><!--venue img here--></div>
+                        <div class="col-sm-10">
+                            <div class="h5">
+                                <div class="row">
+                                    <div class="col-sm-10">
+                                        <a ng-href="#/venues/{{attraction.id}}">
+                                            {{attraction.name}}
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-1">
+                                <span style="color:#{{attraction.ratingColor}};">
+                                    {{attraction.rating}}
+                                </span>
+                                    </div>
+                                    <div class="col-sm-1">
+                                <span class="badge">
+                                    <span class="glyphicon glyphicon-gift" aria-hidden="true"></span>
+                                    &nbsp;{{attraction.specials.count}}
+                                </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="p">
+                                <div class="row" ng-show="attraction.location.address">
+                                    <div class="col-sm-12">
+                                        <i class="fa fa-map-marker"></i>
+                                        <a ng-href="http://maps.google.com/?q={{attraction.location.address}}, {{attraction.location.city}}, {{attraction.location.state}},{{attraction.location.postalCode}}"
+                                           target="_blank">
+                                            {{attraction.location.address}}, {{attraction.location.city}},
+                                            {{attraction.location.state}} {{attraction.location.postalCode}}
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-5" ng-show="attraction.contact.formattedPhone">
+                                        <i class="fa fa-phone-square"></i>
+                                        <a ng-href="tel:{{attraction.contact.phone}}">
+                                            {{attraction.contact.formattedPhone}}
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-3" ng-show="attraction.url">
+                                        <i class="fa fa-link"></i>
+                                        <a ng-href="{{attraction.url}}" target="_blank">Website</a>
+                                    </div>
+                                    <div class="col-sm-2" ng-show="attraction.stats.checkinsCount">
+                                        <i class="fa fa-foursquare"></i>
+                                        {{attraction.stats.checkinsCount}}
+                                    </div>
+                                    <div class="col-sm-2" ng-show="attraction.location.distance">
+                                        <i class="fa fa-car"></i>
+                                        {{attraction.location.distance*0.000621371 | number:0}} mi
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="well venue-result"
+                     ng-repeat="restaurant in venues.restaurants | filterVenues: filterParams
+                        | orderBy: orderProp: direction"
+                     ng-show="steps.category=='Restaurants'">
+                    <h5 class="margin-top-zero">
+                        <a ng-href="#/venues/{{restaurant.id}}">
+                            {{restaurant.name}}
+                        </a>
+                    </h5>
+                    <h5>{{restaurant.location.address}}, {{restaurant.location.city}},
+                        {{restaurant.location.state}} {{restaurant.location.postalCode}}</h5>
+                    <h5>{{restaurant.contact.formattedPhone}}</h5>
+                </div>
+
+                <div class="well"
+                     ng-repeat="hotel in venues.hotels | filterVenues: filterParams
+                        | orderBy: orderProp: direction"
+                        ng-show="steps.category=='Hotels'">
+                    <h5 class="margin-top-zero">
+                        <a ng-href="#/venues/{{hotel.id}}">
+                            {{hotel.name}}
+                        </a>
+                    </h5>
+                    <h5>{{hotel.location.address}}, {{hotel.location.city}},
+                        {{hotel.location.state}} {{hotel.location.postalCode}}</h5>
+                    <h5>{{hotel.contact.formattedPhone}}</h5>
+                </div>
+
+                <div class="well" ng-show="venues.length==0">
+                    <p>No results. Please input a location or try again <a href="#/">here</a></p>
+                </div>
+            </tab>
+        </tabset>
+    </div>
+</div>

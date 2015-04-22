@@ -33,12 +33,12 @@
                             $scope.isSubmitting = false;
                             console.log(Venue.searchResults);
                             console.log('get searchedResult successfully');
-                            $location.url('/attractionsSelect');
+                            $location.url('/venueSelect');
                         }, function fail(err) {
                             console.log('get searchedResult failed. res:', err);
                         });
                 } else {
-                    alert("Please find a place your want to go....");
+                    alert("Please choose a place you want to go to...");
                 }
 
             };

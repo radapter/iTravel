@@ -41,6 +41,10 @@ angular.module('iTravelApp')
         //})
 
         //venue selection pages
+        .when("/venueSelect", {
+            templateUrl: "templates/venueSelector/venueSelect.html",
+            controller: "VenueSelectorCtrl"
+        })
         .when("/attractionsSelect", {
             templateUrl: "templates/venueSelector/attractionsSelect.html",
             controller: "VenueSelectorCtrl"
