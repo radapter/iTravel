@@ -49,8 +49,8 @@
     "gulp-rename": "^1.2.2",
     "streamqueue": "^0.1.3"
   },
-  "script": {
-    "start": "node ./bin/www",
+  "scripts": {
+    "start": "node bin/www",
     "postinstall": "gulp prod:build"
   }
 }
