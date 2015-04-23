@@ -11,8 +11,10 @@
             //retrieve user
             User.restore()
                 .then(function () {
-                    console.log($scope.user);
+
                     $scope.user = User.currentUser;
+                    console.log($scope.user);
+
                     $scope.planCount = $scope.user.plans.length;
                     $scope.activityCount = countActivities($scope.user);
                     $scope.destinationCount = countDestinations($scope.user);
