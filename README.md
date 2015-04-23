@@ -130,6 +130,19 @@ DELETE http://localhost/api/v1/Venues/:id
 
 Please refer the [components and color swatches] (http://designmodo.github.io/Flat-UI/docs/components.html) when you design pages. 
 
+# Deployment (With Heroku)
+First make sure you have Heroku account set up.
+
+1. link app in app folder
+```
+git remote add heroku git@heroku.com:radapter-itravel.git
+```
+
+2. subfolder push
+```
+git subtree push --prefix server heroku master
+```
+
 # IMPORTANT NOTES
 - Never commit any confidential credentials (for example, AWS username/password, DB connection username/password) be it in the documentation or IN THE CODE. 
 - GitHub is public and people scan for these confidential credentials to abuse them. Someone I knew committed his AWS confidentials as part of the API call code to GitHub and got a bill for hundreds of dollars from AWS within a month. 
