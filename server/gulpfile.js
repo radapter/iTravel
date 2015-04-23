@@ -6,6 +6,7 @@ var bower          = require('gulp-bower');
 var autoprefixer   = require('gulp-autoprefixer');
 var minifycss      = require('gulp-minify-css');
 var concat         = require('gulp-concat');
+var rename         = require('gulp-rename');
 var uglify         = require('gulp-uglify');
 var inject         = require('gulp-inject');
 var rimraf         = require('gulp-rimraf');
@@ -13,9 +14,12 @@ var plumber        = require('gulp-plumber');
 var nodemon        = require('gulp-nodemon');
 var livereload     = require('gulp-livereload');
 var runSequence    = require('run-sequence');
+var ngAnnotate     = require('gulp-ng-annotate');
+var gulpFilter     = require('gulp-filter');
 
 var path           = require('path');
 var series         = require('stream-series');
+var streamqueue    = require('streamqueue');
 var mainBowerFiles = require('main-bower-files');
 
 // Configuration
@@ -134,6 +138,56 @@ gulp.task('dev:scripts', function() {
 		.pipe(gulp.dest(config.paths.build.root));
 });
 
+gulp.task('prod:build', function(next) {
+	runSequence('clean',['copy', 'bower'], 'prod:styles', 'prod:scripts', 'prod:inject', next);
+});
+
+gulp.task('prod:inject', function() {
+		var assetsStream, injectPointStream;
+
+		gutil.log('prod:inject start...');
+
+		assetsStream = gulp.src([
+				config.paths.build.js + '/**/*.js',
+				config.paths.build.styles + '/**/*.css'
+				], {read: false});
+		injectPointStream = gulp.src(config.paths.injectionPoints, {base: './views'});
+		// inject dependencies(jquery, angular) and other assets to injection points
+		// and copy them to build dir, overwriting original files if needed 
+		return injectPointStream.pipe(inject(assetsStream, 
+			{ignorePath: '/build/public', addRootSlash: false}))
+			.pipe(gulp.dest(config.paths.build.views));
+});
+
+gulp.task('prod:styles', function() {
+	// add vendor prefixes and replace the original file
+	return streamqueue({ objectMode: true },
+			gulp.src(mainBowerFiles({paths: {bowerDirectory: config.paths.build.vendor}}))
+			.pipe(gulpFilter('**/*.css')),
+			gulp.src(config.paths.source.styles + '/**/*.css')
+				.pipe(autoprefixer({
+					browsers: ['last 3 versions'],
+					cascade: false
+				}))
+		)
+	    .pipe(concat('style.min.css'))
+		.pipe(minifycss())
+	    .pipe(gulp.dest(config.paths.build.styles));
+});
+
+gulp.task('prod:scripts', function() {
+	return streamqueue({ objectMode: true },
+			gulp.src(mainBowerFiles({paths: {bowerDirectory: config.paths.build.vendor}}))
+			.pipe(gulpFilter(['**/*.js', '!**/*.min.js'])),
+			gulp.src(config.paths.source.js + '/**/*.js')
+				.pipe(ngAnnotate())
+		)
+		.pipe(concat('script.min.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest(config.paths.build.js));
+});
+
+
 // copy images, fonts, templates, and partials to build dir
 gulp.task('copy', function () {
 	return gulp.src(
@@ -150,6 +204,7 @@ gulp.task('copy', function () {
 
 // clean build folder
 gulp.task('clean', function() {
+	// gutil.log('cwd:', __dirname+'/build/public');
 	gutil.log('Clean up build folder...');
 	return gulp.src(config.paths.build.root).pipe(rimraf());
 });

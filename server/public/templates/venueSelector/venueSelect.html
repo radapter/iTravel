@@ -34,6 +34,17 @@
                     </div>
                 </div>
 
+                <div class="well selected-venues" ng-show="tempSelectedVenues.length">
+                    <div class="h5">
+                        You selected:
+                    </div>
+                    <div class="p">
+                        <ul>
+                           <li ng-repeat="item in tempSelectedVenues">{{item.name}}</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="well venue-result" ng-click="addVenue(venueItem);"
                      ng-repeat="venueItem in steps.items | filterVenues: filterParams
                         | orderBy: orderProp: direction"
@@ -48,16 +59,17 @@
                                             {{venueItem.name}}
                                         </a>
                                     </div>
-                                    <div class="col-sm-2">
+                                    <div class="col-sm-2" style="margin-right: 0;">
+                                        <span style="color:#{{venueItem.ratingColor}};" ng-show="venueItem.rating!=-1">
+                                            <i class="fa fa-star-o"></i>
+                                            {{venueItem.rating}}
+                                        </span>
+                                    </div>
+                                    <div class="col-sm-1">
                                         <span ng-show="venueItem.price.tier==1">$</span>
                                         <span ng-show="venueItem.price.tier==2">$$</span>
                                         <span ng-show="venueItem.price.tier==3">$$$</span>
                                         <span ng-show="venueItem.price.tier==4">$$$$</span>
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <span style="color:#{{venueItem.ratingColor}};" ng-show="venueItem.rating!=-1">
-                                            {{venueItem.rating}}
-                                        </span>
                                     </div>
                                     <div class="col-sm-1">
                                         <span class="badge" ng-show="venueItem.specials.count">
@@ -66,7 +78,6 @@
                                         </span>
                                     </div>
                                 </div>
-
                             </div>
                             <div class="p">
                                 <div class="row" ng-show="venueItem.location.address">
