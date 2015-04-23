@@ -111,7 +111,7 @@
             };
 
             $scope.addVenue = function (attraction) {
-                console.log("clicked");
+                //console.log("clicked");
                 if ($scope.tempSelectedVenues.indexOf(attraction) == -1) {
                     $scope.saveAttractions(attraction);
                 }
