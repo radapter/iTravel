@@ -5,7 +5,7 @@
                 <h2 class="text-center">{{steps.category}}</h2>
 
                 <div class="row filters bg-primary">
-                    <div class="col-sm-{{steps.filterCat.length}}" ng-hide="steps.category=='Hotels'">
+                    <div class="col-sm-{{steps.filterCat.length || 0}}" ng-hide="steps.category=='Hotels'">
                         <label>Filter By Category</label><br>
                         <div class="btn-group">
                             <label class="btn btn-info" ng-repeat="category in steps.filterCat"
@@ -55,7 +55,7 @@
                                         <span ng-show="venueItem.price.tier==4">$$$$</span>
                                     </div>
                                     <div class="col-sm-1">
-                                        <span style="color:#{{venueItem.ratingColor}};">
+                                        <span style="color:#{{venueItem.ratingColor}};" ng-show="venueItem.rating!=-1">
                                             {{venueItem.rating}}
                                         </span>
                                     </div>
@@ -94,7 +94,7 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <i class="fa fa-foursquare" ng-show="venueItem.stats.checkinsCount"></i>
-                                        {{venueItem.stats.checkinsCount}}
+                                        {{venueItem.stats.checkinsCount | number:0}}
                                     </div>
                                     <div class="col-sm-2">
                                         <i class="fa fa-car" ng-show="venueItem.location.distance"></i>
