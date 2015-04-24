@@ -8,7 +8,7 @@ html {
 body {
     /*padding-top: 60px;*/
     /* Margin bottom by footer height */
-    margin-bottom: 350px;
+    margin-bottom: 150px;
 }
 .footer {
     position: absolute;
@@ -148,7 +148,7 @@ body {
     margin-right: auto;
 }
 
-/******************* Selection sstyling   ******************/
+/******************* Selection styling   ******************/
 .filters {
     margin: 10px 0;
     padding: 20px;
@@ -158,6 +158,12 @@ body {
     background-color: #ccc;
     width: 150px;
     height: 150px;
+}
+
+.venue-map {
+    background-color: #ccc;
+    width: 300px;
+    height: 160px;
 }
 
 .venue-result:hover {
@@ -173,12 +179,38 @@ div > .badge {
     height: 30px;
 }
 
-.badge
-{
+.badge {
     font-size: 0.8em;
 }
 
+.label{
+    margin-right: 1%;
+}
 
+.venue-photos .venue-img {
+    margin: 1%;
+    border: 1px solid black;
+    float: left;
+}
+
+div.well > div.row{
+    margin: 1% 0;
+}
+
+blockquote{
+    margin-bottom: 5px;
+}
+
+div.tips-user{
+    width: 80px;
+    height: 80px;
+    background: #ccc;
+}
+
+div.well.well-dash{
+    font-size: larger;
+    font-weight: bold;
+}
 /******************** user profile page **********************/
 .user-panner {
     margin: 20px;
