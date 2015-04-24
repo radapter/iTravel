@@ -96,7 +96,7 @@
 			var deferred = $q.defer();
 
 			if (User.currentUser) {
-				return $q.resolve(User.currentUser);
+				return $q.when(User.currentUser);
 			}
 
 			$http({
