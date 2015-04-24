@@ -93,7 +93,13 @@
 		}
 
 		function restore() {
-			return $http({
+			var deferred = $q.defer();
+
+			if (User.currentUser) {
+				return $q.when(User.currentUser);
+			}
+
+			$http({
 				url: '/restore',
 				method: 'POST'
 			}).then(function(res) {
@@ -102,10 +108,14 @@
 
 					// TODO: populate other models
 					$rootScope.$broadcast('userLoginSuccess', User.currentUser);
+					deferred.resolve(User.currentUser);
 				}
 			}, function() {
 				console.log('no user can be restored, fail block called');
+				deferred.reject('error');
 			});
+
+			return deferred.promise;
 		}
 
 		function populateData(data) {
