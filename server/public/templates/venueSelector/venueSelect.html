@@ -1,7 +1,7 @@
 <div class="jumbotron">
     <div class="container-fluid">
         <tabset justified="true">
-            <tab ng-repeat="steps in venueCategories" heading="{{steps.category}}">
+            <tab ng-repeat="steps in venueCategories" heading="{{venueCategories.indexOf(steps)+1}}. {{steps.category}}">
                 <h2 class="text-center">{{steps.category}}</h2>
 
                 <div class="row filters bg-primary">
@@ -34,21 +34,33 @@
                     </div>
                 </div>
 
-                <div class="well selected-venues" ng-show="tempSelectedVenues.length">
-                    <div class="h5">
-                        You selected:
-                    </div>
+                <div class="well selected-venues" ng-show="tempSelectedVenues.attractions.length ||
+                                                           tempSelectedVenues.restaurants.length ||
+                                                           tempSelectedVenues.hotels.length">
+
+                    <button class="btn btn-info pull-right" ng-show="tempSelectedVenues.attractions.length ||
+                                                          tempSelectedVenues.restaurants.length ||
+                                                          tempSelectedVenues.hotels.length">
+                        Done &amp; Preview Plan
+                    </button>
+                    <h5>Your Selections</h5>
+
                     <div class="p">
-                        <ul>
-                           <li ng-repeat="item in tempSelectedVenues">{{item.name}}</li>
+                        <ul ng-repeat="listType in tempSelectedVenues">
+                            <li ng-repeat="item in listType">{{item.name}}</li>
                         </ul>
                     </div>
+
+                    <button class="btn btn-default pull-right" ng-show="collapse" ng-click="collapse=!collapse">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                    <button class="btn btn-default pull-right" ng-show="!collapse" ng-click="collapse=!collapse">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
                 </div>
 
-                <div class="well venue-result" ng-click="addVenue(venueItem);"
+                <div class="well venue-result" ng-click="addVenue(venueItem,steps.list);"
                      ng-repeat="venueItem in steps.items | filterVenues: filterParams
                         | orderBy: orderProp: direction"
-                     ng-class="{'selectedVenue': (tempSelectedVenues.indexOf(venueItem) > -1)}">
+                     ng-class="{'selectedVenue': (tempSelectedVenues[steps.list].indexOf(venueItem) > -1)}">
                     <div class="row">
                         <div class="col-sm-2 venue-img"><!--venue img here--></div>
                         <div class="col-sm-10">
@@ -119,7 +131,7 @@
                     </div>
                 </div>
 
-                <div class="well" ng-show="steps.items.length==0 || venues.length==0">
+                <div class="well" ng-hide="steps.items || venues.length">
                     <p class="text-center">No results.<br>
                         <span class="h4"><a href="#/">Go Back &amp; Try Again</a></span>
                     </p>

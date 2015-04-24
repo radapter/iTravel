@@ -5,7 +5,11 @@
             //test venue data
             $scope.venues = Venue.searchResults;
 
-            $scope.tempSelectedVenues = [];
+            $scope.tempSelectedVenues = {
+                "attractions": [],
+                "restaurants": [],
+                "hotels": []
+            };
 
             //should we predefine some categories or dynamiclly generate form the results
 
@@ -47,6 +51,7 @@
             $scope.venueCategories = [
                 {
                     "category": "Attractions",
+                    "list": "attractions",
                     "percentage": 33,
                     "filterCat": $scope.attractionCategories,
                     "sortCat": $scope.attractionAndHotelSorts,
@@ -55,6 +60,7 @@
                 },
                 {
                     "category": "Restaurants",
+                    "list": "restaurants",
                     "percentage": 66,
                     "filterCat": $scope.restaurantCategories,
                     "sortCat": $scope.restaurantSorts,
@@ -63,6 +69,7 @@
                 },
                 {
                     "category": "Hotels",
+                    "list": "hotels",
                     "percentage": 100,
                     "filterCat": null,
                     "sortCat": $scope.attractionAndHotelSorts,
@@ -85,29 +92,41 @@
             };
 
 
-            $scope.saveAttractions = function (attractions) {
-                console.log(attractions);
-                $scope.tempSelectedVenues.push(attractions);
+            $scope.saveAttractions = function (attraction) {
+                console.log(attraction);
+                $scope.tempSelectedVenues.attractions.push(attraction);
             };
 
-            $scope.saveRestaurants = function (restaurants) {
-                console.log(restaurants);
-                $scope.tempSelectedVenues.push(restaurants);
+            $scope.saveRestaurants = function (restaurant) {
+                console.log(restaurant);
+                $scope.tempSelectedVenues.restaurants.push(restaurant);
             };
 
-            $scope.saveHotels = function (hotels) {
-                console.log(hotels);
-                $scope.tempSelectedVenues.push(hotels);
+            $scope.saveHotels = function (hotel) {
+                console.log(hotel);
+                $scope.tempSelectedVenues.hotels.push(hotel);
             };
 
-            $scope.addVenue = function (attraction) {
+            $scope.addVenue = function (venue, l) {
                 //console.log("clicked");
-                if ($scope.tempSelectedVenues.indexOf(attraction) == -1) {
-                    $scope.saveAttractions(attraction);
+                //var l = list.toLowerCase();
+                console.log("list is " + l);
+                console.log($scope.tempSelectedVenues[l]);
+                if ($scope.tempSelectedVenues[l].indexOf(venue) == -1) {
+                    if(l == "attractions"){
+                        $scope.saveAttractions(venue);
+                    }
+                    else if (l == "restaurants"){
+                        $scope.saveRestaurants(venue);
+                    }
+                    else if (l == "hotels"){
+                        $scope.saveHotels(venue);
+                    }
+                    console.log($scope.tempSelectedVenues);
                 }
                 else {
-                    var index = $scope.tempSelectedVenues.indexOf(attraction);
-                    $scope.tempSelectedVenues.splice(index, 1);
+                    var index = $scope.tempSelectedVenues[l].indexOf(venue);
+                    $scope.tempSelectedVenues[l].splice(index, 1);
                     console.log($scope.tempSelectedVenues);
                 }
             };

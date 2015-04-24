@@ -211,6 +211,20 @@ div.well.well-dash{
     font-size: larger;
     font-weight: bold;
 }
+
+div.selected-venues{
+    width: 40%;
+    position: fixed;
+    z-index: 50;
+    max-height: 40%;
+    overflow: auto;
+    border: 1px solid #bdc3c7;
+    font-size: smaller;
+    right: 1%;
+    background: #1abc9c;
+    color: white;
+}
+
 /******************** user profile page **********************/
 .user-panner {
     margin: 20px;
