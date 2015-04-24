@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular.module("iTravelApp")
-        .controller("VenueSelectorCtrl", ['$scope', 'Venue', 'Plan', 'Activity', function ($scope, Venue, Plan, Activity) {
+        .controller("VenueSelectorCtrl", ['$scope', 'Venue', 'Plan', 'Activity', '$location',function ($scope, Venue, Plan, Activity, $location) {
             $scope.destination = Plan.tempPlan;
             //console.log($scope.destination);
             $scope.venues = Venue.searchResults;
@@ -135,15 +135,32 @@
             //TO wrap each venue in tempSelectedVenues to activity, then push to plan
             $scope.saveActivities = function () {
 
-                //*********TO BE DONE after $scope.tempSelectedVenues format finish!!!!!!!
+                console.log($scope.tempSelectedVenues);
 
                 //iterate through $scope.tempSelectedVenues
                 //for each veune
                 //ref activity : venue, activitiesType, start, end
+                saveActivityArray($scope.tempSelectedVenues.attractions, "attractions");
+                saveActivityArray($scope.tempSelectedVenues.restaurants, "restaurants");
+                saveActivityArray($scope.tempSelectedVenues.hotels, "hotels");
+                console.log(Plan.tempPlan.activities);
 
-                //var newActivity = Activity.create(venue, activitiesType);
-                //Plan.tempPlan.activities.push(newActivity);
+                //relocate to schedule page
+
+            };
+
+            function saveActivityArray(venues, activitiesType){
+                if(venues){
+                    for(var i = 0; i < venues.length; i++) {
+                        var newActivity = Activity.create(venues[i], activitiesType);
+                        Plan.tempPlan.activities.push(newActivity);
+                    }
+                }
             }
 
         }]);
+
+
+
+
 })();
