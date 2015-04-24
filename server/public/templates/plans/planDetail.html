@@ -1,1 +1,35 @@
-plan detail
+<div class="container-fliud">
+
+    <div class="jumbotron user-panner">
+        <h4>Plan: {{plan.destName}}</h4>
+        <h4>{{plan.startDate}}</h4>
+        <h4>{{plan.endDate}}</h4>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>Activities:</h4>
+                <div class="well" ng-repeat="activity in plan.activities">
+                    <h5>{{activity.activitiesType}}</h5>
+                    <!--<h4>{{activity.start}}</h4>-->
+                    <!--<h4>{{activity.end}}</h4>-->
+                    <h4><a ng-href="#/venues/{{activity.venue.id}}">{{activity.venue.name}}</a></h4>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <!--google map show route-->
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+</div>

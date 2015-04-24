@@ -4,20 +4,17 @@
     angular.module('iTravelApp')
         .controller('UserShowCtrl', ['$scope', '$location', 'User', function($scope, $location, User) {
 
-            $scope.planCount = 0;
-            $scope.destinationCount = 0;
-            $scope.activityCount = 0;
-
             //retrieve user
             User.restore()
                 .then(function () {
+                    if(User.currentUser) {
+                        $scope.user = User.currentUser;
+                        console.log($scope.user);
 
-                    $scope.user = User.currentUser;
-                    console.log($scope.user);
-
-                    $scope.planCount = $scope.user.plans.length;
-                    $scope.activityCount = countActivities($scope.user);
-                    $scope.destinationCount = countDestinations($scope.user);
+                        $scope.planCount = $scope.user.plans.length;
+                        $scope.activityCount = countActivities($scope.user);
+                        $scope.destinationCount = countDestinations($scope.user);
+                    }
                 });
 
         }]);
@@ -31,7 +28,6 @@
         return activityCount;
     }
 
-
     function countDestinations(user) {
         if(!user) return 0;
         var destinations = [];
@@ -42,6 +38,5 @@
         }
         return destinations.length;
     }
-
-
+    
 })();
