@@ -1,9 +1,9 @@
 'use strict';
 
-ActivityFactory.$inject = ['$http', '$q', 'Resource', 'Plan'];
+ActivityFactory.$inject = ['$http', '$q', 'Plan'];
 angular.module('iTravelApp').factory('Activity', ActivityFactory);
 
-function ActivityFactory($http, $q, Resource, Plan) {
+function ActivityFactory($http, $q, Plan) {
 	
 	// constructor
 	function Activity(config) {
@@ -11,7 +11,7 @@ function ActivityFactory($http, $q, Resource, Plan) {
 	}
 
 	// instance properties/methods
-	Activity.prototype = Object.create(Resource.prototype);
+	//Activity.prototype = Object.create(Resource.prototype);
 
 	// static properties/methods
 	Activity.create = create;
@@ -31,13 +31,13 @@ function ActivityFactory($http, $q, Resource, Plan) {
 			venue: venue,
 			startTime: startTime,
 			category: category,
-			duration: duration
+			duration: duration//end
 		});
 
-		newActivity.save();
-		if (plan && plan instanceof Plan) {
-			plan.addActivities(newActivity);
-		}
+		//newActivity.save();
+		//if (plan && plan instanceof Plan) {
+		//	plan.addActivities(newActivity);
+		//}
 
 		return newActivity;
 	}
