@@ -53,8 +53,8 @@ var userSchema = mongoose.Schema({
                 }],
                 url: String
             },
-            startTime: String, //store time as string????
-            duration: Number,
+            start: Date,
+            end: Date,
             activitiesType: String
         }]
     }]

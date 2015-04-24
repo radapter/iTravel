@@ -22,10 +22,14 @@
 
             $scope.explore = function(selectedAddress) {
                 console.log(selectedAddress);
+                var destName = selectedAddress.formatted_address;
+                var destlat = selectedAddress.geometry.location.lat;
+                var destLng = selectedAddress.geometry.location.lng;
+
                 if(selectedAddress) {
                     $scope.isSubmitting = true;
                     var param = {
-                        ll: selectedAddress.geometry.location.lat +"," +selectedAddress.geometry.location.lng
+                        ll: destlat +"," + destLng
                     };
                     console.log(param);
                     Venue.explore(param)
@@ -35,8 +39,9 @@
                             console.log('get searchedResult successfully');
 
                             //create plan
-                            //destName, destLat, destLng, startDate, endDate
-                            //Plan.create(selectedAddress);
+                            //attrs: destName, destLat, destLng, startDate, endDate
+                            Plan.create(destName, destlat, destLng);
+                            console.log(Plan.tempPlan);
 
                             $location.url('/venueSelect');
                         }, function fail(err) {

@@ -19,19 +19,19 @@ function ActivityFactory($http, $q, Plan) {
 
 	/**
 	 * Create a new activity; add to plan if specified
-	 * @param  {[type]} venue     [description]
-	 * @param  {[type]} startTime [description]
-	 * @param  {[type]} category  [description]
-	 * @param  {[type]} duration  [description]
-	 * @return {[type]}           [description]
+	 * @param  {[type]} venue            [description]
+	 * @param  {[type]} start            [description]
+	 * @param  {[type]} end              [description]
+	 * @param  {[type]} activitiesType   [description]
+	 * @return {[type]}                  [description]
 	 */
-	function create(venue, startTime, category, duration, plan) {
+	function create(venue, activitiesType, start, end) {
 
 		var newActivity = new Activity({
 			venue: venue,
-			startTime: startTime,
-			category: category,
-			duration: duration//end
+            activitiesType: activitiesType,
+			start: start,
+			end: end
 		});
 
 		//newActivity.save();
