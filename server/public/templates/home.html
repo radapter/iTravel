@@ -8,7 +8,7 @@
             <br/>
             <h2>iTravel</h2>
             <div data-sr="enter top"><h3>Pick a place.</h3></div>
-            <div data-sr="enter bottom"><h3>We do the rest.</h3></div>
+            <div data-sr="enter bottom"><h3>The world is your oyster.</h3></div>
             <br>
 
             <!--ui.select for location-->
@@ -18,7 +18,7 @@
                        theme="bootstrap"
                        reset-search-input="false"
                        style="width: 300px;">
-                <ui-select-match placeholder="Enter an address...">{{$select.selected.formatted_address}}</ui-select-match>
+                <ui-select-match placeholder="Enter Destinatin">{{$select.selected.formatted_address}}</ui-select-match>
                 <ui-select-choices repeat="address in addresses track by $index"
                                    refresh="refreshAddresses($select.search)"
                                    refresh-delay="0">
@@ -26,7 +26,7 @@
                 </ui-select-choices>
             </ui-select>
             <br/>
-            <input type="submit" value="{{isSubmitting ? 'Saving...' : 'GO'}}"
+            <input type="submit" value="{{isSubmitting ? 'Searching...' : 'GO'}}"
                    class="btn btn-danger btn-hg" ng-click="explore(address.selected)" ng-disabled="isSubmitting">
 
 
@@ -43,8 +43,8 @@
                 <div class="col-sm-4">
                     <div class="step">
                         <img class="pannelIcon" src="../img/flat-icons/Clipboard.png" height="100" alt=""/>
-                        <h5>Destination</h5>
-                        <p>Simply choose a destination or use your current location to find nearby
+                        <h5>Pick Destination</h5>
+                        <p>Simply choose destination or use your current location to find nearby
                             spots and pick a date to travel.</p>
                     </div>
                 </div>
@@ -52,16 +52,14 @@
                     <div class="step">
                         <img class="pannelIcon" src="../img/flat-icons/Map.png" height="100" alt=""/>
                         <h5>Personalize</h5>
-                        <p>With iTravel, you can pick and choose where you want to go, and when
-                            you want to go. We build your itinerary based on your interests.</p>
+                        <p>Pick and choose the venues you want to visit. We build your itinerary based on your interests.</p>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="step">
                         <img class="pannelIcon" src="../img/flat-icons/Compas.png" height="100" alt="pannelIcon" />
-                        <h5>Track &amp; Adapt</h5>
-                        <p>iTravel tracks you on the go and provides adaptive changes to your plan due to
-                            delays or spontaneity.</p>
+                        <h5>Travel Adaptively</h5>
+                        <p>Hit the road and we track you on the go and adapt your plan due to delays or spontaneity.</p>
                     </div>
                 </div>
 
