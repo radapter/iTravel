@@ -59,10 +59,11 @@
                                                            tempSelectedVenues.restaurants.length ||
                                                            tempSelectedVenues.hotels.length">
 
-                    <button class="btn btn-info pull-right" ng-show="tempSelectedVenues.attractions.length ||
+                    <button class="btn btn-warning pull-right" ng-show="tempSelectedVenues.attractions.length ||
                                                           tempSelectedVenues.restaurants.length ||
-                                                          tempSelectedVenues.hotels.length">
-                        Done &amp; Preview Plan
+                                                          tempSelectedVenues.hotels.length"
+                            ng-click="saveActivities()">
+                        Done &amp; Schedule Plan
                     </button>
                     <h5>Your Selections</h5>
 
