@@ -22,11 +22,12 @@
 
             $scope.explore = function(selectedAddress) {
                 console.log(selectedAddress);
-                var destName = selectedAddress.formatted_address;
-                var destlat = selectedAddress.geometry.location.lat;
-                var destLng = selectedAddress.geometry.location.lng;
 
                 if(selectedAddress) {
+
+                    var destName = selectedAddress.formatted_address;
+                    var destlat = selectedAddress.geometry.location.lat;
+                    var destLng = selectedAddress.geometry.location.lng;
                     $scope.isSubmitting = true;
                     var param = {
                         ll: destlat +"," + destLng
@@ -48,7 +49,7 @@
                             console.log('get searchedResult failed. res:', err);
                         });
                 } else {
-                    alert("Please choose a place you want to go to...");
+                    alert("Please choose a place you want to go...");
                 }
 
             };
