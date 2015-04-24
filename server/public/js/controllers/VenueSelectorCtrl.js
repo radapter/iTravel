@@ -1,14 +1,13 @@
 (function() {
     'use strict';
     angular.module("iTravelApp")
-        .controller("VenueSelectorCtrl", function ($scope, Venue) {
+        .controller("VenueSelectorCtrl", ['$scope', 'Venue', 'Plan', 'Activity', function ($scope, Venue, Plan, Activity) {
             //test venue data
             $scope.venues = Venue.searchResults;
 
             $scope.tempSelectedVenues = [];
 
             //should we predefine some categories or dynamiclly generate form the results
-
 
             //For attractions
             $scope.attractionCategories = [
@@ -85,15 +84,6 @@
                 //console.log($scope.direction);
             };
 
-            //use this one OR test data
-            //connection to Venue service to get all the venues
-            //console.log(Venue.searchResults);
-            //$scope.venues = Venue.searchResults;
-
-            //for LATER modified use
-            //$scope.attractionsVenues = Venue.searchResults.attractions;
-            //$scope.restVenues = Venue.searchResults.restVenues;
-            //$scope.hotelVenues = Venue.searchResults.hotelVenues;
 
             $scope.saveAttractions = function (attractions) {
                 console.log(attractions);
@@ -122,5 +112,18 @@
                 }
             };
 
-        });
+            //TO wrap each venue in tempSelectedVenues to activity, then push to plan
+            $scope.saveActivities = function () {
+
+                //*********TO BE DONE after $scope.tempSelectedVenues format finish!!!!!!!
+
+                //iterate through $scope.tempSelectedVenues
+                //for each veune
+                //ref activity : venue, activitiesType, start, end
+
+                //var newActivity = Activity.create(venue, activitiesType);
+                //Plan.tempPlan.activities.push(newActivity);
+            }
+
+        }]);
 })();
