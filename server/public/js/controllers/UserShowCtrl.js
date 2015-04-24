@@ -12,18 +12,13 @@
             User.restore()
                 .then(function () {
 
+                    $scope.user = User.currentUser;
                     console.log($scope.user);
 
-                    $scope.user = User.currentUser;
                     $scope.planCount = $scope.user.plans.length;
                     $scope.activityCount = countActivities($scope.user);
                     $scope.destinationCount = countDestinations($scope.user);
-
-
                 });
-
-
-
 
         }]);
 

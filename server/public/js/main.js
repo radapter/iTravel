@@ -64,6 +64,12 @@ angular.module('iTravelApp')
             controller: "VenuesShowCtrl"
         })
 
+        //plan page
+        .when("/plans/:id", {
+            templateUrl: "templates/plans/planDetail.html",
+            controller: "PlansShowCtrl"
+        })
+
         //footer url pages
         .when("/aboutus", {templateUrl: "templates/footerPages/aboutus.html"})
         .when("/contact", {templateUrl: "templates/footerPages/contact.html"})

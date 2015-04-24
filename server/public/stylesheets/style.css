@@ -53,7 +53,7 @@ body {
   display: table;
   position: relative;
   width: 100%;
-  height: 900px;
+  height: 640px;
   background: url(../img/landing/sky.jpg) no-repeat center center scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
