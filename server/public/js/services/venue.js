@@ -15,7 +15,8 @@ function VenueFactory($http, $q) {
 	};
 
 	// static properties/methods
-	Venue.searchResults = [];
+	Venue.searchResults = {};
+	Venue.categoryDict = {};
 	Venue.explore = sectionedExplore;
 
 
@@ -34,17 +35,21 @@ function VenueFactory($http, $q) {
 			hotels: singleExplore(copyAndExtend(params, {query: 'Hotel'}))
 		};
 
-		function copyAndExtend(src, ext) {
-			return angular.extend(angular.copy(src), ext);
-		}
+
 
 		return $q.all(promiseHash)
 			.then(function success(resultsHash) {
 				var sectionedresults = {};
+
 				sectionedresults.restaurants = _.uniq([].concat(resultsHash.drinks, resultsHash.food), 'id');
 				sectionedresults.attractions = _.uniq([].concat(resultsHash.arts, resultsHash.outdoors, resultsHash.sights), 'id');
 				sectionedresults.hotels = resultsHash.hotels;
+				
 				Venue.searchResults = sectionedresults;
+				Venue.categoryDict = getCategoryDict(sectionedresults);
+
+				// console.log('Venue.categoryDict', Venue.categoryDict);
+				
 				return sectionedresults;
 			}, function fail() {
 				return $q.reject();
@@ -67,8 +72,8 @@ function VenueFactory($http, $q) {
 			if(res.status > 399) {
 				deferred.reject(res.meta.message);
 			} else {
-				venueArray = _.map(res.data.items, function(item){
-					return new Venue(item.venue);
+				venueArray = _.map(res.data, function(venue){
+					return new Venue(venue);
 				});
 				deferred.resolve(venueArray);
 			}
@@ -77,6 +82,35 @@ function VenueFactory($http, $q) {
 		});
 
 		return deferred.promise;
+	}
+
+	function getCategoryDict(searchResults) {
+		var allVenues, categoryDict = {};
+
+		allVenues = [].concat(searchResults.restaurants, searchResults.attractions, searchResults.hotels);
+		_.each(searchResults, function(venues, section){
+			var categoryMap=[];
+
+			_.each(venues, function(venue) {
+				_.each(venue.categories, function(catetory, idx) {
+					var matched = _.findWhere(categoryMap, {name: catetory.name});
+					if (matched) {
+						matched.count++;
+					} else {
+						categoryMap.push({name: catetory.name, count: 1, level: idx});
+					}
+				});
+			});
+
+			categoryDict[section] = _.sortBy(categoryMap, 'count');
+
+		});
+
+		return categoryDict;
+	}
+
+	function copyAndExtend(src, ext) {
+		return angular.extend(angular.copy(src), ext);
 	}
 
 	return Venue;

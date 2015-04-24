@@ -1,9 +1,9 @@
 'use strict';
 
-PlanFactory.$inject = ['$http', '$q' ,'Resource'];
+PlanFactory.$inject = ['$http', '$q'];
 angular.module('iTravelApp').factory('Plan', PlanFactory);
 
-function PlanFactory($http, $q, Resource) {
+function PlanFactory($http, $q) {
 	
 	// constructor
 	function Plan(config) {
@@ -11,12 +11,12 @@ function PlanFactory($http, $q, Resource) {
 	}
 
 	// instance properties/methods
-	Plan.prototype = Object.create(Resource.prototype);
+	//Plan.prototype = Object.create(Resource.prototype);
 	Plan.prototype.getLlStr = getLlStr;
 	Plan.prototype.addActivity = addActivity;
 
 	// static properties/methods
-	Plan.userPlans = [];
+	Plan.tempPlan = {};
 	Plan.create = create;
 
 	function getLlStr() {
@@ -34,28 +34,27 @@ function PlanFactory($http, $q, Resource) {
 
 	/**
 	 * Create a new Plan and sync it to backend
-	 * @param  {number} userId    
-	 * @param  {string} destAddr  Destination address, from geocoding
+	 * @param  {string} destName  Destination address, from geocoding
 	 * @param  {number} destLat   Destination address, from geocoding
 	 * @param  {number} destLng   Destination address, from geocoding
 	 * @param  {date} startDate   Plan start date
 	 * @param  {date} endDate     Plan end date
 	 * @return {Plan}             The Plan just been created
 	 */
-	function create(userId, destAddr, destLat, destLng, startDate, endDate) {
+	function create(destName, destLat, destLng, startDate, endDate) {
 
 		var newPlan = new Plan({
-			destAddr: destAddr,
+			destAddr: destName,
 			destLat: destLat,
 			destLng: destLng,
 			startDate: startDate,
 			endDate: endDate,
 			activities: [],
-			active: true,
+			active: true
 		});
 
-		newPlan.save();
-		Plan.userPlans.push(newPlan);
+		//newPlan.save();
+		Plan.tempPlan = newPlan;
 
 		return newPlan;
 	}
