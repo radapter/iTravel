@@ -1,35 +1,56 @@
 <div class="jumbotron">
     <div class="container-fluid">
+        <div class="well">
+            <a href="#/" class="btn btn-info pull-right" role="button">Change?</a>
+            <h3>Destination: <u><a href="http://maps.google.com/?q={{destination.destAddr}}" target="_blank">
+                {{destination.destAddr}}</a></u>
+            </h3>
+        </div>
+
         <tabset justified="true">
-            <tab ng-repeat="steps in venueCategories" heading="{{venueCategories.indexOf(steps)+1}}. {{steps.category}}">
-                <h2 class="text-center">{{steps.category}}</h2>
+            <tab ng-repeat="steps in venueCategories"
+                 heading="{{venueCategories.indexOf(steps)+1}}. Select {{steps.category}}">
+                <h4 class="text-center">{{steps.category}}</h4>
 
-                <div class="row filters bg-primary">
-                    <div class="col-sm-{{steps.filterCat.length || 0}}" ng-hide="steps.category=='Hotels'">
-                        <label>Filter By Category</label><br>
-                        <div class="btn-group">
-                            <label class="btn btn-info" ng-repeat="category in steps.filterCat"
-                                   ng-model="category.val" btn-checkbox checked="category.val">
-                                {{category.cat}}
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-sm-{{12-steps.filterCat.length-steps.sortCat.length-1}}">
-                        <label>Filter By Name</label><br>
-                        <input class="form-control" type="text" name="name" placeholder="Venue Name"
-                               ng-model="filterParams.name"/>
-                    </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel panel-default filters">
+                            <div class="panel-heading text-center" ng-click="hide=!hide">
+                                Filters &nbsp;
+                                <i class="fa fa-plus-circle" ng-show="hide"></i>
+                                <i class="fa fa-minus-circle" ng-show="!hide"></i>
+                            </div>
+                            <div class="panel-body" ng-show="!hide">
+                                <div class="row">
+                                    <div class="col-md-{{steps.filterCat.length || 0}}" ng-hide="steps.category=='Hotels'">
+                                        <label>Filter By Category</label><br>
+                                        <div class="btn-group">
+                                            <label class="btn btn-info" ng-repeat="category in steps.filterCat"
+                                                   ng-model="category.val" btn-checkbox checked="category.val">
+                                                {{category.cat}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-{{12-steps.filterCat.length-steps.sortCat.length-1}}">
+                                        <label>Filter By Name</label><br>
+                                        <input class="form-control" type="text" name="name" placeholder="Venue Name"
+                                               ng-model="filterParams.name"/>
+                                    </div>
 
-                    <div class="col-sm-{{steps.sortCat.length+1}}">
-                        <label>Sort By</label><br>
-                        <div class="btn-group">
-                            <label class="btn btn-info" ng-repeat="sort in steps.sortCat"
-                                   ng-click="sorter(sort.sort)"
-                                   ng-model="steps.sortDefault" btn-radio="sort.sort">
-                                {{sort.display}}
-                                <i ng-show="orderProp==sort.sort && direction" class="fa fa-sort-desc"></i>
-                                <i ng-show="orderProp==sort.sort && !direction" class="fa fa-sort-asc"></i>
-                            </label>
+                                    <div class="col-md-{{steps.sortCat.length+1}}">
+                                        <label>Sort By</label><br>
+                                        <div class="btn-group">
+                                            <label class="btn btn-info" ng-repeat="sort in steps.sortCat"
+                                                   ng-click="sorter(sort.sort)"
+                                                   ng-model="steps.sortDefault" btn-radio="sort.sort">
+                                                {{sort.display}}
+                                                <i ng-show="orderProp==sort.sort && direction" class="fa fa-sort-desc"></i>
+                                                <i ng-show="orderProp==sort.sort && !direction" class="fa fa-sort-asc"></i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

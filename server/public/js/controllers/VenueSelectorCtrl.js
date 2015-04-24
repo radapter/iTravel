@@ -2,7 +2,8 @@
     'use strict';
     angular.module("iTravelApp")
         .controller("VenueSelectorCtrl", ['$scope', 'Venue', 'Plan', 'Activity', function ($scope, Venue, Plan, Activity) {
-            //test venue data
+            $scope.destination = Plan.tempPlan;
+            //console.log($scope.destination);
             $scope.venues = Venue.searchResults;
 
             $scope.tempSelectedVenues = {
