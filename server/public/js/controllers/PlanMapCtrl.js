@@ -38,7 +38,7 @@
                         //}
 
                         loc["id"]= i;
-                        loc["showWindow"] = true; //show window for default
+                        loc["showWindow"] = false; //hide window for default
                         $scope.markerList.push(loc);
 
                         //console.log("lat_min:" + lat_min + ", lat_max:" + lat_max +"; lng_min:" +lng_min + ", lng_max" + lng_max);
