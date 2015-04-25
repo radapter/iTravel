@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular.module("iTravelApp")
-        .controller("VenueSelectorCtrl", ['$scope', 'Venue', 'Plan', 'Activity', '$location',function ($scope, Venue, Plan, Activity, $location) {
+        .controller("VenueSelectorCtrl", ['$scope', 'Venue', 'Plan', 'Activity', '$location', 'User', function ($scope, Venue, Plan, Activity, $location, User) {
             $scope.destination = Plan.tempPlan;
             //console.log($scope.destination);
             $scope.venues = Venue.searchResults;
@@ -157,6 +157,29 @@
                     }
                 }
             }
+
+            //test save plan to user
+            $scope.savePlan = function () {
+                $scope.saveActivities();
+
+
+                //retrieve user
+                User.restore()
+                    .then(function () {
+                        if(User.currentUser) {
+                            console.log(Plan.tempPlan);
+
+                            User.currentUser.plans.push(Plan.tempPlan);
+                            User.currentUser.save()
+                                .then(function (res) {
+                                    console.log(res);
+                                });
+
+                        }
+                    });
+
+            }
+
 
         }]);
 

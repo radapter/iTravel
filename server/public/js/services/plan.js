@@ -44,7 +44,7 @@ function PlanFactory($http, $q) {
 	function create(destName, destLat, destLng, startDate, endDate) {
 
 		var newPlan = new Plan({
-			destAddr: destName,
+			destName: destName,
 			destLat: destLat,
 			destLng: destLng,
 			startDate: startDate,
