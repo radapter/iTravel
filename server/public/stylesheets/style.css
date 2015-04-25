@@ -122,6 +122,15 @@ body {
   /*text-align:left;*/
 }
 
+.friend {
+    background: #f3f3f3 url(../img/landing/map.gif) center no-repeat;
+    -webkit-background-size: 150%;
+    -moz-background-size: 150%;
+    background-size: 150%;
+    padding: 7em 0;
+    height: 500px;
+
+}
 
 /******************* Login styling   **********************/
 /*override login-field-icon*/
