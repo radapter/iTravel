@@ -148,16 +148,41 @@ body {
     margin-right: auto;
 }
 
-/******************* Selection styling   ******************/
-.panel.panel-default {
-
-}
-
-.panel.panel-default > .panel-heading{
-    background: #bdc3c7;
+/*********** Panel Override styling   ************/
+.panel.panel-inverse{
+    background: #34495e;
     color: white;
 }
 
+.panel.panel-warning{
+    background: #f1c40f;
+    color: white;
+}
+
+.panel.panel-success {
+    background: #2ecc71;
+    color: white;
+}
+
+.panel.panel-bd-success{
+    border: 2px solid #2ecc71;
+}
+
+.panel.panel-info, .label.label-info{
+    background: #3498db;
+    color: white;
+}
+
+.panel.panel-primary {
+    border: 1px solid #1abc9c;
+}
+
+.panel.panel-primary > .panel-heading{
+    background: #1abc9c;
+    border-color: #1abc9c;
+    color: white;
+}
+/******************* Selection styling   ******************/
 .venue-img {
     background-color: #ccc;
     width: 150px;
@@ -170,8 +195,17 @@ body {
     height: 150px;
 }
 
+.venue-result {
+    border: 1px solid #1abc9c;
+}
+
 .venue-result:hover {
-    background: white;
+    background: #1abc9c;
+    color: white;
+}
+
+.venue-result:hover *, .venue-result:hover span.venue-rating{
+    color: white !important;
 }
 
 .selectedVenue {
@@ -191,9 +225,12 @@ div > .badge {
     margin-right: 1%;
 }
 
+.venue-label{
+    font-size: 1em;
+}
+
 .venue-photos .venue-img {
     margin: 1%;
-    border: 1px solid black;
     float: left;
 }
 
@@ -217,16 +254,23 @@ div.well.well-dash{
 }
 
 div.selected-venues{
-    width: 40%;
+    top: 15%;
+    width: 35%;
     position: fixed;
     z-index: 50;
     max-height: 40%;
     overflow: auto;
-    border: 1px solid #bdc3c7;
+    border: 1px solid #34495e;
     font-size: smaller;
     right: 1%;
-    background: #1abc9c;
+    background: #34495e;
     color: white;
+}
+
+.tab-content{
+    background: white;
+    border: 1px solid #ccc;
+    padding: 1%;
 }
 
 /******************** user profile page **********************/
