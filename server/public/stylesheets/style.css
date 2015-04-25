@@ -53,12 +53,16 @@ body {
   display: table;
   position: relative;
   width: 100%;
-  height: 640px;
+  height: 685px;
   background: url(../img/landing/sky.jpg) no-repeat center center scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
+}
+
+div.landing > div {
+    height: 685px;
 }
 
 .text-vertical-center {
@@ -106,7 +110,8 @@ body {
 }
 .panelTitle,
 .panelIcon {
-  margin: 30px;
+    margin-bottom: 10%;
+  /*margin: 30px;*/
 }
 
 .panelTitle {
@@ -131,6 +136,23 @@ body {
     height: 500px;
 
 }
+
+div.bg-inverse{
+    background: #34495e;
+    color: white;
+}
+
+div.bg-info{
+    background: #3498DB;
+    color: white;
+}
+
+div.bg-primary{
+    background: #48C9B0;
+    color: white;
+}
+
+>>>>>>> Update Content and CSS of Home Page
 
 /******************* Login styling   **********************/
 /*override login-field-icon*/
