@@ -32,12 +32,12 @@
                     var param = {
                         ll: destlat +"," + destLng
                     };
-                    console.log(param);
+                    //console.log(param);
                     Venue.explore(param)
                         .then(function success() {
                             $scope.isSubmitting = false;
-                            console.log(Venue.searchResults);
-                            console.log('get searchedResult successfully');
+                            //console.log(Venue.searchResults);
+                            //console.log('get searchedResult successfully');
 
                             //create plan
                             //attrs: destName, destLat, destLng, startDate, endDate

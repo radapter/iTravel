@@ -9,7 +9,7 @@
 
             $rootScope.$on('planLoaded', function () {
                     $scope.thisPlan = $scope.$parent.plan;
-                    console.log($scope.thisPlan);
+                    //console.log($scope.thisPlan);
 
                     //define markers and markerList for the map
                     $scope.markerList = [];
@@ -45,7 +45,7 @@
                     }
 
                     $scope.center = $scope.markerList[0];
-                    console.log($scope.markerList);
+                    //console.log($scope.markerList);
 
 
                     var onMarkerClicked = function (marker) {
@@ -104,7 +104,7 @@
             // uiGmapGoogleMapApi is a promise.
             // The "then" callback function provides the google.maps object.
             uiGmapGoogleMapApi.then(function(maps) {
-                console.log(maps);
+                //console.log(maps);
             });
         }]);
 })();

@@ -173,6 +173,9 @@
                             User.currentUser.save()
                                 .then(function (res) {
                                     console.log(res);
+
+                                    alert("save plan succefully");
+                                    $location.url('/users/'+User.currentUser._id);
                                 });
 
                         }
