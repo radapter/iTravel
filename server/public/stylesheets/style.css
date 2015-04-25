@@ -283,3 +283,17 @@ div.selected-venues{
 .planMap {
     height: 100%
 }
+
+
+/**************  tech page styling *****************/
+div.tech > div {
+    margin-bottom: 5%;
+}
+
+div.stack .row{
+    height: 65px;
+}
+
+div.data div{
+    height: 150px;
+}
