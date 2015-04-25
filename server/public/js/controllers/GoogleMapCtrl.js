@@ -7,7 +7,19 @@
             // Note: Some of the directives require at least something to be defined originally!
             // e.g. $scope.markers = []
 
-            $scope.map = { center: { latitude: 37.3483411, longitude: -121.9160468}, zoom: 8 };
+            $scope.map = {
+                center: { latitude: 37.3483411, longitude: -121.9160468},
+                options:{
+                    //disableDefaultUI: true,
+                    scrollwheel: false,
+                    //scaleControl: false,
+                    //panControl: false,
+                    //navigationControl: false,
+                    //draggable: false,
+                    mapTypeControl: true
+                },
+                zoom: 14
+            };
             $scope.marker = {
                 id: 0,
                 coords: {

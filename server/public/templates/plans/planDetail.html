@@ -7,9 +7,9 @@
     </div>
 
     <div class="container">
+        <h4>Activities:</h4>
         <div class="row">
             <div class="col-sm-6">
-                <h4>Activities:</h4>
                 <div class="well" ng-repeat="activity in plan.activities">
                     <h5>{{activity.activitiesType}}</h5>
                     <!--<h4>{{activity.start}}</h4>-->
@@ -19,6 +19,32 @@
             </div>
             <div class="col-sm-6">
                 <!--google map show route-->
+                <div id="map_canvas" ng-controller="PlanMapCtrl">
+                    <ui-gmap-google-map class="planMap" center="map.center" zoom="map.zoom"
+                                        options="map.options" bounds="map.bounds">
+
+                        <ui-gmap-markers models="markerList" coords="'self'"
+                                         icon="'icon'" click="'onClicked'"
+                                         options="'options'" fit="'true'" doCluster="false">
+                            <ui-gmap-windows
+                                    closeclick="'closeClick'"
+                                    ng-cloak=""
+                                    show="'showWindow'"
+                                    options="{
+                                        disableAutoPan: true
+                                    }">
+                                <div ng-non-bindable>
+                                    {{$index}}
+                                    {{message}}
+                                </div>
+                            </ui-gmap-windows>
+                        </ui-gmap-markers>
+
+                        <ui-gmap-polyline path="markerList" stroke="{color: '#ff6262', weight: 5}"></ui-gmap-polyline>
+
+                    </ui-gmap-google-map>
+
+                </div>
 
 
             </div>

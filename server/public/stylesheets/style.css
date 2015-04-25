@@ -139,7 +139,7 @@ body {
   margin: 2% auto;
 }
 
-.angular-google-map-container { height: 400px; }
+.angular-google-map-container { height: 600px; }
 
 
 /************** Select2 styling ******************/
@@ -235,3 +235,7 @@ div.selected-venues{
     padding: 20px;
 }
 
+/**************  google map styling *****************/
+.planMap {
+    height: 100%
+}
