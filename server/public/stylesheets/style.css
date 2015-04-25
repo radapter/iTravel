@@ -152,7 +152,39 @@ div.bg-primary{
     color: white;
 }
 
->>>>>>> Update Content and CSS of Home Page
+div.bg-success{
+    background: #2ecc71;
+    color: white;
+}
+
+div.landing div.content .row{
+    margin: 5% 0;
+}
+
+.icon-text {
+    vertical-align: middle;
+}
+
+.home-heading{
+    margin-bottom: 20px;
+}
+
+@media(min-width: 450px) and (max-width: 790px){
+    .how-it-works h5{
+        font-size: smaller;
+    }
+}
+
+@media(max-width: 790px){
+    .how-it-works img{
+        height: 80px;
+    }
+
+    .how-it-works p{
+        font-size: smaller;
+    }
+}
+
 
 /******************* Login styling   **********************/
 /*override login-field-icon*/
