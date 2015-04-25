@@ -2,21 +2,19 @@
     <div class="container-fluid">
         <div class="well">
             <a href="#/" class="btn btn-info pull-right" role="button">Change?</a>
-            <h3>Destination: <u><a href="http://maps.google.com/?q={{destination.destAddr}}" target="_blank">
-                {{destination.destAddr}}</a></u>
-            </h3>
+            <h4>Destination: <a href="http://maps.google.com/?q={{destination.destAddr}}" target="_blank">
+                {{destination.destAddr}}</a>
+            </h4>
         </div>
 
         <tabset justified="true">
             <tab ng-repeat="steps in venueCategories"
                  heading="{{venueCategories.indexOf(steps)+1}}. Select {{steps.category}}">
-                <h4 class="text-center">{{steps.category}}</h4>
-
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="panel panel-default filters">
+                        <div class="panel panel-primary filters">
                             <div class="panel-heading text-center" ng-click="hide=!hide">
-                                Filters &nbsp;
+                                {{steps.category}} Filters &nbsp;
                                 <i class="fa fa-plus-circle" ng-show="hide"></i>
                                 <i class="fa fa-minus-circle" ng-show="!hide"></i>
                             </div>
@@ -58,19 +56,21 @@
                 <div class="well selected-venues" ng-show="tempSelectedVenues.attractions.length ||
                                                            tempSelectedVenues.restaurants.length ||
                                                            tempSelectedVenues.hotels.length">
+                    <div ng-show="!collapse">
+                        <button class="btn btn-warning pull-right"
+                                ng-show="tempSelectedVenues.attractions.length ||
+                                         tempSelectedVenues.restaurants.length ||
+                                         tempSelectedVenues.hotels.length"
+                                ng-click="saveActivities()">
+                            Done &amp; Schedule Plan
+                        </button>
+                        <h5>Your Venues</h5>
 
-                    <button class="btn btn-warning pull-right" ng-show="tempSelectedVenues.attractions.length ||
-                                                          tempSelectedVenues.restaurants.length ||
-                                                          tempSelectedVenues.hotels.length"
-                            ng-click="saveActivities()">
-                        Done &amp; Schedule Plan
-                    </button>
-                    <h5>Your Selections</h5>
-
-                    <div class="p">
-                        <ul ng-repeat="listType in tempSelectedVenues">
-                            <li ng-repeat="item in listType">{{item.name}}</li>
-                        </ul>
+                        <div class="p">
+                            <ul ng-repeat="listType in tempSelectedVenues">
+                                <li ng-repeat="item in listType">{{item.name}}</li>
+                            </ul>
+                        </div>
                     </div>
 
                     <button class="btn btn-default pull-right" ng-show="collapse" ng-click="collapse=!collapse">
@@ -94,7 +94,8 @@
                                         </a>
                                     </div>
                                     <div class="col-sm-2" style="margin-right: 0;">
-                                        <span style="color:#{{venueItem.ratingColor}};" ng-show="venueItem.rating!=-1">
+                                        <span style="color:#{{venueItem.ratingColor}};" ng-show="venueItem.rating!=-1"
+                                              class="venue-rating">
                                             <i class="fa fa-star-o"></i>
                                             {{venueItem.rating}}
                                         </span>

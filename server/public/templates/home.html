@@ -18,7 +18,7 @@
                        theme="bootstrap"
                        reset-search-input="false"
                        style="width: 300px;">
-                <ui-select-match placeholder="Enter Destinatin">{{$select.selected.formatted_address}}</ui-select-match>
+                <ui-select-match placeholder="Enter Destination">{{$select.selected.formatted_address}}</ui-select-match>
                 <ui-select-choices repeat="address in addresses track by $index"
                                    refresh="refreshAddresses($select.search)"
                                    refresh-delay="0">
