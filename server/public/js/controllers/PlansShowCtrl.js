@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('iTravelApp')
-        .controller('PlansShowCtrl', ['$scope', '$routeParams', '$location', 'User', function($scope, $routeParams, $location, User) {
+        .controller('PlansShowCtrl', ['$scope', '$routeParams', '$location', 'User', '$rootScope', function($scope, $routeParams, $location, User, $rootScope) {
 
             //retrieve user & plan
             User.restore()
@@ -18,6 +18,7 @@
                             if(plans[i]._id == planid) {
                                 $scope.plan = plans[i];
                                 console.log($scope.plan);
+                                $rootScope.$broadcast('planLoaded');
                             }
                         }
 
