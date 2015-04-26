@@ -194,6 +194,37 @@ div.landing div.content .row{
     }
 }
 
+
+div.find-your-oyster {
+    background: url(../img/landing/world.jpg) center no-repeat;
+    padding: 7em 0;
+    opacity: 0.8;
+    display: table;
+    position: relative;
+    width: 100%;
+    height: 685px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+div.schedule-it {
+    background: url(../img/landing/plan.jpg) center no-repeat;
+    opacity: 0.8;
+    padding: 0 20px 0 20px;
+    color: #34495e;
+    display: table;
+    position: relative;
+    width: 100%;
+    height: 685px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+
 /******************* Login styling   **********************/
 /*override login-field-icon*/
 .login-form .login-field-icon {
