@@ -53,7 +53,7 @@ function PlanFactory($http, $q, Activity) {
 			return activity.start.getTime();
 		}).start;
 
-		this.startDate = _.max(this.activities, function(activity) {
+		this.endDate = _.max(this.activities, function(activity) {
 			return activity.end.getTime();
 		}).end;
 	}

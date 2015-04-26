@@ -136,8 +136,8 @@
 		function savePlan() {
 			if (User.currentUser) {
 
-				Plan.tempPlan.activities = Activity.purify(Plan.tempPlan.activities);
-				// Plan.tempPlan.updateStartEnd();
+				Plan.tempPlan.activities = Activity.purify($scope.uiModel.scheduledActivities);
+				Plan.tempPlan.updateStartEnd();
 				User.currentUser.plans.push(Plan.tempPlan);
 				// console.log('Plan.tempPlan after purification:', Plan.tempPlan);
 
