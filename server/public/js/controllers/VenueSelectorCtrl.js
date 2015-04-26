@@ -137,6 +137,7 @@
                     saveActivityArray($scope.tempSelectedVenues.hotels, "hotels");
                     console.log(Plan.tempPlan.activities);
 
+                    $location.url('activityScheduler');
                     //relocate to schedule page
 
                 };
@@ -144,7 +145,7 @@
                 function saveActivityArray(venues, activitiesType){
                     if(venues){
                         for(var i = 0; i < venues.length; i++) {
-                            var newActivity = Activity.create(venues[i], activitiesType);
+                            var newActivity = Activity.create(venues[i], activitiesType, venues[i].name);
                             Plan.tempPlan.activities.push(newActivity);
                         }
                     }
