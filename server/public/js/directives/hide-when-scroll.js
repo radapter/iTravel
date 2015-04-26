@@ -17,7 +17,7 @@
 		function scrollHandler() {
 			var currScrollTop = $(this).scrollTop();
 			var allowHide = elem.hasClass('allow-hide');
-			console.log('allowHide', allowHide);
+			//console.log('allowHide', allowHide);
 			if (allowHide && currScrollTop > lastScrollTop){
 			    elem.addClass('rd-top-n100');
 			} else {

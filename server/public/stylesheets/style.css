@@ -27,9 +27,18 @@ body {
     margin-top: 10px;
 }
 
-
 .jumbotron{
     padding: 10px 0px;
+}
+
+
+/**** navbar fixed top issue: class for ng-view****/
+.padding-top-80 {
+    padding-top: 80px;
+}
+
+.padding-top-0{
+    padding-top: 0px;
 }
 
 /*********************** Page styling*************************/
@@ -53,12 +62,16 @@ body {
   display: table;
   position: relative;
   width: 100%;
-  height: 640px;
+  height: 685px;
   background: url(../img/landing/sky.jpg) no-repeat center center scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
+}
+
+div.landing > div {
+    height: 685px;
 }
 
 .text-vertical-center {
@@ -106,7 +119,8 @@ body {
 }
 .panelTitle,
 .panelIcon {
-  margin: 30px;
+    margin-bottom: 10%;
+  /*margin: 30px;*/
 }
 
 .panelTitle {
@@ -122,6 +136,63 @@ body {
   /*text-align:left;*/
 }
 
+.friend {
+    background: #f3f3f3 url(../img/landing/map.gif) center no-repeat;
+    -webkit-background-size: 150%;
+    -moz-background-size: 150%;
+    background-size: 150%;
+    padding: 7em 0;
+    height: 500px;
+
+}
+
+div.bg-inverse{
+    background: #34495e;
+    color: white;
+}
+
+div.bg-info{
+    background: #3498DB;
+    color: white;
+}
+
+div.bg-primary{
+    background: #48C9B0;
+    color: white;
+}
+
+div.bg-success{
+    background: #2ecc71;
+    color: white;
+}
+
+div.landing div.content .row{
+    margin: 5% 0;
+}
+
+.icon-text {
+    vertical-align: middle;
+}
+
+.home-heading{
+    margin-bottom: 20px;
+}
+
+@media(min-width: 450px) and (max-width: 790px){
+    .how-it-works h5{
+        font-size: smaller;
+    }
+}
+
+@media(max-width: 790px){
+    .how-it-works img{
+        height: 80px;
+    }
+
+    .how-it-works p{
+        font-size: smaller;
+    }
+}
 
 /******************* Login styling   **********************/
 /*override login-field-icon*/
@@ -200,16 +271,20 @@ body {
 }
 
 .venue-result:hover {
+    border: 3px solid #2c3e50;
+}
+
+.venue-result:hover *, .venue-result:hover span.venue-rating{
+
+}
+
+.selectedVenue {
     background: #1abc9c;
     color: white;
 }
 
-.venue-result:hover *, .venue-result:hover span.venue-rating{
+.selectedVenue *, .selectedVenue span.venue-rating{
     color: white !important;
-}
-
-.selectedVenue {
-    border: 3px solid #1abc9c;
 }
 
 div > .badge {
@@ -255,14 +330,14 @@ div.well.well-dash{
 
 div.selected-venues{
     top: 15%;
-    width: 35%;
+    width: 300px;
     position: fixed;
     z-index: 50;
-    max-height: 40%;
+    max-height: 300px;
     overflow: auto;
     border: 1px solid #34495e;
     font-size: smaller;
-    right: 1%;
+    right: 2%;
     background: #34495e;
     color: white;
 }
@@ -271,6 +346,21 @@ div.selected-venues{
     background: white;
     border: 1px solid #ccc;
     padding: 1%;
+}
+
+
+.venue-select .panel.panel-info > .panel-heading{
+    background: #3498db;
+    color: white;
+}
+
+.venue-select .panel-info{
+    border: 1px solid #3498db;
+}
+
+.venue-select .panel{
+    background: white;
+    color: black;
 }
 
 /******************** user profile page **********************/
@@ -302,4 +392,12 @@ div.data div{
 .unscheduled-list {
   height: 450px;
   overflow-y: auto;
+}
+
+/**************  api top anchor styling *****************/
+a.anchor{
+    display: block;
+    position: relative;
+    top: -250px;
+    visibility: hidden;
 }
