@@ -224,6 +224,14 @@ div.schedule-it {
     -o-background-size: cover;
 }
 
+.landing .jumbotron{
+    margin-bottom: 0;
+}
+
+.landing .text-inverse{
+    color: #34495e;
+}
+
 
 /******************* Login styling   **********************/
 /*override login-field-icon*/
