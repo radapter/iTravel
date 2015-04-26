@@ -272,7 +272,7 @@ div.landing div.content .row{
 }
 
 .selectedVenue {
-    border: 3px solid #1abc9c;
+    border: 4px solid #2c3e50;
 }
 
 div > .badge {
@@ -318,10 +318,10 @@ div.well.well-dash{
 
 div.selected-venues{
     top: 15%;
-    width: 35%;
+    width: 300px;
     position: fixed;
     z-index: 50;
-    max-height: 40%;
+    max-height: 300px;
     overflow: auto;
     border: 1px solid #34495e;
     font-size: smaller;
