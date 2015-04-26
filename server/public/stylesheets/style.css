@@ -32,6 +32,17 @@ body {
     padding: 10px 0px;
 }
 
+
+
+/**** navbar fixed top issue: class for ng-view****/
+.padding-top-80 {
+    padding-top: 80px;
+}
+
+.padding-top-0{
+    padding-top: 0px;
+}
+
 /*********************** Page styling*************************/
 .container-fluid {
   margin-top: 10px;
