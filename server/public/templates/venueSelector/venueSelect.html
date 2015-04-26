@@ -9,7 +9,7 @@
         <tabset justified="true" ng-init="collapse=true">
             <tab ng-repeat="steps in venueCategories"
                  heading="{{venueCategories.indexOf(steps)+1}}. Select {{steps.category}}">
-                <div class="row">
+                <div class="row" ng-show="steps.items.length">
                     <div class="col-sm-12">
                         <div class="panel panel-info filters" ng-init="hide=true">
                             <div class="panel-heading text-center" ng-click="hide=!hide">
@@ -18,23 +18,24 @@
                                 <i class="fa fa-minus-circle" ng-show="!hide"></i>
                             </div>
                             <div class="panel-body" ng-show="!hide">
-                                <div class="row">
-                                    <div class="col-md-{{steps.filterCat.length || 0}}" ng-hide="steps.category=='Hotels'">
+                                <div class="row text-center">
+                                    <div class="col-md-12" ng-hide="steps.category=='Hotels'">
                                         <label>Filter By Category</label><br>
                                         <div class="btn-group">
-                                            <label class="btn btn-info" ng-repeat="category in steps.filterCat"
-                                                   ng-model="category.val" btn-checkbox checked="category.val">
-                                                {{category.cat}}
+                                            <label class="btn btn-info" ng-repeat="category in steps.filterCat |
+                                                   filter:{level: 1} | orderBy: '-count' | limitTo:4"
+                                                   ng-model="steps.filter" btn-radio="category.name">
+                                                {{category.name}}
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="col-md-{{12-steps.filterCat.length-steps.sortCat.length-1}}">
+                                    <div class="col-md-6">
                                         <label>Filter By Name</label><br>
                                         <input class="form-control" type="text" name="name" placeholder="Venue Name"
                                                ng-model="filterParams.name"/>
                                     </div>
 
-                                    <div class="col-md-{{steps.sortCat.length+1}}">
+                                    <div class="col-md-6">
                                         <label>Sort By</label><br>
                                         <div class="btn-group">
                                             <label class="btn btn-info" ng-repeat="sort in steps.sortCat"
@@ -88,7 +89,7 @@
 
                 <!--venue results wells-->
                 <div class="well venue-result" ng-click="addVenue(venueItem,steps.list);"
-                     ng-repeat="venueItem in steps.items | filterVenues: filterParams
+                     ng-repeat="venueItem in steps.items | hasCategory: steps.filter | filterVenues: filterParams
                         | orderBy: orderProp: direction"
                      ng-class="{'selectedVenue': (tempSelectedVenues[steps.list].indexOf(venueItem) > -1)}">
                     <div class="row">

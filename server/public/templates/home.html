@@ -5,11 +5,9 @@
     <!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">
-            <br/>
-            <h2>iTravel</h2>
-            <div data-sr="enter top over 1.1s"><h3>The world is your oyster.</h3></div>
-            <div data-sr="enter bottom over 1.5s"><h3>Pick a place.</h3></div>
-            <br>
+            <h1 class="text-inverse" style="margin-top: 75px;">iTravel</h1>
+            <h4 data-sr="enter top over 1.1s" style="color: white;">The world is your oyster.</h4>
+            <h6 data-sr="enter bottom over 1.5s" style="color: white;">Pick a place.</h6>
 
             <!--ui.select for location-->
             <!--<p>Selected: {{address.selected.geometry.location}}</p>-->
@@ -17,7 +15,7 @@
                        ng-model="address.selected"
                        theme="bootstrap"
                        reset-search-input="false"
-                       style="width: 300px;">
+                       style="width: 300px; margin-top: 50px;">
                 <ui-select-match placeholder="Enter Destination">{{$select.selected.formatted_address}}</ui-select-match>
                 <ui-select-choices repeat="address in addresses track by $index"
                                    refresh="refreshAddresses($select.search)"
@@ -78,10 +76,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-4 icon" data-sr="enter left and move 50px over 1s">
+                    <div class="col-xs-2 icon" data-sr="enter left and move 50px over 1s">
                         <i class="fa fa-compass fa-4x pull-right"></i>
                     </div>
-                    <div class="col-xs-8 icon-text" data-sr="enter right and move 20px over 1.1s">
+                    <div class="col-xs-10 icon-text" data-sr="enter right and move 20px over 1.1s">
                         <h6 class="text-left">Pick your destination</h6>
                     </div>
                 </div>
@@ -106,7 +104,7 @@
         </div>
     </div>
 
-    <div class="jumbotron bg-inverse personalize-it">
+    <div class="jumbotron personalize-it">
         <div class="container">
             <div class="content">
                 <div class="row home-heading">
@@ -116,7 +114,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-10 icon-text" data-sr="enter bottom and move 80px over 0.8s">
-                        <h6 class="text-right">Filter results by category</h6>
+                        <h6 class="text-right">Filter results by dynamically-calculated top categories</h6>
                     </div>
                     <div class="col-xs-2 icon" data-sr="enter top and move 80px over 1s">
                         <i class="fa fa-filter fa-4x pull-left"></i>
@@ -132,7 +130,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-7 icon-text" data-sr="enter bottom and move 60px over 0.9s">
-                        <h6 class="text-right">Sort by rating, popularity, or distance</h6>
+                        <h6 class="text-right">Sort by rating, popularity, price tier, or distance</h6>
                     </div>
                     <div class="col-xs-5 icon" data-sr="enter right and move 20px over 1s">
                         <i class="fa fa-sort-amount-asc fa-4x pull-left"></i>
@@ -143,7 +141,7 @@
                         <i class="fa fa-check-square fa-4x pull-right"></i>
                     </div>
                     <div class="col-xs-10 icon-text" data-sr="enter bottom and move 100px over 1.1s">
-                        <h6 class="text-left">Select the venues for you</h6>
+                        <h6 class="text-left">Select the venues perfect for you</h6>
                     </div>
                 </div>
             </div>
@@ -153,33 +151,33 @@
     <div class="jumbotron bg-inverse schedule-it">
         <div class="container">
             <div class="content">
-                <div class="row home-heading">
+                <div class="row home-heading" style="margin-bottom: 70px;">
                     <div class="col-xs-12" data-sr="enter left and move 50px over 1.2s">
                         <h3 class="text-danger">Schedule It</h3>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-3 icon" data-sr="enter top and move 150px over 0.8s">
+                    <div class="col-xs-4 icon" data-sr="enter top and move 150px over 0.8s">
                         <i class="fa fa-list-ol fa-4x pull-right"></i>
                     </div>
-                    <div class="col-xs-9 icon-text">
+                    <div class="col-xs-5 icon-text">
                         <h6 class="text-left">Drag and drop venues into an ordered list</h6>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-6 icon-text" data-sr="enter bottom over 0.7s">
-                        <h6 class="text-right">Pick your times</h6>
+                    <div class="col-xs-4 icon" data-sr="enter right over 2s">
+                        <i class="fa fa-clock-o fa-4x pull-right"></i>
                     </div>
-                    <div class="col-xs-6 icon" data-sr="enter right over 2s">
-                        <i class="fa fa-clock-o fa-4x pull-left"></i>
+                    <div class="col-xs-6 icon-text" data-sr="enter bottom over 0.7s">
+                        <h6 class="text-left" style="text-shadow: 2px 2px white;">Pick your times</h6>
                     </div>
                 </div>
                 <div class="row" data-sr="enter right and move 80px over 0.9s">
-                    <div class="col-xs-7 icon">
+                    <div class="col-xs-4 icon">
                         <img class="panelIcon pull-right" src="../img/flat-icons/Calendar.png"
-                             alt="calendar icon" height="100">
+                             alt="calendar icon" height="80">
                     </div>
-                    <div class="col-xs-5 icon-text">
+                    <div class="col-xs-6 icon-text">
                         <h6 class="text-left">Choose travel days</h6>
                     </div>
                 </div>
@@ -187,12 +185,12 @@
         </div>
     </div>
 
-    <div class="jumbotron bg-info on-the-go">
+    <div class="jumbotron bg-inverse on-the-go">
         <div class="container">
             <div class="content">
                 <div class="row home-heading">
                     <div class="col-xs-12" data-sr="enter bottom and move 100px over 1.2s">
-                        <h3 class="text-inverse">Take It On the Go</h3>
+                        <h3 class="text-warning">Take It On the Go</h3>
                     </div>
                 </div>
                 <div class="row">
