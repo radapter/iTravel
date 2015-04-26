@@ -8,12 +8,12 @@
             </h4>
         </div>
 
-        <tabset justified="true">
+        <tabset justified="true" ng-init="collapse=true">
             <tab ng-repeat="steps in venueCategories"
                  heading="{{venueCategories.indexOf(steps)+1}}. Select {{steps.category}}">
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="panel panel-primary filters">
+                        <div class="panel panel-primary filters" ng-init="hide=true">
                             <div class="panel-heading text-center" ng-click="hide=!hide">
                                 {{steps.category}} Filters &nbsp;
                                 <i class="fa fa-plus-circle" ng-show="hide"></i>
@@ -54,30 +54,38 @@
                     </div>
                 </div>
 
-                <div class="well selected-venues" ng-show="tempSelectedVenues.attractions.length ||
+                <div class="well selected-venues" ng-show="(tempSelectedVenues.attractions.length ||
                                                            tempSelectedVenues.restaurants.length ||
-                                                           tempSelectedVenues.hotels.length">
-                    <div ng-show="!collapse">
-                        <button class="btn btn-warning pull-right"
-                                ng-show="tempSelectedVenues.attractions.length ||
-                                         tempSelectedVenues.restaurants.length ||
-                                         tempSelectedVenues.hotels.length"
-                                ng-click="saveActivities()">
-                            Done &amp; Schedule Plan
-                        </button>
-                        <h5>Your Venues</h5>
+                                                           tempSelectedVenues.hotels.length) && !collapse">
 
+                        <button class="btn btn-default pull-right" ng-show="!collapse" ng-click="collapse=!collapse">
+                            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+                        <h5 ng-show="!collapse">Your Venues</h5>
+
+                    <div ng-show="!collapse">
                         <div class="p">
                             <ul ng-repeat="listType in tempSelectedVenues">
                                 <li ng-repeat="item in listType">{{item.name}}</li>
                             </ul>
                         </div>
+
+                        <button class="btn btn-danger pull-right"
+                                ng-show="tempSelectedVenues.attractions.length ||
+                                         tempSelectedVenues.restaurants.length ||
+                                         tempSelectedVenues.hotels.length"
+                                ng-click="saveActivities()">
+                            Done &amp; Save
+                        </button>
                     </div>
 
-                    <button class="btn btn-default pull-right" ng-show="collapse" ng-click="collapse=!collapse">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-                    <button class="btn btn-default pull-right" ng-show="!collapse" ng-click="collapse=!collapse">
-                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+
+                </div>
+
+                <div class="well selected-venues" style="width:85px;"
+                     ng-show="(tempSelectedVenues.attractions.length || tempSelectedVenues.restaurants.length ||
+                               tempSelectedVenues.hotels.length) && collapse">
+                    <button class="btn btn-warning pull-right" ng-click="collapse=!collapse">
+                        <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></button>
                 </div>
 
                 <div class="well venue-result" ng-click="addVenue(venueItem,steps.list);"
