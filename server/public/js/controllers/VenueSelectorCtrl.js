@@ -123,19 +123,19 @@
                     else if (l == "hotels"){
                         $scope.saveHotels(venue);
                     }
-                    console.log($scope.tempSelectedVenues);
+                    // console.log($scope.tempSelectedVenues);
                 }
                 else {
                     var index = $scope.tempSelectedVenues[l].indexOf(venue);
                     $scope.tempSelectedVenues[l].splice(index, 1);
-                    console.log($scope.tempSelectedVenues);
+                    // console.log($scope.tempSelectedVenues);
                 }
             };
 
             //TO wrap each venue in tempSelectedVenues to activity, then push to plan
             $scope.saveActivities = function () {
 
-                console.log($scope.tempSelectedVenues);
+                // console.log($scope.tempSelectedVenues);
 
                 //iterate through $scope.tempSelectedVenues
                 //for each veune
@@ -143,16 +143,17 @@
                 saveActivityArray($scope.tempSelectedVenues.attractions, "attractions");
                 saveActivityArray($scope.tempSelectedVenues.restaurants, "restaurants");
                 saveActivityArray($scope.tempSelectedVenues.hotels, "hotels");
-                console.log(Plan.tempPlan.activities);
+                console.log('Plan.tempPlan.activities', Plan.tempPlan.activities);
 
                 //relocate to schedule page
+                $location.url('activityScheduler');
 
             };
 
             function saveActivityArray(venues, activitiesType){
                 if(venues){
                     for(var i = 0; i < venues.length; i++) {
-                        var newActivity = Activity.create(venues[i], activitiesType);
+                        var newActivity = Activity.create(venues[i], activitiesType, venues[i].name);
                         Plan.tempPlan.activities.push(newActivity);
                     }
                 }

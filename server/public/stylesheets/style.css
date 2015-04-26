@@ -421,7 +421,7 @@ div.data div{
 
 /**************  activity scheduler page styling *****************/
 .unscheduled-list {
-  height: 450px;
+  height: 400px;
   overflow-y: auto;
 }
 

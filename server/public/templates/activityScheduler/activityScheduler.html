@@ -9,7 +9,7 @@
 
             <div class="col-sm-4 unscheduled-container todo">
                 <div class="todo-search">
-                    <input class="todo-search-field" type="search" value="" placeholder="Search" ng-model="uiModel.activityFilter">
+                    <input class="todo-search-field" type="search" value="" placeholder="Filter" ng-model="uiModel.activityFilter">
                 </div>
                 <ul class="unscheduled-list">
                     <li class="unscheduled-item"
@@ -19,9 +19,16 @@
                         data-jqyoui-options="{revert: false, helper: 'clone'}"
                         data-drag="true"
                     >
+                        <div class="todo-icon">
+                            <i class="fa" ng-class="{
+                                'fa-coffee': activity.activitiesType === 'restaurants',
+                                'fa-bed': activity.activitiesType === 'hotels',
+                                'fa-camera': activity.activitiesType === 'attractions'
+                            }"></i>
+                        </div>
                         <div class="todo-content">
-                            <h4 class="todo-name">{{activity.venue ? activity.venue.name : ''}}</h4>
-                            {{activity.venue ? activity.venue.categories[0] : ''}}
+                            <h4 class="todo-name">{{activity.title}}</h4>
+                            {{activity.venue && activity.venue.categories[0] ? activity.venue.categories[0].name : ''}}
                         </div>
                     </li>
                 </ul>

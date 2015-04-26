@@ -25,9 +25,11 @@
 		$scope.uiModel = {
 			// allActivities: Plan.tempPlan.activities;
 			activityFilter: '',
-			allActivities: fakeData,
+			allActivities: Plan.tempPlan.activities,
 			eventSources: []
 		};
+
+		console.log('Plan.tempPlan.activities', Plan.tempPlan.activities);
 
 		updateUiModels();
 
@@ -54,6 +56,7 @@
 
 		function getScheduled(activities) {
 			var scheduledActivities = _.filter(activities, function(activity) {
+				console.log('getScheduled: activity/activity.start',activity, activity.start);
 				return activity.start !== null;
 			});
 
@@ -64,6 +67,27 @@
 				var activity = angular.element(evt.target).scope().activity;
 
 				activity.start = start;
+
+				switch (activity.activitiesType) {
+					case 'hotels':
+						activity.allDay = true;
+						activity.color = '#2C3E50';
+						break;
+					case 'restaurants':
+						activity.allDay = false;
+						activity.color = '#D35400';
+						activity.end = new Date(start)
+						activity.end.setHours(start.getHours()+1);
+						break;
+					case 'attractions':
+						activity.allDay = false;
+						activity.color = '#16A085';
+						break;
+					default: 
+						activity.allDay = false;
+						activity.color = '#16A085';
+				}
+
 				updateUiModels();
 		}
 
@@ -93,6 +117,12 @@
 			$scope.uiModel.scheduledActivities = getScheduled($scope.uiModel.allActivities);
 			$scope.uiModel.unscheduledActivities = _.difference($scope.uiModel.allActivities, $scope.uiModel.scheduledActivities);
 			$scope.uiModel.eventSources[0] = $scope.uiModel.scheduledActivities;
+
+
+
+			console.log('updateUiModels called');
+			console.log('$scope.uiModel.scheduledActivities', $scope.uiModel.scheduledActivities);
+			console.log('$scope.uiModel.unscheduledActivities', $scope.uiModel.unscheduledActivities);
 		}
 
 
