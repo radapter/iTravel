@@ -1,0 +1,44 @@
+<div class="container">
+    <h3>Schedule Your Activities</h3>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-8 calendar-container">
+                <div class="calender" ui-calendar="uiConfig.calendar" ng-model="uiModel.eventSources"></div>
+            </div>
+
+            <div class="col-sm-4 todo unscheduled-container">
+                <div class="todo-search">
+                    <input class="todo-search-field" type="search" value="" placeholder="Filter" ng-model="uiModel.activityFilter">
+                </div>
+                <ul class="unscheduled-list">
+                    <li class="unscheduled-item"
+                        ng-repeat="activity in uiModel.unscheduledActivities | filter: {title: uiModel.activityFilter} "
+                        ng-model="activity"
+                        jqyoui-draggable
+                        data-jqyoui-options="{revert: false, helper: 'clone'}"
+                        data-drag="true"
+                    >
+                        <div class="todo-icon">
+                            <i class="fa" ng-class="{
+                                'fa-coffee': activity.activitiesType === 'restaurants',
+                                'fa-bed': activity.activitiesType === 'hotels',
+                                'fa-camera': activity.activitiesType === 'attractions'
+                            }"></i>
+                        </div>
+                        <div class="todo-content">
+                            <h4 class="todo-name">{{activity.title}}</h4>
+                            {{activity.venue && activity.venue.categories[0] ? activity.venue.categories[0].name : ''}}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-offset-4 col-sm-4">
+                <div class="btn btn-block btn-lg btn-primary" ng-click='onClickSavePlan()'>Save Plan</div>
+            </div>
+        </div>
+    </div>
+
+</div>

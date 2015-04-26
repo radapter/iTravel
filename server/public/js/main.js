@@ -2,7 +2,7 @@
 'use strict';
 
 angular.module('iTravelApp', ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps','ngSanitize',
-    'ui.select', 'angular-loading-bar', 'fox.scrollReveal']);
+    'ui.select', 'ui.calendar', 'ngDragDrop', 'angular-loading-bar', 'fox.scrollReveal']);
 
 /**
  * Configure the Routes
@@ -57,6 +57,10 @@ angular.module('iTravelApp')
         .when("/hotelsSelect", {
             templateUrl: "templates/venueSelector/hotelsSelect.html",
             controller: "VenueSelectorCtrl"
+        })
+        .when("/activityScheduler", {
+            templateUrl: "templates/activityScheduler/activityScheduler.html",
+            controller: "ActivitySchedulerCtrl"
         })
 
         //venue pages

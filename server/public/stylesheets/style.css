@@ -431,6 +431,38 @@ div.data div{
     height: 150px;
 }
 
+/**************  activity scheduler page styling *****************/
+.unscheduled-list {
+  height: 400px;
+  overflow-y: auto;
+}
+
+.todo-search {
+  padding-top: 10px;
+  padding-bottom: 8px;
+}
+
+.todo li {
+  transition: none;
+}
+
+.todo li:after {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+
+.calendar-container .fc table {
+  font-size: 14px;
+}
+
+.calendar-container .fc table th {
+  font-size: 14px;
+  color: #34495E;
+}
+
+
 /**************  api top anchor styling *****************/
 a.anchor{
     display: block;
