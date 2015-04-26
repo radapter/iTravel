@@ -92,6 +92,9 @@ function VenueFactory($http, $q) {
 		_.each(searchResults, function(venues, section){
 			var categoryMap=[];
 
+			//manual hack to put an "all" category for each venue type section
+			categoryMap.push({name: "All", count: 1000, level: 1});
+
 			_.each(venues, function(venue) {
 				_.each(venue.categories, function(catetory, idx) {
 					var matched = _.findWhere(categoryMap, {name: catetory.name});
