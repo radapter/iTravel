@@ -16,6 +16,7 @@ var userSchema = mongoose.Schema({
         endDate: Date,
         active: {type: Boolean, default: true },
         activities:[{
+            title: String,
             venue: {
                 //venue schema
                 id: { type: String, required: true },

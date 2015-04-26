@@ -49,7 +49,7 @@ function VenueFactory($http, $q) {
 				Venue.searchResults = sectionedresults;
 				Venue.categoryDict = getCategoryDict(sectionedresults);
 
-				// console.log('Venue.categoryDict', Venue.categoryDict);
+				console.log('Venue.categoryDict', Venue.categoryDict);
 				
 				return sectionedresults;
 			}, function fail() {

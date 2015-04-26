@@ -394,6 +394,27 @@ div.data div{
   overflow-y: auto;
 }
 
+.todo li {
+  transition: none;
+}
+
+.todo li:after {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+
+.calendar-container .fc table {
+  font-size: 14px;
+}
+
+.calendar-container .fc table th {
+  font-size: 14px;
+  color: #34495E;
+}
+
+
 /**************  api top anchor styling *****************/
 a.anchor{
     display: block;
