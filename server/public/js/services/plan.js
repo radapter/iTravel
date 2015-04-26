@@ -1,36 +1,24 @@
 'use strict';
 
-PlanFactory.$inject = ['$http', '$q'];
+PlanFactory.$inject = ['$http', '$q', 'Activity'];
 angular.module('iTravelApp').factory('Plan', PlanFactory);
 
-function PlanFactory($http, $q) {
+function PlanFactory($http, $q, Activity) {
 	
 	// constructor
 	function Plan(config) {
 		angular.extend(this, config);
+
+		this.activities = _.map(this.activities, function(activity) {
+			return new Activity(activity);
+		});
 	}
 
-	// instance properties/methods
-	//Plan.prototype = Object.create(Resource.prototype);
-	Plan.prototype.getLlStr = getLlStr;
-	Plan.prototype.addActivity = addActivity;
+	Plan.prototype.updateStartEnd = updateStartEnd;
 
 	// static properties/methods
 	Plan.tempPlan = {};
 	Plan.create = create;
-
-	function getLlStr() {
-		if (this.destLat && this.destLng) {
-			return this.destLat.toString + ',' + this.destLng.toString;
-		} else {
-			return '';
-		}
-	}
-
-	function addActivity(activity) {
-		this.activities.push(activity);
-		this.save();
-	}
 
 	/**
 	 * Create a new Plan and sync it to backend
@@ -50,13 +38,24 @@ function PlanFactory($http, $q) {
 			startDate: startDate,
 			endDate: endDate,
 			activities: [],
-			active: true
+			active: true,
+			signatureTs: Date.now()
 		});
 
 		//newPlan.save();
 		Plan.tempPlan = newPlan;
 
 		return newPlan;
+	}
+
+	function updateStartEnd() {
+		this.startDate = _.min(this.activities, function(activity) {
+			return activity.start.getTime();
+		}).start;
+
+		this.startDate = _.max(this.activities, function(activity) {
+			return activity.end.getTime();
+		}).end;
 	}
 
 	return Plan;

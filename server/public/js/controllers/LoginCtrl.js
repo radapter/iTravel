@@ -13,9 +13,9 @@
 			var password = $scope.uiModel.password;
 
 			User.login(email, password)
-				.then(function success() {
+				.then(function success(user) {
 					console.log('user logged in successfully');
-					$location.url('/');
+					$location.url('/users/' + User.currentUser._id);
 				}, function fail(err) {
 					console.log('user login failed. res:', err);
 				});

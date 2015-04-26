@@ -7,7 +7,7 @@
                 <div class="calender" ui-calendar="uiConfig.calendar" ng-model="uiModel.eventSources"></div>
             </div>
 
-            <div class="col-sm-4 unscheduled-container todo">
+            <div class="col-sm-4 todo unscheduled-container">
                 <div class="todo-search">
                     <input class="todo-search-field" type="search" value="" placeholder="Filter" ng-model="uiModel.activityFilter">
                 </div>
@@ -34,7 +34,11 @@
                 </ul>
             </div>
         </div>
-
+        <div class="row">
+            <div class="col-sm-offset-4 col-sm-4">
+                <div class="btn btn-block btn-lg btn-primary" ng-click='onClickSavePlan()'>Save Plan</div>
+            </div>
+        </div>
     </div>
 
 </div>

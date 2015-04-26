@@ -1,41 +1,64 @@
 (function() {
 	'use strict';
 
-	UserFactory.$inject = ['$http', '$q', '$rootScope'];
+	UserFactory.$inject = ['$http', '$q', '$rootScope', 'Plan', 'Activity', 'Venue'];
 	angular.module('iTravelApp').factory('User', UserFactory);
 
-	function UserFactory($http, $q, $rootScope) {
+	function UserFactory($http, $q, $rootScope, Plan, Activity, Venue) {
 		
 		// constructor
 		function User(config) {
 			angular.extend(this, config);
+
+			this.plans = _.map(this.plans, function(plan) {
+				return new Plan(plan);
+			});
 		}
 
 		// instance properties/methods
 		User.prototype = {
 			logout: logout,
-			save: save
+			save: save,
+			refresh: refresh
 		};
 
 		// static properties/methods
 		User.currentUser = null;
+		User.redirectTo = null;
 		User.login = login;
 		User.signup = signup;
 		User.restore = restore;
 
 		function save() {
-			var pk = '_id';
-			var resourceName = 'users';
+			var _this = this;
 
 			// prevent user change id and email
-			var requestBody = _.omit(this, ['_id', 'email']);
+			var requestBody = _.omit(_this, ['_id', 'email']);
 
 			return $http({
-				url: '/api/v1/' + resourceName + '/' + this[pk],
+				url: '/api/v1/users/' + _this._id,
 				method: 'PUT',
 				data: requestBody
 			});
 		}
+
+		function refresh() {
+			var _this = this;
+
+
+			return $http({
+				url: '/api/v1/users/' + _this._id,
+				method: 'GET',
+			}).then(function(res) {
+				if (res.status === 200) {
+					populateData(res.data);
+
+					// TODO: populate other models
+					$rootScope.$broadcast('userRefreshSuccess', User.currentUser);
+				}
+			});
+		}
+
 
 		function login(email, password) {
 			/*
@@ -119,8 +142,9 @@
 		}
 
 		function populateData(data) {
+			console.log('user raw data', data);
 			User.currentUser = new User(data);
-
+			console.log('user populated data', User.currentUser);
 			// TODO: populate other models
 		}
 

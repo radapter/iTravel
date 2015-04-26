@@ -425,6 +425,11 @@ div.data div{
   overflow-y: auto;
 }
 
+.todo-search {
+  padding-top: 10px;
+  padding-bottom: 8px;
+}
+
 .todo li {
   transition: none;
 }
