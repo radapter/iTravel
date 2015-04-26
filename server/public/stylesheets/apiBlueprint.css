@@ -67,28 +67,28 @@ pre code {
     opacity: .5
 }
 
-h1,
-h2,
-h3,
-.aglio {
+/*h1,*/
+/*h2,*/
+/*h3,*/
+/*.aglio {*/
 
-}
+/*}*/
 
-h1 a,
-h2 a,
-h3 a,
-h4 a,
-h5 a {
-    display: none;
-}
+/*h1 a,*/
+/*h2 a,*/
+/*h3 a,*/
+/*h4 a,*/
+/*h5 a {*/
+    /*display: none;*/
+/*}*/
 
-h1:hover a,
-h2:hover a,
-h3:hover a,
-h4:hover a,
-h5:hover a {
-    display: inline;
-}
+/*h1:hover a,*/
+/*h2:hover a,*/
+/*h3:hover a,*/
+/*h4:hover a,*/
+/*h5:hover a {*/
+    /*display: inline;*/
+/*}*/
 
 code {
     color: #444;
@@ -99,11 +99,11 @@ a[data-target] {
     cursor: pointer;
 }
 
-h4 {
-    font-size: 100%;
-    font-weight: bold;
-    text-transform: uppercase;
-}
+/*h4 {*/
+    /*font-size: 100%;*/
+    /*font-weight: bold;*/
+    /*text-transform: uppercase;*/
+/*}*/
 
 .back-to-top {
     position: fixed;
