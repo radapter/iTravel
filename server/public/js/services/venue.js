@@ -18,6 +18,7 @@ function VenueFactory($http, $q) {
 	Venue.searchResults = {};
 	Venue.categoryDict = {};
 	Venue.explore = sectionedExplore;
+	Venue.getDetails = getDetails;
 
 
 	/**
@@ -107,6 +108,20 @@ function VenueFactory($http, $q) {
 		});
 
 		return categoryDict;
+	}
+
+	function getDetails(venueId) {
+		var clientId = 'Z4K0IZ0P0UOLQ5DRTP4LLU32TJVTAP50MFKEKXOP5NAPFFEK';
+		var clientSecret = 'JXZT5MFR54XBZFHLQ440UQGSRVXQNJ42C33QDH1VL2GA0YDD';
+		var v = '20150331';
+
+		return $http({
+			url: 'https://api.foursquare.com/v2/venues/' + venueId + '?client_id=' + clientId + '&client_secret=' + clientSecret + '&v=' + v,
+			method: 'GET'
+		})
+		.then(function(res) {
+			return res.data.response.venue;
+		});
 	}
 
 	function copyAndExtend(src, ext) {

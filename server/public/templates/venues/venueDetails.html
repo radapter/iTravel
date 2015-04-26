@@ -1,14 +1,176 @@
 <div class="jumbotron">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-2">
-                <div class="media venue-img">
+        <div class="well">
+            <div class="row">
+                <div class="col-md-2 col-sm-12">
+                    <div class="thumbnail venue-img">
+                        <img src="{{venue.bestPhoto.prefix}}150x150{{venue.bestPhoto.suffix}}" alt="Add Cover Photo Here">
+                    </div>
+                </div>
+                <div class="col-md-10 col-sm-12">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h5>{{venue.name}}</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-12">
+                            <div ng-show="venue.categories.length">
+                                <span class="label label-info venue-label" ng-repeat="cat in venue.categories">
+                                    {{cat.name}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3 col-xs-4" ng-show="venue.rating">
+                            <div class="panel panel-bd-success">
+                                <div class="panel-body">
+                                    <span style="color:#{{venue.ratingColor}};" ng-show="venue.rating!=-1">
+                                        <i class="fa fa-star-o"></i>
+                                        {{venue.rating}}
+                                    </span><br>
+                                    <span>Rating</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3 col-xs-4" ng-show="venue.stats.checkinsCount">
+                            <div class="panel panel-info">
+                                <div class="panel-body">
+                                    <i class="fa fa-foursquare" ng-show="venue.stats.checkinsCount"></i>
+                                    {{venue.stats.checkinsCount | number:0}}<br>
+                                    Checkins
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-4" ng-show="venue.likes.count">
+                            <div class="panel panel-inverse">
+                                <div class="panel-body">
+                                    <i class="fa fa-thumbs-o-up"></i>
+                                    {{venue.likes.count}}<br>
+                                    Likes
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-10">
-                <h5>{{venue.name}}</h5>
+            <div class="row">
+                <div class="col-md-4 col-xs-6">
+                    <div class="panel panel-primary venue-contact" style="font-size: smaller;">
+                        <div class="panel-heading">Contact &amp; Location</div>
+                        <div class="panel-body">
+                            <div class="venue-map">
+                                Google Maps Here
+                            </div>
+                            <div ng-show="venue.location.address">
+                                <i class="fa fa-map-marker"></i>
+                                <a ng-href="http://maps.google.com/?q={{venue.location.address}}, {{venue.location.city}}, {{venue.location.state}},{{venue.location.postalCode}}"
+                                   target="_blank">
+                                    {{venue.location.address}}, {{venue.location.city}},
+                                    {{venue.location.state}} {{venue.location.postalCode}}
+                                </a>
+                            </div>
+                            <div>
+                                <i class="fa fa-phone-square" ng-show="venue.contact.formattedPhone"></i>
+                                <a ng-href="tel:{{venue.contact.phone}}"
+                                   ng-show="venue.contact.formattedPhone">
+                                    {{venue.contact.formattedPhone}}
+                                </a>
+                            </div>
+                            <div ng-show="venue.hours.timeframes">
+                            <span ng-repeat="times in venue.hours.timeframes">
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-12">
+                                        <i class="fa fa-clock-o"></i>
+                                        {{times.days}}:
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12">
+                                        <span ng-repeat="t in times.open">
+                                            {{t.renderedTime}}<br>
+                                        </span>
+                                    </div>
+                                </div>
+                            </span>
+                            </div>
+                            <div>
+                                <i class="fa fa-link" ng-show="venue.url"></i>
+                                <a ng-show="venue.url"
+                                   ng-href="{{venue.url}}" target="_blank">{{venue.url}}</a>
+                            </div>
+                            <div ng-show="venue.contact.twitter">
+                                <i class="fa fa-twitter-square" ng-show="venue.contact.twitter"></i>
+                                <a ng-href="http://www.twitter.com/{{venue.contact.twitter}}">
+                                    @{{venue.contact.twitter}}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-xs-6">
+                    <div class="panel panel-primary venue-photos">
+                        <div class="panel-body">
+                            <div class="thumbnail venue-img"
+                                 ng-repeat="img in venue.photos.groups[0].items | limitTo:5"
+                                 ng-if="!$first">
+                                <img src="{{img.prefix}}150x150{{img.suffix}}" alt="Venue Photo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-xs-12" ng-show="venue.description">
+                    <div class="panel panel-primary venue-descrip">
+                        <div class="panel-heading">Description</div>
+                        <div class="panel-body">
+                            {{venue.description}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-show="venue.specials.count">
+                <div class="col-sm-12">
+                    <div class="panel panel-primary venue-special">
+                        <div class="panel-heading">Specials</div>
+                        <div class="panel-body">
+                            <p ng-repeat="sp in venue.specials.items">
+                                <i class="fa fa-smile-o"></i>: {{sp.message}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-show="venue.tips.groups[0].items.length">
+                <div class="col-xs-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Tips</div>
+                        <div class="panel-body">
+                            <div class="well" ng-repeat="tips in venue.tips.groups[0].items
+                                | orderBy: '-createdAt' | limitTo:20">
+                                <div class="row">
+                                    <div class="col-xs-2">
+                                        <div class="thumbnail tips-user">
+                                            <img src="{{tips.user.photo.prefix}}80x80{{tips.user.photo.suffix}}"
+                                                 alt="user pic">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-10 tip-text">
+                                        <span class="tip">
+                                            {{tips.user.firstName}} {{tips.user.lastName}} says:<br>
+                                            <i class="fa fa-quote-left"></i>
+                                            {{tips.text}}
+                                            <i class="fa fa-quote-right"></i><br>
+                                        </span>
+                                        <small class="tip-time">
+                                            <i>on
+                                                <!--angular needs milliseconds but createdAt is sec since epoch-->
+                                                {{tips.createdAt*1000 | date:"MM/dd/yyyy '@' HH:mm" }}
+                                            </i>
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
 </div>

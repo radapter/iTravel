@@ -1,99 +1,189 @@
 
-<!-- Header -->
-<header id="top" class="header">
-    <div class="text-vertical-center">
-        <br/>
-        <h2>iTravel</h2>
-        <h3>Pick a place. We do the rest.</h3>
-        <br>
+<!--fox-angular-scrollReveal.js settings-->
+<div  data-sr-container='{"reset":true, "vFactor": 0.2}'>
 
-        <!--ui.select for location-->
-        <p>Selected: {{address.selected.geometry.location}}</p>
-        <ui-select class="input-select"
-                   ng-model="address.selected"
-                   theme="bootstrap"
-                   reset-search-input="false"
-                   style="width: 300px;">
-            <ui-select-match placeholder="Enter an address...">{{$select.selected.formatted_address}}</ui-select-match>
-            <ui-select-choices repeat="address in addresses track by $index"
-                               refresh="refreshAddresses($select.search)"
-                               refresh-delay="0">
-                <div ng-bind-html="address.formatted_address | highlight: $select.search"></div>
-            </ui-select-choices>
-        </ui-select>
-        <br/>
-        <input type="submit" value="{{isSubmitting ? 'Saving...' : 'GO'}}"
-               class="btn btn-danger btn-hg" ng-click="explore(address.selected)" ng-disabled="isSubmitting">
+    <!-- Header -->
+    <header id="top" class="header">
+        <div class="text-vertical-center">
+            <br/>
+            <h2>iTravel</h2>
+            <div data-sr="enter top over 1.1s"><h3>The world is your oyster.</h3></div>
+            <div data-sr="enter bottom over 3s"><h3>Pick a place.</h3></div>
+            <br>
+
+            <!--ui.select for location-->
+            <!--<p>Selected: {{address.selected.geometry.location}}</p>-->
+            <ui-select class="input-select"
+                       ng-model="address.selected"
+                       theme="bootstrap"
+                       reset-search-input="false"
+                       style="width: 300px;">
+                <ui-select-match placeholder="Enter Destination">{{$select.selected.formatted_address}}</ui-select-match>
+                <ui-select-choices repeat="address in addresses track by $index"
+                                   refresh="refreshAddresses($select.search)"
+                                   refresh-delay="0">
+                    <div ng-bind-html="address.formatted_address | highlight: $select.search"></div>
+                </ui-select-choices>
+            </ui-select>
+            <br/>
+            <input type="submit" value="{{isSubmitting ? 'Searching...' : 'GO'}}"
+                   class="btn btn-danger btn-hg" ng-click="explore(address.selected)" ng-disabled="isSubmitting">
 
 
-        <!--<a href="" class="btn btn-hg btn-primary">Explore Nearby</a>-->
+            <!--<a href="" class="btn btn-hg btn-primary">Explore Nearby</a>-->
         </div>
-</header>
+    </header>
 
-<div class="container">
-    <div class="content">
-        <h6 class="upperhead">How It Works</h6>
-        <h3 class="panelTitle">iTravel: <br>Your Personal &amp; Adaptive Travel Companion</h3>
-
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="step">
-                    <img class="pannelIcon" src="../img/flat-icons/Clipboard.png" height="100" alt=""/>
-                    <h5>Destination</h5>
-                    <p>Simply choose a destination or use your current location to find nearby
-                        spots and pick a date to travel.</a></p>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="step">
-                    <img class="pannelIcon" src="../img/flat-icons/Map.png" height="100" alt=""/>
-                    <h5>Personalize</h5>
-                    <p>With iTravel, you can pick and choose where you want to go, and when
-                     you want to go. We build your itinerary based on your interests.</p>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="step">
-                    <img class="pannelIcon" src="../img/flat-icons/Compas.png" height="100" alt=""/>
-                    <h5>Track &amp; Adapt</h5>
-                    <p>iTravel tracks you on the go and provides adaptive changes to your plan due to
-                     delays or spontaneity.</p>
-                </div>
-            </div>
-
-            <span class="step-alignment"></span>
-        </div>
-    </div>
-</div>
-
-
-<div class="jumbotron">
     <div class="container">
-        <h1 class="text-center">Pricing</h1>
-        <div class="row">
-            <div class="col-sm-6 well">
-                <h4>Free Tier</h4>
-                <ul>
-                    <li>Save up to 10 travel plans</li>
-                    <li>Plan unlimited travel plans</li>
-                    <li>Routing support</li>
-                    <li>Real-time push notifications and plan recalculation</li>
-                    <li>Customization filters</li>
-                </ul>
+        <div class="content">
+            <h6 class="upperhead">How It Works</h6>
+            <h3 class="panelTitle" data-sr="enter left and move 50px over 1.33s">iTravel: <br>Your Personal &amp; Adaptive Travel Companion</h3>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="step">
+                        <img class="pannelIcon" src="../img/flat-icons/Clipboard.png" height="100" alt=""/>
+                        <h5>Pick Destination</h5>
+                        <p>Simply choose destination or use your current location to find nearby
+                            spots and pick a date to travel.</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="step">
+                        <img class="pannelIcon" src="../img/flat-icons/Map.png" height="100" alt=""/>
+                        <h5>Personalize</h5>
+                        <p>Pick and choose the venues you want to visit. We build your itinerary based on your interests.</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="step">
+                        <img class="pannelIcon" src="../img/flat-icons/Compas.png" height="100" alt="pannelIcon" />
+                        <h5>Travel Adaptively</h5>
+                        <p>Hit the road and we track you on the go and adapt your plan due to delays or spontaneity.</p>
+                    </div>
+                </div>
+
+                <span class="step-alignment"></span>
             </div>
-            <div class="col-sm-6 well">
-                <h4>Paid Tier</h4>
-                <p>In addition to the free tier features: </p>
-                <ul>
-                    <li>Save an unlimited number of travel plans</li>
-                    <li>Share travel plans via Facebook</li>
-                    <li>Advanced customization features</li>
-                </ul>
+        </div>
+    </div>
+
+    <div class="jumbotron">
+        <div class="container">
+            <div class="content">
+                <h5>Features</h5>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p>List Features Here</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p>Pictures Here?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-4" data-sr="enter left and move 200px over 1.33s">
+                <img class="pannelIcon pull-right" src="../img/flat-icons/Clipboard.png" height="150" alt=""/>
+            </div>
+            <div class="col-sm-8" data-sr="enter right and move 100px over 1.33s">
+                <h5>Destination</h5>
+                <p>Simply choose a destination or use your current location to find nearby
+                    spots and pick a date to travel</p>
+                <p>Simply choose a destination or use your current location to find nearby
+                    spots and pick a date to travel</p>
+                <p>Simply choose a destination or use your current location to find nearby
+                    spots and pick a date to travel</p>
+                <p>Simply choose a destination or use your current location to find nearby
+                    spots and pick a date to travel</p>
             </div>
         </div>
 
     </div>
-</div>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8" data-sr="enter left and move 100px over 1.33s wait 1s">
+                <h5>Personalize</h5>
+                <p>With iTravel, you can pick and choose where you want to go, and when
+                    you want to go. We build your itinerary based on your interests.</p>
+                <p>With iTravel, you can pick and choose where you want to go, and when
+                    you want to go. We build your itinerary based on your interests.</p>
+                <p>With iTravel, you can pick and choose where you want to go, and when
+                    you want to go. We build your itinerary based on your interests.</p>
+                <p>With iTravel, you can pick and choose where you want to go, and when
+                    you want to go. We build your itinerary based on your interests.</p>
+            </div>
+            <div class="col-sm-4" data-sr="enter right and move 200px over 1.33s wait 1s">
+                <img class="pannelIcon" src="../img/flat-icons/Map.png" height="150" alt=""/>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-4" data-sr="enter left and move 200px over 2s">
+                <img class="pannelIcon pull-right" src="../img/flat-icons/Compas.png" height="150" alt="pannelIcon" />
+            </div>
+            <div class="col-sm-8" data-sr="enter right and move 100px over 2s">
+                <h5>Track &amp; Adapt</h5>
+                <p>iTravel tracks you on the go and provides adaptive changes to your plan due to
+                    delays or spontaneity.</p>
+                <p>iTravel tracks you on the go and provides adaptive changes to your plan due to
+                    delays or spontaneity.</p>
+                <p>iTravel tracks you on the go and provides adaptive changes to your plan due to
+                    delays or spontaneity.</p>
+                <p>iTravel tracks you on the go and provides adaptive changes to your plan due to
+                    delays or spontaneity.</p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="text-center">Pricing</h1>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Free Tier</div>
+                        <div class="panel-body">
+                            <ul>
+                                <li>Save up to 10 travel plans</li>
+                                <li>Plan unlimited travel plans</li>
+                                <li>Routing support</li>
+                                <li>Real-time push notifications and plan recalculation</li>
+                                <li>Customization filters</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Paid Tier</div>
+                        <div class="panel-body">
+                            <p>In addition to the free tier features: </p>
+                            <ul>
+                                <li>Save an unlimited number of travel plans</li>
+                                <li>Share travel plans via Facebook</li>
+                                <li>Advanced customization features</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 

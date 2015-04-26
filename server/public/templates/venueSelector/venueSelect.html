@@ -1,54 +1,89 @@
 <div class="jumbotron">
     <div class="container-fluid">
+        <div class="well">
+            <a href="#/" class="btn btn-info pull-right" role="button">Change?</a>
+            <button class="btn btn-danger" ng-click="savePlan()">TEST for save plan</button>
+            <h4>Destination: <a href="http://maps.google.com/?q={{destination.destAddr}}" target="_blank">
+                {{destination.destName}}</a>
+            </h4>
+        </div>
+
         <tabset justified="true">
-            <tab ng-repeat="steps in venueCategories" heading="{{steps.category}}">
-                <h2 class="text-center">{{steps.category}}</h2>
+            <tab ng-repeat="steps in venueCategories"
+                 heading="{{venueCategories.indexOf(steps)+1}}. Select {{steps.category}}">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel panel-primary filters">
+                            <div class="panel-heading text-center" ng-click="hide=!hide">
+                                {{steps.category}} Filters &nbsp;
+                                <i class="fa fa-plus-circle" ng-show="hide"></i>
+                                <i class="fa fa-minus-circle" ng-show="!hide"></i>
+                            </div>
+                            <div class="panel-body" ng-show="!hide">
+                                <div class="row">
+                                    <div class="col-md-{{steps.filterCat.length || 0}}" ng-hide="steps.category=='Hotels'">
+                                        <label>Filter By Category</label><br>
+                                        <div class="btn-group">
+                                            <label class="btn btn-info" ng-repeat="category in steps.filterCat"
+                                                   ng-model="category.val" btn-checkbox checked="category.val">
+                                                {{category.cat}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-{{12-steps.filterCat.length-steps.sortCat.length-1}}">
+                                        <label>Filter By Name</label><br>
+                                        <input class="form-control" type="text" name="name" placeholder="Venue Name"
+                                               ng-model="filterParams.name"/>
+                                    </div>
 
-                <div class="row filters bg-primary">
-                    <div class="col-sm-{{steps.filterCat.length || 0}}" ng-hide="steps.category=='Hotels'">
-                        <label>Filter By Category</label><br>
-                        <div class="btn-group">
-                            <label class="btn btn-info" ng-repeat="category in steps.filterCat"
-                                   ng-model="category.val" btn-checkbox checked="category.val">
-                                {{category.cat}}
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-sm-{{12-steps.filterCat.length-steps.sortCat.length-1}}">
-                        <label>Filter By Name</label><br>
-                        <input class="form-control" type="text" name="name" placeholder="Venue Name"
-                               ng-model="filterParams.name"/>
-                    </div>
-
-                    <div class="col-sm-{{steps.sortCat.length+1}}">
-                        <label>Sort By</label><br>
-                        <div class="btn-group">
-                            <label class="btn btn-info" ng-repeat="sort in steps.sortCat"
-                                   ng-click="sorter(sort.sort)"
-                                   ng-model="steps.sortDefault" btn-radio="sort.sort">
-                                {{sort.display}}
-                                <i ng-show="orderProp==sort.sort && direction" class="fa fa-sort-desc"></i>
-                                <i ng-show="orderProp==sort.sort && !direction" class="fa fa-sort-asc"></i>
-                            </label>
+                                    <div class="col-md-{{steps.sortCat.length+1}}">
+                                        <label>Sort By</label><br>
+                                        <div class="btn-group">
+                                            <label class="btn btn-info" ng-repeat="sort in steps.sortCat"
+                                                   ng-click="sorter(sort.sort)"
+                                                   ng-model="steps.sortDefault" btn-radio="sort.sort">
+                                                {{sort.display}}
+                                                <i ng-show="orderProp==sort.sort && direction" class="fa fa-sort-desc"></i>
+                                                <i ng-show="orderProp==sort.sort && !direction" class="fa fa-sort-asc"></i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="well selected-venues" ng-show="tempSelectedVenues.length">
-                    <div class="h5">
-                        You selected:
+                <div class="well selected-venues" ng-show="tempSelectedVenues.attractions.length ||
+                                                           tempSelectedVenues.restaurants.length ||
+                                                           tempSelectedVenues.hotels.length">
+                    <div ng-show="!collapse">
+                        <button class="btn btn-warning pull-right"
+                                ng-show="tempSelectedVenues.attractions.length ||
+                                         tempSelectedVenues.restaurants.length ||
+                                         tempSelectedVenues.hotels.length"
+                                ng-click="saveActivities()">
+                            Done &amp; Schedule Plan
+                        </button>
+                        <h5>Your Venues</h5>
+
+                        <div class="p">
+                            <ul ng-repeat="listType in tempSelectedVenues">
+                                <li ng-repeat="item in listType">{{item.name}}</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="p">
-                        <ul>
-                           <li ng-repeat="item in tempSelectedVenues">{{item.name}}</li>
-                        </ul>
-                    </div>
+
+                    <button class="btn btn-default pull-right" ng-show="collapse" ng-click="collapse=!collapse">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                    <button class="btn btn-default pull-right" ng-show="!collapse" ng-click="collapse=!collapse">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
                 </div>
 
-                <div class="well venue-result" ng-click="addVenue(venueItem);"
+                <div class="well venue-result" ng-click="addVenue(venueItem,steps.list);"
                      ng-repeat="venueItem in steps.items | filterVenues: filterParams
                         | orderBy: orderProp: direction"
-                     ng-class="{'selectedVenue': (tempSelectedVenues.indexOf(venueItem) > -1)}">
+                     ng-class="{'selectedVenue': (tempSelectedVenues[steps.list].indexOf(venueItem) > -1)}">
                     <div class="row">
                         <div class="col-sm-2 venue-img"><!--venue img here--></div>
                         <div class="col-sm-10">
@@ -60,7 +95,8 @@
                                         </a>
                                     </div>
                                     <div class="col-sm-2" style="margin-right: 0;">
-                                        <span style="color:#{{venueItem.ratingColor}};" ng-show="venueItem.rating!=-1">
+                                        <span style="color:#{{venueItem.ratingColor}};" ng-show="venueItem.rating!=-1"
+                                              class="venue-rating">
                                             <i class="fa fa-star-o"></i>
                                             {{venueItem.rating}}
                                         </span>
@@ -119,7 +155,7 @@
                     </div>
                 </div>
 
-                <div class="well" ng-show="steps.items.length==0 || venues.length==0">
+                <div class="well" ng-hide="steps.items || venues.length">
                     <p class="text-center">No results.<br>
                         <span class="h4"><a href="#/">Go Back &amp; Try Again</a></span>
                     </p>

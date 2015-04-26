@@ -1,7 +1,8 @@
 
 'use strict';
 
-angular.module('iTravelApp', ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps','ngSanitize', 'ui.select', 'angular-loading-bar']);
+angular.module('iTravelApp', ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps','ngSanitize',
+    'ui.select', 'ui.calendar', 'ngDragDrop', 'angular-loading-bar', 'fox.scrollReveal']);
 
 /**
  * Configure the Routes
@@ -57,11 +58,21 @@ angular.module('iTravelApp')
             templateUrl: "templates/venueSelector/hotelsSelect.html",
             controller: "VenueSelectorCtrl"
         })
+        .when("/activityScheduler", {
+            templateUrl: "templates/activityScheduler/activityScheduler.html",
+            controller: "ActivitySchedulerCtrl"
+        })
 
         //venue pages
         .when("/venues/:id", {
             templateUrl: "templates/venues/venueDetails.html",
             controller: "VenuesShowCtrl"
+        })
+
+        //plan page
+        .when("/plans/:id", {
+            templateUrl: "templates/plans/planDetail.html",
+            controller: "PlansShowCtrl"
         })
 
         //footer url pages

@@ -1,0 +1,27 @@
+<div class="container">
+    <h3>Schedule Your Activities</h3>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-8 calendar-container">
+                <div class="calender" ui-calendar="uiConfig.calendar" ng-model="uiModel.eventSources"></div>
+            </div>
+
+            <div class="col-sm-4 unscheduled-container">
+                <ul class="list-group unscheduled-list">
+                    <li class="list-group-item unscheduled-item"
+                        ng-repeat="activity in uiModel.unscheduledActivities"
+                        ng-model="activity"
+                        jqyoui-draggable
+                        data-jqyoui-options="{revert: false, helper: 'clone'}"
+                        data-drag="true"
+                    >
+                        {{activity.title}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</div>

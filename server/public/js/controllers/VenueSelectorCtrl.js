@@ -1,14 +1,18 @@
 (function() {
     'use strict';
     angular.module("iTravelApp")
-        .controller("VenueSelectorCtrl", function ($scope, Venue) {
-            //test venue data
+        .controller("VenueSelectorCtrl", ['$scope', 'Venue', 'Plan', 'Activity', '$location', 'User', function ($scope, Venue, Plan, Activity, $location, User) {
+            $scope.destination = Plan.tempPlan;
+            //console.log($scope.destination);
             $scope.venues = Venue.searchResults;
 
-            $scope.tempSelectedVenues = [];
+            $scope.tempSelectedVenues = {
+                "attractions": [],
+                "restaurants": [],
+                "hotels": []
+            };
 
             //should we predefine some categories or dynamiclly generate form the results
-
 
             //For attractions
             $scope.attractionCategories = [
@@ -48,6 +52,7 @@
             $scope.venueCategories = [
                 {
                     "category": "Attractions",
+                    "list": "attractions",
                     "percentage": 33,
                     "filterCat": $scope.attractionCategories,
                     "sortCat": $scope.attractionAndHotelSorts,
@@ -56,6 +61,7 @@
                 },
                 {
                     "category": "Restaurants",
+                    "list": "restaurants",
                     "percentage": 66,
                     "filterCat": $scope.restaurantCategories,
                     "sortCat": $scope.restaurantSorts,
@@ -64,6 +70,7 @@
                 },
                 {
                     "category": "Hotels",
+                    "list": "hotels",
                     "percentage": 100,
                     "filterCat": null,
                     "sortCat": $scope.attractionAndHotelSorts,
@@ -85,42 +92,101 @@
                 //console.log($scope.direction);
             };
 
-            //use this one OR test data
-            //connection to Venue service to get all the venues
-            //console.log(Venue.searchResults);
-            //$scope.venues = Venue.searchResults;
 
-            //for LATER modified use
-            //$scope.attractionsVenues = Venue.searchResults.attractions;
-            //$scope.restVenues = Venue.searchResults.restVenues;
-            //$scope.hotelVenues = Venue.searchResults.hotelVenues;
-
-            $scope.saveAttractions = function (attractions) {
-                console.log(attractions);
-                $scope.tempSelectedVenues.push(attractions);
+            $scope.saveAttractions = function (attraction) {
+                console.log(attraction);
+                $scope.tempSelectedVenues.attractions.push(attraction);
             };
 
-            $scope.saveRestaurants = function (restaurants) {
-                console.log(restaurants);
-                $scope.tempSelectedVenues.push(restaurants);
+            $scope.saveRestaurants = function (restaurant) {
+                console.log(restaurant);
+                $scope.tempSelectedVenues.restaurants.push(restaurant);
             };
 
-            $scope.saveHotels = function (hotels) {
-                console.log(hotels);
-                $scope.tempSelectedVenues.push(hotels);
+            $scope.saveHotels = function (hotel) {
+                console.log(hotel);
+                $scope.tempSelectedVenues.hotels.push(hotel);
             };
 
-            $scope.addVenue = function (attraction) {
+            $scope.addVenue = function (venue, l) {
                 //console.log("clicked");
-                if ($scope.tempSelectedVenues.indexOf(attraction) == -1) {
-                    $scope.saveAttractions(attraction);
+                //var l = list.toLowerCase();
+                console.log("list is " + l);
+                console.log($scope.tempSelectedVenues[l]);
+                if ($scope.tempSelectedVenues[l].indexOf(venue) == -1) {
+                    if(l == "attractions"){
+                        $scope.saveAttractions(venue);
+                    }
+                    else if (l == "restaurants"){
+                        $scope.saveRestaurants(venue);
+                    }
+                    else if (l == "hotels"){
+                        $scope.saveHotels(venue);
+                    }
+                    console.log($scope.tempSelectedVenues);
                 }
                 else {
-                    var index = $scope.tempSelectedVenues.indexOf(attraction);
-                    $scope.tempSelectedVenues.splice(index, 1);
+                    var index = $scope.tempSelectedVenues[l].indexOf(venue);
+                    $scope.tempSelectedVenues[l].splice(index, 1);
                     console.log($scope.tempSelectedVenues);
                 }
             };
 
-        });
+            //TO wrap each venue in tempSelectedVenues to activity, then push to plan
+            $scope.saveActivities = function () {
+
+                console.log($scope.tempSelectedVenues);
+
+                //iterate through $scope.tempSelectedVenues
+                //for each veune
+                //ref activity : venue, activitiesType, start, end
+                saveActivityArray($scope.tempSelectedVenues.attractions, "attractions");
+                saveActivityArray($scope.tempSelectedVenues.restaurants, "restaurants");
+                saveActivityArray($scope.tempSelectedVenues.hotels, "hotels");
+                console.log(Plan.tempPlan.activities);
+
+                //relocate to schedule page
+
+            };
+
+            function saveActivityArray(venues, activitiesType){
+                if(venues){
+                    for(var i = 0; i < venues.length; i++) {
+                        var newActivity = Activity.create(venues[i], activitiesType);
+                        Plan.tempPlan.activities.push(newActivity);
+                    }
+                }
+            }
+
+            //test save plan to user
+            $scope.savePlan = function () {
+                $scope.saveActivities();
+
+
+                //retrieve user
+                User.restore()
+                    .then(function () {
+                        if(User.currentUser) {
+                            console.log(Plan.tempPlan);
+
+                            User.currentUser.plans.push(Plan.tempPlan);
+                            User.currentUser.save()
+                                .then(function (res) {
+                                    console.log(res);
+
+                                    alert("save plan succefully");
+                                    $location.url('/users/'+User.currentUser._id);
+                                });
+
+                        }
+                    });
+
+            }
+
+
+        }]);
+
+
+
+
 })();

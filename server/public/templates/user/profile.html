@@ -22,7 +22,7 @@
 
         <div class="well user-panner" ng-repeat="plan in user.plans">
             <h5>
-                <a ng-href="">{{plan.destName}}</a>
+                <a ng-href="#/plans/{{plan._id}}">{{plan.destName}}</a>
                 <span ng-show="plan.active" class="label label-warning">{{Active}}</span>
                 <span ng-show="!plan.active" class="label label-default">{{Inactive}}</span>
             </h5>
