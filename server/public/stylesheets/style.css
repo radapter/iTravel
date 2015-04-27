@@ -483,22 +483,37 @@ div.tech .jumbotron{
 }
 
 div.tech .section-heading{
-    margin-bottom: 80px;
+    margin-bottom: 60px;
 }
 
 div.tech .row{
     height: 75px;
 }
 
-div.tech .img, div.other-features img, div.stack .img {
+div.tech .mvc .row{
+    height: 120px;
+}
+
+@media(max-width: 640px){
+    div.mvc img{
+        width: 300px;
+        height: auto;
+    }
+}
+
+div.tech .img, div.other-features img {
     height:100px;
+}
+
+div.stack .img{
+    height: 80px;
 }
 
 div.other-features p{
     font-size: smaller;
 }
 
-div.mgmt p{
+div.mgmt p, div.stack p{
     font-size: 0.9em;
 }
 
