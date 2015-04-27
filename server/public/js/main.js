@@ -77,7 +77,7 @@ angular.module('iTravelApp')
         })
 
         //footer url pages
-        .when("/aboutus", {templateUrl: "templates/footerPages/aboutus.html"})
+        //.when("/aboutus", {templateUrl: "templates/footerPages/aboutus.html"})
         .when("/contact", {templateUrl: "templates/footerPages/contact.html"})
         .when("/locations", {
             templateUrl: "templates/footerPages/locations.html",

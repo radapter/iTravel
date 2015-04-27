@@ -94,7 +94,7 @@ div.landing > div {
 
 /*landing form*/
 .landing-form{
-  width:40%;
+  width:60%;
   margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
@@ -472,17 +472,36 @@ div.selected-venues{
 
 
 /**************  tech page styling *****************/
+
+
 div.tech > div {
-    margin-bottom: 5%;
+    height: 685px;
 }
 
-div.stack .row{
-    height: 65px;
+div.tech .jumbotron{
+    margin: 0;
 }
 
-div.data div{
-    height: 150px;
+div.tech .section-heading{
+    margin-bottom: 80px;
 }
+
+div.tech .row{
+    height: 75px;
+}
+
+div.tech .img, div.other-features img, div.stack .img {
+    height:100px;
+}
+
+div.other-features p{
+    font-size: smaller;
+}
+
+div.mgmt p{
+    font-size: 0.9em;
+}
+
 
 /**************  activity scheduler page styling *****************/
 .unscheduled-list {
