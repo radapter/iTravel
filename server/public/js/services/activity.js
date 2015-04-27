@@ -15,7 +15,7 @@ function ActivityFactory($http, $q, Venue) {
 	}
 
 	// instance properties/methods
-	Activity.purify = purify;
+	Activity.normalize = normalize;
 
 	// static properties/methods
 	Activity.create = create;
@@ -47,21 +47,31 @@ function ActivityFactory($http, $q, Venue) {
 	/**
 	 * Get a copy of activities with all unused properties removed. This is necessary because in activity scheduler
 	 * 	activities are extended with widget-specific properties that cause circular reference problems.
-	 * @param  {Activity[]} activityArray Activities to be purified
-	 * @return {Activity[]}               Purified activities
+	 * @param  {Activity[]} activityArray Activities to be normalized
+	 * @return {Activity[]}               Normalized activities
 	 */
-	function purify(activityArray) {
-		var purified = _.map(activityArray, function(activity) {
+	function normalize(activityArray) {
+		var normalized = _.map(activityArray, function(activity) {
+
+			var endDate;
+
+			if(activity.allDay || !activity.end) {
+				endDate = new Date(activity.start);
+				endDate.setHours(23, 59, 59);
+			} else {
+				endDate = activity.end;
+			}
+
 			return new Activity({
 				venue: activity.venue,
 				activitiesType: activity.activitiesType,
 				title: activity.title,
 				start: activity.start,
-				end: activity.end
+				end: endDate
 			});
 		});
-		
-		return purified;
+
+		return normalized;
 	}
 
 	return Activity;
