@@ -29,7 +29,8 @@
     "angular-loading-bar": "~0.7.1",
     "angular-ui-calendar": "~0.8.1",
     "fox-angular-scrollReveal.js": "~1.0.0",
-    "angular-dragdrop": "~1.0.11"
+    "angular-dragdrop": "~1.0.11",
+    "angular-timeline": "~1.2.1"
   },
   "resolutions": {
     "jquery": "1.10.2",

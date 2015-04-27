@@ -1,23 +1,55 @@
 <div class="container-fliud">
 
     <div class="jumbotron user-panner">
-        <h4>Plan: {{plan.destName}}</h4>
-        <h4>{{plan.startDate}}</h4>
-        <h4>{{plan.endDate}}</h4>
+        <h4>MyPlan:
+            <span class="text-primary">{{plan.destName}}</span>
+
+            <span>{{plan.startDate}}</span>
+            <span>{{plan.endDate}}</span>
+        </h4>
     </div>
 
     <div class="container">
         <h4>Activities:</h4>
         <div class="row">
-            <div class="col-sm-6">
-                <div class="well" ng-repeat="activity in plan.activities">
-                    <h5>{{activity.activitiesType}}</h5>
-                    <!--<h4>{{activity.start}}</h4>-->
-                    <!--<h4>{{activity.end}}</h4>-->
-                    <h4><a ng-href="#/venues/{{activity.venue.id}}">{{activity.venue.name}}</a></h4>
-                </div>
+            <div class="col-sm-7 width750">
+
+                <timeline ng-repeat="activity in plan.activities">
+                    <timeline-node side="left">
+                        <timeline-badge class="info"><i class="glyphicon glyphicon-time"></i>
+                        </timeline-badge>
+                        <timeline-panel>
+                            <timeline-content>
+                                <p>{{activity.start | dateParse | date:'MM/dd/yyyy @ h:mma'}}</p>
+                                <p>{{activity.end | dateParse | date:'MM/dd/yyyy @ h:mma'}}</p>
+                            </timeline-content>
+                        </timeline-panel>
+                    </timeline-node>
+                    <timeline-node side="right">
+                        <timeline-badge class="warning">
+                            <i class="fa" ng-class="{
+                                'fa-coffee': activity.activitiesType === 'restaurants',
+                                'fa-bed': activity.activitiesType === 'hotels',
+                                'fa-camera': activity.activitiesType === 'attractions'
+                            }"></i>
+                        </timeline-badge>
+                        <timeline-panel>
+                            <timeline-heading>
+                                <timeline-title><a ng-href="#/venues/{{activity.venue.id}}">{{activity.venue.name}}</a></timeline-title>
+                                <p>
+                                    <small class="text-muted"><i class="glyphicon glyphicon-map-marker"></i>
+                                        <span ng-repeat="address in activity.venue.location.formattedAddress | limitTo: 2">{{address}} <br/> </span>
+                                    </small>
+                                </p>
+                            </timeline-heading>
+                            <timeline-content>
+                            </timeline-content>
+                        </timeline-panel>
+                    </timeline-node>
+                </timeline>
+
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-5">
                 <!--google map show route-->
                 <div id="map_canvas" ng-controller="PlanMapCtrl">
                     <ui-gmap-google-map class="planMap" center="map.center" zoom="map.zoom"
