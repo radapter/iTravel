@@ -1,12 +1,9 @@
 <div class="container-fliud">
 
-    <div class="jumbotron user-panner">
-        <h4>MyPlan:
-            <span class="text-primary">{{plan.destName}}</span>
-
-            <span>{{plan.startDate}}</span>
-            <span>{{plan.endDate}}</span>
-        </h4>
+    <div class="jumbotron user-panel">
+        <h4>MyPlan: <span class="text-primary">{{plan.destName}}</span></h4>
+        <h5>From <span class="text-primary">{{plan.startDate | dateParse | date:'MM/dd/yyyy @ h:mma'}}</span> To
+        <span class="text-primary">{{plan.endDate | dateParse | date:'MM/dd/yyyy @ h:mma'}}</span></h5>
     </div>
 
     <div class="container">
@@ -14,7 +11,7 @@
         <div class="row">
             <div class="col-sm-7 width750">
 
-                <timeline ng-repeat="activity in plan.activities">
+                <timeline ng-repeat="activity in plan.activities | orderBy: 'start'">
                     <timeline-node side="left">
                         <timeline-badge class="info"><i class="glyphicon glyphicon-time"></i>
                         </timeline-badge>
