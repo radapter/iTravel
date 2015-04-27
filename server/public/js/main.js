@@ -2,7 +2,8 @@
 'use strict';
 
 angular.module('iTravelApp', ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps','ngSanitize',
-    'ui.select', 'ui.calendar', 'ngDragDrop', 'angular-loading-bar', 'fox.scrollReveal']);
+    'ui.select', 'ui.calendar', 'ngDragDrop', 'angular-loading-bar', 'fox.scrollReveal',
+    'angular-timeline']);
 
 /**
  * Configure the Routes
