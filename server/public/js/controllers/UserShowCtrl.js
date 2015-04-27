@@ -17,6 +17,12 @@
                     }
                 });
 
+
+            $scope.gotoPlan = function (_id) {
+                console.log(_id);
+                $location.url("/plans/"+_id);
+            }
+
         }]);
 
     function countActivities(user) {
