@@ -58,8 +58,17 @@
                     <div class="panel panel-primary venue-contact" style="font-size: smaller;">
                         <div class="panel-heading">Contact &amp; Location</div>
                         <div class="panel-body">
-                            <div class="venue-map">
-                                Google Maps Here
+                            <div class="venue-map col-xs-12" ng-controller="VenueMapCtrl">
+
+
+                                <ui-gmap-google-map
+                                    center='map.center'
+                                     zoom='map.zoom' options="map.options">
+                                    <ui-gmap-marker coords="marker.coords" options="marker.options" idkey="marker.id">
+                                    </ui-gmap-marker>
+                                </ui-gmap-google-map>
+
+
                             </div>
                             <div ng-show="venue.location.address">
                                 <i class="fa fa-map-marker"></i>

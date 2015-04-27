@@ -47,6 +47,13 @@
 
             </div>
             <div class="col-sm-5">
+
+
+                <p class="map-bug-claim">
+                    The Angular-Google-Maps library has a bug: one of the markers will hang around when map changes
+                    (<a ng-href="https://github.com/angular-ui/angular-google-maps/issues/904">issue #904</a>).
+                     We will try to fix it in the next version. Thanks!
+                </p>
                 <!--google map show route-->
                 <div id="plan_map_canvas" ng-controller="PlanMapCtrl">
                     <ui-gmap-google-map class="planMap" center="map.center" zoom="map.zoom"
@@ -54,7 +61,8 @@
 
                         <ui-gmap-markers models="markerList" coords="'self'"
                                          icon="'icon'" click="'onClicked'"
-                                         options="'options'" fit="'true'" doCluster="false">
+                                         options="'options'" fit="'true'" doCluster="false"
+                                         doRebuildAll="true">
                             <ui-gmap-windows
                                     closeclick="'closeClick'"
                                     ng-cloak=""
