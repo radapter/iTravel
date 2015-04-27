@@ -36,6 +36,8 @@
 
 		$scope.savePlan = savePlan;
 
+		$scope.onClickSavePlan = onClickSavePlan;
+
 		function getScheduled(activities) {
 			var scheduledActivities = _.filter(activities, function(activity) {
 				// console.log('getScheduled: activity/activity.start',activity, activity.start);
@@ -55,7 +57,12 @@
 				// do some activity cusomization based on activity type
 				switch (activity.activitiesType) {
 					case 'hotels':
-						activity.allDay = true;
+						duration = 10;
+						activity.start.setHours(22, 0, 0);
+						startHour = start.getHours();
+						activity.end = new Date(start);
+						activity.end.setHours(startHour + duration);
+						activity.allDay = false;
 						activity.color = '#2C3E50';
 						break;
 					case 'restaurants':
@@ -95,8 +102,9 @@
 			// console.log('toElement', evt.toElement);
 
 			if ($(evt.toElement).hasClass('unscheduled-list')) {
-				console.log('event move back to unscheduled list');
+				// console.log('event move back to unscheduled list');
 				activity.start = null;
+				activity.end = null;
 
 				updateUiModels();
 			}
@@ -119,24 +127,10 @@
 			return activity;
 		}
 
-
-
-		$scope.onClickSavePlan = function() {
-			if ($scope.uiModel.unscheduledActivities.length > 0) {
-				var dlg = confirm('WARNING: There are un-scheduled activities in your list. If you proceed to save the plan they will be discarded.');
-				if (dlg) {
-					savePlan();
-				}
-			} else {
-				savePlan();
-			}
-
-		}
-
 		function savePlan() {
 			if (User.currentUser) {
 
-				Plan.tempPlan.activities = Activity.purify($scope.uiModel.scheduledActivities);
+				Plan.tempPlan.activities = Activity.normalize($scope.uiModel.scheduledActivities);
 				Plan.tempPlan.updateStartEnd();
 				User.currentUser.plans.push(Plan.tempPlan);
 				// console.log('Plan.tempPlan after purification:', Plan.tempPlan);
@@ -158,6 +152,18 @@
 			} else {
 				console.log('user is not logged in');
 			}
+		}
+
+		function onClickSavePlan() {
+			if ($scope.uiModel.unscheduledActivities.length > 0) {
+				var dlg = confirm('WARNING: There are un-scheduled activities in your list. If you proceed to save the plan they will be discarded.');
+				if (dlg) {
+					savePlan();
+				}
+			} else {
+				savePlan();
+			}
+
 		}
 
 	}]);

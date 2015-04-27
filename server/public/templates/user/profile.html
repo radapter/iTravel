@@ -1,6 +1,6 @@
 <div class="container-fliud">
 
-    <div class="jumbotron user-panner">
+    <div class="jumbotron user-panel">
         <div class="row">
             <div class="col-xs-4 text-center">
                 <h4>{{user.email}}</h4>
@@ -17,23 +17,36 @@
         </div>
     </div>
 
-    <div class="container">
-        <h4>Travel Plans</h4>
+    <div class="container-fluid">
+        <h4>My Travel Plans</h4>
 
-        <div class="well user-panner" ng-repeat="plan in user.plans">
-            <h5>
-                <a ng-href="#/plans/{{plan._id}}">{{plan.destName}}</a>
-                <span ng-show="plan.active" class="label label-warning">{{Active}}</span>
-                <span ng-show="!plan.active" class="label label-default">{{Inactive}}</span>
-            </h5>
-
-            <ul>
-                <li ng-repeat="activity in plan.activities">
-                    <h6>{{activity.startTime}}:  {{activity.venue.name}}</h6>
-                </li>
-            </ul>
-
+        <div class="row">
+            <div class="col-md-4 todo" ng-repeat="plan in user.plans" ng-click="gotoPlan(plan._id)">
+                <div class="plan-title">
+                    <h6><a ng-href="#/plans/{{plan._id}}" class="plan-title-link">{{plan.destName}}</a></h6>
+                </div>
+                <ul class="plan-list">
+                    <li class=""
+                        ng-repeat="activity in plan.activities">
+                        <div class="activity-icon">
+                            <i class="fa" ng-class="{
+                                'fa-coffee': activity.activitiesType === 'restaurants',
+                                'fa-bed': activity.activitiesType === 'hotels',
+                                'fa-camera': activity.activitiesType === 'attractions'
+                            }"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4 class="activity-name">{{activity.venue.name}}</h4>
+                            <!--<p>{{activity.start ? activity.start : ''  |dateParse | date:'MM/dd/yyyy @ h:mma'}}</p>-->
+                            <!--<p>{{activity.end ? activity.end : ''  |dateParse | date:'MM/dd/yyyy @ h:mma'}}</p>-->
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
+
+
+
     </div>
 
 
