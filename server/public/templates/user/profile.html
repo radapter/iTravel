@@ -21,9 +21,10 @@
         <h4>My Travel Plans</h4>
 
         <div class="row">
-            <div class="col-md-4 todo" ng-repeat="plan in user.plans" ng-click="gotoPlan(plan._id)">
+            <div class="col-md-4 todo" ng-repeat="plan in user.plans | orderBy: '-startDate' " ng-click="gotoPlan(plan._id)">
                 <div class="plan-title">
                     <h6><a ng-href="#/plans/{{plan._id}}" class="plan-title-link">{{plan.destName}}</a></h6>
+                    <p>{{plan.startDate |dateParse | date:'MM/dd/yyyy'}} - {{plan.endDate |dateParse | date:'MM/dd/yyyy'}} </p>
                 </div>
                 <ul class="plan-list">
                     <li class=""
