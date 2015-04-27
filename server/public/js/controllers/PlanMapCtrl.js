@@ -37,7 +37,7 @@
                         //    if(location.lng > lng_max) lng_max = location.lng;
                         //}
 
-                        loc["id"]= i;
+                        loc["id"]= "someKey-"+i;
                         loc["showWindow"] = false; //hide window for default
                         $scope.markerList.push(loc);
 
