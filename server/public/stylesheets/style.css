@@ -431,7 +431,7 @@ div.selected-venues{
     border-radius: 6px 6px 0 0;
     color: #34495e;
     padding: 10px 20px 10px 20px;
-    height: 70px;
+    min-height: 100px;
 }
 
 .plan-title-link {
