@@ -1,0 +1,48 @@
+<nav class="navbar navbar-inverse navbar-fixed-top rd-transition-all" ng-class="{'top-nav-collapse': showStatus, 'allow-hide': showStatus}" hide-when-scroll>
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/" translate>iTravel</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <!--<ul class="nav navbar-nav">
+                <li><a href="#/attractionsSelect">Attractions</a></li>
+                <li><a href="#/restaurantsSelect">Restaurants</a></li>
+                <li><a href="#/hotelsSelect">Hotels</a></li>
+            </ul>-->
+
+            <div class="nav navbar-nav">
+                <button class="btn btn-success navbar-btn" ng-click="changeLanguage('en')">English</button>
+                <button class="btn btn-info navbar-btn" ng-click="changeLanguage('cn')">中文</button>
+            </div>
+
+            <!--if not login-->
+            <div class="nav navbar-nav navbar-right" ng-show="!currentUser">
+                <a href="#/login" class="btn btn-success navbar-btn" translate>LOGIN</a>
+                <a href="#/signup" class="btn btn-info navbar-btn" translate>SIGNUP</a>
+            </div>
+
+            <!--if logged in -->
+            <div class="nav navbar-nav navbar-right" ng-show="currentUser">
+                <div class="btn-group" dropdown is-open="status.isopen">
+                    <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+                        {{currentUser.email}} <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu width100" role="menu">
+                        <li><a href="#/users/{{currentUser._id}}"><img src="../img/user-avatars/1.png" alt="" height="25"/> <span translate>PROFILE</span></a></li>
+                        <li><a href="#" ng-click="logout()" translate>LOGOUT</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>

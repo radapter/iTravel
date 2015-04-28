@@ -1,12 +1,579 @@
-/*body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/*********** to working with navbar fixed top & footer***********/
+
+/*stick footer*/
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    /*padding-top: 60px;*/
+    /* Margin bottom by footer height */
+    margin-bottom: 150px;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    /*height: 200px;*/
+    /*background-color: #464545;*/
 }
 
-a {
-  color: #00B7FF;
-}*/
+/*.container {*/
+/*margin-top: 40px;*/
+/*}*/
 
-form#planner div.panel {
-    display: none;
+.footer-container {
+    margin-top: 10px;
+}
+
+.jumbotron{
+    padding: 10px 0px;
+}
+
+
+/**** navbar fixed top issue: class for ng-view****/
+.padding-top-80 {
+    padding-top: 80px;
+}
+
+.padding-top-0{
+    padding-top: 0;
+}
+
+/*********************** Page styling*************************/
+.container-fluid {
+  margin-top: 10px;
+}
+
+/******************* Footer styling   **********************/
+.footer-list ul{
+  list-style: none;
+}
+
+
+/******************* Landing styling   **********************/
+
+.top-nav-collapse{
+  background-color: rgba(24, 188, 156, 0.55);
+}
+
+.header {
+  display: table;
+  position: relative;
+  width: 100%;
+  height: 685px;
+  background: url(../img/landing/sky.jpg) no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+div.landing > div {
+    height: 685px;
+}
+
+.text-vertical-center {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.text-vertical-center h1 {
+  color: #FFFFFF;
+  margin: 0;
+  padding: 0;
+  font-size: 4.5em;
+  font-weight: 700;
+}
+
+.text-vertical-center h3 {
+  color: #FFFFFF;
+}
+
+/*landing form*/
+.landing-form{
+  width:60%;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*How it works panner*/
+.content {
+  /*width: 90%;*/
+  margin: 40px;
+  text-align: center;
+}
+
+.upperhead {
+  margin-bottom: 3%;
+  border-bottom: 1px solid #34495e;
+  text-transform: uppercase;
+  font-size: 14px;
+  display: inline-block;
+  padding-bottom: 5px;
+  font-weight: 600;
+  margin-top: 3%;
+}
+.panelTitle,
+.panelIcon {
+    margin-bottom: 10%;
+  /*margin: 30px;*/
+}
+
+.panelTitle {
+  color: #1abc9c;
+}
+
+.step h5 {
+  margin: 10px;
+}
+
+.step p{
+  margin: 10px;
+  /*text-align:left;*/
+}
+
+.friend {
+    background: #f3f3f3 url(../img/landing/map.gif) center no-repeat;
+    -webkit-background-size: 150%;
+    -moz-background-size: 150%;
+    background-size: 150%;
+    padding: 7em 0;
+    height: 500px;
+
+}
+
+div.bg-inverse{
+    background: #34495e;
+    color: white;
+}
+
+div.bg-info{
+    background: #3498DB;
+    color: white;
+}
+
+div.bg-primary{
+    background: #48C9B0;
+    color: white;
+}
+
+div.bg-success{
+    background: #2ecc71;
+    color: white;
+}
+
+div.landing div.content .row{
+    margin: 5% 0;
+}
+
+.icon-text {
+    vertical-align: middle;
+}
+
+.home-heading{
+    margin-bottom: 20px;
+}
+
+@media(min-width: 450px) and (max-width: 790px){
+    .how-it-works h5{
+        font-size: smaller;
+    }
+}
+
+@media(max-width: 790px){
+    .how-it-works img{
+        height: 80px;
+    }
+
+    .how-it-works p{
+        font-size: smaller;
+    }
+}
+
+
+div.find-your-oyster {
+    background: url(../img/landing/world.jpg) center no-repeat;
+    padding: 7em 0;
+    opacity: 0.8;
+    display: table;
+    position: relative;
+    width: 100%;
+    height: 685px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+div.schedule-it {
+    background: url(../img/landing/plan.jpg) center no-repeat;
+    opacity: 0.8;
+    padding: 0 20px 0 20px;
+    color: #34495e;
+    display: table;
+    position: relative;
+    width: 100%;
+    height: 685px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.landing .jumbotron{
+    margin-bottom: 0;
+}
+
+.landing .text-inverse{
+    color: #34495e;
+}
+
+.find-your-oyster h6{
+    text-shadow: 1px 1px #34495e;
+}
+
+
+/******************* Login styling   **********************/
+/*override login-field-icon*/
+.login-form .login-field-icon {
+  font-size: 22px;
+  top:10px;
+  right: 25px;
+}
+
+/******************* Maps styling   **********************/
+/*.planMap {*/
+    /*width: 100%;*/
+    /*height: 800px;*/
+/*}*/
+
+.location-map {
+    width: 100%;
+    height: 400px;
+}
+
+
+#plan_map_canvas {
+  width: 100%;
+  height: 600px;
+  background-color: #CCC;
+  /*margin: 2% auto;*/
+  position: absolute;
+}
+
+/*settings for dynamic height*/
+.angular-google-map-container { height: 100%; width: 100%; position: absolute; top: 0; left: 0;}
+
+.map-bug-claim {
+    position: relative;
+    padding: 14px;
+    margin-bottom: 20px;
+    background-color: #eff0f2;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+
+/************** Select2 styling ******************/
+.input-select {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*********** Panel Override styling   ************/
+.panel.panel-inverse{
+    background: #34495e;
+    color: white;
+}
+
+.panel.panel-warning{
+    background: #f1c40f;
+    color: white;
+}
+
+.panel.panel-success {
+    background: #2ecc71;
+    color: white;
+}
+
+.panel.panel-bd-success{
+    border: 2px solid #2ecc71;
+}
+
+.panel.panel-info, .label.label-info{
+    background: #3498db;
+    color: white;
+}
+
+.panel.panel-primary {
+    border: 1px solid #1abc9c;
+}
+
+.panel.panel-primary > .panel-heading{
+    background: #1abc9c;
+    border-color: #1abc9c;
+    color: white;
+}
+/******************* Selection styling   ******************/
+.venue-select .venue-img{
+    width: 64px;
+    height: 128px;
+}
+
+.venue-img {
+    background-color: #ccc;
+    width: 150px;
+    height: 150px;
+}
+
+.venue-map {
+    background-color: #ccc;
+    width: 100%;
+    height: 150px;
+}
+
+.venue-result {
+    border: 1px solid #1abc9c;
+}
+
+.venue-result:hover {
+    border: 3px solid #2c3e50;
+}
+
+.venue-result:hover *, .venue-result:hover span.venue-rating{
+
+}
+
+.selectedVenue {
+    background: #1abc9c;
+    color: white;
+}
+
+.selectedVenue *, .selectedVenue span.venue-rating{
+    color: white !important;
+}
+
+div > .badge {
+    vertical-align: top;
+    height: 30px;
+}
+
+.badge {
+    font-size: 0.8em;
+}
+
+.label{
+    margin-right: 1%;
+}
+
+.venue-label{
+    font-size: 1em;
+}
+
+.venue-photos .venue-img {
+    margin: 1%;
+    float: left;
+}
+
+div.well > div.row{
+    margin: 1% 0;
+}
+
+blockquote{
+    margin-bottom: 5px;
+}
+
+div.tips-user{
+    width: 80px;
+    height: 80px;
+    background: #ccc;
+}
+
+div.well.well-dash{
+    font-size: larger;
+    font-weight: bold;
+}
+
+div.selected-venues{
+    top: 15%;
+    width: 300px;
+    position: fixed;
+    z-index: 50;
+    max-height: 300px;
+    overflow: auto;
+    border: 1px solid #34495e;
+    font-size: smaller;
+    right: 2%;
+    background: #34495e;
+    color: white;
+}
+
+.tab-content{
+    background: white;
+    border: 1px solid #ccc;
+    padding: 1%;
+}
+
+
+.venue-select .panel.panel-info > .panel-heading{
+    background: #3498db;
+    color: white;
+}
+
+.venue-select .panel-info{
+    border: 1px solid #3498db;
+}
+
+.venue-select .panel{
+    background: white;
+    color: black;
+}
+
+/******************** user profile page **********************/
+
+.chart-container {
+  height: 320px;
+}
+
+.user-panel {
+    margin: 20px;
+    padding: 20px;
+}
+
+.plan-list {
+    height: 400px;
+    overflow-y: auto;
+}
+
+.plan-title {
+    position: relative;
+    background: #1abc9c;
+    background-size: 16px 16px;
+    border-radius: 6px 6px 0 0;
+    color: #34495e;
+    padding: 10px 20px 10px 20px;
+    min-height: 100px;
+}
+
+.plan-title-link {
+    color: #34495e;
+}
+
+.plan-title-link:hover {
+    color: #ccc;
+}
+
+.activity {
+    color: #798795;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+.activity-icon {
+    float: left;
+    font-size: 24px;
+    padding: 11px 22px 0 0;
+}
+
+.activity-content {
+    padding-top: 1px;
+    overflow: hidden;
+}
+
+.activity-name {
+    color: #ffffff;
+    font-size: 17px;
+    margin: 1px 0 3px;
+}
+
+
+/**************  tech page styling *****************/
+
+
+div.tech > div {
+    height: 685px;
+}
+
+div.tech .jumbotron{
+    margin: 0;
+}
+
+div.tech .section-heading{
+    margin-bottom: 60px;
+}
+
+div.tech .row{
+    height: 75px;
+}
+
+div.tech .mvc .row{
+    height: 120px;
+}
+
+@media(max-width: 640px){
+    div.mvc img{
+        width: 300px;
+        height: auto;
+    }
+}
+
+div.tech .img, div.other-features img {
+    height:100px;
+}
+
+div.stack .img{
+    height: 80px;
+}
+
+div.other-features p{
+    font-size: smaller;
+}
+
+div.mgmt p, div.stack p{
+    font-size: 0.9em;
+}
+
+
+/**************  activity scheduler page styling *****************/
+.unscheduled-list {
+  height: 400px;
+  overflow-y: auto;
+}
+
+.todo-search {
+  padding-top: 10px;
+  padding-bottom: 8px;
+}
+
+.todo li {
+  transition: none;
+}
+
+.todo li:after {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+
+.calendar-container .fc table {
+  font-size: 14px;
+}
+
+.calendar-container .fc table th {
+  font-size: 14px;
+  color: #34495E;
+}
+
+
+/**************  api top anchor styling *****************/
+a.anchor{
+    display: block;
+    position: relative;
+    top: -250px;
+    visibility: hidden;
 }

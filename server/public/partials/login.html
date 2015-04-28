@@ -1,0 +1,33 @@
+<div class="jumbotron">
+    <div class="container-fluid">
+        <h2 class="text-center">Login @ iTravel</h2>
+        <form class="form-group login-form">
+            <div class="form-group row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                    <input type="text" class="form-control input-lg login-field"
+                           id="login" ng-model="uiModel.email" placeholder="Enter Your EMail">
+                    <label class="login-field-icon glyphicon glyphicon-user" for="login"></label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                    <input type="password" class="form-control input-lg login-field"
+                           id="password" ng-model="uiModel.password" placeholder="Password">
+                    <label class="login-field-icon glyphicon glyphicon-lock" for="password"></label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="login()">Login</button>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-12 text-center">
+                    <p>Don't have a login? <a href="#/signup">Sign up</a>!</p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

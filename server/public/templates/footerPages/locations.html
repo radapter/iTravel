@@ -1,0 +1,20 @@
+<div class="jumbotron">
+    <div class="container-fluid">
+        <h3 class="text-center">Locations</h3>
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                <p>iTravel's headquarters are currently located in San Jose, CA, with services primarily
+                    catered toward the San Francisco Bay Area. As the company grows, we can expand our
+                    services to include other areas as well.
+                </p>
+            </div>
+            <div class="col-xs-12 location-map">
+                <!--<div id="map-canvas">Add Google Map Here?</div>-->
+                <ui-gmap-google-map center='map.center' zoom='map.zoom' options="map.options">
+                    <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+                    </ui-gmap-marker>
+                </ui-gmap-google-map>
+            </div>
+        </div>
+    </div>
+</div>

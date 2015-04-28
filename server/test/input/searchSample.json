@@ -1,0 +1,1871 @@
+{
+    "meta": {
+        "code": 200
+    },
+    "response": {
+        "venues": [
+            {
+                "id": "509ee5bbe4b0f56d613db4a9",
+                "name": "BXL Zoute",
+                "contact": {
+                    "phone": "6466929282",
+                    "formattedPhone": "(646) 692-9282",
+                    "twitter": "bxlcafenyc"
+                },
+                "location": {
+                    "address": "50 W 22nd St",
+                    "crossStreet": "at 6th Ave",
+                    "lat": 40.742038215644726,
+                    "lng": -73.99254976644094,
+                    "postalCode": "10010",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "50 W 22nd St (at 6th Ave)",
+                        "New York, NY 10010",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "52e81612bcbc57f1066b7a02",
+                        "name": "Belgian Restaurant",
+                        "pluralName": "Belgian Restaurants",
+                        "shortName": "Belgian",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": false,
+                "stats": {
+                    "checkinsCount": 3615,
+                    "usersCount": 2325,
+                    "tipCount": 46
+                },
+                "url": "http://bxlrestaurants.com",
+                "hasMenu": true,
+                "delivery": {
+                    "url": "http://www.seamless.com/food-delivery/restaurant.27251.r?a=1026&utm_source=Foursquare&utm_medium=affiliate&utm_campaign=SeamlessOrderDeliveryLink",
+                    "provider": {
+                        "name": "seamless"
+                    }
+                },
+                "reservations": {
+                    "url": "http://www.opentable.com/single.aspx?rid=101122&ref=9601"
+                },
+                "menu": {
+                    "type": "Menu",
+                    "label": "Menu",
+                    "anchor": "View Menu",
+                    "url": "https://foursquare.com/v/bxl-zoute/509ee5bbe4b0f56d613db4a9/menu",
+                    "mobileUrl": "https://foursquare.com/v/509ee5bbe4b0f56d613db4a9/device_menu"
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "4558b83bf964a5204b3d1fe3",
+                "name": "New York Health and Racquet Club",
+                "contact": {
+                    "phone": "2129892300",
+                    "formattedPhone": "(212) 989-2300",
+                    "twitter": "nyhrc"
+                },
+                "location": {
+                    "address": "60 W 23rd St",
+                    "crossStreet": "at 6th Ave",
+                    "lat": 40.74259591648553,
+                    "lng": -73.99261289389636,
+                    "postalCode": "10010",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "60 W 23rd St (at 6th Ave)",
+                        "New York, NY 10010",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d176941735",
+                        "name": "Gym",
+                        "pluralName": "Gyms",
+                        "shortName": "Gym",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/building/gym_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": true,
+                "stats": {
+                    "checkinsCount": 31680,
+                    "usersCount": 2373,
+                    "tipCount": 56
+                },
+                "url": "http://nyhrc.com",
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "venuePage": {
+                    "id": "36095134"
+                },
+                "storeId": "",
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "425f0400f964a5200b211fe3",
+                "name": "The Institute of Culinary Education (ICE)",
+                "contact": {
+                    "phone": "2128470700",
+                    "formattedPhone": "(212) 847-0700",
+                    "twitter": "iceculinary"
+                },
+                "location": {
+                    "address": "50 W 23rd St Fl 5",
+                    "crossStreet": "at 6th Ave",
+                    "lat": 40.74257499754292,
+                    "lng": -73.99206161499023,
+                    "postalCode": "10010",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "50 W 23rd St Fl 5 (at 6th Ave)",
+                        "New York, NY 10010",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d13b941735",
+                        "name": "School",
+                        "pluralName": "Schools",
+                        "shortName": "School",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/building/school_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": true,
+                "stats": {
+                    "checkinsCount": 7934,
+                    "usersCount": 3043,
+                    "tipCount": 20
+                },
+                "url": "http://www.ice.edu",
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "venuePage": {
+                    "id": "50448543"
+                },
+                "storeId": "",
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "4be6ceb9bcef2d7fbd7405e5",
+                "name": "The Caroline",
+                "contact": {},
+                "location": {
+                    "address": "60 W 23rd St",
+                    "crossStreet": "6th ave",
+                    "lat": 40.742560153463835,
+                    "lng": -73.99225708433067,
+                    "postalCode": "10010",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "60 W 23rd St (6th ave)",
+                        "New York, NY 10010",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4e67e38e036454776db1fb3a",
+                        "name": "Residence",
+                        "pluralName": "Residences",
+                        "shortName": "Residence",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/building/home_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": false,
+                "stats": {
+                    "checkinsCount": 5594,
+                    "usersCount": 455,
+                    "tipCount": 4
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "515cb1e1e4b0207116c24680",
+                "name": "Tres Carnes",
+                "contact": {
+                    "phone": "2129898737",
+                    "formattedPhone": "(212) 989-8737",
+                    "facebook": "257363477740447",
+                    "facebookUsername": "trescarnesnyc",
+                    "facebookName": "Tres Carnes"
+                },
+                "location": {
+                    "address": "688 Avenue of the Americas",
+                    "crossStreet": "at W 22nd St",
+                    "lat": 40.741984,
+                    "lng": -73.993107,
+                    "postalCode": "10010",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "688 Avenue of the Americas (at W 22nd St)",
+                        "New York, NY 10010",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d1c1941735",
+                        "name": "Mexican Restaurant",
+                        "pluralName": "Mexican Restaurants",
+                        "shortName": "Mexican",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/mexican_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": true,
+                "stats": {
+                    "checkinsCount": 7261,
+                    "usersCount": 3614,
+                    "tipCount": 127
+                },
+                "url": "http://trescarnes.com",
+                "hasMenu": true,
+                "delivery": {
+                    "url": "http://www.seamless.com/food-delivery/restaurant.35349.r?a=1026&utm_source=Foursquare&utm_medium=affiliate&utm_campaign=SeamlessOrderDeliveryLink",
+                    "provider": {
+                        "name": "seamless"
+                    }
+                },
+                "menu": {
+                    "type": "Menu",
+                    "label": "Menu",
+                    "anchor": "View Menu",
+                    "url": "https://foursquare.com/v/tres-carnes/515cb1e1e4b0207116c24680/menu",
+                    "mobileUrl": "https://foursquare.com/v/515cb1e1e4b0207116c24680/device_menu"
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "4a881c9cf964a520310520e3",
+                "name": "Soon Beauty Lab West",
+                "contact": {
+                    "phone": "2122430245",
+                    "formattedPhone": "(212) 243-0245"
+                },
+                "location": {
+                    "address": "54 W 22nd St",
+                    "crossStreet": "at 6th Ave.",
+                    "lat": 40.74206037472437,
+                    "lng": -73.99263011047151,
+                    "postalCode": "10010",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "54 W 22nd St (at 6th Ave.)",
+                        "New York, NY 10010",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d110951735",
+                        "name": "Salon / Barbershop",
+                        "pluralName": "Salons / Barbershops",
+                        "shortName": "Salon / Barbershop",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/salon_barber_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": true,
+                "stats": {
+                    "checkinsCount": 1348,
+                    "usersCount": 527,
+                    "tipCount": 23
+                },
+                "hasMenu": true,
+                "menu": {
+                    "type": "Services",
+                    "label": "Services",
+                    "anchor": "View Services",
+                    "url": "https://foursquare.com/v/soon-beauty-lab-west/4a881c9cf964a520310520e3/menu",
+                    "mobileUrl": "https://foursquare.com/v/4a881c9cf964a520310520e3/device_menu"
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "53152165498eead76473a1a4",
+                "name": "Tokyo Sushi",
+                "contact": {
+                    "phone": "7187271771",
+                    "formattedPhone": "(718) 727-1771"
+                },
+                "location": {
+                    "address": "1710 Victory Blvd",
+                    "lat": 40.742185,
+                    "lng": -73.992602,
+                    "postalCode": "10314",
+                    "cc": "US",
+                    "city": "Staten Island",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "1710 Victory Blvd",
+                        "Staten Island, NY 10314",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d111941735",
+                        "name": "Japanese Restaurant",
+                        "pluralName": "Japanese Restaurants",
+                        "shortName": "Japanese",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/japanese_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": false,
+                "stats": {
+                    "checkinsCount": 1,
+                    "usersCount": 1,
+                    "tipCount": 0
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "4b48db2ef964a520465a26e3",
+                "name": "NY Cake & Baking",
+                "contact": {
+                    "phone": "2126752253",
+                    "formattedPhone": "(212) 675-2253"
+                },
+                "location": {
+                    "address": "56 W 22nd St",
+                    "crossStreet": "at 6th Ave.",
+                    "lat": 40.742079617124624,
+                    "lng": -73.99275062645425,
+                    "postalCode": "10010",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "56 W 22nd St (at 6th Ave.)",
+                        "New York, NY 10010",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d1f5941735",
+                        "name": "Gourmet Shop",
+                        "pluralName": "Gourmet Shops",
+                        "shortName": "Gourmet",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/food_gourmet_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": false,
+                "stats": {
+                    "checkinsCount": 2336,
+                    "usersCount": 1368,
+                    "tipCount": 16
+                },
+                "delivery": {
+                    "url": "http://www.seamless.com/food-delivery/restaurant.26583.r?a=1026&utm_source=Foursquare&utm_medium=affiliate&utm_campaign=SeamlessOrderDeliveryLink",
+                    "provider": {
+                        "name": "seamless"
+                    }
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "5111797280557d772b028356",
+                "name": "Mira Sushi",
+                "contact": {
+                    "phone": "2129897889",
+                    "formattedPhone": "(212) 989-7889",
+                    "twitter": "mirasushi"
+                },
+                "location": {
+                    "address": "46 W 22nd St",
+                    "crossStreet": "between 5th and 6th",
+                    "lat": 40.74185153948434,
+                    "lng": -73.9924156665802,
+                    "postalCode": "10010",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "46 W 22nd St (between 5th and 6th)",
+                        "New York, NY 10010",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d1d2941735",
+                        "name": "Sushi Restaurant",
+                        "pluralName": "Sushi Restaurants",
+                        "shortName": "Sushi",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/sushi_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": false,
+                "stats": {
+                    "checkinsCount": 2670,
+                    "usersCount": 1743,
+                    "tipCount": 40
+                },
+                "url": "http://www.mirasushi.com",
+                "hasMenu": true,
+                "delivery": {
+                    "url": "http://www.seamless.com/food-delivery/restaurant.26433.r?a=1026&utm_source=Foursquare&utm_medium=affiliate&utm_campaign=SeamlessOrderDeliveryLink",
+                    "provider": {
+                        "name": "seamless"
+                    }
+                },
+                "menu": {
+                    "type": "Menu",
+                    "label": "Menu",
+                    "anchor": "View Menu",
+                    "url": "https://foursquare.com/v/mira-sushi/5111797280557d772b028356/menu",
+                    "mobileUrl": "https://foursquare.com/v/5111797280557d772b028356/device_menu"
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "4a85f88df964a520e0ff1fe3",
+                "name": "Olive Garden",
+                "contact": {
+                    "phone": "2122551240",
+                    "formattedPhone": "(212) 255-1240",
+                    "twitter": "olivegarden"
+                },
+                "location": {
+                    "address": "696 Avenue Of The Americas",
+                    "crossStreet": "btwn 22nd & 23rd",
+                    "lat": 40.74231131035425,
+                    "lng": -73.99308347972743,
+                    "postalCode": "10010",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "696 Avenue Of The Americas (btwn 22nd & 23rd)",
+                        "New York, NY 10010",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d110941735",
+                        "name": "Italian Restaurant",
+                        "pluralName": "Italian Restaurants",
+                        "shortName": "Italian",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/italian_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": true,
+                "stats": {
+                    "checkinsCount": 10042,
+                    "usersCount": 6353,
+                    "tipCount": 100
+                },
+                "url": "http://www.olivegarden.com/italian-restaurant/ny/new%20york/1567/?cmpid=og_ll_google&cmpid=og_ll_%20foursquare",
+                "hasMenu": true,
+                "menu": {
+                    "type": "Menu",
+                    "label": "Menu",
+                    "anchor": "View Menu",
+                    "url": "https://foursquare.com/v/olive-garden/4a85f88df964a520e0ff1fe3/menu",
+                    "mobileUrl": "https://foursquare.com/v/4a85f88df964a520e0ff1fe3/device_menu"
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "storeId": "1567",
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "4c225ae47e85c9283ee5bb21",
+                "name": "Trader Joe's",
+                "contact": {
+                    "phone": "2122552104",
+                    "formattedPhone": "(212) 255-2104"
+                },
+                "location": {
+                    "address": "675 6th Ave",
+                    "crossStreet": "at W 21st St",
+                    "lat": 40.74212,
+                    "lng": -73.99399,
+                    "postalCode": "10010",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "675 6th Ave (at W 21st St)",
+                        "New York, NY 10010",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d118951735",
+                        "name": "Grocery Store",
+                        "pluralName": "Grocery Stores",
+                        "shortName": "Grocery Store",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/food_grocery_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": true,
+                "stats": {
+                    "checkinsCount": 63629,
+                    "usersCount": 16859,
+                    "tipCount": 253
+                },
+                "url": "http://www.traderjoes.com",
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "storeId": "543",
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "4de3d0a9d22d2a4ecde634d9",
+                "name": "SHOT TOWN",
+                "contact": {},
+                "location": {
+                    "address": "60 W 23rd St",
+                    "crossStreet": "6th Avenue",
+                    "lat": 40.74209774882629,
+                    "lng": -73.99252681099746,
+                    "postalCode": "10010",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "60 W 23rd St (6th Avenue)",
+                        "New York, NY 10010",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d11e941735",
+                        "name": "Cocktail Bar",
+                        "pluralName": "Cocktail Bars",
+                        "shortName": "Cocktail",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/nightlife/cocktails_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": false,
+                "stats": {
+                    "checkinsCount": 198,
+                    "usersCount": 14,
+                    "tipCount": 2
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "5346e82b498ebb817b1756ba",
+                "name": "Next Step Realty Upper East Side",
+                "contact": {
+                    "phone": "6465681311",
+                    "formattedPhone": "(646) 568-1311",
+                    "twitter": "nextsteprealty"
+                },
+                "location": {
+                    "address": "120 E 61st St",
+                    "crossStreet": "Lexington Ave",
+                    "lat": 40.742185,
+                    "lng": -73.992602,
+                    "postalCode": "10065",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "120 E 61st St (Lexington Ave)",
+                        "New York, NY 10065",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "5032885091d4c4b30a586d66",
+                        "name": "Real Estate Office",
+                        "pluralName": "Real Estate Offices",
+                        "shortName": "Real Estate",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/realestate_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": true,
+                "stats": {
+                    "checkinsCount": 1,
+                    "usersCount": 1,
+                    "tipCount": 0
+                },
+                "url": "http://www.thenextsteprealty.com",
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "venuePage": {
+                    "id": "83444768"
+                },
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "538f2d79498e98c029bbd746",
+                "name": "Hush \"Adult\" Playground",
+                "contact": {
+                    "phone": "7183703760",
+                    "formattedPhone": "(718) 370-3760"
+                },
+                "location": {
+                    "address": "3575 Victory Blvd",
+                    "lat": 40.742185,
+                    "lng": -73.992602,
+                    "postalCode": "10314",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "3575 Victory Blvd",
+                        "New York, NY 10314",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d1d6941735",
+                        "name": "Strip Club",
+                        "pluralName": "Strip Clubs",
+                        "shortName": "Strip Club",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/nightlife/stripclub_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": false,
+                "stats": {
+                    "checkinsCount": 1,
+                    "usersCount": 1,
+                    "tipCount": 0
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "536cf5de498e95f70e084035",
+                "name": "Pure Mountain Olive Oil",
+                "contact": {
+                    "phone": "9143377325",
+                    "formattedPhone": "(914) 337-7325",
+                    "twitter": "mountainolive"
+                },
+                "location": {
+                    "address": "118 Kraft Ave",
+                    "lat": 40.742185,
+                    "lng": -73.992602,
+                    "postalCode": "10708",
+                    "cc": "US",
+                    "city": "Bronxville",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "118 Kraft Ave",
+                        "Bronxville, NY 10708",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d1f5941735",
+                        "name": "Gourmet Shop",
+                        "pluralName": "Gourmet Shops",
+                        "shortName": "Gourmet",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/food_gourmet_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": false,
+                "stats": {
+                    "checkinsCount": 1,
+                    "usersCount": 1,
+                    "tipCount": 0
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "53b43605498ec64e39c894a5",
+                "name": "Elena Rubin Skincare",
+                "contact": {
+                    "phone": "2125375817",
+                    "formattedPhone": "(212) 537-5817",
+                    "twitter": "elenarubincares"
+                },
+                "location": {
+                    "address": "596 Broadway, Suite 302",
+                    "crossStreet": "Houston and Prince",
+                    "lat": 40.742185,
+                    "lng": -73.992602,
+                    "postalCode": "10012",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "596 Broadway, Suite 302 (Houston and Prince)",
+                        "New York, NY 10012",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d1ed941735",
+                        "name": "Spa",
+                        "pluralName": "Spas",
+                        "shortName": "Spa",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/spa_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": false,
+                "stats": {
+                    "checkinsCount": 1,
+                    "usersCount": 1,
+                    "tipCount": 0
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "534383b2498e0c132cd7c872",
+                "name": "Ageonics Medical, PC",
+                "contact": {
+                    "phone": "2125107020",
+                    "formattedPhone": "(212) 510-7020",
+                    "twitter": "ageonicsmedical"
+                },
+                "location": {
+                    "address": "109 E 36th St",
+                    "lat": 40.742185,
+                    "lng": -73.992602,
+                    "postalCode": "10016",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "109 E 36th St",
+                        "New York, NY 10016",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "52e81612bcbc57f1066b7a3a",
+                        "name": "Chiropractor",
+                        "pluralName": "Chiropractors",
+                        "shortName": "Chiropractors",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/building/medical_doctorsoffice_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": false,
+                "stats": {
+                    "checkinsCount": 1,
+                    "usersCount": 1,
+                    "tipCount": 0
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "538cbeb2498ecd4ebc0d88f0",
+                "name": "Morescape HQ",
+                "contact": {
+                    "phone": "6467838667",
+                    "formattedPhone": "(646) 783-8667",
+                    "twitter": "morescape"
+                },
+                "location": {
+                    "address": "175 Varick St",
+                    "crossStreet": "Charlton St",
+                    "lat": 40.742185,
+                    "lng": -73.992602,
+                    "postalCode": "10014",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "175 Varick St (Charlton St)",
+                        "New York, NY 10014",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d125941735",
+                        "name": "Tech Startup",
+                        "pluralName": "Tech Startups",
+                        "shortName": "Tech Startup",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/technology_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": false,
+                "stats": {
+                    "checkinsCount": 1,
+                    "usersCount": 1,
+                    "tipCount": 0
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "5303c867498ee68e11baaca1",
+                "name": "Amaaya",
+                "contact": {
+                    "phone": "6469645910",
+                    "formattedPhone": "(646) 964-5910",
+                    "facebook": "145392608839306",
+                    "facebookName": "Amaaya"
+                },
+                "location": {
+                    "address": "236 3rd Ave",
+                    "crossStreet": "19th and 20th",
+                    "lat": 40.742185,
+                    "lng": -73.992602,
+                    "postalCode": "10003",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "236 3rd Ave (19th and 20th)",
+                        "New York, NY 10003",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d111951735",
+                        "name": "Jewelry Store",
+                        "pluralName": "Jewelry Stores",
+                        "shortName": "Jewelry",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/jewelry_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": true,
+                "stats": {
+                    "checkinsCount": 2,
+                    "usersCount": 2,
+                    "tipCount": 0
+                },
+                "url": "http://www.amaayanyc.com",
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "venuePage": {
+                    "id": "81421661"
+                },
+                "storeId": "",
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "5336c6c4498e99cd2b03cc35",
+                "name": "Bethel Woods Museum Store",
+                "contact": {
+                    "phone": "8455832051",
+                    "formattedPhone": "(845) 583-2051",
+                    "twitter": "bwmuseumstore"
+                },
+                "location": {
+                    "address": "PO Box 1969   200 Hurd Road",
+                    "crossStreet": "17B",
+                    "lat": 40.742185,
+                    "lng": -73.992602,
+                    "postalCode": "12720",
+                    "cc": "US",
+                    "city": "Bethel",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "PO Box 1969   200 Hurd Road (17B)",
+                        "Bethel, NY 12720",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d128951735",
+                        "name": "Gift Shop",
+                        "pluralName": "Gift Shops",
+                        "shortName": "Gift Shop",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/giftshop_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": true,
+                "stats": {
+                    "checkinsCount": 2,
+                    "usersCount": 2,
+                    "tipCount": 0
+                },
+                "url": "http://www.shopbethelwoods.com",
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "venuePage": {
+                    "id": "85140097"
+                },
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "535fad5c498ef90a8126ddf3",
+                "name": "The Juice Shop",
+                "contact": {},
+                "location": {
+                    "address": "688 Avenue of the Americas",
+                    "crossStreet": "22nd",
+                    "lat": 40.74211742078362,
+                    "lng": -73.9933359887217,
+                    "postalCode": "10010",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "688 Avenue of the Americas (22nd)",
+                        "New York, NY 10010",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d112941735",
+                        "name": "Juice Bar",
+                        "pluralName": "Juice Bars",
+                        "shortName": "Juice Bar",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/juicebar_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": false,
+                "stats": {
+                    "checkinsCount": 1827,
+                    "usersCount": 885,
+                    "tipCount": 25
+                },
+                "url": "http://www.thejuiceshopny.com",
+                "delivery": {
+                    "url": "http://www.seamless.com/food-delivery/restaurant.37924.r?a=1026&utm_source=Foursquare&utm_medium=affiliate&utm_campaign=SeamlessOrderDeliveryLink",
+                    "provider": {
+                        "name": "seamless"
+                    }
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "42911d00f964a520f5231fe3",
+                "name": "New York Penn Station",
+                "contact": {
+                    "phone": "2126306401",
+                    "formattedPhone": "(212) 630-6401"
+                },
+                "location": {
+                    "address": "1 Penn Plz",
+                    "crossStreet": "btwn W 31st & W 33rd St",
+                    "lat": 40.750794799423865,
+                    "lng": -73.99357639021292,
+                    "postalCode": "10001",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "1 Penn Plz (btwn W 31st & W 33rd St)",
+                        "New York, NY 10001",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d129951735",
+                        "name": "Train Station",
+                        "pluralName": "Train Stations",
+                        "shortName": "Train Station",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/travel/trainstation_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": true,
+                "stats": {
+                    "checkinsCount": 935178,
+                    "usersCount": 170959,
+                    "tipCount": 1561
+                },
+                "delivery": {
+                    "url": "http://www.seamless.com/food-delivery/restaurant.4794.r?a=1026&utm_source=Foursquare&utm_medium=affiliate&utm_campaign=SeamlessOrderDeliveryLink",
+                    "provider": {
+                        "name": "seamless"
+                    }
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 32,
+                    "summary": "32 people are checked in here",
+                    "groups": [
+                        {
+                            "type": "others",
+                            "name": "Other people here",
+                            "count": 32,
+                            "items": []
+                        }
+                    ]
+                },
+                "venuePage": {
+                    "id": "85006792"
+                },
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "49dbb523f964a520e85e1fe3",
+                "name": "Cosi",
+                "contact": {
+                    "phone": "2126450223",
+                    "formattedPhone": "(212) 645-0223"
+                },
+                "location": {
+                    "address": "700 Avenue of the Americas",
+                    "lat": 40.74249002726427,
+                    "lng": -73.99308347972743,
+                    "postalCode": "10010",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "700 Avenue of the Americas",
+                        "New York, NY 10010",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d1c5941735",
+                        "name": "Sandwich Place",
+                        "pluralName": "Sandwich Places",
+                        "shortName": "Sandwiches",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/deli_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": true,
+                "stats": {
+                    "checkinsCount": 6780,
+                    "usersCount": 3302,
+                    "tipCount": 63
+                },
+                "url": "http://www.getcosi.com",
+                "hasMenu": true,
+                "delivery": {
+                    "url": "http://www.seamless.com/food-delivery/restaurant.22451.r?a=1026&utm_source=Foursquare&utm_medium=affiliate&utm_campaign=SeamlessOrderDeliveryLink",
+                    "provider": {
+                        "name": "seamless"
+                    }
+                },
+                "menu": {
+                    "type": "Menu",
+                    "label": "Menu",
+                    "anchor": "View Menu",
+                    "url": "https://foursquare.com/v/cosi/49dbb523f964a520e85e1fe3/menu",
+                    "mobileUrl": "https://foursquare.com/v/49dbb523f964a520e85e1fe3/device_menu"
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 2,
+                    "summary": "2 people are checked in here",
+                    "groups": [
+                        {
+                            "type": "others",
+                            "name": "Other people here",
+                            "count": 2,
+                            "items": []
+                        }
+                    ]
+                },
+                "storeId": "700 6th Avenue",
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "4d78e23c0ddba35dd2904776",
+                "name": "Just Salad",
+                "contact": {
+                    "phone": "2122441111",
+                    "formattedPhone": "(212) 244-1111",
+                    "twitter": "justsalad"
+                },
+                "location": {
+                    "address": "706 6th Ave.",
+                    "crossStreet": "at W 23rd St.",
+                    "lat": 40.742679135143746,
+                    "lng": -73.99292279201251,
+                    "postalCode": "10010",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "706 6th Ave. (at W 23rd St.)",
+                        "New York, NY 10010",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d1bd941735",
+                        "name": "Salad Place",
+                        "pluralName": "Salad Shop",
+                        "shortName": "Salad",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/salad_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": true,
+                "stats": {
+                    "checkinsCount": 10799,
+                    "usersCount": 2720,
+                    "tipCount": 64
+                },
+                "url": "http://www.justsalad.com",
+                "hasMenu": true,
+                "delivery": {
+                    "url": "http://www.seamless.com/food-delivery/restaurant.4130.r?a=1026&utm_source=Foursquare&utm_medium=affiliate&utm_campaign=SeamlessOrderDeliveryLink",
+                    "provider": {
+                        "name": "seamless"
+                    }
+                },
+                "menu": {
+                    "type": "Menu",
+                    "label": "Menu",
+                    "anchor": "View Menu",
+                    "url": "https://foursquare.com/v/just-salad/4d78e23c0ddba35dd2904776/menu",
+                    "mobileUrl": "https://foursquare.com/v/4d78e23c0ddba35dd2904776/device_menu"
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "4b76e514f964a5200c682ee3",
+                "name": "Terri",
+                "contact": {
+                    "phone": "2126478810",
+                    "formattedPhone": "(212) 647-8810",
+                    "twitter": "terrirestaurant"
+                },
+                "location": {
+                    "address": "60 W 23rd St",
+                    "crossStreet": "at 6th Ave",
+                    "lat": 40.74257702971737,
+                    "lng": -73.99225205183029,
+                    "postalCode": "10010",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "60 W 23rd St (at 6th Ave)",
+                        "New York, NY 10010",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d1d3941735",
+                        "name": "Vegetarian / Vegan Restaurant",
+                        "pluralName": "Vegetarian / Vegan Restaurants",
+                        "shortName": "Vegetarian / Vegan",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/vegetarian_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": true,
+                "stats": {
+                    "checkinsCount": 16920,
+                    "usersCount": 4787,
+                    "tipCount": 259
+                },
+                "url": "http://www.terrinyc.com",
+                "hasMenu": true,
+                "delivery": {
+                    "url": "http://www.seamless.com/food-delivery/restaurant.6123.r?a=1026&utm_source=Foursquare&utm_medium=affiliate&utm_campaign=SeamlessOrderDeliveryLink",
+                    "provider": {
+                        "name": "seamless"
+                    }
+                },
+                "menu": {
+                    "type": "Menu",
+                    "label": "Menu",
+                    "anchor": "View Menu",
+                    "url": "https://foursquare.com/v/terri/4b76e514f964a5200c682ee3/menu",
+                    "mobileUrl": "https://foursquare.com/v/4b76e514f964a5200c682ee3/device_menu"
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "venuePage": {
+                    "id": "55046793"
+                },
+                "storeId": "",
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "4be0af874c189c74ba7556f2",
+                "name": "Betterment",
+                "contact": {
+                    "phone": "2122281328",
+                    "formattedPhone": "(212) 228-1328",
+                    "twitter": "betterment"
+                },
+                "location": {
+                    "address": "61 W 23rd St",
+                    "crossStreet": "at 6th Ave",
+                    "lat": 40.742591254936954,
+                    "lng": -73.9918041229248,
+                    "postalCode": "10010",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "61 W 23rd St (at 6th Ave)",
+                        "New York, NY 10010",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d125941735",
+                        "name": "Tech Startup",
+                        "pluralName": "Tech Startups",
+                        "shortName": "Tech Startup",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/technology_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": false,
+                "stats": {
+                    "checkinsCount": 5274,
+                    "usersCount": 257,
+                    "tipCount": 7
+                },
+                "url": "https://www.betterment.com",
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "4ab5320cf964a5202b7320e3",
+                "name": "Best Buy",
+                "contact": {
+                    "phone": "2123661373",
+                    "formattedPhone": "(212) 366-1373",
+                    "twitter": "bestbuy",
+                    "facebook": "12699262021",
+                    "facebookUsername": "bestbuy",
+                    "facebookName": "Best Buy"
+                },
+                "location": {
+                    "address": "60 West 23rd Street",
+                    "crossStreet": "at 6th Ave.",
+                    "lat": 40.74260751,
+                    "lng": -73.99270535,
+                    "postalCode": "10010",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "60 West 23rd Street (at 6th Ave.)",
+                        "New York, NY 10010",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d122951735",
+                        "name": "Electronics Store",
+                        "pluralName": "Electronics Stores",
+                        "shortName": "Electronics",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/technology_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": true,
+                "stats": {
+                    "checkinsCount": 12234,
+                    "usersCount": 6653,
+                    "tipCount": 57
+                },
+                "url": "http://www.bestbuy.com",
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "storeId": "482",
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "511302dbe4b0d32f19bb9b7f",
+                "name": "The Storehouse",
+                "contact": {
+                    "phone": "2122438898",
+                    "formattedPhone": "(212) 243-8898",
+                    "twitter": "thestorehouseny"
+                },
+                "location": {
+                    "address": "69 W 23rd St",
+                    "crossStreet": "at 6th Ave",
+                    "lat": 40.742673,
+                    "lng": -73.992249,
+                    "postalCode": "10010",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "69 W 23rd St (at 6th Ave)",
+                        "New York, NY 10010",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d155941735",
+                        "name": "Gastropub",
+                        "pluralName": "Gastropubs",
+                        "shortName": "Gastropub",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/gastropub_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": true,
+                "stats": {
+                    "checkinsCount": 2465,
+                    "usersCount": 1294,
+                    "tipCount": 15
+                },
+                "url": "http://www.thestorehousenyc.com",
+                "hasMenu": true,
+                "menu": {
+                    "type": "Menu",
+                    "label": "Menu",
+                    "anchor": "View Menu",
+                    "url": "https://foursquare.com/v/the-storehouse/511302dbe4b0d32f19bb9b7f/menu",
+                    "mobileUrl": "https://foursquare.com/v/511302dbe4b0d32f19bb9b7f/device_menu"
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "venuePage": {
+                    "id": "55854704"
+                },
+                "storeId": "",
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "4a58d0acf964a520f6b71fe3",
+                "name": "Starbucks",
+                "contact": {
+                    "phone": "2126911948",
+                    "formattedPhone": "(212) 691-1948",
+                    "twitter": "starbucks",
+                    "facebook": "22092443056",
+                    "facebookUsername": "Starbucks",
+                    "facebookName": "Starbucks"
+                },
+                "location": {
+                    "address": "684 Avenue of the Americas",
+                    "crossStreet": "at W 22nd St",
+                    "lat": 40.741844,
+                    "lng": -73.993237,
+                    "postalCode": "10010",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "684 Avenue of the Americas (at W 22nd St)",
+                        "New York, NY 10010",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d1e0931735",
+                        "name": "Coffee Shop",
+                        "pluralName": "Coffee Shops",
+                        "shortName": "Coffee Shop",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": true,
+                "stats": {
+                    "checkinsCount": 14210,
+                    "usersCount": 5607,
+                    "tipCount": 50
+                },
+                "url": "http://www.starbucks.com/store/16731/",
+                "hasMenu": true,
+                "menu": {
+                    "type": "Menu",
+                    "label": "Menu",
+                    "anchor": "View Menu",
+                    "url": "https://foursquare.com/v/starbucks/4a58d0acf964a520f6b71fe3/menu",
+                    "mobileUrl": "https://foursquare.com/v/4a58d0acf964a520f6b71fe3/device_menu",
+                    "externalUrl": "http://www.starbucks.com/menu"
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "storeId": "7285",
+                "referralId": "v-1429498551"
+            },
+            {
+                "id": "4ad11803f964a520b2dc20e3",
+                "name": "Metropolitan Room",
+                "contact": {
+                    "phone": "2122060440",
+                    "formattedPhone": "(212) 206-0440",
+                    "twitter": "met3422rm"
+                },
+                "location": {
+                    "address": "34 W 22nd St",
+                    "crossStreet": "at 6th Ave.",
+                    "lat": 40.7418183735866,
+                    "lng": -73.99199883503896,
+                    "postalCode": "10010",
+                    "cc": "US",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "34 W 22nd St (at 6th Ave.)",
+                        "New York, NY 10010",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d1e8931735",
+                        "name": "Piano Bar",
+                        "pluralName": "Piano Bars",
+                        "shortName": "Piano Bar",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/musicvenue_pianobar_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": true,
+                "stats": {
+                    "checkinsCount": 2371,
+                    "usersCount": 1525,
+                    "tipCount": 15
+                },
+                "url": "http://metropolitanroom.com",
+                "hasMenu": true,
+                "menu": {
+                    "type": "Menu",
+                    "label": "Menu",
+                    "anchor": "View Menu",
+                    "url": "https://foursquare.com/v/metropolitan-room/4ad11803f964a520b2dc20e3/menu",
+                    "mobileUrl": "https://foursquare.com/v/4ad11803f964a520b2dc20e3/device_menu"
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 1,
+                    "summary": "One person is checked in here",
+                    "groups": [
+                        {
+                            "type": "others",
+                            "name": "Other people here",
+                            "count": 1,
+                            "items": []
+                        }
+                    ]
+                },
+                "venuePage": {
+                    "id": "87037193"
+                },
+                "storeId": "",
+                "referralId": "v-1429498551"
+            }
+        ],
+        "confident": false,
+        "geocode": {
+            "what": "",
+            "where": "new york ny",
+            "feature": {
+                "cc": "US",
+                "name": "New York",
+                "displayName": "New York, NY, United States",
+                "matchedName": "New York, NY, United States",
+                "highlightedName": "<b>New York</b>, <b>NY</b>, United States",
+                "woeType": 7,
+                "slug": "new-york-city-new-york",
+                "id": "geonameid:5128581",
+                "longId": "72057594043056517",
+                "geometry": {
+                    "center": {
+                        "lat": 40.742185,
+                        "lng": -73.992602
+                    },
+                    "bounds": {
+                        "ne": {
+                            "lat": 40.882214,
+                            "lng": -73.907
+                        },
+                        "sw": {
+                            "lat": 40.679548,
+                            "lng": -74.047285
+                        }
+                    }
+                }
+            },
+            "parents": []
+        }
+    }
+}

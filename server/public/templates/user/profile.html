@@ -1,0 +1,95 @@
+<div class="container-fliud">
+
+    <div class="jumbotron user-panel">
+        <div class="container-fliud">
+            <div class="row">
+                <div class="col-sm-4 text-center">
+                    <h4>{{user.email}}</h4>
+                    <img src="../img/user-avatars/1.png" alt="" height="80"/>
+                    <h6>Plans: {{planCount}}</h6>
+                    <h6>Destinations: {{destinationCount}}</h6>
+                    <h6>Activities: {{activityCount}}</h6>
+                </div>
+
+                <div class="col-sm-4 text-center chart-container">
+                    <h5>My Favorite Places</h5>
+                    <nvd3-pie-chart
+                        class="center-block"
+                        data="venueCategoriesStat"
+                        noData="You don't have travel data"
+                        height="280"
+                        margin="{left:30,top:5,bottom:5,right:20}"
+                        x="xDonutFn()"
+                        y="yDonutFn()"
+                        color="colorFunction()";
+                        showLabels="true"
+                        donutLabelsOutside="true"
+                        donut="true"
+                        donutRatio=".2"
+                        tooltips="true"
+                        tooltipcontent="toolTipContentFn()"
+                    >
+                            <svg height="200"></svg>
+                    </nvd3-pie-chart>
+                </div>
+
+                <div class="col-sm-4 chart-container text-center">
+                        <h5>My Favorite Cities</h5>
+                        <nvd3-multi-bar-horizontal-chart
+                            class="center-block"
+                            data="destinationsStat"
+                            noData="You don't have travel data"
+                            height="250"
+                            margin="{left:100,top:5,bottom:15,right:0}"
+                            x="xBarFn()"
+                            y="yBarFn()"
+                            color="colorFunction()";
+                            yAxisTickFormat="yAxisTickFormatFunction()"
+                            showXAxis="true"
+                            showYAxis="true"
+                            tooltips="true"
+                            tooltipcontent="toolTipContentFn()"
+                        >
+                                <svg height="200"></svg>
+                        </nvd3-multi-bar-horizontal-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <h4>My Travel Plans</h4>
+
+        <div class="row">
+            <div class="col-md-4 todo" ng-repeat="plan in user.plans | orderBy: '-startDate' " ng-click="gotoPlan(plan._id)">
+                <div class="plan-title">
+                    <h6><a ng-href="#/plans/{{plan._id}}" class="plan-title-link">{{plan.destName}}</a></h6>
+                    <p>{{plan.startDate |dateParse | date:'MM/dd/yyyy'}} - {{plan.endDate |dateParse | date:'MM/dd/yyyy'}} </p>
+                </div>
+                <ul class="plan-list">
+                    <li class=""
+                        ng-repeat="activity in plan.activities">
+                        <div class="activity-icon">
+                            <i class="fa" ng-class="{
+                                'fa-coffee': activity.activitiesType === 'restaurants',
+                                'fa-bed': activity.activitiesType === 'hotels',
+                                'fa-camera': activity.activitiesType === 'attractions'
+                            }"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4 class="activity-name">{{activity.venue.name}}</h4>
+                            <!--<p>{{activity.start ? activity.start : ''  |dateParse | date:'MM/dd/yyyy @ h:mma'}}</p>-->
+                            <!--<p>{{activity.end ? activity.end : ''  |dateParse | date:'MM/dd/yyyy @ h:mma'}}</p>-->
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+</div>
