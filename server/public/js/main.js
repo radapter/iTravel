@@ -138,4 +138,8 @@ angular.module('iTravelApp')
         $location.hash($routeParams.scrollTo);
         $anchorScroll();
     });
+
+    $rootScope.$on('userLogout', function() {
+        $location.url('/');
+    })
 }]);
