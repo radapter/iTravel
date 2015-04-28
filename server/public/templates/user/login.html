@@ -8,8 +8,8 @@
 
             <div class="form-group row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-                    <input type="text" class="form-control input-lg login-field"
-                           id="login" ng-model="uiModel.email" placeholder="Enter Your Email">
+                    <input type="email" class="form-control input-lg login-field"
+                           id="login" ng-model="uiModel.email" placeholder="Enter Your Email" required>
                     <label class="login-field-icon glyphicon glyphicon-user" for="login"></label>
                 </div>
             </div>
@@ -17,7 +17,7 @@
             <div class="form-group row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                     <input type="password" class="form-control input-lg login-field"
-                           id="password" ng-model="uiModel.password" placeholder="Password">
+                           id="password" ng-model="uiModel.password" placeholder="Password" required>
                     <label class="login-field-icon glyphicon glyphicon-lock" for="password"></label>
                 </div>
             </div>

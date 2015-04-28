@@ -11,8 +11,8 @@
 
             <div class="form-group row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-                    <input type="text" class="form-control input-lg login-field"
-                           id="signup" ng-model="uiModel.email" placeholder="Enter Your Email">
+                    <input type="email" class="form-control input-lg login-field"
+                           id="signup" ng-model="uiModel.email" placeholder="Enter Your Email" required>
                     <label class="login-field-icon glyphicon glyphicon-user" for="signup"></label>
                 </div>
             </div>
@@ -20,7 +20,7 @@
             <div class="form-group row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                     <input type="password" class="form-control input-lg login-field"
-                           id="password1" ng-model="uiModel.password" placeholder="Password">
+                           id="password1" ng-model="uiModel.password" placeholder="Password" required>
                     <label class="login-field-icon glyphicon glyphicon-lock" for="password1"></label>
                 </div>
             </div>
@@ -28,7 +28,7 @@
             <div class="form-group row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                     <input type="password" class="form-control input-lg login-field"
-                           id="password2" ng-model="uiModel.passwordConf" placeholder="Confirm Password">
+                           id="password2" ng-model="uiModel.passwordConf" placeholder="Confirm Password" required>
                     <label class="login-field-icon glyphicon glyphicon-lock" for="password2"></label>
                 </div>
             </div>

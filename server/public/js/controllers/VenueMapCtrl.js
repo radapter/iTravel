@@ -19,7 +19,7 @@
                         //draggable: false,
                         mapTypeControl: true
                     },
-                    zoom: 12
+                    zoom: 15
                 };
                 $scope.marker = {
                     id: 0,
