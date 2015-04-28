@@ -58,8 +58,16 @@ var translationsEN = {
 
     iTravelContent1:'your travel assistant from start to finish',
     iTravelContent2:'People are using iTravel everywhere!',
-    Signup:'Sign up!'
+    Signup:'Sign up!',
 
+    //login page
+    EnterEmail: 'Enter Your Email',
+    Password: 'Password',
+    NeedToSignUp: 'Don\'t have a login?',
+
+    //signup page
+    Password2: 'Confirm Password',
+    HaveAcct: 'Already have an account?'
 
 
 
@@ -130,8 +138,16 @@ var translationsCN= {
 
     iTravelContent1:'值得信赖的旅游伴侣，我们一直在您身边',
     iTravelContent2:'大家都在用爱游！！还等什么呢？',
-    Signup:'现在就加入 iTravel 爱游！'
+    Signup:'现在就加入 iTravel 爱游！',
 
+    //login page
+    EnterEmail: '请输入电子邮件',
+    Password: '密码',
+    NeedToSignUp: '没有帐户嗎？',
+
+    //signup page
+    Password2: '确认密码',
+    HaveAcct: '已经有帐户了嗎?'
 
 
     //PASSED_AS_TEXT: 'Hey! Ich wurde als text übergeben!',
