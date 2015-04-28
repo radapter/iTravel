@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#/">iTravel</a>
+            <a class="navbar-brand" href="#/" translate>iTravel</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -19,10 +19,15 @@
                 <li><a href="#/hotelsSelect">Hotels</a></li>
             </ul>-->
 
+            <div class="nav navbar-nav">
+                <button class="btn btn-success navbar-btn" ng-click="changeLanguage('en')">English</button>
+                <button class="btn btn-info navbar-btn" ng-click="changeLanguage('cn')">中文</button>
+            </div>
+
             <!--if not login-->
             <div class="nav navbar-nav navbar-right" ng-show="!currentUser">
-                <a href="#/login" class="btn btn-success navbar-btn">Login</a>
-                <a href="#/signup" class="btn btn-info navbar-btn">Signup</a>
+                <a href="#/login" class="btn btn-success navbar-btn" translate>LOGIN</a>
+                <a href="#/signup" class="btn btn-info navbar-btn" translate>SIGNUP</a>
             </div>
 
             <!--if logged in -->
@@ -32,8 +37,8 @@
                         {{currentUser.email}} <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu width100" role="menu">
-                        <li><a href="#/users/{{currentUser._id}}"><img src="../img/user-avatars/1.png" alt="" height="25"/> Profile</a></li>
-                        <li><a href="#" ng-click="logout()">Log Out</a></li>
+                        <li><a href="#/users/{{currentUser._id}}"><img src="../img/user-avatars/1.png" alt="" height="25"/> <span translate>PROFILE</span></a></li>
+                        <li><a href="#" ng-click="logout()" translate>LOGOUT</a></li>
                     </ul>
                 </div>
             </div>
