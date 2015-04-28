@@ -8,9 +8,13 @@
 
 <body ng-app="iTravelApp">
 	<!-- iTravel Content Goes Here -->
+
+
+	<!--!!!!!NavbarCtrl also contains tranlatorCtrl, should applies to all module-->
+
 	<div ng-include='"templates/header.html"' ng-controller="NavbarCtrl"></div>
 	<div ng-view class="padding-top-80" ng-controller="NavbarCtrl" ng-class="{'padding-top-0': showStatus}"></div>
-	<div ng-include='"templates/footer.html"'></div>
+	<div ng-include='"templates/footer.html"' ng-controller="NavbarCtrl" ></div>
 	<!-- inject:js -->
 	<!-- endinject -->
 </body>

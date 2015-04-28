@@ -118,6 +118,15 @@ angular.module('iTravelApp')
     cfpLoadingBarProvider.includeSpinner = false;
 }])
 
+//translate module
+.config(['$translateProvider', function ($translateProvider) {
+    // add translation tables
+    $translateProvider.translations('en', translationsEN);
+    $translateProvider.translations('cn', translationsCN);
+    $translateProvider.preferredLanguage('en');
+    $translateProvider.fallbackLanguage('en');
+}])
+
 
 .run(['User', 'Venue', function(User, Venue) {
     // detect if there is valid user token upon app start, and load user data if there is one

@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular.module('iTravelApp')
-	.controller('NavbarCtrl', ['$scope', '$location', 'User', function ($scope, $location, User) {
+	.controller('NavbarCtrl', ['$scope', '$location', 'User', '$translate',function ($scope, $location, User, $translate) {
 	    
 	    $scope.$on('$routeChangeSuccess', function(evt) {
 	        $scope.showStatus = ($location.$$path === "/") ? true : false;
@@ -28,6 +28,11 @@
         function userLoginStateHandler() {
         	$scope.currentUser = User.currentUser;
         }
+
+        $scope.changeLanguage = function (langKey) {
+            console.log(langKey);
+            $translate.use(langKey);
+        };
 
 	}]);
 })();
