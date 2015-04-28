@@ -32,7 +32,7 @@ var translationsEN = {
     PickDestinationContent:'Simply choose destination or use your current location to find nearby spots and pick a date to travel.',
     Personalize:'Personalize',
     PersonalizeContent:'Pick and choose the venues you want to visit. We build your itinerary based on your interests.',
-    TravelAdaptively:'TravelAdaptively',
+    TravelAdaptively:'Travel Adaptively',
     TravelAdaptivelyContent:'Hit the road and we track you on the go and adapt your plan due to delays or spontaneity.',
 
     FindYourOyster: 'Find Your Oyster',
@@ -51,7 +51,7 @@ var translationsEN = {
     ScheduleItContent2:'Pick your times',
     ScheduleItContent3:'Choose travel days',
 
-    TakeItOntheGo:'TakeItOntheGo',
+    TakeItOntheGo:'Take It On the Go',
     TakeItOntheGoContent1: 'Tracks your progress',
     TakeItOntheGoContent2: 'Sends you reminders or tips',
     TakeItOntheGoContent3: 'Prompts you to alter plan when deviations occur',
