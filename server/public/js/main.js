@@ -3,7 +3,7 @@
 
 angular.module('iTravelApp', ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps','ngSanitize',
     'ui.select', 'ui.calendar', 'ngDragDrop', 'angular-loading-bar', 'fox.scrollReveal',
-    'angular-timeline']);
+    'angular-timeline','pascalprecht.translate']);
 
 /**
  * Configure the Routes
@@ -117,6 +117,8 @@ angular.module('iTravelApp')
 .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeSpinner = false;
 }])
+
+
 .run(['User', 'Venue', function(User, Venue) {
     // detect if there is valid user token upon app start, and load user data if there is one
     User.restore();
