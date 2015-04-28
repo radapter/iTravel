@@ -435,6 +435,10 @@ div.selected-venues{
 
 /******************** user profile page **********************/
 
+.chart-container {
+  height: 320px;
+}
+
 .user-panel {
     margin: 20px;
     padding: 20px;

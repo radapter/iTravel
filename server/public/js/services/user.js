@@ -19,7 +19,8 @@
 		User.prototype = {
 			logout: logout,
 			save: save,
-			refresh: refresh
+			refresh: refresh,
+			getStat: getStat
 		};
 
 		// static properties/methods
@@ -139,6 +140,52 @@
 			});
 
 			return deferred.promise;
+		}
+
+		function getStat() {
+			var stat = {
+				venueCategories: [],
+				destinations: []
+			};
+
+			_.each(this.plans, function(plan) {
+				// console.log('plan', plan);
+
+				_.each(plan.activities, function(activity) {
+					// _.each(activity.venue.categories, function(category) {
+
+					// });
+					var category = activity.venue.categories[1];
+					if (category) {
+						var CurrCat = _.findWhere(stat.venueCategories, {label: category.name});
+						if (CurrCat) {
+							CurrCat.value++;
+						} else {
+							stat.venueCategories.push({label: category.name, value:1});
+						}
+					}
+
+					var destination = activity.venue.location.city;
+					var currDest = _.findWhere(stat.destinations, {key: destination});
+					if (currDest) {
+						currDest.values[0][1]++;
+					} else {
+						stat.destinations.push({key: destination, values:[[destination, 1]]});
+					}
+
+				});
+			});
+
+			stat.venueCategories = _.sortBy(stat.venueCategories, function(obj) {
+				return -obj.value;
+			}).slice(0,10);
+
+			stat.destinations = _.sortBy(stat.destinations, function(obj) {
+				return -obj.values[0][1];
+			}).slice(0,10);
+
+			return stat;
+
 		}
 
 		function populateData(data) {

@@ -3,7 +3,7 @@
 
 angular.module('iTravelApp', ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps','ngSanitize',
     'ui.select', 'ui.calendar', 'ngDragDrop', 'angular-loading-bar', 'fox.scrollReveal',
-    'angular-timeline','pascalprecht.translate']);
+    'angular-timeline','pascalprecht.translate', 'nvd3ChartDirectives']);
 
 /**
  * Configure the Routes

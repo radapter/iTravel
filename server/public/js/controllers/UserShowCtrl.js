@@ -4,9 +4,72 @@
     angular.module('iTravelApp')
         .controller('UserShowCtrl', ['$scope', '$location', 'User', function($scope, $location, User) {
 
+            $scope.xDonutFn = function() {
+                return function(d) {
+                    return d.label;
+                };
+            };
+            $scope.xBarFn = function() {
+                return function(d) {
+                    return d[0];
+                };
+            };
+
+            $scope.yDonutFn = function() {
+                return function(d) {
+                    return d.value;
+                };
+            };
+
+            $scope.yBarFn = function() {
+                return function(d) {
+                    return d[1];
+                };
+            };
+
+            $scope.yAxisTickFormat = function() {
+                return function(d) {
+                    return parseInt(d, 10);
+                }
+            }
+
+            $scope.colorFunction = function() {
+                var colors = [
+                    '#16A085',
+                    '#F39C12',
+                    '#27AE60',
+                    '#D35400',
+                    '#2980B9',
+                    '#C0392B',
+                    '#8E44AD',
+                    '#7F8C8D',
+                    '#2C3E50',
+                    '#1ABC9C',
+                    '#F1C40F',
+                    '#2ECC71',
+                    '#E67E22',
+                    '#9B59B6',
+                    '#34495E',
+                    '#95A5A6'
+                ]
+
+                return function(d, i) {
+                    return colors[i % colors.length];
+                };
+            }
+
+            $scope.toolTipContentFn = function(){
+                return function(key, x, y, e, graph) {
+                    return  '<strong>' + y.point.label + '</strong>' +'<p>' +  parseInt(x, 10) + '</p>'
+                }
+            };
+
+
             //retrieve user
             User.restore()
                 .then(function () {
+                    var userStat;
+
                     if(User.currentUser) {
                         $scope.user = User.currentUser;
                         console.log($scope.user);
@@ -56,6 +119,12 @@
                         }//end local storage restore
 
 
+                        userStat = User.currentUser.getStat();
+                        $scope.venueCategoriesStat = userStat.venueCategories;
+                        $scope.destinationsStat = userStat.destinations;
+                        console.log(userStat);
+
+
                     }
                 });
 
@@ -63,7 +132,7 @@
             $scope.gotoPlan = function (_id) {
                 console.log(_id);
                 $location.url("/plans/"+_id);
-            }
+            };
 
         }]);
 
