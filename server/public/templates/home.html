@@ -24,9 +24,13 @@
                 </ui-select-choices>
             </ui-select>
             <br/>
+
+            <input type="submit" value="{{isSubmitting2 ? 'Searching...' : 'Explore NearBy'}}"
+                   class="btn btn-primary btn-hg" ng-click="currentloc()" ng-disabled="isSubmitting2">
+
+
             <input type="submit" value="{{isSubmitting ? 'Searching...' : 'GO'}}"
                    class="btn btn-danger btn-hg" ng-click="explore(address.selected)" ng-disabled="isSubmitting">
-
 
             <!--<a href="" class="btn btn-hg btn-primary">Explore Nearby</a>-->
         </div>
