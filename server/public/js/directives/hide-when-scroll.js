@@ -14,16 +14,35 @@
 
 		angular.element(window).on('scroll', scrollHandler);
 
+		var isTrans = true;
 		function scrollHandler() {
 			var currScrollTop = $(this).scrollTop();
+
 			var allowHide = elem.hasClass('allow-hide');
 			//console.log('allowHide', allowHide);
-			if (allowHide && currScrollTop > lastScrollTop){
-			    elem.addClass('rd-top-n100');
-			} else {
-			    elem.removeClass('rd-top-n100');
+
+			//scroll when hide code
+			//if (allowHide && currScrollTop > lastScrollTop){
+			//    elem.addClass('rd-top-n100');
+			//} else {
+			//    elem.removeClass('rd-top-n100');
+			//}
+			//lastScrollTop = currScrollTop;
+
+			//nontransparent when scroll
+			//when scroll over the landing image, change navbar from transparent to nontransparent
+			//fix navbar to top
+			//console.log(currScrollTop);
+			if (allowHide && currScrollTop > 580) {
+				elem.removeClass('top-nav-collapse');
+				isTrans = false;
 			}
-			lastScrollTop = currScrollTop;
+
+			//console.log(isTrans);
+			if (allowHide && !isTrans && currScrollTop <= 580) {
+				elem.addClass('top-nav-collapse');
+			}
+
 		}
 	}
 })();
