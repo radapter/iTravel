@@ -8,7 +8,7 @@
             // e.g. $scope.markers = []
 
             $scope.map = {
-                center: { latitude: 37.3483411, longitude: -121.9160468},
+                center: { latitude: 37.3353, longitude: -121.8813},
                 options:{
                     //disableDefaultUI: true,
                     scrollwheel: false,
@@ -18,13 +18,13 @@
                     //draggable: false,
                     mapTypeControl: true
                 },
-                zoom: 14
+                zoom: 15
             };
             $scope.marker = {
                 id: 0,
                 coords: {
-                    latitude: 37.3483411,
-                    longitude: -121.9160468
+                    latitude: 37.3351,
+                    longitude: -121.8811
                 },
                 options: { draggable: true },
                 events: {

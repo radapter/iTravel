@@ -47,7 +47,7 @@ angular.module('iTravelApp')
             templateUrl: "templates/venueSelector/venueSelect.html",
             controller: "VenueSelectorCtrl"
         })
-        .when("/attractionsSelect", {
+        /*.when("/attractionsSelect", {
             templateUrl: "templates/venueSelector/attractionsSelect.html",
             controller: "VenueSelectorCtrl"
         })
@@ -58,7 +58,7 @@ angular.module('iTravelApp')
         .when("/hotelsSelect", {
             templateUrl: "templates/venueSelector/hotelsSelect.html",
             controller: "VenueSelectorCtrl"
-        })
+        })*/
         .when("/activityScheduler", {
             templateUrl: "templates/activityScheduler/activityScheduler.html",
             controller: "ActivitySchedulerCtrl"
