@@ -80,9 +80,10 @@
                 </div>
 
                 <!--floating selected venue collapse vers div-->
-                <div class="well selected-venues" style="width:85px;"
+                <div class="well selected-venues" style="width:155px;"
                      ng-show="(tempSelectedVenues.attractions.length || tempSelectedVenues.restaurants.length ||
                                tempSelectedVenues.hotels.length) && collapse">
+                    <button class="btn btn-danger" ng-click="saveActivities()">Save!</button>
                     <button class="btn btn-warning pull-right" ng-click="collapse=!collapse">
                         <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></button>
                 </div>
