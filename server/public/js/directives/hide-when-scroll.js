@@ -18,8 +18,10 @@
 		function scrollHandler() {
 			var currScrollTop = $(this).scrollTop();
 
-			//var allowHide = elem.hasClass('allow-hide');
-			////console.log('allowHide', allowHide);
+			var allowHide = elem.hasClass('allow-hide');
+			//console.log('allowHide', allowHide);
+
+			//scroll when hide code
 			//if (allowHide && currScrollTop > lastScrollTop){
 			//    elem.addClass('rd-top-n100');
 			//} else {
@@ -27,16 +29,17 @@
 			//}
 			//lastScrollTop = currScrollTop;
 
-			//console.log(currScrollTop);
+			//nontransparent when scroll
 			//when scroll over the landing image, change navbar from transparent to nontransparent
 			//fix navbar to top
-			if (currScrollTop > 580) {
+			//console.log(currScrollTop);
+			if (allowHide && currScrollTop > 580) {
 				elem.removeClass('top-nav-collapse');
 				isTrans = false;
 			}
 
 			//console.log(isTrans);
-			if (!isTrans && currScrollTop <= 580) {
+			if (allowHide && !isTrans && currScrollTop <= 580) {
 				elem.addClass('top-nav-collapse');
 			}
 
