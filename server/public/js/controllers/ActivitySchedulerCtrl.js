@@ -159,16 +159,17 @@
 
 				//stringify json and save to local storage
 				$.each(Plan.tempPlan, function(key, val){
-					var temp = JSON.stringify(this);
-					console.log(key + ":" + temp);
-					localStorage.setItem(key, temp);
+					//skip updateStartEnd function
+					if(key != "updateStartEnd"){
+						var temp = JSON.stringify(val);
+						//console.log(key + ":" + temp);
+						localStorage.setItem(key, temp);
+					}
 				});
 
-				/*for (var i = 0; i < localStorage.length; i++)   {
-					console.log( localStorage.key(i) + ":" + localStorage.getItem(localStorage.key(i)) );
-				}*/
 				console.log('user is not logged in');
-				console.log("You are not logged in. Saving your data to local storage and redirecting you to login page");
+				//console.log("Saving your data to local storage and need to redirect you to login page");
+				alert("You are not logged in. Saving your data to local storage and redirecting you to login page.");
 				$location.url('/login');
 			}
 		}
@@ -176,7 +177,7 @@
 		function onClickSavePlan() {
 			if ($scope.uiModel.unscheduledActivities.length > 0) {
 				var dlg = confirm('WARNING: There are un-scheduled activities in your list. ' +
-					'If you proceed to save the plan they will be discarded.');
+					'If you proceed to save the plan, they will be discarded.');
 				if (dlg) {
 					savePlan();
 				}
