@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div data-sr="enter left and move 50px over 0.9s">
-                            <img src="../../img/tech-imgs/mongodb.png" alt="mongodb" class="img img-rounded">
+                            <img src="../../img/tech-imgs/mongodb.png" alt="mongodb" class="img img-rounded mongodb">
                             <h6>
                                 MongoDB
                             </h6>
@@ -50,38 +50,37 @@
         </div>
     </div>
 
-    <div class="jumbotron bg-inverse">
+    <div class="jumbotron bg-inverse real-data">
         <div class="container">
             <div class="content">
                 <div class="row section-heading">
                     <h3 data-sr="enter right and move 50px over 1.1s">iTravel
-                        <span class="text-uppercase">Uses Real Data</span></h3>
+                        <span class="text-uppercase">Uses Real Data</span>
+                    </h3>
                 </div>
                 <div class="row" data-sr="enter left and move 80px over 1.4s">
-                    <div class="col-md-4">
-                        <h6 class="text-right">Powered by data from Foursquare</h6>
+                    <div class="col-md-4 icon">
+                        <img src="../../img/tech-imgs/foursquare.png" alt="foursquare logo" class="img img-rounded">
                     </div>
-                    <div class="col-md-8 img">
-                        <img src="../../img/tech-imgs/foursquare.png" alt="foursquare logo"
-                             class="pull-left img img-rounded">
+                    <div class="col-md-8 icon-text">
+                        <h6>Powered by data from Foursquare</h6>
                     </div>
                 </div>
                 <div class="row" data-sr="enter right and move 50px over 1.6s">
-                    <div class="col-md-8 img">
-                        <img src="../../img/tech-imgs/googlemap.png" alt="google map logo"
-                             class="pull-right img img-rounded">
+                    <div class="col-md-4 icon">
+                        <img src="../../img/tech-imgs/googlemap.png" alt="google map logo" class="img img-rounded">
                     </div>
-                    <div class="col-md-4">
-                        <h6 class="text-left"><br>And Google Maps API</h6>
+                    <div class="col-md-8 icon-text">
+                        <h6>And Google Maps API</h6>
                     </div>
                 </div>
-                <div class="row" data-sr="enter bottom and move 100px over 1.8s">
-                    <div class="col-md-1 col-md-offset-1 col-xs-12">
+                <div class="row real-data-sum" data-sr="enter bottom and move 100px over 1.8s">
+                    <div class="col-md-12">
                         <i class="fa fa-globe fa-5x text-primary"></i>
                     </div>
-                    <div class="col-md-9 col-xs-12">
+                    <div class="col-md-12">
                         <h5 class="text-primary">
-                            To provide venue and mapping data for any location in the world.
+                            To provide venue and mapping data for any location in the world
                         </h5>
                     </div>
                 </div>
@@ -98,11 +97,15 @@
                 <div class="row">
                     <div class="col-md-7" data-sr="enter left and move 50px over 1s">
                         <div class="row">
-                        <img src="../../img/tech-imgs/angular-mvc.jpg" alt="angular mvc diagram"
-                             height="400" class="img-rounded pull-left"></div>
-                        <div class="row mvc-img">
-                        <p><a href="http://blog.jonasbandi.net/2014/07/angularjs-illustrating-model-view.html"
-                              target="_blank">(Source)</a></p></div>
+                            <figure>
+                                <img src="../../img/tech-imgs/angular-mvc.jpg" alt="angular mvc diagram"
+                                     height="400" class="img-rounded">
+                                <figcaption>
+                                    <p><a href="http://blog.jonasbandi.net/2014/07/angularjs-illustrating-model-view.html"
+                                          target="_blank">(Source)</a></p>
+                                </figcaption>
+                            </figure>
+                        </div>
                     </div>
                     <div class="col-md-5" data-sr="enter bottom and move 120px over 1.2s">
                         <h5><em>Key Usages in iTravel</em></h5>
@@ -110,7 +113,7 @@
                             <p>Two way data binding</p>
                         </div>
                         <div class="row">
-                            <p>JS design patterns<br>(Decorator, Facade, Singleton, etc)</p>
+                            <p>JS design patterns<br>(Facade, Interpreter, Composite, Observer, etc)</p>
                         </div>
                         <div class="row">
                             <p>Services holds view-independent business logic that bridge backend and frontend</p>

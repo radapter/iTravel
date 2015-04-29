@@ -67,17 +67,6 @@ body {
     margin-top: 15%;
 }
 
-@media(min-width: 991px){
-    .landing .on-the-go-icons > div:nth-of-type(2){
-        margin-top: 10%;
-    }
-
-    .landing .on-the-go-icons > div:nth-of-type(3){
-        margin-top: 20%;
-    }
-
-}
-
 .header {
   display: table;
   position: relative;
@@ -95,11 +84,44 @@ body {
     margin-top: 50px;
 }
 
-@media(min-width: 748px) {
+/*for smaller viewports*/
+@media(max-width: 990px){
+    .landing .how-it-works {
+        margin-bottom: 50px;
+    }
+}
+
+/*for larger viewports*/
+@media(min-width: 991px) {
     div.landing > div {
         height: 685px;
     }
 
+    .find-your-oyster div.row:nth-of-type(even) div.icon,
+    .personalize-it div.row:nth-of-type(even) div.icon,
+    .schedule-it div.row:nth-of-type(even) div.icon{
+        float: right;
+    }
+
+    .find-your-oyster div.row:nth-of-type(even) div.icon-text,
+    .personalize-it div.row:nth-of-type(even) div.icon-text,
+    .schedule-it div.row:nth-of-type(even) div.icon-text{
+        text-align: right;
+    }
+
+    .find-your-oyster div.row:nth-of-type(odd) div.icon-text,
+    .personalize-it div.row:nth-of-type(odd) div.icon-text,
+    .schedule-it div.row:nth-of-type(odd) div.icon-text{
+        text-align: left;
+    }
+
+    .on-the-go-icons > div:nth-of-type(2){
+        margin-top: 10%;
+    }
+
+    .on-the-go-icons > div:nth-of-type(3){
+        margin-top: 20%;
+    }
 }
 
 .text-vertical-center {
@@ -144,11 +166,6 @@ body {
   padding-bottom: 5px;
   font-weight: 600;
   margin-top: 3%;
-}
-.panelTitle,
-.panelIcon {
-    margin-bottom: 10%;
-  /*margin: 30px;*/
 }
 
 .panelTitle {
@@ -204,23 +221,6 @@ div.landing div.content .row{
     margin-bottom: 20px;
 }
 
-@media(min-width: 450px) and (max-width: 790px){
-    .how-it-works h5{
-        font-size: smaller;
-    }
-}
-
-@media(max-width: 790px){
-    .how-it-works img{
-        height: 80px;
-    }
-
-    .how-it-works p{
-        font-size: smaller;
-    }
-}
-
-
 div.find-your-oyster {
     background: url(../img/landing/world.jpg) center no-repeat;
     padding: 7em 0;
@@ -256,10 +256,6 @@ div.schedule-it {
 
 .landing .text-inverse{
     color: #34495e;
-}
-
-.find-your-oyster h6{
-    text-shadow: 1px 1px #34495e;
 }
 
 
@@ -547,29 +543,45 @@ div.selected-venues.float-venue{
 
 
 /**************  tech page styling *****************/
+img.mongodb, img.angular, img.express, img.node{
+    height: 60px;
+}
 
+div.mean{
+    margin: 10% auto;
+}
 
-@media(min-width: 749px){
+@media(min-width: 991px){
     div.tech > div {
         height: 685px;
     }
 
-    img.angular{
+    img.node, img.mean{
         margin-top: 50px;
     }
 
-    img.express{
+    img.angular, img.express{
         margin-top: 20px;
-        height: 60px;
     }
 
-    img.node{
-        height: 60px;
-        margin-top: 50px;
+    .real-data div.row:nth-of-type(even) .icon{
+        float: right;
     }
 
-    div.mean{
-        margin-top: 50px;
+    .real-data div.row:nth-of-type(even) .icon-text{
+        text-align: right;
+    }
+
+    .real-data div.row:nth-of-type(odd) .icon{
+        float: left;
+    }
+
+    .real-data div.row:nth-of-type(odd) .icon-text{
+        text-align: left;
+    }
+
+    .real-data div.row.real-data-sum {
+        margin-top: 2%;
     }
 }
 
@@ -589,18 +601,6 @@ div.tech .mvc-img{
     clear: left;
 }
 
-/*@media(min-width: 749px){
-    div.tech .row{
-        height: 75px;
-    }
-}
-
-@media(min-width: 749px){
-    div.tech .mvc .row{
-        height: 120px;
-    }
-}*/
-
 @media(max-width: 640px){
     div.mvc img{
         width: 300px;
@@ -610,10 +610,6 @@ div.tech .mvc-img{
 
 div.tech .img, div.other-features img {
     height:100px;
-}
-
-div.stack .img{
-    height: 80px;
 }
 
 div.other-features p{
