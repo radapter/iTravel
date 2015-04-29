@@ -80,7 +80,7 @@
                 </div>
 
                 <!--floating selected venue collapse vers div-->
-                <div class="well selected-venues" style="width:155px;"
+                <div class="well selected-venues float-venue"
                      ng-show="(tempSelectedVenues.attractions.length || tempSelectedVenues.restaurants.length ||
                                tempSelectedVenues.hotels.length) && collapse">
                     <button class="btn btn-danger" ng-click="saveActivities()">Save!</button>
@@ -106,7 +106,7 @@
                                             {{venueItem.name}}
                                         </a>
                                     </div>
-                                    <div class="col-sm-2 col-xs-4" style="margin-right: 0;">
+                                    <div class="col-sm-2 col-xs-4">
                                         <span style="color:#{{venueItem.ratingColor}};" ng-show="venueItem.rating!=-1"
                                               class="venue-rating">
                                             <i class="fa fa-star-o"></i>

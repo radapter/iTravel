@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-sm-4 text-center">
                     <h4>{{user.email}}</h4>
-                    <img src="../img/user-avatars/1.png" alt="" height="80"/>
+                    <img src="../img/user-avatars/1.png" alt="profile pic" height="80"/>
                     <h6>Plans: {{planCount}}</h6>
                     <h6>Destinations: {{destinationCount}}</h6>
                     <h6>Activities: {{activityCount}}</h6>
@@ -17,8 +17,8 @@
                         class="center-block"
                         data="venueCategoriesStat"
                         noData="You don't have travel data"
-                        height="280"
-                        margin="{left:30,top:5,bottom:5,right:20}"
+                        height="220"
+                        margin="{left:30,top:5,bottom:5,right:30}"
                         x="xDonutFn()"
                         y="yDonutFn()"
                         color="colorFunction()";
@@ -39,8 +39,8 @@
                             class="center-block"
                             data="destinationsStat"
                             noData="You don't have travel data"
-                            height="250"
-                            margin="{left:100,top:5,bottom:15,right:0}"
+                            height="220"
+                            margin="{left:100,top:5,bottom:15,right:50}"
                             x="xBarFn()"
                             y="yBarFn()"
                             color="colorFunction()";
@@ -61,9 +61,11 @@
         <h4>My Travel Plans</h4>
 
         <div class="row">
-            <div class="col-md-4 todo" ng-repeat="plan in user.plans | orderBy: '-startDate' " ng-click="gotoPlan(plan._id)">
+            <div class="col-sm-4 todo" ng-repeat="plan in user.plans | orderBy: '-startDate' " ng-click="gotoPlan(plan._id)">
                 <div class="plan-title">
-                    <h6><a ng-href="#/plans/{{plan._id}}" class="plan-title-link">{{plan.destName}}</a></h6>
+                    <h6 class="plan-title-h6" title="{{plan.destName}}">
+                        <a ng-href="#/plans/{{plan._id}}" class="plan-title-link">{{plan.destName}}</a>
+                    </h6>
                     <p>{{plan.startDate |dateParse | date:'MM/dd/yyyy'}} - {{plan.endDate |dateParse | date:'MM/dd/yyyy'}} </p>
                 </div>
                 <ul class="plan-list">

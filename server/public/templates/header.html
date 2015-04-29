@@ -37,7 +37,9 @@
                         {{currentUser.email}} <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu width100" role="menu">
-                        <li><a href="#/users/{{currentUser._id}}"><img src="../img/user-avatars/1.png" alt="" height="25"/> <span translate>PROFILE</span></a></li>
+                        <li><a href="#/users/{{currentUser._id}}">
+                            <img src="../img/user-avatars/1.png" alt="user profile" height="25"/>
+                            <span translate>PROFILE</span></a></li>
                         <li><a href="#" ng-click="logout()" translate>LOGOUT</a></li>
                     </ul>
                 </div>
