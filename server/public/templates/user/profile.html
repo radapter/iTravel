@@ -17,8 +17,8 @@
                         class="center-block"
                         data="venueCategoriesStat"
                         noData="You don't have travel data"
-                        height="220"
-                        margin="{left:30,top:5,bottom:5,right:30}"
+                        height="250"
+                        margin="{left:30,top:25,bottom:10,right:30}"
                         x="xDonutFn()"
                         y="yDonutFn()"
                         color="colorFunction()";
@@ -58,13 +58,15 @@
     </div>
 
     <div class="container-fluid">
-        <h4>My Travel Plans</h4>
+        <h4 class="text-center">My Travel Plans</h4>
 
         <div class="row">
-            <div class="col-sm-4 todo" ng-repeat="plan in user.plans | orderBy: '-startDate' " ng-click="gotoPlan(plan._id)">
+            <div class="col-sm-4 col-md-3 todo" ng-repeat="plan in user.plans | orderBy: '-startDate' " ng-click="gotoPlan(plan._id)">
                 <div class="plan-title">
                     <h6 class="plan-title-h6" title="{{plan.destName}}">
-                        <a ng-href="#/plans/{{plan._id}}" class="plan-title-link">{{plan.destName}}</a>
+                        <a ng-href="#/plans/{{plan._id}}" class="plan-title-link">
+                            {{plan.destName | limitTo: 20 }}{{plan.destName.length > 20 ? '...' : ''}}
+                        </a>
                     </h6>
                     <p>{{plan.startDate |dateParse | date:'MM/dd/yyyy'}} - {{plan.endDate |dateParse | date:'MM/dd/yyyy'}} </p>
                 </div>
