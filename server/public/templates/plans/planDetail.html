@@ -1,13 +1,13 @@
 <div class="container-fliud">
     <div class="jumbotron user-panel">
-        <h4>My Plan: <span class="text-primary">{{plan.destName}}</span></h4>
-        <h5>From <span class="text-primary">{{plan.startDate | dateParse | date:'MM/dd/yyyy @ h:mma'}}</span>
-            To <span class="text-primary">{{plan.endDate | dateParse | date:'MM/dd/yyyy @ h:mma'}}</span></h5>
+        <h4><span translate>MyPlan</span>: <span class="text-primary">{{plan.destName}}</span></h4>
+        <h5><span translate>Time</span>: <span translate>From</span> <span class="text-primary">{{plan.startDate | dateParse | date:'MM/dd/yyyy @ h:mma'}}</span>
+            <span translate>To</span> <span class="text-primary">{{plan.endDate | dateParse | date:'MM/dd/yyyy @ h:mma'}}</span></h5>
     </div>
     <div class="container-fluid plan-detail">
         <div class="row">
             <div class="col-md-7">
-                <h4>Activities</h4>
+                <h4 translate>Activities</h4>
                 <timeline ng-repeat="activity in plan.activities | orderBy: 'start'">
                     <timeline-node side="left">
                         <timeline-badge class="info"><i class="glyphicon glyphicon-time"></i>
@@ -44,8 +44,8 @@
 
             </div>
             <div class="col-md-5">
-                <h4>Map</h4>
-                <p class="map-bug-claim">
+                <h4 translate>Map</h4>
+                <p class="map-bug-claim" translate>
                     The Angular-Google-Maps library has a bug: one of the markers will hang around when map changes
                     (<a ng-href="https://github.com/angular-ui/angular-google-maps/issues/904">issue #904</a>).
                      We will try to fix it in the next version. Thanks!
