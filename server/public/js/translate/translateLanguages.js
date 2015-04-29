@@ -67,17 +67,25 @@ var translationsEN = {
 
     //signup page
     Password2: 'Confirm Password',
-    HaveAcct: 'Already have an account?'
+    HaveAcct: 'Already have an account?',
+
+    //profile page
+    Plans:'Plans',
+    Destinations:'Destinations',
+    Activities:'Activities',
+    MyFavoritePlaces:'My Favorite Places',
+    MyFavoriteCities:'My Favorite Cities',
+    MyTravelPlans:'My Travel Plans',
+
+    //plan detail page
+    MyPlan:'My Plan',
+    Time:'Time',
+    From:'From',
+    To:'To',
+    Map:'Map'
 
 
 
-    //PASSED_AS_TEXT: 'Hey there! I\'m passed as text value!',
-    //PASSED_AS_ATTRIBUTE: 'I\'m passed as attribute value, cool ha?',
-    //PASSED_AS_INTERPOLATION: 'Beginners! I\'m interpolated!',
-    //VARIABLE_REPLACEMENT: 'Hi {{name}}',
-    //MISSING_TRANSLATION: 'Oops! I have not been translated into german...',
-    //BUTTON_LANG_DE: 'german',
-    //BUTTON_LANG_EN: 'english'
 };
 
 var translationsCN= {
@@ -147,8 +155,23 @@ var translationsCN= {
 
     //signup page
     Password2: '确认密码',
-    HaveAcct: '已经有帐户了嗎?'
+    HaveAcct: '已经有帐户了嗎?',
 
+    //profile page
+    Plans:'我的行程',
+    Destinations:'我的目的地',
+    Activities:'我的活动',
+    MyFavoritePlaces:'我最喜欢的地方',
+    MyFavoriteCities:'我最喜欢的城市',
+    MyTravelPlans:'我的行程',
+
+
+    //plan detail page
+    MyPlan:'目的地',
+    Time:'时间',
+    From:'从',
+    To:'到',
+    Map:'路线图'
 
     //PASSED_AS_TEXT: 'Hey! Ich wurde als text übergeben!',
     //PASSED_AS_ATTRIBUTE: 'Ich wurde als Attribut übergeben, cool oder?',

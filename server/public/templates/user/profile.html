@@ -6,13 +6,13 @@
                 <div class="col-sm-4 text-center">
                     <h4>{{user.email}}</h4>
                     <img src="../img/user-avatars/1.png" alt="profile pic" height="80"/>
-                    <h6>Plans: {{planCount}}</h6>
-                    <h6>Destinations: {{destinationCount}}</h6>
-                    <h6>Activities: {{activityCount}}</h6>
+                    <h6><span translate>Plans</span>: {{planCount}}</h6>
+                    <h6><span translate>Destinations</span>: {{destinationCount}}</h6>
+                    <h6><span translate>Activities</span>: {{activityCount}}</h6>
                 </div>
 
                 <div class="col-sm-4 text-center chart-container">
-                    <h5>My Favorite Places</h5>
+                    <h5 translate>MyFavoritePlaces</h5>
                     <nvd3-pie-chart
                         class="center-block"
                         data="venueCategoriesStat"
@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="col-sm-4 chart-container text-center">
-                        <h5>My Favorite Cities</h5>
+                        <h5 translate>MyFavoriteCities</h5>
                         <nvd3-multi-bar-horizontal-chart
                             class="center-block"
                             data="destinationsStat"
@@ -58,7 +58,7 @@
     </div>
 
     <div class="container-fluid">
-        <h4 class="text-center">My Travel Plans</h4>
+        <h4 class="text-center" translate>MyTravelPlans</h4>
 
         <div class="row">
             <div class="col-sm-4 col-md-3 todo" ng-repeat="plan in user.plans | orderBy: '-startDate' " ng-click="gotoPlan(plan._id)">
