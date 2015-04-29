@@ -31,40 +31,19 @@ angular.module('iTravelApp')
             controller: "UserShowCtrl"
         })
 
-        //venue selector pages
-        //.when("/attraction", {
-        //    templateUrl: "partials/attraction.html"
-        //})
-        //.when("/restaurant", {
-        //    templateUrl: "partials/restaurant.html"
-        //})
-        //.when("/hotel", {
-        //    templateUrl: "partials/hotel.html"
-        //})
-
         //venue selection pages
         .when("/venueSelect", {
             templateUrl: "templates/venueSelector/venueSelect.html",
             controller: "VenueSelectorCtrl"
         })
-        /*.when("/attractionsSelect", {
-            templateUrl: "templates/venueSelector/attractionsSelect.html",
-            controller: "VenueSelectorCtrl"
-        })
-        .when("/restaurantsSelect", {
-            templateUrl: "templates/venueSelector/restaurantsSelect.html",
-            controller: "VenueSelectorCtrl"
-        })
-        .when("/hotelsSelect", {
-            templateUrl: "templates/venueSelector/hotelsSelect.html",
-            controller: "VenueSelectorCtrl"
-        })*/
+
+        //activity scheduler page
         .when("/activityScheduler", {
             templateUrl: "templates/activityScheduler/activityScheduler.html",
             controller: "ActivitySchedulerCtrl"
         })
 
-        //venue pages
+        //venue page
         .when("/venues/:id", {
             templateUrl: "templates/venues/venueDetails.html",
             controller: "VenuesShowCtrl"

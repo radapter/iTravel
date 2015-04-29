@@ -58,6 +58,26 @@ body {
   background-color: rgba(24, 188, 156, 0.55);
 }
 
+.landing h2{
+    color: white;
+    font-size: 1.5em;
+}
+
+.landing .header h1{
+    margin-top: 15%;
+}
+
+@media(min-width: 991px){
+    .landing .on-the-go-icons > div:nth-of-type(2){
+        margin-top: 10%;
+    }
+
+    .landing .on-the-go-icons > div:nth-of-type(3){
+        margin-top: 20%;
+    }
+
+}
+
 .header {
   display: table;
   position: relative;
@@ -70,8 +90,16 @@ body {
   -o-background-size: cover;
 }
 
-div.landing > div {
-    height: 685px;
+.landing .home-search{
+    width: 300px;
+    margin-top: 50px;
+}
+
+@media(min-width: 748px) {
+    div.landing > div {
+        height: 685px;
+    }
+
 }
 
 .text-vertical-center {
@@ -142,8 +170,6 @@ div.landing > div {
     -moz-background-size: 150%;
     background-size: 150%;
     padding: 7em 0;
-    height: 500px;
-
 }
 
 div.bg-inverse{
@@ -258,11 +284,11 @@ div.schedule-it {
 
 
 #plan_map_canvas {
-  width: 100%;
-  height: 600px;
+    margin: 1%;
+  width: 90%;
+  height: 500px;
   background-color: #CCC;
   /*margin: 2% auto;*/
-  position: absolute;
 }
 
 /*settings for dynamic height*/
@@ -344,10 +370,6 @@ div.schedule-it {
     border: 3px solid #2c3e50;
 }
 
-.venue-result:hover *, .venue-result:hover span.venue-rating{
-
-}
-
 .selectedVenue {
     background: #1abc9c;
     color: white;
@@ -412,6 +434,21 @@ div.selected-venues{
     color: white;
 }
 
+div.selected-venues.float-venue{
+    top: 15%;
+    position: fixed;
+    z-index: 50;
+    max-height: 300px;
+    overflow: auto;
+    border: 1px solid #34495e;
+    font-size: smaller;
+    right: 2%;
+    background: #34495e;
+    color: white;
+    width:155px;
+}
+
+
 .tab-content{
     background: white;
     border: 1px solid #ccc;
@@ -431,6 +468,15 @@ div.selected-venues{
 .venue-select .panel{
     background: white;
     color: black;
+}
+
+/******************** venue detail page **********************/
+.detail-venue-cat{
+    margin-bottom: 5px;
+}
+
+.venue-contact{
+    font-size: smaller;
 }
 
 /******************** user profile page **********************/
@@ -457,6 +503,15 @@ div.selected-venues{
     color: #34495e;
     padding: 10px 20px 10px 20px;
     min-height: 100px;
+}
+
+@media(min-width: 749px){
+    .plan-title-h6{
+        width: 200px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
 }
 
 .plan-title-link {
@@ -494,25 +549,57 @@ div.selected-venues{
 /**************  tech page styling *****************/
 
 
-div.tech > div {
-    height: 685px;
+@media(min-width: 749px){
+    div.tech > div {
+        height: 685px;
+    }
+
+    img.angular{
+        margin-top: 50px;
+    }
+
+    img.express{
+        margin-top: 20px;
+        height: 60px;
+    }
+
+    img.node{
+        height: 60px;
+        margin-top: 50px;
+    }
+
+    div.mean{
+        margin-top: 50px;
+    }
 }
 
 div.tech .jumbotron{
     margin: 0;
 }
 
+div.tech .jumbotron.mvc{
+    background: white;
+}
+
 div.tech .section-heading{
     margin-bottom: 60px;
 }
 
-div.tech .row{
-    height: 75px;
+div.tech .mvc-img{
+    clear: left;
 }
 
-div.tech .mvc .row{
-    height: 120px;
+/*@media(min-width: 749px){
+    div.tech .row{
+        height: 75px;
+    }
 }
+
+@media(min-width: 749px){
+    div.tech .mvc .row{
+        height: 120px;
+    }
+}*/
 
 @media(max-width: 640px){
     div.mvc img{
@@ -576,4 +663,53 @@ a.anchor{
     position: relative;
     top: -250px;
     visibility: hidden;
+}
+
+/**************  developer page styling *****************/
+.dev-api .style-override{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0
+}
+
+.dev-api p.style-override{
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.dev-api .auth .panel-heading, .dev-api .auth .panel-success{
+    color:#34495E;
+}
+
+.dev-api .users .panel-heading, .dev-api .users .panel-info, .dev-api .update,
+.dev-api .delete {
+    color:#34495E;
+}
+
+.dev-api .panel-right{
+    float: right;
+}
+
+.dev-api .panel-left{
+    float: left;
+}
+
+.dev-api .tolower{
+    text-transform: lowercase;
+}
+
+.dev-api .overflow{
+    overflow: hidden;
+}
+
+#localFile{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    background: red;
+    font-size: 150%;
+    text-align: center;
+    padding: 1em;
 }

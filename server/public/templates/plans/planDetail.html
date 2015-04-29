@@ -9,7 +9,7 @@
     <div class="container">
         <h4>Activities:</h4>
         <div class="row">
-            <div class="col-sm-7 width750">
+            <div class="col-md-7">
 
                 <timeline ng-repeat="activity in plan.activities | orderBy: 'start'">
                     <timeline-node side="left">
@@ -46,9 +46,7 @@
                 </timeline>
 
             </div>
-            <div class="col-sm-5">
-
-
+            <div class="col-md-5">
                 <p class="map-bug-claim">
                     The Angular-Google-Maps library has a bug: one of the markers will hang around when map changes
                     (<a ng-href="https://github.com/angular-ui/angular-google-maps/issues/904">issue #904</a>).

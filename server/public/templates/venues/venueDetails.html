@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-md-2 col-sm-12">
                     <div class="thumbnail venue-img">
-                        <img src="{{venue.bestPhoto.prefix}}150x150{{venue.bestPhoto.suffix}}" alt="Add Cover Photo Here">
+                        <img src="{{venue.bestPhoto.prefix}}150x150{{venue.bestPhoto.suffix}}" alt="Venue Cover Photo">
                     </div>
                 </div>
                 <div class="col-md-10 col-sm-12">
@@ -14,7 +14,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 col-xs-12" style="margin-bottom: 5px;">
+                        <div class="col-md-6 col-xs-12 detail-venue-cat">
                             <div ng-show="venue.categories.length">
                                 <span class="label label-info venue-label" ng-repeat="cat in venue.categories">
                                     {{cat.name}}
@@ -55,20 +55,16 @@
             </div>
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="panel panel-primary venue-contact" style="font-size: smaller;">
+                    <div class="panel panel-primary venue-contact">
                         <div class="panel-heading">Contact &amp; Location</div>
                         <div class="panel-body">
                             <div class="venue-map col-xs-12" ng-controller="VenueMapCtrl">
-
-
                                 <ui-gmap-google-map
                                     center='map.center'
                                      zoom='map.zoom' options="map.options">
                                     <ui-gmap-marker coords="marker.coords" options="marker.options" idkey="marker.id">
                                     </ui-gmap-marker>
                                 </ui-gmap-google-map>
-
-
                             </div>
                             <div ng-show="venue.location.address">
                                 <i class="fa fa-map-marker"></i>
