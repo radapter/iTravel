@@ -281,11 +281,21 @@ div.schedule-it {
 }
 
 /*settings for dynamic height*/
+/*.angular-google-map-container {*/
+    /*height: 100%;*/
+    /*width: 100%;*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+/*}*/
+
 @media(min-height: 991px){
     .angular-google-map-container {
         height: 90%;
         width: 95%;
         position: absolute;
+        /*top: 0;*/
+        /*left: 0;*/
     }
 }
 
@@ -365,7 +375,7 @@ div.schedule-it {
 }
 
 .venue-map {
-    background-color: #ccc;
+    /*background-color: #ccc;*/
     width: 100%;
     height: 150px;
 }
