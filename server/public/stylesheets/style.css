@@ -14,14 +14,7 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
-    /* Set the fixed height of the footer here */
-    /*height: 200px;*/
-    /*background-color: #464545;*/
 }
-
-/*.container {*/
-/*margin-top: 40px;*/
-/*}*/
 
 .footer-container {
     margin-top: 10px;
@@ -30,7 +23,6 @@ body {
 .jumbotron{
     padding: 10px 0px;
 }
-
 
 /**** navbar fixed top issue: class for ng-view****/
 .padding-top-80 {
@@ -51,9 +43,7 @@ body {
   list-style: none;
 }
 
-
 /******************* Landing styling   **********************/
-
 .top-nav-collapse{
   background-color: rgba(24, 188, 156, 0.55);
 }
@@ -65,17 +55,6 @@ body {
 
 .landing .header h1{
     margin-top: 15%;
-}
-
-@media(min-width: 991px){
-    .landing .on-the-go-icons > div:nth-of-type(2){
-        margin-top: 10%;
-    }
-
-    .landing .on-the-go-icons > div:nth-of-type(3){
-        margin-top: 20%;
-    }
-
 }
 
 .header {
@@ -95,11 +74,44 @@ body {
     margin-top: 50px;
 }
 
-@media(min-width: 748px) {
+/*for smaller viewports*/
+@media(max-width: 990px){
+    .landing .how-it-works {
+        margin-bottom: 50px;
+    }
+}
+
+/*for larger viewports*/
+@media(min-width: 991px) {
     div.landing > div {
         height: 685px;
     }
 
+    .find-your-oyster div.row:nth-of-type(even) div.icon,
+    .personalize-it div.row:nth-of-type(even) div.icon,
+    .schedule-it div.row:nth-of-type(even) div.icon{
+        float: right;
+    }
+
+    .find-your-oyster div.row:nth-of-type(even) div.icon-text,
+    .personalize-it div.row:nth-of-type(even) div.icon-text,
+    .schedule-it div.row:nth-of-type(even) div.icon-text{
+        text-align: right;
+    }
+
+    .find-your-oyster div.row:nth-of-type(odd) div.icon-text,
+    .personalize-it div.row:nth-of-type(odd) div.icon-text,
+    .schedule-it div.row:nth-of-type(odd) div.icon-text{
+        text-align: left;
+    }
+
+    .on-the-go-icons > div:nth-of-type(2){
+        margin-top: 10%;
+    }
+
+    .on-the-go-icons > div:nth-of-type(3){
+        margin-top: 20%;
+    }
 }
 
 .text-vertical-center {
@@ -144,11 +156,6 @@ body {
   padding-bottom: 5px;
   font-weight: 600;
   margin-top: 3%;
-}
-.panelTitle,
-.panelIcon {
-    margin-bottom: 10%;
-  /*margin: 30px;*/
 }
 
 .panelTitle {
@@ -204,23 +211,6 @@ div.landing div.content .row{
     margin-bottom: 20px;
 }
 
-@media(min-width: 450px) and (max-width: 790px){
-    .how-it-works h5{
-        font-size: smaller;
-    }
-}
-
-@media(max-width: 790px){
-    .how-it-works img{
-        height: 80px;
-    }
-
-    .how-it-works p{
-        font-size: smaller;
-    }
-}
-
-
 div.find-your-oyster {
     background: url(../img/landing/world.jpg) center no-repeat;
     padding: 7em 0;
@@ -258,10 +248,6 @@ div.schedule-it {
     color: #34495e;
 }
 
-.find-your-oyster h6{
-    text-shadow: 1px 1px #34495e;
-}
-
 
 /******************* Login styling   **********************/
 /*override login-field-icon*/
@@ -272,10 +258,14 @@ div.schedule-it {
 }
 
 /******************* Maps styling   **********************/
-/*.planMap {*/
+.planMap {
     /*width: 100%;*/
     /*height: 800px;*/
-/*}*/
+}
+
+.plan-detail {
+    margin: 2% 1%;
+}
 
 .location-map {
     width: 100%;
@@ -284,15 +274,33 @@ div.schedule-it {
 
 
 #plan_map_canvas {
-    margin: 1%;
-  width: 90%;
-  height: 500px;
-  background-color: #CCC;
-  /*margin: 2% auto;*/
+    height: 400px;
+    width: 100%;
+    background-color: #CCC;
+    /*margin: 2% auto;*/
 }
 
 /*settings for dynamic height*/
-.angular-google-map-container { height: 100%; width: 100%; position: absolute; top: 0; left: 0;}
+@media(min-height: 991px){
+    .angular-google-map-container {
+        height: 90%;
+        width: 95%;
+        position: absolute;
+    }
+}
+
+@media(max-height: 990px){
+    .angular-google-map-container {
+        height: 70%;
+        width: 95%;
+        position: absolute;
+    }
+
+    #plan_map_canvas{
+        background-color: white;
+        margin-bottom: 5%;
+    }
+}
 
 .map-bug-claim {
     position: relative;
@@ -327,7 +335,7 @@ div.schedule-it {
 }
 
 .panel.panel-bd-success{
-    border: 2px solid #2ecc71;
+    border: 1px solid #2ecc71;
 }
 
 .panel.panel-info, .label.label-info{
@@ -547,29 +555,45 @@ div.selected-venues.float-venue{
 
 
 /**************  tech page styling *****************/
+img.mongodb, img.angular, img.express, img.node{
+    height: 60px;
+}
 
+div.mean{
+    margin: 10% auto;
+}
 
-@media(min-width: 749px){
+@media(min-width: 991px){
     div.tech > div {
         height: 685px;
     }
 
-    img.angular{
+    img.node, img.mean{
         margin-top: 50px;
     }
 
-    img.express{
+    img.angular, img.express{
         margin-top: 20px;
-        height: 60px;
     }
 
-    img.node{
-        height: 60px;
-        margin-top: 50px;
+    .real-data div.row:nth-of-type(even) .icon{
+        float: right;
     }
 
-    div.mean{
-        margin-top: 50px;
+    .real-data div.row:nth-of-type(even) .icon-text{
+        text-align: right;
+    }
+
+    .real-data div.row:nth-of-type(odd) .icon{
+        float: left;
+    }
+
+    .real-data div.row:nth-of-type(odd) .icon-text{
+        text-align: left;
+    }
+
+    .real-data div.row.real-data-sum {
+        margin-top: 2%;
     }
 }
 
@@ -589,18 +613,6 @@ div.tech .mvc-img{
     clear: left;
 }
 
-/*@media(min-width: 749px){
-    div.tech .row{
-        height: 75px;
-    }
-}
-
-@media(min-width: 749px){
-    div.tech .mvc .row{
-        height: 120px;
-    }
-}*/
-
 @media(max-width: 640px){
     div.mvc img{
         width: 300px;
@@ -610,10 +622,6 @@ div.tech .mvc-img{
 
 div.tech .img, div.other-features img {
     height:100px;
-}
-
-div.stack .img{
-    height: 80px;
 }
 
 div.other-features p{
@@ -646,7 +654,6 @@ div.mgmt p, div.stack p{
   height: 0;
 }
 
-
 .calendar-container .fc table {
   font-size: 14px;
 }
@@ -654,6 +661,14 @@ div.mgmt p, div.stack p{
 .calendar-container .fc table th {
   font-size: 14px;
   color: #34495E;
+}
+
+.schedule-activities .row{
+    margin: 20px auto;
+}
+
+.calendar-container {
+    margin-bottom: 20px;
 }
 
 

@@ -1,7 +1,13 @@
 <div class="container">
-    <h3>Schedule Your Activities</h3>
-
-    <div class="container-fluid">
+    <div class="container-fluid schedule-activities">
+        <div class="row">
+            <h3 class="text-center">Schedule Your Activities</h3>
+        </div>
+        <div class="row">
+            <div class="col-sm-offset-3 col-sm-6">
+                <div class="btn btn-block btn-lg btn-primary" ng-click='onClickSavePlan()'>Save Plan</div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-8 calendar-container">
                 <div class="calender" ui-calendar="uiConfig.calendar" ng-model="uiModel.eventSources"></div>
@@ -34,11 +40,7 @@
                 </ul>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-offset-4 col-sm-4">
-                <div class="btn btn-block btn-lg btn-primary" ng-click='onClickSavePlan()'>Save Plan</div>
-            </div>
-        </div>
+
     </div>
 
 </div>

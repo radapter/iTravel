@@ -21,7 +21,7 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-3 col-xs-4" ng-show="venue.rating">
+                        <div class="col-md-2 col-sm-3 col-xs-6" ng-show="venue.rating">
                             <div class="panel panel-bd-success">
                                 <div class="panel-body">
                                     <span style="color:#{{venue.ratingColor}};" ng-show="venue.rating!=-1">
@@ -32,7 +32,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-3 col-xs-4" ng-show="venue.stats.checkinsCount">
+                        <div class="col-md-2 col-sm-3 col-xs-6" ng-show="venue.stats.checkinsCount">
                             <div class="panel panel-info">
                                 <div class="panel-body">
                                     <i class="fa fa-foursquare" ng-show="venue.stats.checkinsCount"></i>
@@ -41,7 +41,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-3 col-xs-4" ng-show="venue.likes.count">
+                        <div class="col-md-2 col-sm-3 col-xs-6" ng-show="venue.likes.count">
                             <div class="panel panel-inverse">
                                 <div class="panel-body">
                                     <i class="fa fa-thumbs-o-up"></i>
@@ -84,11 +84,11 @@
                             <div ng-show="venue.hours.timeframes">
                             <span ng-repeat="times in venue.hours.timeframes">
                                 <div class="row">
-                                    <div class="col-xs-6">
+                                    <div class="col-sm-6">
                                         <i class="fa fa-clock-o"></i>
                                         {{times.days}}:
                                     </div>
-                                    <div class="col-xs-6">
+                                    <div class="col-sm-6">
                                         <span ng-repeat="t in times.open">
                                             {{t.renderedTime}}<br>
                                         </span>
