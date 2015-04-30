@@ -157,20 +157,23 @@
 			} else {
 				console.log(Plan.tempPlan);
 
-				//stringify json and save to local storage
-				$.each(Plan.tempPlan, function(key, val){
-					//skip updateStartEnd function
-					if(key != "updateStartEnd"){
-						var temp = JSON.stringify(val);
-						//console.log(key + ":" + temp);
-						localStorage.setItem(key, temp);
-					}
-				});
-
 				console.log('user is not logged in');
 				//console.log("Saving your data to local storage and need to redirect you to login page");
-				alert("You are not logged in. Saving your data to local storage and redirecting you to login page.");
-				$location.url('/login');
+				var gotoLogin = confirm("P. Do you want to login right now?");
+				if (gotoLogin) {
+
+					//stringify json and save to local storage
+					$.each(Plan.tempPlan, function(key, val){
+						//skip updateStartEnd function
+						if(key != "updateStartEnd"){
+							var temp = JSON.stringify(val);
+							//console.log(key + ":" + temp);
+							localStorage.setItem(key, temp);
+						}
+					});
+					
+					$location.url('/login');
+				}
 			}
 		}
 
