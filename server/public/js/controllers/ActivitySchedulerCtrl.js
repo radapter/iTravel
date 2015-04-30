@@ -159,7 +159,7 @@
 
 				console.log('user is not logged in');
 				//console.log("Saving your data to local storage and need to redirect you to login page");
-				var gotoLogin = confirm("P. Do you want to login right now?");
+				var gotoLogin = confirm("Do you want to login right now?");
 				if (gotoLogin) {
 
 					//stringify json and save to local storage
