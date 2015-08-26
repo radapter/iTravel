@@ -95,7 +95,9 @@
                      ng-class="{'selectedVenue': (tempSelectedVenues[steps.list].indexOf(venueItem) > -1)}">
                     <div class="row">
                         <div class="col-sm-2 col-xs-3">
-                            <img ng-repeat="catI in venueItem.categories | limitTo: 2" alt="venue category icon"
+                            <img alt="{{venueItem.name}}" class="thumbnail"
+                              src="{{venueItem.featuredPhotos.items[0].prefix}}150x150{{venueItem.featuredPhotos.items[0].suffix}}">
+                            <img ng-repeat="catI in venueItem.categories | limitTo: 2" alt="venue category icon"  style="display:inline;"
                                  class="thumbnail" src="{{catI.icon.prefix}}bg_44{{catI.icon.suffix}}">
                         </div>
                         <div class="col-sm-10 col-xs-9">

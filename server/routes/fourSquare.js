@@ -11,18 +11,19 @@ router.get('/', function(req, res) {
 });
 
 router.get('/explore', function(req, res) {
-	var query = req.query;
-	fourSquareProxy.explore(query, function(err, data) {
-		if (err) {
-			console.log('foursquare/explore Err:', err);
-			res.sendStatus(500);
-		}
+  var params = req.query;
+  params.venuePhotos = 1;
+  fourSquareProxy.explore(params, function(err, data) {
+    if (err) {
+      console.log('foursquare/explore Err:', err);
+      res.sendStatus(500);
+    }
     //modify and save venues to db .... TO BE DONE
     var query = new Query(data);
     var venues = query.addCategoryHierarchy();
 
-		res.json(venues);
-	});
+    res.json(venues);
+  });
 });
 
 module.exports = router;
