@@ -3,17 +3,32 @@
 (function(){
   var request = require("request");
   var querystring = require('querystring');
-  var wrap;
 
   /**
-   * Foursquare SDK.
+   * Wrapper for handling unexpected status code
+   * @private
+   * @param  {Object}   response response object
+   * @param  {Object}   body     response data
+   * @param  {Function} callback function call when finished: callback(error, body)
+   */
+  var wrap = function(response, body, callback){
+    // callback(error, body)
+    if (response.statusCode >= 300) {
+      callback(body, null);
+    } else {
+      callback(null, JSON.parse(body));
+    }
+  };
+
+  /**
+   * Foursquare Proxy.
+   * @constructor
    * @param  {String} client_id     API Key
    * @param  {String} client_secret API Secret
-   * @return {Object}               Foursquare Object
+   * @return {Object}               Foursquare Proxy Object
    */
   module.exports = function(client_id, client_secret){
-    //TODO date should automaticly get yyyymmdd from local server
-    var date = '20150331';
+    var date = (new Date()).toISOString().substring(0,10).replace(/-/g,"");
     var credentials = {
       'v': date,
       'client_id': client_id,
@@ -25,49 +40,39 @@
       /**
        * Foursquare explore api. see https://developer.foursquare.com/docs/venues/explore
        * @param  {Object}   params   a json object of parameters to send to the end point
-       * @param  {Function} callback function to call back
-       * @return {Function}            callback(error, body)
+       * @param  {Function} callback function call when finished: callback(error, body)
        */
       explore: function(params, callback){
-        // TODO param validation
+        if(params.ll == undefined && params.near == undefined){
+          callback({}, null);
+        }
+
         var url = baseURL + "venues/explore";
         url = url + "?" + querystring.stringify(params) + "&" + querystring.stringify(credentials);
 
-        // TODO better log
-        // console.log('call foursquare api:', url);
         request(url, function(error, response, body){
           wrap(response, body, callback);
         });
       },
 
       /**
-       * Foursquare search api. see
+       * Foursquare search api. see https://developer.foursquare.com/docs/venues/search
        * @param  {Object}   params   a json object of parameters to send to the end point
-       * @param  {Function} callback function to call back
-       * @return {function}            callback(error, body)
+       * @param  {Function} callback function call when finished: callback(error, body)
        */
       search: function(params, callback){
-        // TODO param validation
+        if(params.ll == undefined && params.near == undefined){
+          callback({}, null);
+        }
+        
         var url = baseURL + "venues/search";
         url = url + "?" + querystring.stringify(params) + "&" + querystring.stringify(credentials);
 
-        // TODO better log
-        // console.log('call foursquare api:', url);
         request(url, function(error, response, body){
           wrap(response, body, callback);
         });
       }
     };
-  };
-
-  //wrap for sending error for unexpected status code
-  wrap = function(response, body, callback){
-    // callback(error, body)
-    if (response.statusCode >= 300) {
-      callback(body, null);
-    } else {
-      callback(null, JSON.parse(body));
-    }
   };
 
 }).call(this);

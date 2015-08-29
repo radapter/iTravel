@@ -1,7 +1,7 @@
 'use strict';
 
 var expect = require('chai').expect;
-var Query = require('../domain/query');
+var Query = require('../domain/venueQuery');
 var fs = require('fs');
 
 describe('domain/query.js testing', function(){

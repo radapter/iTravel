@@ -2,15 +2,22 @@
 
 (function(window){
 
+  /**
+   * Category Utilities
+   * @constructor
+   * @param  {Object} data category JSON data of Foursquare
+   * @return {Object}      an instance of CategoryUtil Object
+   */
   var CategoryUtil = function(data){
     this.data = data;
     this.data.id="root";
 
     /**
-     * Private helper, use for category Hierarchy
-     * @param {Object:Category} obj    Category Node
-     * @param {String} id     Foursquare Category UUID
-     * @param {Array} result Temp storage to handle data
+     * helper, find a clean category object, and return the path bottom up.
+     * @private
+     * @param {Object:Category} obj      Category Node
+     * @param {String} id                Foursquare Category UUID
+     * @param {Category[] | null} result Temp storage to handle data
      */
     var hierarchyHelper = function(obj, id, result){
       if(obj.id==id)
@@ -32,8 +39,8 @@
 
     /**
      * Get a array to describe the category hierarchy, [root, child, grandchild ...]
-     * @param {String} id Category ID
-     * @return {Array} array of category object
+     * @param {String} id   Category ID
+     * @return {Category[]} array of category object
      * category object like this:
      * {
          "id": "4d4b7104d754a06370d81259",
@@ -52,7 +59,8 @@
 
     /**
      * Get the root category of an existing category
-     * @param {String} id Foursquare UUID of category
+     * @param {String} id          Foursquare UUID of category
+     * @return {Object:Category}   root category object
      */
     this.getRootCategory = function(id){
       return this.getCategoryHierarchy(id)[0];

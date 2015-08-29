@@ -6,29 +6,42 @@
   var CategoryUtil = require('../utils/categoryUtil');
   var cateUtil = new CategoryUtil(cateData);
   /**
-   * Constructor of query result
-   * @param {Object} query input result of foursquare explore and search API
+   * Venues Query. Used for get a subset of foursquare result.
+   * like topN, order, etc.
+   * @constructor
+   * @param {Object} data input result of foursquare explore and search API
+   * @return {Object}     instance of Query object
    */
-  var Query = function(query){
+  var Query = function(data){
     this.venues = [];
 
-    this.queryToVenues = function(query) {
+    /**
+     * transform raw foursquare API data to venues.
+     * Currently support explore and search
+     * @param  {Object} data Foursquare result of explore/search API
+     * @return {Array}       list of venues object.
+     */
+    this.dataToVenues = function(data) {
       var result;
-      if(query.response.hasOwnProperty("groups")){
+      if(data.response.hasOwnProperty("groups")){
         // Explore result
-        result = query.response.groups[0].items.map(function(item){
+        result = data.response.groups[0].items.map(function(item){
           return JSON.parse(JSON.stringify(item.venue));
         });
-      }else if(query.response.hasOwnProperty("venues")){
+      }else if(data.response.hasOwnProperty("venues")){
         // Search result
-        result = JSON.parse(JSON.stringify(query.response.venues));
+        result = JSON.parse(JSON.stringify(data.response.venues));
       }else{
         // Error
-        throw "Invalid query (from query.js)";
+        throw "Invalid data (from query.js)";
       }
       return result;
     }
 
+    /**
+     * Add venues to current query. Will ignore duplicate venues.
+     * @param  {Array} venues  list of venues
+     */
     this.appendVenues = function(venues) {
       for (var newVenue in venues) {
         var shared = false;
@@ -44,17 +57,21 @@
       }
     }
 
-    this.appendData = function(query) {
-      var venues = this.queryToVenues(query);
+    /**
+     * Add explore/search result to current Query. Will ignore duplicates.
+     * @param  {Object} data Foursquare search or explore API result
+     */
+    this.appendData = function(data) {
+      var venues = this.dataToVenues(data);
       this.appendVenues(venues);
     }
 
     // init
-    this.appendData(query);
+    this.appendData(data);
 
     /**
      * Get a list of venue data
-     * @return {Array} list of venues of current query
+     * @return {Array} list of venues in current query.
      */
     this.getVenues = function(){
       return this.venues;
@@ -62,8 +79,8 @@
 
     /**
      * Get N places that most worth visiting.
-     * @param {Number}
-     * @return {Array} a list of venue data
+     * @param {Number} num  the number of venues want to return
+     * @return {Array}      a list of venue data
      */
     this.selectTopVenues = function(num) {
       // TODO this algorithm need optimization
@@ -102,7 +119,9 @@
     }
 
     /**
-     * Change venues to multi Hierarchy Categories
+     * Change venues to multi hierarchy categories.
+     * with an array from the top level category to specific category.
+     * @return {Array}  venues with category data changed.
      */
     this.addCategoryHierarchy = function(){
       this.venues = this.venues.map(function(venue){
@@ -116,7 +135,8 @@
     }
 
     /**
-     * return a list of venue name, example of map.
+     * For test. Name list of current query
+     * @return {Array} a list of names of venues
      */
     this.getNames = function(){
       var result = this.venues.map(function(venue){
@@ -125,6 +145,10 @@
       return result;
     }
 
+    /**
+     * For test. Metrics list of current query
+     * @return {Array} a list of metrics of venues
+     */
     this.getMetrics = function(){
       var result = this.venues.map(function(venue){
         return [
