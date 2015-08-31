@@ -72,7 +72,7 @@ router.get('/lucky', function(req, res) {
   plan.startDate = new Date(startDate.getTime());
   plan.endDate = new Date(endDate.getTime());
 
-  var days = endDate.getDate() - startDate.getDate() + 1;
+  var days = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
   var schedule = CONST.SCHEDULE;
 
   var visitPerDay = 4; // TODO calculate it;
@@ -116,7 +116,7 @@ router.get('/lucky', function(req, res) {
       attractions = attractions.addCategoryHierarchy();
 
       var dinings = new Query(results.food);
-      dinings = dinings.addCategoryHierarchy();
+      dinings.addCategoryHierarchy();
 
       plan.destName = results.sights.response.geocode.displayString;
       plan.destLat = results.sights.response.geocode.center.lat;
@@ -145,10 +145,12 @@ router.get('/lucky', function(req, res) {
             activity.venue = attractions.shift();
             activity.title = activity.venue.name;
             activities.push(activity);
-          } else if (typeName == CONST.ActivitiesType.RESTAURANTS && dinings.length > 0) {
+          } else if (typeName == CONST.ActivitiesType.RESTAURANTS && dinings.getVenues().length > 0) {
             activity.activitiesType = CONST.ActivitiesType.RESTAURANTS;
-            // TODO find the nearest restaurant, now is just a random one
-            activity.venue = dinings.shift();
+            var prev = activities.slice(-1)[0];
+            if(prev != undefined)
+              dinings.sortVenuesByDistance(prev.venue); // last one
+            activity.venue = dinings.getVenues().shift();
             activity.title = activity.venue.name;
             activities.push(activity);
           }

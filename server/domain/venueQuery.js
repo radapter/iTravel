@@ -119,6 +119,34 @@
     }
 
     /**
+     * Sort venue by the distance to an anchor venue
+     * @param  {Object:Venue} venue The venue used as an anchor
+     * @return {Array}        venues order by distance of an anchor
+     */
+    this.sortVenuesByDistance = function(venue) {
+      if(venue == undefined || venue.location == undefined)
+        return this.venues;
+      var distance = function(venue1, venue2) {
+        var x1 = venue1.location.lng;
+        var y1 = venue1.location.lat;
+        var x2 = venue2.location.lng;
+        var y2 = venue2.location.lat;
+        var result = Math.pow((Math.pow(Math.abs(x2 - x1), 2)
+          + Math.pow(Math.abs(y2 - y1), 2)), 0.5);
+        return result;
+      }
+      var compareByDistance = function(venue1, venue2) {
+        if(distance(venue, venue1) < distance(venue, venue2))
+          return -1;
+        if(distance(venue, venue1) > distance(venue, venue2))
+          return 1;
+        return 0;
+      }
+      this.venues.sort(compareByDistance);
+      return this.venues;
+    }
+
+    /**
      * Change venues to multi hierarchy categories.
      * with an array from the top level category to specific category.
      * @return {Array}  venues with category data changed.
@@ -154,7 +182,8 @@
         return [
           venue.rating,
           venue.stats.checkinsCount,
-          venue.name
+          venue.name,
+          venue.categories[0].name,
         ];
       });
       return result;
