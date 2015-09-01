@@ -78,23 +78,80 @@
     }
 
     /**
+     * Give a score for each venue in current venue list and sort by desc
+     * Score is calculated by the following fomula:
+     * (ranking + 5) * (percentile(checkinsCount) + 50%) * (percentile(photos) + 50%)
+     * this means best checkins and count can get 3 times score as compare with
+     * the worst one.
+     * Undefined ranking will always be 5. consider average ranking is higher than 5.
+     * any duplicated category will result in 15% score punishement for every duplication.
+     * this is for diversity. Because some category, like park always get high rating.
+     * @return {Array} list of venues
+     */
+    this.scoreInContext = function() {
+      var compareByCheckinCount = function(a,b) {
+        if(a.stats.checkinsCount < b.stats.checkinsCount){
+          return -1;
+        } else if(a.stats.checkinsCount > b.stats.checkinsCount) {
+          return 1;
+        }
+      };
+      this.venues.sort(compareByCheckinCount);
+      for (var idx in this.venues) {
+        this.venues[idx].checkinScore = 1.0 * idx / this.venues.length + 0.5;
+      }
+
+      var compareByPhotoCount = function(a,b) {
+        if(a.photos.count < b.photos.count){
+          return -1;
+        } else if(a.photos.count > b.photos.count) {
+          return 1;
+        }
+      };
+      this.venues.sort(compareByPhotoCount);
+      for (var idx in this.venues) {
+        this.venues[idx].photoScore = 1.0 * idx / this.venues.length + 0.5;
+      }
+
+      for (var idx in this.venues) {
+        var current = this.venues[idx];
+        var tempRating = current.rating == undefined ? 5 : current.rating;
+        current.rankScore = (tempRating + 5) * current.checkinScore * current.photoScore;
+      }
+      var compareByRankScore = function(a,b) {
+        if(a.rankScore < b.rankScore){
+          return -1;
+        } else if(a.rankScore > b.rankScore) {
+          return 1;
+        }
+        return 0;
+      };
+      this.venues.sort(compareByRankScore).reverse();
+
+      var cateMap = {};
+      for (var idx in this.venues) {
+        var current = this.venues[idx];
+        var currentCate = current.categories[0].id;
+        if(cateMap[currentCate] != undefined){
+          current.rankScore = current.rankScore * cateMap[currentCate];
+          cateMap[currentCate] = cateMap[currentCate] * 0.85;
+        } else {
+          cateMap[currentCate] = 1;
+        }
+        current.cateScore = cateMap[currentCate];
+      }
+      this.venues.sort(compareByRankScore).reverse();
+      return this.venues;
+    }
+
+    /**
      * Get N places that most worth visiting.
      * @param {Number} num  the number of venues want to return
      * @return {Array}      a list of venue data
      */
     this.selectTopVenues = function(num) {
-      // TODO this algorithm need optimization
-      // Currently its just a proof of concept sort by rating
-      var compareByRating = function (a,b) {
-        if (a.rating == undefined && b.rating == undefined)
-          return 0;
-        if (a.rating == undefined || a.rating < b.rating)
-          return -1;
-        if (b.rating == undefined || a.rating > b.rating)
-          return 1;
-        return 0;
-      }
-      this.venues = this.venues.sort(compareByRating).reverse().slice(0, num);
+      this.scoreInContext();
+      this.venues = this.venues.slice(0, num);
       return this.venues;
     }
 
@@ -178,13 +235,21 @@
      * @return {Array} a list of metrics of venues
      */
     this.getMetrics = function(){
+      var pct = function(num){
+        return (num*100).toFixed(1) + "%";
+      }
       var result = this.venues.map(function(venue){
         return [
-          venue.rating,
-          venue.stats.checkinsCount,
+          "rank:" + Math.ceil(venue.rankScore * 100),
+          "rating:" + venue.rating,
+          "cateScore:" + pct(venue.cateScore == undefined?0:venue.cateScore),
+          "checkin:" + venue.stats.checkinsCount,
+          "cScore:" + pct(venue.checkinScore),
+          "photos:" + venue.photos.count,
+          "pScore:" + pct(venue.photoScore),
           venue.name,
           venue.categories[0].name,
-        ];
+        ].toString();
       });
       return result;
     }

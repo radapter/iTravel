@@ -118,10 +118,6 @@ router.get('/lucky', function(req, res) {
       var dinings = new Query(results.food);
       dinings.addCategoryHierarchy();
 
-      plan.destName = results.sights.response.geocode.displayString;
-      plan.destLat = results.sights.response.geocode.center.lat;
-      plan.destLng = results.sights.response.geocode.center.lng;
-
       var activities = [];
       for(var day = 0; day < days; day++){
         for(var idx in schedule) {

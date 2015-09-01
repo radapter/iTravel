@@ -54,6 +54,8 @@
     this.getCategoryHierarchy = function(id){
       var result = [];
       result = hierarchyHelper(this.data, id, result);
+      if(result == null)
+        return null;
       return result.reverse();
     };
 
