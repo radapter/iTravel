@@ -45,8 +45,11 @@ router.get('/explore', function(req, res) {
 /**
  * GET /foursquare/lucky
  * Feeling lucky feature. Will give recommanded route base on start and end date
- * @param  near     name of location  @example Chicago, IL
- * @return {Object} plan object
+ * @param  ll         latitude, longituede @example 44.3,37.2
+ * @param  near       name of location  @example Chicago, IL
+ * @param  startDate  milliseconds or dateString
+ * @param  endDate    milliseconds or dateString
+ * @return {Object}   plan object
  */
 router.get('/lucky', function(req, res) {
   var params = req.query;
@@ -117,10 +120,6 @@ router.get('/lucky', function(req, res) {
 
       var dinings = new Query(results.food);
       dinings.addCategoryHierarchy();
-
-      plan.destName = results.sights.response.geocode.displayString;
-      plan.destLat = results.sights.response.geocode.center.lat;
-      plan.destLng = results.sights.response.geocode.center.lng;
 
       var activities = [];
       for(var day = 0; day < days; day++){
