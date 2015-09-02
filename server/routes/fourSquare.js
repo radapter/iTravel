@@ -43,15 +43,17 @@ router.get('/explore', function(req, res) {
 });
 
 /**
- * GET /foursquare/lucky
- * Feeling lucky feature. Will give recommanded route base on start and end date
+ * GET /foursquare/autoplan
+ * Auto Plan feature. Will give recommanded route base on start and end date
+ * must have one of ll or near
+ * start Date will be now if not provided, end date is 48 hours after start date
  * @param  ll         latitude, longituede @example 44.3,37.2
  * @param  near       name of location  @example Chicago, IL
  * @param  startDate  milliseconds or dateString
  * @param  endDate    milliseconds or dateString
  * @return {Object}   plan object
  */
-router.get('/lucky', function(req, res) {
+router.get('/autoplan', function(req, res) {
   var params = req.query;
   params.venuePhotos = 1;
   params.limit = 50;
