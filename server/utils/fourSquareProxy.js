@@ -64,14 +64,28 @@
         if(params.ll == undefined && params.near == undefined){
           callback({}, null);
         }
-        
+
         var url = baseURL + "venues/search";
         url = url + "?" + querystring.stringify(params) + "&" + querystring.stringify(credentials);
 
         request(url, function(error, response, body){
           wrap(response, body, callback);
         });
-      }
+      },
+
+      /**
+       * Foursquare venue api. see https://developer.foursquare.com/docs/venues/venues
+       * @param  {String}   id       Foursquare id of this venue
+       * @param  {Function} callback callback function call when finished: callback(error, body)
+       */
+      getVenue: function(id, callback) {
+        var url = baseURL + "venues/" + id;
+        url = url + "?" + querystring.stringify(credentials);
+
+        request(url, function(error, response, body) {
+          wrap(response, body, callback);
+        });
+      },
     };
   };
 

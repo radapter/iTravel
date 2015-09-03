@@ -18,6 +18,22 @@ router.get('/', function(req, res) {
 });
 
 /**
+ * GET /foursquare/venues/:venueId
+ * @param  {venueId} :venueId  foursquare id if the venue
+ * @return {Object}            venue object
+ */
+router.get('/venues/:venueId', function(req, res) {
+  fourSquareProxy.getVenue(req.params.venueId, function(err, data) {
+    if (err) {
+      console.log('foursquare/:venueId Err:', err);
+      res.status(404).json(JSON.parse(err));
+      return;
+    }
+    res.json(data.response.venue);
+  });
+});
+
+/**
  * GET /foursquare/explore
  * @param  ll       latitude, longituede @example 44.3,37.2
  * @param  near     name of location  @example Chicago, IL
@@ -32,7 +48,8 @@ router.get('/explore', function(req, res) {
   fourSquareProxy.explore(params, function(err, data) {
     if (err) {
       console.log('foursquare/explore Err:', err);
-      res.sendStatus(500);
+      res.status(500).json(JSON.parse(err));
+      return;
     }
     //modify and save venues to db .... TO BE DONE
     var query = new Query(data);

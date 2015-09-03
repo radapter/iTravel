@@ -4,7 +4,7 @@ VenueFactory.$inject = ['$http', '$q'];
 angular.module('iTravelApp').factory('Venue', VenueFactory);
 
 function VenueFactory($http, $q) {
-	
+
 	// constructor
 	function Venue(config) {
 		angular.extend(this, config);
@@ -22,7 +22,7 @@ function VenueFactory($http, $q) {
 
 
 	/**
-	 * 
+	 *
 	 */
 	function sectionedExplore(params) {
 		angular.extend(params, {limit: 50});
@@ -45,12 +45,12 @@ function VenueFactory($http, $q) {
 				sectionedresults.restaurants = _.uniq([].concat(resultsHash.drinks, resultsHash.food), 'id');
 				sectionedresults.attractions = _.uniq([].concat(resultsHash.arts, resultsHash.outdoors, resultsHash.sights), 'id');
 				sectionedresults.hotels = resultsHash.hotels;
-				
+
 				Venue.searchResults = sectionedresults;
 				Venue.categoryDict = getCategoryDict(sectionedresults);
 
 				console.log('Venue.categoryDict', Venue.categoryDict);
-				
+
 				return sectionedresults;
 			}, function fail() {
 				return $q.reject();
@@ -114,17 +114,19 @@ function VenueFactory($http, $q) {
 	}
 
 	function getDetails(venueId) {
-		var clientId = 'Z4K0IZ0P0UOLQ5DRTP4LLU32TJVTAP50MFKEKXOP5NAPFFEK';
-		var clientSecret = 'JXZT5MFR54XBZFHLQ440UQGSRVXQNJ42C33QDH1VL2GA0YDD';
-		var v = '20150331';
-
-		return $http({
-			url: 'https://api.foursquare.com/v2/venues/' + venueId + '?client_id=' + clientId + '&client_secret=' + clientSecret + '&v=' + v,
-			method: 'GET'
-		})
-		.then(function(res) {
-			return res.data.response.venue;
+		var deferred = $q.defer();
+		$http.get('foursquare/venues/' + venueId, {
+			cache: true,
+		}).then(function(res) {
+			if(res.status > 399) {
+				deferred.reject(res.meta.message);
+			} else {
+				deferred.resolve(res.data);
+			}
+		}, function(err) {
+			deferred.reject(err);
 		});
+		return deferred.promise;
 	}
 
 	function copyAndExtend(src, ext) {
