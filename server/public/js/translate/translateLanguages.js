@@ -8,6 +8,7 @@ var translationsEN = {
     SIGNUP: 'SignUp',
     PROFILE: 'Profile',
     LOGOUT:'Logout',
+    CANCEL: 'Cancel',
 
     //footer
     Contact: 'Contact',
@@ -95,6 +96,7 @@ var translationsCN= {
     SIGNUP: '注册',
     PROFILE: '我的账号',
     LOGOUT:'登出',
+    CANCEL: '取消',
 
     //footer
     Contact: '联系我们',

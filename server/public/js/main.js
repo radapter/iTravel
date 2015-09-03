@@ -70,20 +70,7 @@ angular.module('iTravelApp')
         // else error
         .otherwise("/error", {templateUrl: "templates/error.html"});
 
-        $httpProvider.interceptors.push(['$q', '$location', function($q, $location) {
-          return {
-            'response': function(originalRes) {
-
-                if(originalRes.status === 401) {
-                    return deferred.reject(originalRes.status);
-                    $location.url('/login');
-               } else {
-                    return originalRes;
-               }
-
-            }
-            };
-        }]);
+        $httpProvider.interceptors.push('HttpInterceptor');
 
 }])
 .config(['uiGmapGoogleMapApiProvider', function(uiGmapGoogleMapApiProvider) {
@@ -120,5 +107,5 @@ angular.module('iTravelApp')
 
     $rootScope.$on('userLogout', function() {
         $location.url('/');
-    })
+    });
 }]);

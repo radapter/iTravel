@@ -125,7 +125,8 @@
 
 			$http({
 				url: '/restore',
-				method: 'POST'
+				method: 'POST',
+				nointercept: true
 			}).then(function(res) {
 				if (res.status === 200) {
 					populateData(res.data);
