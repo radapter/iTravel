@@ -19,6 +19,7 @@ router.get('/', function(req, res) {
 
 /**
  * GET /foursquare/venues/:venueId
+ * get details of a venue with an foursquare id
  * @param  {venueId} :venueId  foursquare id if the venue
  * @return {Object}            venue object
  */
@@ -35,6 +36,7 @@ router.get('/venues/:venueId', function(req, res) {
 
 /**
  * GET /foursquare/explore
+ * API for explore via foursquare. Find good venues around a location
  * @param  ll       latitude, longituede @example 44.3,37.2
  * @param  near     name of location  @example Chicago, IL
  * @param  section  one of [food, drinks, coffee, shops, arts, outdoors, sights]
@@ -177,6 +179,66 @@ router.get('/autoplan', function(req, res) {
 
       plan.activities = activities;
       res.json(plan);
+  });
+});
+
+/**
+ * GET /foursquare/backup
+ * Give a list of backup venue for client to use.
+ * Currently not black listed
+ * @param  ll         latitude, longituede @example 44.3,37.2
+ * @param  near       name of location  @example Chicago, IL
+ * @return {Object}   array of attractions and array of dinings
+ */
+router.get('/backup', function(req, res) {
+  var params = req.query;
+  params.venuePhotos = 1;
+  params.limit = 50;
+
+  async.parallel({
+    sights: function(done){
+      var sightParams = JSON.parse(JSON.stringify(params));
+      sightParams.section = CONST.SECTION.SIGHTS;
+      fourSquareProxy.explore(sightParams, function(err, data) {
+        done(err, data);
+      });
+    },
+    arts: function(done){
+      var artParams = JSON.parse(JSON.stringify(params));
+      artParams.section = CONST.SECTION.ARTS;
+      fourSquareProxy.explore(artParams, function(err, data) {
+        done(err, data);
+      });
+    },
+    outdoors: function(done){
+      var outdoorParam = JSON.parse(JSON.stringify(params));
+      outdoorParam.section = CONST.SECTION.OUTDOORS;
+      fourSquareProxy.explore(outdoorParam, function(err, data) {
+        done(err, data);
+      });
+    },
+    food: function(done){
+      var foodParam = JSON.parse(JSON.stringify(params));
+      foodParam.section = CONST.SECTION.FOOD;
+      fourSquareProxy.explore(foodParam, function(err, data) {
+        done(err, data);
+      });
+    }
+  },function(err, results) {
+      var attractions = new Query(results.sights);
+      attractions.appendData(results.arts);
+      attractions.appendData(results.outdoors);
+
+      attractions.scoreInContext();
+      attractions = attractions.addCategoryHierarchy();
+
+      var dinings = new Query(results.food);
+      dinings = dinings.addCategoryHierarchy();
+
+      var result = {};
+      result.attractions = attractions;
+      result.dinings = dinings;
+      res.json(result);
   });
 });
 
