@@ -74,6 +74,11 @@ body {
     margin-top: 50px;
 }
 
+
+.modal-title {
+  font-size: medium;
+}
+
 /*for smaller viewports*/
 @media(max-width: 990px){
     .landing .how-it-works {
