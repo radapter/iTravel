@@ -5,8 +5,8 @@
         .controller('HomeCtrl', ['$scope', '$location', 'Venue', 'Plan', '$http', '$modal', function($scope, $location, Venue, Plan, $http, $modal) {
 
             $scope.isSubmitting = false;
+            $scope.isAutoSubmitting = false;
             $scope.selectedAddress = {};
-
 
             //select configs
             $scope.address = {};

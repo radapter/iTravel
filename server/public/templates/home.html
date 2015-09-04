@@ -27,8 +27,8 @@
             <input type="submit" value="{{isSubmitting ? 'Searching' : '  Custom Planning  ' | translate}}"
                        class="btn btn-primary btn-hg" ng-click="explore(address.selected)" ng-disabled="isSubmitting">
 
-            <input type="submit" value="{{isSubmitting ? 'Searching' : '  Auto Planning  ' | translate}}"
-                   class="btn btn-danger btn-hg" ng-click="openAutoplanModal(address.selected)" ng-disabled="isSubmitting">
+            <input type="submit" value="{{'  Auto Planning  ' | translate}}"
+                   class="btn btn-danger btn-hg" ng-click="openAutoplanModal(address.selected)">
             <script type="text/ng-template" id="autoplanModal.html">
                 <div class="modal-header">
                     <h4 class="modal-title">One step left for your plan...</h4>
@@ -48,7 +48,9 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-                    <button class="btn btn-primary" type="button" ng-click="autoplan(plan)">Plan</button>
+                    <!--<button class="btn btn-primary" type="button" ng-click="autoplan(plan)">Plan</button>-->
+                    <input type="submit" value="{{isAutoSubmitting ? 'Planning' : '  Auto Plann  ' | translate}}"
+                           class="btn btn-primary" ng-click="autoplan(plan)" ng-disabled="isAutoSubmitting">
                 </div>
             </script>
 
