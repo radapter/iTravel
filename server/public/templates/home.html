@@ -24,8 +24,33 @@
             </ui-select>
             <br/>
 
-            <input type="submit" value="{{isSubmitting ? 'Searching' : '  GO  ' | translate}}"
-                       class="btn btn-danger btn-hg" ng-click="explore(address.selected)" ng-disabled="isSubmitting">
+            <input type="submit" value="{{isSubmitting ? 'Searching' : '  Custom Planning  ' | translate}}"
+                       class="btn btn-primary btn-hg" ng-click="explore(address.selected)" ng-disabled="isSubmitting">
+
+            <input type="submit" value="{{isSubmitting ? 'Searching' : '  Auto Planning  ' | translate}}"
+                   class="btn btn-danger btn-hg" ng-click="openAutoplanModal(address.selected)" ng-disabled="isSubmitting">
+            <script type="text/ng-template" id="autoplanModal.html">
+                <div class="modal-header">
+                    <h4 class="modal-title">One step left for your plan...</h4>
+                </div>
+                <div class="modal-body">
+                    Destination : <b>{{ selectedAddress.formatted_address }}</b> <br/>
+
+                    Choos a start date:
+                    <div style="display:inline-block; min-height:290px;">
+                        <datepicker ng-model="plan.start" min-date="minDate"
+                        show-weeks="true" class="well well-sm"
+                        custom-class="getDayClass(date, mode)"></datepicker>
+                    </div>
+                    <br/>
+
+                    Duration: <input type="number" ng-model="plan.duration"/>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+                    <button class="btn btn-primary" type="button" ng-click="autoplan(plan)">Plan</button>
+                </div>
+            </script>
 
             <br>
             <br>

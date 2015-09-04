@@ -2,9 +2,10 @@
     'use strict';
 
     angular.module('iTravelApp')
-        .controller('HomeCtrl', ['$scope', '$location', 'Venue', 'Plan', '$http', function($scope, $location, Venue, Plan, $http) {
+        .controller('HomeCtrl', ['$scope', '$location', 'Venue', 'Plan', '$http', '$modal', function($scope, $location, Venue, Plan, $http, $modal) {
 
             $scope.isSubmitting = false;
+            $scope.selectedAddress = {};
 
 
             //select configs
@@ -54,6 +55,26 @@
                     alert("Please choose a place you want to go...");
                 }
 
+            };
+
+            $scope.openAutoplanModal = function (selectedAddress) {
+                $scope.selectedAddress = selectedAddress;
+                console.log(selectedAddress);
+
+                if(selectedAddress) {
+                  //open modal
+                  var modalInstance = $modal.open({
+                    templateUrl: 'autoplanModal.html',
+                    controller: 'AutoplanModalCtrl',
+                    resolve: {
+                      selectedAddress: function () {
+                        return $scope.selectedAddress;
+                      }
+                    }
+                  });
+                } else {
+                  alert("Please choose a place you want to go...");
+                }
             };
 
 

@@ -15,9 +15,10 @@ function PlanFactory($http, $q, Activity) {
 	}
 
 	Plan.prototype.updateStartEnd = updateStartEnd;
-
 	// static properties/methods
 	Plan.tempPlan = {};
+
+	Plan.autoPlan = autoPlan;
 	Plan.create = create;
 
 	/**
@@ -46,6 +47,34 @@ function PlanFactory($http, $q, Activity) {
 		Plan.tempPlan = newPlan;
 
 		return newPlan;
+	}
+
+	/**
+	 * call the backend autoplan api
+	 * @return {promise}
+	 */
+	function autoPlan(params) {
+		var deferred = $q.defer();
+
+		$http.get('foursquare/autoplan', {
+			cache: true,
+			params: params
+		}).then(function(res) {
+			var autoPlan;
+			// console.log('res from calling backend', res);
+			if(res.status > 399) {
+				deferred.reject(res.meta.message);
+			} else {
+				//autoPlan = new Plan(plan);
+				console.log("in plan.autoplan");
+				console.log(res);
+				deferred.resolve(res.data);
+			}
+		}, function(err) {
+			deferred.reject(err);
+		});
+
+		return deferred.promise;
 	}
 
 	function updateStartEnd() {
