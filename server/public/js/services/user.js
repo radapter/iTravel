@@ -116,7 +116,7 @@
 			});
 		}
 
-		function restore() {
+		function restore(initRun) {
 			var deferred = $q.defer();
 
 			if (User.currentUser) {
@@ -126,7 +126,7 @@
 			$http({
 				url: '/restore',
 				method: 'POST',
-				nointercept: true
+				nointercept: initRun ? true : false
 			}).then(function(res) {
 				if (res.status === 200) {
 					populateData(res.data);

@@ -96,7 +96,7 @@ angular.module('iTravelApp')
 
 .run(['User', 'Venue', function(User, Venue) {
     // detect if there is valid user token upon app start, and load user data if there is one
-    User.restore();
+    User.restore(true);
 }])
 
 .run(['$rootScope','$location','$anchorScroll', '$routeParams',function($rootScope, $location, $anchorScroll, $routeParams) {
