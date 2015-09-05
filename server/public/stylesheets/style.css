@@ -69,11 +69,57 @@ body {
   -o-background-size: cover;
 }
 
-.landing .home-search{
-    width: 300px;
-    margin-top: 50px;
+.float-left{
+  float: left;
 }
 
+.search-input-group {
+  margin: 10% auto 0 auto;
+  background-color: #fff;
+  width: 600px;
+  height: 45px;
+  border-radius: 5px;
+  border: solid 2px gray;
+}
+
+.landing .home-search{
+    width: 340px;
+}
+
+.search-icon,
+.luck-btn {
+  font-size: 30px;
+  margin: 5px;
+}
+
+.plan-btn {
+  width: 91px;
+  border-radius: 0;
+}
+
+/*styling of selector input*/
+.ui-select-toggle,
+.home-search .btn-default,
+.home-search .form-control,
+.home-search .btn-default:hover {
+  background-color: transparent;
+  border:none;
+}
+
+.home-search i.caret {
+  display: none;
+}
+
+.ui-select-bootstrap > .ui-select-choices {
+  width: 120%;
+  left: -10%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.ui-select-choices-row {
+  height: 30px;
+}
 
 .modal-title {
   font-size: medium;

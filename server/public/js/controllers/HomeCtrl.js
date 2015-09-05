@@ -8,6 +8,32 @@
             $scope.isAutoSubmitting = false;
             $scope.selectedAddress = {};
 
+            $scope.currentlocation = {};
+
+            // get current location info when first render the page, not using the callback for click
+            // has some concern about pressing the button with no result
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(function(position){
+                var destlat = position.coords.latitude;
+                var destLng = position.coords.longitude;
+
+                var latlng = destlat+","+destLng;
+
+                //use latlng to search in google geocode api
+                var params = {latlng: latlng, sensor: false};
+
+                $http.get(
+                  'https://maps.googleapis.com/maps/api/geocode/json',
+                  {params: params}
+                ).then(function(response) {
+                    //use the first result in
+                    $scope.gettingCurrLoc = false;
+                    $scope.currentlocation = response.data.results[0];
+                  });
+
+              });
+            }
+
             //select configs
             $scope.address = {};
             $scope.refreshAddresses = function(address) {
@@ -77,63 +103,10 @@
                 }
             };
 
-
-            $scope.isSubmitting2 = false;
-            $scope.currentloc = function () {
-                $scope.isSubmitting2 = true;
-
-
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function(position){
-
-                        //console.log(position);
-                        //how to get the name
-
-                        var destlat = position.coords.latitude;
-                        var destLng = position.coords.longitude;
-
-                        var latlng = destlat+","+destLng;
-
-                        //use latlng to search in google geocode api
-                        var params = {latlng: latlng, sensor: false};
-
-                        $http.get(
-                            'https://maps.googleapis.com/maps/api/geocode/json',
-                            {params: params}
-                        ).then(function(response) {
-                                //console.log(response);
-
-                                //use the first result
-                                var destName = response.data.results[0].formatted_address;
-                                console.log(destName);
-
-                                var param = {
-                                    ll: latlng
-                                };
-                                console.log(param);
-                                Venue.explore(param)
-                                    .then(function success() {
-                                        $scope.isSubmitting2 = false;
-                                        //console.log(Venue.searchResults);
-                                        //console.log('get searchedResult successfully');
-
-                                        //create plan
-                                        //attrs: destName, destLat, destLng, startDate, endDate
-                                        Plan.create(destName, destlat, destLng);
-                                        console.log(Plan.tempPlan);
-
-                                        $location.url('/venueSelect');
-                                    }, function fail(err) {
-                                        console.log('get searchedResult failed. res:', err);
-                                    });
-
-                            });
-
-                    });
-                }
-
-            }
-
+            $scope.applyCurrentloc = function () {
+                console.log("apply curr");
+                $scope.address.selected = $scope.currentlocation;
+            };
 
         }]);
 })();

@@ -9,33 +9,36 @@
             <h2 data-sr="enter top over 1.1s" translate>landingTitle</h2>
             <h2 data-sr="enter bottom over 1.5s" translate>landingSubTitle</h2>
 
-            <!--ui.select for location-->
-            <!--<p>Selected: {{address.selected.geometry.location}}</p>-->
-            <ui-select class="home-search input-select"
-                       ng-model="address.selected"
-                       theme="bootstrap"
-                       reset-search-input="false">
-                <ui-select-match placeholder="{{ EnterDestination | translate }}">{{$select.selected.formatted_address}}</ui-select-match>
-                <ui-select-choices repeat="address in addresses track by $index"
-                                   refresh="refreshAddresses($select.search)"
-                                   refresh-delay="0">
-                    <div ng-bind-html="address.formatted_address | highlight: $select.search"></div>
-                </ui-select-choices>
-            </ui-select>
-            <br/>
+            <div class="search-input-group">
+                <i class="fa fa-search fa-2x float-left search-icon"></i>
+                <ui-select class="home-search input-select float-left"
+                           ng-model="address.selected"
+                           theme="bootstrap"
+                           reset-search-input="false"
+                           search-enabled="!gettingCurrLoc">
+                    <ui-select-match placeholder="{{ EnterDestination | translate }}">{{$select.selected.formatted_address}}</ui-select-match>
+                    <ui-select-choices repeat="address in addresses track by $index"
+                                       refresh="refreshAddresses($select.search)"
+                                       refresh-delay="0">
+                        <div ng-bind-html="address.formatted_address | highlight: $select.search"></div>
+                    </ui-select-choices>
+                </ui-select>
 
-            <input type="submit" value="{{isSubmitting ? 'Searching' : '  Custom Planning  ' | translate}}"
-                       class="btn btn-primary btn-hg" ng-click="explore(address.selected)" ng-disabled="isSubmitting">
+                <i class="fa fa-street-view fa-2x float-left luck-btn" ng-click="applyCurrentloc()"></i>
 
-            <input type="submit" value="{{'  Auto Planning  ' | translate}}"
-                   class="btn btn-danger btn-hg" ng-click="openAutoplanModal(address.selected)">
+                <input type="submit" value="{{' Auto Plan' | translate}}"
+                       class="btn btn-danger float-left plan-btn" ng-click="openAutoplanModal(address.selected)">
+                <input type="submit" value="{{isSubmitting ? 'Searching' : '  Custom  ' | translate}}"
+                       class="btn btn-primary float-left plan-btn" ng-click="explore(address.selected)" ng-disabled="isSubmitting">
+
+            </div>
+
             <script type="text/ng-template" id="autoplanModal.html">
                 <div class="modal-header">
                     <h4 class="modal-title">One step left for your plan...</h4>
                 </div>
                 <div class="modal-body">
                     Destination : <b>{{ selectedAddress.formatted_address }}</b> <br/>
-
                     Choos a start date:
                     <div style="display:inline-block; min-height:290px;">
                         <datepicker ng-model="plan.start" min-date="minDate"
@@ -43,7 +46,6 @@
                         custom-class="getDayClass(date, mode)"></datepicker>
                     </div>
                     <br/>
-
                     Duration: <input type="number" ng-model="plan.duration"/>
                 </div>
                 <div class="modal-footer">
@@ -54,14 +56,6 @@
                 </div>
             </script>
 
-            <br>
-            <br>
-
-            <input type="submit" value="{{isSubmitting2 ? 'Searching' : 'I\'m feeling lucky' | translate}}"
-                   class="btn btn-default" ng-click="currentloc()" ng-disabled="isSubmitting2">
-
-
-            <!--<a href="" class="btn btn-hg btn-primary">Explore Nearby</a>-->
         </div>
     </header>
 
