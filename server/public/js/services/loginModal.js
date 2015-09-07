@@ -14,14 +14,12 @@ function loginModalFactory($q, $rootScope, $modal) {
 			  controller: 'LoginModalCtrl'
 			});
 
-			modalInstance.result.then(function (result) {
-				if (result) {
-					deferred.resolve(true); 
-				} else {
-					deferred.reject();
-				}
-
+			modalInstance.result.then(function (user) {
+				// TODO: handle signup case
+				console.log('signin modal return succeeded');
+				deferred.resolve(user); 
 			}, function () {
+				console.log('signin modal return failed');
 				deferred.reject(); 
 			});
 

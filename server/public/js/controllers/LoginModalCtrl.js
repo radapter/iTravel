@@ -3,8 +3,6 @@
 
 	angular.module('iTravelApp')
 	.controller('LoginModalCtrl', ['$scope', '$location', 'User', '$modalInstance', function($scope, $location, User, $modalInstance) {
-		console.log('LoginModalCtrl is initialized');
-
 		$scope.uiModel = {
 			email: '',
 			password: ''
@@ -17,10 +15,10 @@
 			var password = $scope.uiModel.password;
 
 			User.login(email, password)
-				.then(function success(user) {
+				.then(function succeed(user) {
 					$scope.loginStat = true;
 					console.log('user logged in successfully');
-					$modalInstance.close(true);
+					$modalInstance.close(user);
 				}, function fail(err) {
 					console.log('user login failed. res:', err);
 					$scope.loginStat = false;
@@ -30,7 +28,7 @@
 		};
 
 		$scope.cancel = function() {
-			$modalInstance.dismiss(true);
+			$modalInstance.dismiss();
 		};
 	}]);
 })();

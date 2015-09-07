@@ -73,11 +73,13 @@
 					email: email,
 					password: password
 				}
-			}).then(function(res) {
-				if (res.status === 200) {
-					populateData(res.data);
-					$rootScope.$broadcast('userLoginSuccess', User.currentUser);
-				}
+			}).then(function succeed(res) {
+				populateData(res.data);
+				$rootScope.$broadcast('userLoginSuccess', User.currentUser);
+				return User.currentUser;
+			}, function fail(err) {
+				console.log('login failed');
+				return err;
 			});
 		}
 
@@ -108,11 +110,13 @@
 					email: email,
 					password: password
 				}
-			}).then(function(res) {
-				if (res.status === 200) {
-					populateData(res.data);
-					$rootScope.$broadcast('userLoginSuccess', User.currentUser);
-				}
+			}).then(function succeed(res) {
+				populateData(res.data);
+				$rootScope.$broadcast('userLoginSuccess', User.currentUser);
+				return User.currentUser;
+			}, function fail(err) {
+				console.log('login failed');
+				return err;
 			});
 		}
 

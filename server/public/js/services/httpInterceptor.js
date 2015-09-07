@@ -1,9 +1,9 @@
 'use strict';
 
-HttpInterceptorFactory.$inject = ['$injector', '$q', '$rootScope', '$location'];
+HttpInterceptorFactory.$inject = ['$injector', '$q', '$location'];
 angular.module('iTravelApp').factory('HttpInterceptor', HttpInterceptorFactory);
 
-function HttpInterceptorFactory($injector, $q) { // use $injector instead of $http to avoid circular dependency
+function HttpInterceptorFactory($injector, $q, '$location') { // use $injector instead of $http to avoid circular dependency
 	var loginModal;
 	return {
 		/**
@@ -23,24 +23,26 @@ function HttpInterceptorFactory($injector, $q) { // use $injector instead of $ht
 					deferred.resolve(originalRes);
 				} else {
 					// upon unauthorized requests, pop up modal and ask user to login/signup
-					$injector.invoke(function($http) {
+					// delay the injection of $http to run time so http interceptor won't complain circular dependency
+					$injector.invoke(function($http) { 
 						loginModal = loginModal || $injector.get('loginModal');
-						loginModal.showModal().then(function(successful) {
-							if (successful) {
-								console.log('forced user login is successful');
-								$http(originalRes.config).then(function(res){
-									deferred.resolve(res);
-								});
-							} else {
-								deferred.resovle(originalRes);
-							}
+						loginModal.showModal().then(function(user) {
+							// 1. user login/signup successful
+							console.log('forced user login is successful. Current user:', user);
+							$http(originalRes.config).then(function(res){
+								deferred.resolve(res);
+							});
 						}, function() {
-							deferred.resovle(originalRes);
+							// 2. user clicked the cancel button of login/signup modal
+							// TODO: redirect user to landing page
+							$location.url('/');
+							deferred.resolve(originalRes);
 						});
 				 	});
 				}
-			} else if (originalRes.status > 400) {
+			} else if (originalRes.status >= 400) {
 				// $location.url(xxx);
+				console.log('$http error intercepted(not 401). Res:', originalRes);
 				deferred.reject(originalRes.status);
 			} else {
 				deferred.resolve(originalRes);
