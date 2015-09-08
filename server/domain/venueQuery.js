@@ -70,6 +70,22 @@
     this.appendData(data);
 
     /**
+     * Remove venues with a black list of ids
+     * @param  {Array} venueIds black list of venue id
+     * @return {Array}          venues after filtering
+     */
+    this.filterOutById = function(venueIds) {
+      var i =  this.venues.length;
+      while(--i >= 0) {
+        var curId = this.venues[i].id;
+        if(venueIds.indexOf(curId) >= 0) {
+          this.venues.splice(i, 1);
+        }
+      }
+      return this.venues;
+    }
+
+    /**
      * Get a list of venue data
      * @return {Array} list of venues in current query.
      */

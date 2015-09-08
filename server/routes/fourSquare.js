@@ -70,12 +70,14 @@ router.get('/explore', function(req, res) {
  * @param  near       name of location  @example Chicago, IL
  * @param  startDate  milliseconds or dateString
  * @param  endDate    milliseconds or dateString
+ * @param  bl         blacklist of venue id. e.g. ?bl[0]=1&bl[1]=2&bl[3]=3
  * @return {Object}   plan object
  */
 router.get('/autoplan', function(req, res) {
   var params = req.query;
   params.venuePhotos = 1;
   params.limit = 50;
+  var blacklist = params.bl;
 
   var startDate;
   if(params.startDate == undefined) {
@@ -135,11 +137,15 @@ router.get('/autoplan', function(req, res) {
       attractions.appendData(results.arts);
       attractions.appendData(results.outdoors);
 
+      if(blacklist != undefined)
+        attractions.filterOutById(blacklist);
       attractions.selectTopVenues(days * visitPerDay);
       attractions.sortVenuesByPath(days);
       attractions = attractions.addCategoryHierarchy();
 
       var dinings = new Query(results.food);
+      if(blacklist != undefined)
+        dinings.filterOutById(blacklist);
       dinings.addCategoryHierarchy();
 
       var activities = [];
@@ -188,12 +194,14 @@ router.get('/autoplan', function(req, res) {
  * Currently not black listed
  * @param  ll         latitude, longituede @example 44.3,37.2
  * @param  near       name of location  @example Chicago, IL
+ * @param  bl         blacklist of venue id. e.g. ?bl[0]=1&bl[1]=2&bl[3]=3
  * @return {Object}   array of attractions and array of dinings
  */
 router.get('/backup', function(req, res) {
   var params = req.query;
   params.venuePhotos = 1;
   params.limit = 50;
+  var blacklist = params.bl;
 
   async.parallel({
     sights: function(done){
@@ -229,10 +237,14 @@ router.get('/backup', function(req, res) {
       attractions.appendData(results.arts);
       attractions.appendData(results.outdoors);
 
+      if(blacklist != undefined)
+        attractions.filterOutById(blacklist);
       attractions.scoreInContext();
       attractions = attractions.addCategoryHierarchy();
 
       var dinings = new Query(results.food);
+      if(blacklist != undefined)
+        dinings.filterOutById(blacklist);
       dinings = dinings.addCategoryHierarchy();
 
       var result = {};
