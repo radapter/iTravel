@@ -3,7 +3,7 @@
 
 angular.module('iTravelApp', ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps','ngSanitize',
     'ui.select', 'ui.calendar', 'ngDragDrop', 'angular-loading-bar', 'fox.scrollReveal',
-    'angular-timeline','pascalprecht.translate', 'nvd3ChartDirectives']);
+    'angular-timeline','pascalprecht.translate', 'nvd3ChartDirectives', 'toastr']);
 
 /**
  * Configure the Routes
@@ -83,9 +83,13 @@ angular.module('iTravelApp')
 .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeSpinner = false;
 }])
-
-//translate module
+.config(['toastrConfig', function(toastrConfig) {
+  angular.extend(toastrConfig, {
+    positionClass: 'toast-top-center'
+  });
+}])
 .config(['$translateProvider', function ($translateProvider) {
+    //translate module
     // add translation tables
     $translateProvider.translations('en', translationsEN);
     $translateProvider.translations('cn', translationsCN);

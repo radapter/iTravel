@@ -32,7 +32,8 @@
     "angular-dragdrop": "~1.0.11",
     "angular-timeline": "~1.2.1",
     "angular-translate": "~2.6.1",
-    "angularjs-nvd3-directives": "~0.0.7"
+    "angularjs-nvd3-directives": "~0.0.7",
+    "angular-toastr": "~1.5.0"
   },
   "resolutions": {
     "jquery": "1.10.2",

@@ -30,5 +30,9 @@
 		$scope.cancel = function() {
 			$modalInstance.dismiss();
 		};
+
+		$scope.signup = function() {
+			$modalInstance.close('signup');
+		};
 	}]);
 })();

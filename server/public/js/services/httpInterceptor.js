@@ -3,7 +3,7 @@
 HttpInterceptorFactory.$inject = ['$injector', '$q', '$location'];
 angular.module('iTravelApp').factory('HttpInterceptor', HttpInterceptorFactory);
 
-function HttpInterceptorFactory($injector, $q, '$location') { // use $injector instead of $http to avoid circular dependency
+function HttpInterceptorFactory($injector, $q, $location) { // use $injector instead of $http to avoid circular dependency
 	var loginModal;
 	return {
 		/**
@@ -24,21 +24,31 @@ function HttpInterceptorFactory($injector, $q, '$location') { // use $injector i
 				} else {
 					// upon unauthorized requests, pop up modal and ask user to login/signup
 					// delay the injection of $http to run time so http interceptor won't complain circular dependency
-					$injector.invoke(function($http) { 
+					$injector.invoke(['$http', 'toastr', function($http, toastr) { 
 						loginModal = loginModal || $injector.get('loginModal');
-						loginModal.showModal().then(function(user) {
+						loginModal.showModal().then(function succeed(user) {
 							// 1. user login/signup successful
 							console.log('forced user login is successful. Current user:', user);
 							$http(originalRes.config).then(function(res){
 								deferred.resolve(res);
 							});
-						}, function() {
-							// 2. user clicked the cancel button of login/signup modal
-							// TODO: redirect user to landing page
-							$location.url('/');
-							deferred.resolve(originalRes);
+						}, function fail(err) {
+							// 2. user clicked the cancel button or chose to signup
+							if (err === 'signup') {
+								// redirection is done by login modal; do nothing here
+							} else if (err === 'canceled') {
+								// TODO: show error flash message
+								toastr.error('Oops! You are not authorized to view the requested contents', 'unauthorized request', {
+									positionClass: 'toast-top-full-width',
+									closeButton: true,
+									timeOut: 5000
+								});
+								$location.url('/');
+							}
+							deferred.reject(originalRes);
+
 						});
-				 	});
+				 	}]);
 				}
 			} else if (originalRes.status >= 400) {
 				// $location.url(xxx);
