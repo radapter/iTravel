@@ -41,7 +41,7 @@ function authMiddleware(req, res, next) {
 
 	console.log('authMiddleware is called. token:', token);
 	if (typeof token === 'undefined') {
-		res.sendStatus(401);
+		res.status(401).json({ errorMsg: 'SessionNotEstablished' });
 	} else {
 		try {
 			// verify & decode token in a single step
@@ -54,7 +54,7 @@ function authMiddleware(req, res, next) {
 			if (expirationTime <= Date.now()) {
 				console.log('token expired');
 				signOutUser(req, res, function() {
-			  		res.sendStatus(401);
+			  		res.status(401).json({ errorMsg: 'SessionExpired' });
 				});
 			}
 
@@ -62,7 +62,7 @@ function authMiddleware(req, res, next) {
 			User.findOne({ _id: userId }, function(err, user) {
 				if (err || !user) {
 					// console.log('can\'t find user in authentication')
-					res.sendStatus(400);
+					res.status(400).json({ errorMsg: 'UserNotExist' });
 				}
 
 				// refresh token and cookie
@@ -80,7 +80,7 @@ function authMiddleware(req, res, next) {
 
 		} catch (err) {
 			console.log('token decoding excpetion, err', err);
-			res.sendStatus(500);
+			res.status(500).json({ errorMsg: 'TokenDecodingFailed' });
 		}
 	}
 }
@@ -109,7 +109,7 @@ function signInUser(user, req, res, next) {
 
 	} catch (err) {
 		console.log('token encoding excpetion, err', err);
-		res.sendStatus(500);
+		res.status(500).json({ errorMsg: 'TokenDecodingFailed' });
 	}
 
 }

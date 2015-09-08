@@ -130,7 +130,7 @@
 			$http({
 				url: '/restore',
 				method: 'POST',
-				nointercept: initRun ? true : false
+				nointercept: initRun ? true : false // if restore is called when app initiates, don't intercept 401 error
 			}).then(function(res) {
 				if (res.status === 200) {
 					populateData(res.data);

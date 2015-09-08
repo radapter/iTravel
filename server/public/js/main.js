@@ -28,7 +28,13 @@ angular.module('iTravelApp')
         })
         .when("/users/:id", {
             templateUrl: "templates/user/profile.html",
-            controller: "UserShowCtrl"
+            controller: "UserShowCtrl",
+            resolve: {
+                currentUser: ['User', function(User) {
+                    // resolve dependency before controller initiate
+                    return User.restore();
+                }]
+            }
         })
 
         //venue selection pages
@@ -52,7 +58,13 @@ angular.module('iTravelApp')
         //plan page
         .when("/plans/:id", {
             templateUrl: "templates/plans/planDetail.html",
-            controller: "PlansShowCtrl"
+            controller: "PlansShowCtrl",
+            resolve: {
+                currentUser: ['User', function(User) {
+                    // resolve dependency before controller initiate
+                    return User.restore();
+                }]
+            }
         })
 
         //footer url pages
@@ -85,7 +97,8 @@ angular.module('iTravelApp')
 }])
 .config(['toastrConfig', function(toastrConfig) {
   angular.extend(toastrConfig, {
-    positionClass: 'toast-top-center'
+    closeButton: true,
+    timeOut: 5000
   });
 }])
 .config(['$translateProvider', function ($translateProvider) {

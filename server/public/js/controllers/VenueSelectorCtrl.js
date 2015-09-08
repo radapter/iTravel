@@ -151,7 +151,9 @@
                     }
                 }
 
-                //test save plan to user
+
+                // DEPRECATED: used only in POC
+                // test save plan to user
                 $scope.savePlan = function () {
                     $scope.saveActivities();
 

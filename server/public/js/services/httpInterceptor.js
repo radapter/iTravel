@@ -1,9 +1,9 @@
 'use strict';
 
-HttpInterceptorFactory.$inject = ['$injector', '$q', '$location'];
+HttpInterceptorFactory.$inject = ['$injector', '$q', '$location', 'toastr'];
 angular.module('iTravelApp').factory('HttpInterceptor', HttpInterceptorFactory);
 
-function HttpInterceptorFactory($injector, $q, $location) { // use $injector instead of $http to avoid circular dependency
+function HttpInterceptorFactory($injector, $q, $location, toastr) { // use $injector instead of $http to avoid circular dependency
 	var loginModal;
 	return {
 		/**
@@ -22,10 +22,20 @@ function HttpInterceptorFactory($injector, $q, $location) { // use $injector ins
 				if (originalRes.config.nointercept) {
 					deferred.resolve(originalRes);
 				} else {
-					// upon unauthorized requests, pop up modal and ask user to login/signup
-					// delay the injection of $http to run time so http interceptor won't complain circular dependency
-					$injector.invoke(['$http', 'toastr', function($http, toastr) { 
+					// upon unauthorized requests, show message and pop up modal and ask user to login/signup
+					if (originalRes.data.errorMsg === 'SessionNotEstablished') {
+						toastr.info('Login is required to view the requested content.', '');
+					} else if (originalRes.data.errorMsg === 'SessionExpired') {
+						toastr.info('Your session is expired. Please Login again.', '');
+					} else {
+						toastr.info('Login is required to view the requested content.', '');
+					}
+
+					// delay the injection of $http to run time so HttpInterceptor won't complain circular dependency
+					$injector.invoke(['$http', function($http) { 
+
 						loginModal = loginModal || $injector.get('loginModal');
+
 						loginModal.showModal().then(function succeed(user) {
 							// 1. user login/signup successful
 							console.log('forced user login is successful. Current user:', user);
@@ -37,13 +47,7 @@ function HttpInterceptorFactory($injector, $q, $location) { // use $injector ins
 							if (err === 'signup') {
 								// redirection is done by login modal; do nothing here
 							} else if (err === 'canceled') {
-								// TODO: show error flash message
-								toastr.error('Oops! You are not authorized to view the requested contents', 'unauthorized request', {
-									positionClass: 'toast-top-full-width',
-									closeButton: true,
-									timeOut: 5000
-								});
-								$location.url('/');
+								toastr.error('Oops! You are not authorized to view the requested contents', '');
 							}
 							deferred.reject(originalRes);
 
@@ -53,7 +57,7 @@ function HttpInterceptorFactory($injector, $q, $location) { // use $injector ins
 			} else if (originalRes.status >= 400) {
 				// $location.url(xxx);
 				console.log('$http error intercepted(not 401). Res:', originalRes);
-				deferred.reject(originalRes.status);
+				deferred.reject(originalRes);
 			} else {
 				deferred.resolve(originalRes);
 			}
