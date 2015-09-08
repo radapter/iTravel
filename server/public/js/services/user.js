@@ -73,11 +73,13 @@
 					email: email,
 					password: password
 				}
-			}).then(function(res) {
-				if (res.status === 200) {
-					populateData(res.data);
-					$rootScope.$broadcast('userLoginSuccess', User.currentUser);
-				}
+			}).then(function succeed(res) {
+				populateData(res.data);
+				$rootScope.$broadcast('userLoginSuccess', User.currentUser);
+				return User.currentUser;
+			}, function fail(err) {
+				console.log('login failed');
+				return err;
 			});
 		}
 
@@ -108,15 +110,17 @@
 					email: email,
 					password: password
 				}
-			}).then(function(res) {
-				if (res.status === 200) {
-					populateData(res.data);
-					$rootScope.$broadcast('userLoginSuccess', User.currentUser);
-				}
+			}).then(function succeed(res) {
+				populateData(res.data);
+				$rootScope.$broadcast('userLoginSuccess', User.currentUser);
+				return User.currentUser;
+			}, function fail(err) {
+				console.log('login failed');
+				return err;
 			});
 		}
 
-		function restore() {
+		function restore(initRun) {
 			var deferred = $q.defer();
 
 			if (User.currentUser) {
@@ -125,7 +129,8 @@
 
 			$http({
 				url: '/restore',
-				method: 'POST'
+				method: 'POST',
+				nointercept: initRun ? true : false // if restore is called when app initiates, don't intercept 401 error
 			}).then(function(res) {
 				if (res.status === 200) {
 					populateData(res.data);

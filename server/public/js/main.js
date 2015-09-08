@@ -3,7 +3,7 @@
 
 angular.module('iTravelApp', ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps','ngSanitize',
     'ui.select', 'ui.calendar', 'ngDragDrop', 'angular-loading-bar', 'fox.scrollReveal',
-    'angular-timeline','pascalprecht.translate', 'nvd3ChartDirectives']);
+    'angular-timeline','pascalprecht.translate', 'nvd3ChartDirectives', 'toastr']);
 
 /**
  * Configure the Routes
@@ -28,7 +28,13 @@ angular.module('iTravelApp')
         })
         .when("/users/:id", {
             templateUrl: "templates/user/profile.html",
-            controller: "UserShowCtrl"
+            controller: "UserShowCtrl",
+            resolve: {
+                currentUser: ['User', function(User) {
+                    // resolve dependency before controller initiate
+                    return User.restore();
+                }]
+            }
         })
 
         //venue selection pages
@@ -52,7 +58,13 @@ angular.module('iTravelApp')
         //plan page
         .when("/plans/:id", {
             templateUrl: "templates/plans/planDetail.html",
-            controller: "PlansShowCtrl"
+            controller: "PlansShowCtrl",
+            resolve: {
+                currentUser: ['User', function(User) {
+                    // resolve dependency before controller initiate
+                    return User.restore();
+                }]
+            }
         })
 
         //footer url pages
@@ -70,20 +82,7 @@ angular.module('iTravelApp')
         // else error
         .otherwise("/error", {templateUrl: "templates/error.html"});
 
-        $httpProvider.interceptors.push(['$q', '$location', function($q, $location) {
-          return {
-            'response': function(originalRes) {
-
-                if(originalRes.status === 401) {
-                    return deferred.reject(originalRes.status);
-                    $location.url('/login');
-               } else {
-                    return originalRes;
-               }
-
-            }
-            };
-        }]);
+        $httpProvider.interceptors.push('HttpInterceptor');
 
 }])
 .config(['uiGmapGoogleMapApiProvider', function(uiGmapGoogleMapApiProvider) {
@@ -96,9 +95,14 @@ angular.module('iTravelApp')
 .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeSpinner = false;
 }])
-
-//translate module
+.config(['toastrConfig', function(toastrConfig) {
+  angular.extend(toastrConfig, {
+    closeButton: true,
+    timeOut: 5000
+  });
+}])
 .config(['$translateProvider', function ($translateProvider) {
+    //translate module
     // add translation tables
     $translateProvider.translations('en', translationsEN);
     $translateProvider.translations('cn', translationsCN);
@@ -109,7 +113,7 @@ angular.module('iTravelApp')
 
 .run(['User', 'Venue', function(User, Venue) {
     // detect if there is valid user token upon app start, and load user data if there is one
-    User.restore();
+    User.restore(true);
 }])
 
 .run(['$rootScope','$location','$anchorScroll', '$routeParams',function($rootScope, $location, $anchorScroll, $routeParams) {
@@ -120,5 +124,5 @@ angular.module('iTravelApp')
 
     $rootScope.$on('userLogout', function() {
         $location.url('/');
-    })
+    });
 }]);
