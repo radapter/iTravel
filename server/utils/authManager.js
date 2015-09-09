@@ -65,17 +65,20 @@ function authMiddleware(req, res, next) {
 					res.status(400).json({ errorMsg: 'UserNotExist' });
 				}
 
-				// refresh token and cookie
-				token = jwt.encode({
-					sub: user._id,
-					exp: Date.now() + TOKEN_EXPIRATION_TIME_IN_MINUTE * 60 * 1000
-				}, secrets.jwtKey);
-				res.cookie('token', token, { expires: new Date(expirationTime), httpOnly: true });
+        // refresh token and cookie
+				if(user)  {
+					token = jwt.encode({
+						sub: user._id,
+						exp: Date.now() + TOKEN_EXPIRATION_TIME_IN_MINUTE * 60 * 1000
+					}, secrets.jwtKey);
+					res.cookie('token', token, { expires: new Date(expirationTime), httpOnly: true });
 
-				// set req.user
-			  	req.user = user;
-				console.log('auth passed. req.user:', req.user);
-			  	next();
+					// set req.user
+					req.user = user;
+					console.log('auth passed. req.user:', req.user);
+					next();
+				}
+
 			});
 
 		} catch (err) {
