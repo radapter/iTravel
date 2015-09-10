@@ -24,6 +24,10 @@ body {
     padding: 10px 0px;
 }
 
+h6 {
+  font-size: 18px;
+}
+
 /**** navbar fixed top issue: class for ng-view****/
 .padding-top-80 {
     padding-top: 80px;
@@ -325,7 +329,7 @@ div.schedule-it {
 
 
 #plan_map_canvas {
-    height: 400px;
+    height: 100vh;
     width: 100%;
     background-color: #CCC;
     /*margin: 2% auto;*/
@@ -555,8 +559,8 @@ div.selected-venues.float-venue{
 }
 
 .user-panel {
-    margin: 20px;
-    padding: 20px;
+    margin: 0 20px 0;
+    padding: 15px;
 }
 
 .plan-list {
@@ -788,4 +792,136 @@ a.anchor{
     font-size: 150%;
     text-align: center;
     padding: 1em;
+}
+
+/************************ Plan detail page *********************************/
+
+/*** timeline ***/
+#cd-timeline {
+  position: relative;
+  padding: 0.8em 0;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  height: 90vh;
+  overflow-y: scroll;
+}
+#cd-timeline::before {
+  /* this is the vertical line */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 18px;
+  height: 100%;
+  width: 4px;
+  background: #d7e4ed;
+}
+
+/*** cd container ***/
+.cd-container {
+  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+  width: 90%;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+.cd-container::after {
+  /* clearfix */
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/*** timeline block ***/
+.cd-timeline-block {
+  position: relative;
+  margin: 1em 0;
+}
+.cd-timeline-block::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.cd-timeline-block:first-child {
+  margin-top: 0;
+}
+.cd-timeline-block:last-child {
+  margin-bottom: 0;
+}
+
+/*** timeline img ***/
+.cd-timeline-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  box-shadow: 0 0 0 4px #ffffff, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+}
+.cd-timeline-img.cd-picture {
+  background: #1abc9c;
+}
+.cd-timeline-img.cd-movie {
+  background: #c03b44;
+}
+.cd-timeline-img.cd-location {
+  background: #f0ca45;
+}
+
+/*** timeline-content ***/
+.cd-timeline-content {
+  position: relative;
+  margin-left: 60px;
+  background: #fff;
+  border-radius: 0.25em;
+  padding: 0.5em;
+  box-shadow: 1px 4px 1px 1px #d7e4ed;
+}
+.cd-timeline-content::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.cd-timeline-content h2 {
+  padding: 10px;
+  background: #d7e4ed;
+  margin: -10px -10px 0 -10px;
+  font-weight: 500;
+  font-size: 20px;
+  border-radius: 5px 5px 0 0;
+}
+
+.cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+  display: inline-block;
+}
+.cd-timeline-content h4 {
+  font-size: 18px;
+  color: #34495E;
+}
+.cd-timeline-content .cd-read-more {
+  float: right;
+  padding: .8em 1em;
+  background: #acb7c0;
+  color: #ffffff;
+  border-radius: 0.25em;
+}
+.no-touch .cd-timeline-content .cd-read-more:hover {
+  background-color: #bac4cb;
+}
+.cd-timeline-content .cd-date {
+  float: left;
+  padding: .8em 0;
+  opacity: .7;
+}
+.cd-timeline-content::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  right: 100%;
+  height: 0;
+  width: 0;
+  border: 7px solid transparent;
+  border-right: 7px solid #d7e4ed;
 }
