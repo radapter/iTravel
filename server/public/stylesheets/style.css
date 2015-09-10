@@ -799,19 +799,19 @@ a.anchor{
 /*** timeline ***/
 #cd-timeline {
   position: relative;
-  padding: 0.8em 0;
+  padding: 0.8em 0.8em;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   height: 90vh;
   overflow-y: scroll;
 }
-#cd-timeline::before {
+.timeline-bar{
   /* this is the vertical line */
   content: '';
   position: absolute;
   top: 0;
   left: 18px;
-  height: 100%;
+  height: 120%;
   width: 4px;
   background: #d7e4ed;
 }

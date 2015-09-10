@@ -9,6 +9,7 @@
 
             <section id="cd-timeline" class="cd-container">
                 <div class="cd-timeline-block" ng-repeat="activity in plan.activities | orderBy: 'start'">
+                    <div class="timeline-bar"></div>
                     <div class="cd-timeline-img" ng-class="{
                         'cd-location': activity.activitiesType === 'restaurants',
                         'cd-movie': activity.activitiesType === 'hotels',
