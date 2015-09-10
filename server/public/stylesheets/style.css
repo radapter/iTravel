@@ -875,9 +875,10 @@ a.anchor{
   position: relative;
   margin-left: 60px;
   background: #fff;
-  border-radius: 0.25em;
+  border-radius: 5px;
   padding: 0.5em;
-  box-shadow: 1px 4px 1px 1px #d7e4ed;
+  border: solid 2px #d7e4ed;
+  box-shadow: 0 3px 0 #d7e4ed;
 }
 .cd-timeline-content::after {
   clear: both;
