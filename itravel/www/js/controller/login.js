@@ -26,6 +26,7 @@ angular.module('iTravelApp.controller.login', [])
                     } else {
                         $scope.loginStat = true;
                         console.log('user logged in successfully');
+                        console.log(User.currentUser);
                         $location.path("/tab/home");
                     }
                 });

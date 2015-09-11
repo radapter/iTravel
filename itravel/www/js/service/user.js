@@ -49,7 +49,7 @@
 
 			return $http({
 				url: host + 'api/v1/users/' + _this._id,
-				method: 'GET',
+				method: 'GET'
 			}).then(function(res) {
 				if (res.status === 200) {
 					populateData(res.data);
@@ -128,7 +128,7 @@
 			}
 
 			$http({
-				url: host + '/restore',
+				url: host + 'restore',
 				method: 'POST',
 				nointercept: initRun ? true : false // if restore is called when app initiates, don't intercept 401 error
 			}).then(function(res) {
