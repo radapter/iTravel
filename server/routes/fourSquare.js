@@ -128,6 +128,7 @@ router.get('/autoplan', function(req, res) {
     food: function(done){
       var foodParam = JSON.parse(JSON.stringify(params));
       foodParam.section = CONST.SECTION.FOOD;
+      foodParam.radius = 50000; // find restaurants from 50km radius
       fourSquareProxy.explore(foodParam, function(err, data) {
         done(err, data);
       });
@@ -228,6 +229,7 @@ router.get('/backup', function(req, res) {
     food: function(done){
       var foodParam = JSON.parse(JSON.stringify(params));
       foodParam.section = CONST.SECTION.FOOD;
+      foodParam.radius = 50000; // find restaurants from 50km radius
       fourSquareProxy.explore(foodParam, function(err, data) {
         done(err, data);
       });
