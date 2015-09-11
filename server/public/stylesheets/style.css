@@ -933,7 +933,9 @@ a.anchor{
   border-radius: 5px;
 }
 
-.plan-detail li.active a{
+.plan-detail li.active a,
+.plan-detail li.active a:hover,
+.plan-detail li.active a:focus{
   background: #E8F3F0;
 }
 
