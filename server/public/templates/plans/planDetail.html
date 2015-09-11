@@ -42,9 +42,25 @@
         <div class="col-md-7">
             <!--google map show route-->
             <!--ng-map lib-->
-            <map center="-34.397, 150.644" zoom="8" id="plan_map_canvas" styles="{{styles}}" ng-controller="PlanMapCtrl">
+            <map zoom="10" id="plan_map_canvas" styles="{{styles}}" zoom-to-include-markers="auto">
 
-                <marker position="-34.397, 150.644"></marker>
+                <!--venue markers-->
+                <!--<marker ng-repeat="activity in plan.activities"-->
+                        <!--on-click="showCrimePopup(crime)"-->
+                        <!--position="[{{activity.venue.location.lat}}, {{activity.venue.location.lng}}]">-->
+                <!--</marker>-->
+
+                <!--route - directions-->
+                <div >
+                    <directions
+                                panel="directions-panel"
+                                travel-mode="DRIVING"
+                                waypoints="{{waypoints}}"
+                                optimizeWaypoints ="true"
+                                origin="{{origin}}"
+                                destination="{{destination}}">
+                    </directions>
+                </div>
 
 
             </map>

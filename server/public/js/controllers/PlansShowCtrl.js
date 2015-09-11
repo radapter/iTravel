@@ -21,18 +21,44 @@
                             $rootScope.$broadcast('planLoaded');
                         }
                     }
-
                     // TODO: RETURN PROMISE
                 }
             }
 
-
           $scope.map = null;
           $scope.$on('mapInitialized', function(event, map) {
               $scope.map = map;
+              var center = new google.maps.LatLng($scope.plan.activities[0].venue.location.lat, $scope.plan.activities[0].venue.location.lng);
+              map.setCenter(center);
+
           });
 
-          //styling of maps
+          //build route
+          $scope.waypoints = [];
+          var activity_length = $scope.plan.activities.length;
+          $scope.origin = {
+              lat: $scope.plan.activities[0].venue.location.lat,
+              lng: $scope.plan.activities[0].venue.location.lng
+          };
+          $scope.destination = {
+              lat: $scope.plan.activities[activity_length-1].venue.location.lat,
+              lng: $scope.plan.activities[activity_length-1].venue.location.lng
+          };
+
+          for(var i = 1 ; i < $scope.plan.activities.length-1; i++){
+             if($scope.waypoints.length == 8) break;  //maxi waypoints is 8
+             $scope.waypoints.push({
+               location: {
+                 lat: $scope.plan.activities[i].venue.location.lat,
+                 lng: $scope.plan.activities[i].venue.location.lng
+               },
+               stopover: true
+             });
+          }
+
+          console.log($scope.waypoints);
+
+        //styling of maps
           var styleArray = [ //any style array defined in the google documentation you linked
               {
                   featureType: "all",
