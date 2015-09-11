@@ -16,17 +16,17 @@ angular.module('iTravelApp.controller.login', [])
             User.login(email, password)
                 .then(function(res) {
                     console.log(res);
-                    if(res.status == 200) {
-                        $scope.loginStat = true;
-                        console.log('user logged in successfully');
-                        $location.path("/tab/home");
-                    } else {
+                    if(res.status) {
                         console.log('user login failed. res:', res.data);
                         $scope.loginStat = false;
                         $scope.uiModel = {
                             email: '',
                             password: ''
                         };
+                    } else {
+                        $scope.loginStat = true;
+                        console.log('user logged in successfully');
+                        $location.path("/tab/home");
                     }
                 });
         };

@@ -115,7 +115,7 @@
 				$rootScope.$broadcast('userLoginSuccess', User.currentUser);
 				return User.currentUser;
 			}, function fail(err) {
-				console.log('login failed');
+				console.log('signup failed');
 				return err;
 			});
 		}
