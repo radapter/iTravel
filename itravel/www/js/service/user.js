@@ -1,10 +1,10 @@
 (function() {
-	'use strict';
+	//'use strict';
 
-	UserFactory.$inject = ['$http', '$q', '$rootScope', 'Plan', 'Activity', 'Venue'];
+	UserFactory.$inject = ['$http', '$q', '$rootScope', 'Plan', 'Activity', 'Venue', 'host', '_'];
 	angular.module('iTravelApp.service.user', []).factory('User', UserFactory);
 
-	function UserFactory($http, $q, $rootScope, Plan, Activity, Venue) {
+	function UserFactory($http, $q, $rootScope, Plan, Activity, Venue, host, _) {
 		
 		// constructor
 		function User(config) {
@@ -37,7 +37,7 @@
 			var requestBody = _.omit(_this, ['_id', 'email']);
 
 			return $http({
-				url: '/api/v1/users/' + _this._id,
+				url: host + 'api/v1/users/' + _this._id,
 				method: 'PUT',
 				data: requestBody
 			});
@@ -48,7 +48,7 @@
 
 
 			return $http({
-				url: '/api/v1/users/' + _this._id,
+				url: host + 'api/v1/users/' + _this._id,
 				method: 'GET',
 			}).then(function(res) {
 				if (res.status === 200) {
@@ -66,7 +66,7 @@
 			backend implementation needed
 			 */
 			return $http({
-				url: '/login',
+				url: host+ 'login',
 				method: 'POST',
 				cache: false,
 				data: {
@@ -88,7 +88,7 @@
 			backend implementation needed
 			 */
 			return $http({
-				url: '/logout', 
+				url: host + 'logout',
 				method: 'POST'
 			}).then(function(res) {
 				if (res.status === 200) {
@@ -104,7 +104,7 @@
 			backend implementation needed
 			 */
 			return $http({
-				url: '/signup',
+				url: host+ 'signup',
 				method: 'POST',
 				data: {
 					email: email,
@@ -128,7 +128,7 @@
 			}
 
 			$http({
-				url: '/restore',
+				url: host + '/restore',
 				method: 'POST',
 				nointercept: initRun ? true : false // if restore is called when app initiates, don't intercept 401 error
 			}).then(function(res) {

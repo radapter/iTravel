@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('iTravelApp', ['ionic', 'ngMap',
+angular.module('iTravelApp', ['ionic', 'ngMap', 'underscore',
     'iTravelApp.controller.account',
     'iTravelApp.controller.home',
     'iTravelApp.controller.plans',
@@ -15,7 +15,8 @@ angular.module('iTravelApp', ['ionic', 'ngMap',
     'iTravelApp.service.activity',
     'iTravelApp.service.plan',
     'iTravelApp.service.user',
-    'iTravelApp.service.venue'])
+    'iTravelApp.service.venue'
+]).constant('host', 'http://localhost:3000/')
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
