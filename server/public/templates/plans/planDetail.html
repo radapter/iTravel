@@ -40,36 +40,14 @@
 
         </div>
         <div class="col-md-7">
-            <p class="map-bug-claim" translate>
-                The Angular-Google-Maps library has a bug: one of the markers will hang around when map changes
-                (<a ng-href="https://github.com/angular-ui/angular-google-maps/issues/904">issue #904</a>).
-                 We will try to fix it in the next version. Thanks!
-            </p>
             <!--google map show route-->
-            <div id="plan_map_canvas" ng-controller="PlanMapCtrl">
-                <ui-gmap-google-map class="planMap" center="map.center" zoom="map.zoom"
-                                    options="map.options" bounds="map.bounds">
-                    <ui-gmap-markers models="markerList" coords="'self'"
-                                     icon="'icon'" click="'onClicked'"
-                                     options="'options'" fit="'true'" doCluster="false"
-                                     doRebuildAll="true">
-                        <ui-gmap-windows
-                                closeclick="'closeClick'"
-                                ng-cloak=""
-                                show="'showWindow'"
-                                options="{
-                                    disableAutoPan: true
-                                }">
-                            <div ng-non-bindable>
-                                {{$index}}
-                                {{message}}
-                            </div>
-                        </ui-gmap-windows>
-                    </ui-gmap-markers>
-                    <ui-gmap-polyline path="markerList" stroke="{color: '#ff6262', weight: 5}"></ui-gmap-polyline>
-                </ui-gmap-google-map>
+            <!--ng-map lib-->
+            <map center="-34.397, 150.644" zoom="8" id="plan_map_canvas" styles="{{styles}}" ng-controller="PlanMapCtrl">
 
-            </div><!--div for map canvas-->
+                <marker position="-34.397, 150.644"></marker>
+
+
+            </map>
         </div>
     </div><!--close row-->
 </div><!--close container-->

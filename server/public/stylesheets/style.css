@@ -329,20 +329,11 @@ div.schedule-it {
 
 
 #plan_map_canvas {
-    height: 100vh;
+    height: 115vh;
     width: 100%;
     background-color: #CCC;
     /*margin: 2% auto;*/
 }
-
-/*settings for dynamic height*/
-/*.angular-google-map-container {*/
-    /*height: 100%;*/
-    /*width: 100%;*/
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*left: 0;*/
-/*}*/
 
 @media(min-height: 991px){
     .angular-google-map-container {
