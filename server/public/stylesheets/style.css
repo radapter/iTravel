@@ -791,7 +791,6 @@ a.anchor{
 #cd-timeline {
   position: relative;
   padding: 0.8em 0.8em;
-  margin-top: 0.5em;
   margin-bottom: 0.5em;
   height: 90vh;
   overflow-y: scroll;
@@ -878,7 +877,7 @@ a.anchor{
 }
 .cd-timeline-content h2 {
   padding: 10px;
-  background: #d7e4ed;
+  background: #CEDBD7;
   margin: -10px -10px 0 -10px;
   font-weight: 500;
   font-size: 20px;
@@ -891,6 +890,13 @@ a.anchor{
 .cd-timeline-content h4 {
   font-size: 18px;
   color: #34495E;
+  margin: 8px 0 8px 0;
+}
+
+.cd-timeline-content p {
+  font-size: 12px;
+  margin: 0;
+  line-height: 120%;
 }
 .cd-timeline-content .cd-read-more {
   float: right;
@@ -915,5 +921,26 @@ a.anchor{
   height: 0;
   width: 0;
   border: 7px solid transparent;
-  border-right: 7px solid #d7e4ed;
+  border-right: 7px solid #CEDBD7;
+}
+
+/*tab styling*/
+.plan-detail .tab-content {
+  background: #E8F3F0;
+  border: 0;
+  padding: 0;
+  margin: 0 10px 0;
+  border-radius: 5px;
+}
+
+.plan-detail li.active a{
+  background: #E8F3F0;
+}
+
+.plan-detail .nav-tabs {
+  margin: 10px 10px 0 10px;
+}
+
+.padding-right-0 {
+ padding-right: 0;
 }

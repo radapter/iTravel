@@ -1,45 +1,60 @@
 
 <div class="plan-detail">
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-sm-5 padding-right-0">
             <div class="jumbotron user-panel">
                 <h6><span translate>Destination</span>: <span class="text-primary">{{plan.destName}}</span></h6>
                 <h6><span translate>Date</span>: <span class="text-primary">{{plan.startDate | dateParse | date:'MM/dd/yyyy'}} - {{plan.endDate | dateParse | date:'MM/dd/yyyy'}}</span></h6>
             </div>
 
-            <section id="cd-timeline" class="cd-container">
-                <div class="cd-timeline-block" ng-repeat="activity in plan.activities | orderBy: 'start'">
-                    <div class="timeline-bar"></div>
-                    <div class="cd-timeline-img" ng-class="{
+            <tabset>
+                <tab ng-repeat="day in days" heading="{{day.date}}" ng-click="changeDayRoute(day)">
+                    <section id="cd-timeline" class="cd-container">
+                        <div class="cd-timeline-block" ng-repeat="activity in day.activities | orderBy: 'start'">
+                            <div class="timeline-bar"></div>
+                            <div class="cd-timeline-img" ng-class="{
                         'cd-location': activity.activitiesType === 'restaurants',
                         'cd-movie': activity.activitiesType === 'hotels',
                         'cd-picture': activity.activitiesType === 'attractions'
                         }">
-                        <i class="fa" ng-class="{
-                        'fa-coffee': activity.activitiesType === 'restaurants',
-                        'fa-bed': activity.activitiesType === 'hotels',
-                        'fa-camera': activity.activitiesType === 'attractions'
-                        }"></i>
-                    </div>
-                    <!-- cd-timeline-img -->
+                                <!--<i class="fa" ng-class="{-->
+                        <!--'fa-coffee': activity.activitiesType === 'restaurants',-->
+                        <!--'fa-bed': activity.activitiesType === 'hotels',-->
+                        <!--'fa-camera': activity.activitiesType === 'attractions'-->
+                        <!--}"></i>-->
 
-                    <div class="cd-timeline-content">
-                        <h2>{{activity.start | dateParse | date:'MM/dd/yyyy @ h:mma'}}</h2>
-                        <h4><a ng-href="#/venues/{{activity.venue.id}}">{{activity.venue.name}}</a></h4>
-                        <p>
-                            <small class="text-muted"><i class="glyphicon glyphicon-map-marker"></i>
-                                <span ng-repeat="address in activity.venue.location.formattedAddress | limitTo: 2">{{address}} <br/> </span>
-                            </small>
-                        </p>
-                    </div>
-                    <!-- cd-timeline-content -->
-                </div>
-                <!-- cd-timeline-block -->
-            </section>
-            <!-- cd-timeline -->
+                        <span class="icon-stack">
+                             <i class="icon-sign-blank icon-stack-base"></i>
+                             <span class="icon-fixed-width icon-light char-overlay">{{$index | numberToAlphabet}}</span>
+                        </span>
+                            </div>
+                            <!-- cd-timeline-img -->
+
+                            <div class="cd-timeline-content">
+                                <h2> {{activity.start | dateParse | date:'h:mma'}}</h2>
+                                <h4>
+                                    <i class="fa" ng-class="{
+                                    'fa-coffee': activity.activitiesType === 'restaurants',
+                                    'fa-bed': activity.activitiesType === 'hotels',
+                                    'fa-camera': activity.activitiesType === 'attractions'
+                                    }"></i>
+                                    <a ng-href="#/venues/{{activity.venue.id}}">{{activity.venue.name}}</a>
+                                </h4>
+                                <p class="text-muted">
+                                    <i class="glyphicon glyphicon-map-marker"></i>
+                                    <span>{{activity.venue.location.address}}</span>
+                                </p>
+                            </div>
+                            <!-- cd-timeline-content -->
+                        </div>
+                        <!-- cd-timeline-block -->
+                    </section>
+                    <!-- cd-timeline -->
+                </tab>
+            </tabset>
 
         </div>
-        <div class="col-md-7">
+        <div class="col-sm-7">
             <!--google map show route-->
             <!--ng-map lib-->
             <map zoom="10" id="plan_map_canvas" styles="{{styles}}" zoom-to-include-markers="auto">
@@ -52,13 +67,13 @@
 
                 <!--route - directions-->
                 <div >
-                    <directions
-                                panel="directions-panel"
+                    <directions panel="directions-panel"
                                 travel-mode="DRIVING"
                                 waypoints="{{waypoints}}"
                                 optimizeWaypoints ="true"
                                 origin="{{origin}}"
-                                destination="{{destination}}">
+                                destination="{{destination}}"
+                                draggable="true">
                     </directions>
                 </div>
 
