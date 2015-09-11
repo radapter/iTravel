@@ -46,6 +46,24 @@ Tuo Lei: leituo56@gmail.com
  - A development server will be started automatically and restarted automatically any there are file changes.
 
 
+## Setup App
+### 1. install ionic 
+- ```npm install -g cordova ionic```
+
+### 2. cd itravel
+
+### 3. ```bower install```
+ - If you don't have bower, run npm install -g bower to install it
+
+### 4. ```ionic serve``` starts the app in the browser
+- If prompted to select address, enter 2 for localhost
+- If not automatically redirected, navigate to http://localhost:8100
+
+### 5. build and emulate the app
+- ```ionic platform add ios```
+- ```ionic build ios```
+- ```ionic emulate ios```
+
 ## Testing
 - Run tests using:
  - `mocha`
