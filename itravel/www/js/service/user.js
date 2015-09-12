@@ -91,11 +91,14 @@
 				url: host + 'logout',
 				method: 'POST'
 			}).then(function(res) {
+			    console.log('in user logout');
+			    console.log(res);
 				if (res.status === 200) {
 					User.currentUser = null;
 
 					$rootScope.$broadcast('userLogout');
 				}
+				return res;
 			});
 		}
 
