@@ -1,19 +1,19 @@
 <ion-view title="Login">
   <ion-content class="has-header login-page" scroll="false">
-    <div class="text-center">
-      <!--<img class="login-logo" src="./img/logo.png" alt="" width="100px"/>-->
+    <div class="row error" ng-show="loginStat==false">
+      <p class="text-center text-danger">Login failed. Incorrect email/password combo.</p>
     </div>
 
     <div class="list login-input">
       <label class="item item-input">
-        <input type="text" placeholder="Email">
+        <input type="email" placeholder="Email" ng-model="uiModel.email">
       </label>
       <label class="item item-input">
-        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Password" ng-model="uiModel.password">
       </label>
     </div>
     <div class="padding text-center">
-      <button class="button button-block login-btn" ng-click="goHome()">Login</button>
+      <button class="button button-block login-btn" ng-click="login()">Login</button>
       <p class="link">Don't have an account? <a class="link" href="#/signup">Sign Up</a></p>
     </div>
   </ion-content>

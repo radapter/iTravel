@@ -2,7 +2,9 @@
   "name": "HelloIonic",
   "private": "true",
   "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.1.0"
+    "ionic": "driftyco/ionic-bower#1.1.0",
+    "underscore": "~1.8.3",
+    "angular-underscore-module": "~1.0.1"
   },
   "dependencies": {
     "ngmap": "~1.13.4"
