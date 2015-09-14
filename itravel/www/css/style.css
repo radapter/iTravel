@@ -1,1 +1,24 @@
-/* Empty. Add your own CSS if you like */
+
+
+/************** Plans page  *****************/
+
+.plan-icon {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  max-width: 40px;
+  max-height: 40px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: dimgrey;
+  color: #fff;
+  text-align: center;
+}
+
+.plan-char {
+  color: #fff !important;
+  font-size: larger !important;
+  font-weight: bolder;
+  margin-top: 10px;
+}

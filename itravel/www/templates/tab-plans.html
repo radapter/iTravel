@@ -1,5 +1,20 @@
 <ion-view view-title="Plans">
   <ion-content>
-    <h3>this is plans page</h3>
+    <!--<h3>Plans</h3>-->
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="plan in currentUser.plans" type="item-text-wrap" href="#/tab/plans/{{plan._id}}">
+        <!--<img ng-src="{{plan.face}}">-->
+        <div class="plan-icon">
+         <p class="plan-char">{{ plan.destName | getDestNameInitial }}</p>
+        </div>
+        <h2>{{plan.destName}}</h2>
+        <p>{{plan.startDate | date:'MM/dd/yyyy' }} - {{plan.endDate | date:'MM/dd/yyyy'}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(plan)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>

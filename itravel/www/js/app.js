@@ -15,7 +15,8 @@ angular.module('iTravelApp', ['ionic', 'ngMap', 'underscore',
     'iTravelApp.service.activity',
     'iTravelApp.service.plan',
     'iTravelApp.service.user',
-    'iTravelApp.service.venue'
+    'iTravelApp.service.venue',
+    'iTravelApp.filter.getDestNameInitial'
 ]).constant('host', 'http://localhost:3000/')
 
 .run(function($ionicPlatform) {
