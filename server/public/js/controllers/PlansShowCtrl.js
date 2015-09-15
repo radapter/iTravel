@@ -30,6 +30,7 @@
 
             $scope.map = null;
             $scope.$on('mapInitialized', function(event, map) {
+            console.log(map);
                 $scope.map = map;
                 var center = new google.maps.LatLng($scope.plan.activities[0].venue.location.lat, $scope.plan.activities[0].venue.location.lng);
                 map.setCenter(center);
@@ -163,12 +164,6 @@
                 }
             ];
             $scope.styles = styleArray;
-
-            $scope.directionsMarkerOptions = {
-                label: true
-
-            }
-
 
         }]);
 
