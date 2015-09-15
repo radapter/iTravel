@@ -1,5 +1,34 @@
 <ion-view view-title="PlanDetail">
   <ion-content>
-    <h3>this is plan detail page</h3>
+    <div class="body-container">
+      <h3>Trip: {{plan.destName}}</h3>
+
+      <!--activities list-->
+      <ion-list>
+        <ion-item class="item-remove-animate item-avatar" ng-repeat="activity in plan.activities" type="item-text-wrap">
+          <!--<img ng-src="{{plan.face}}">-->
+          <div class="plan-icon activity-icon" ng-class="{
+                                    'bg-restaurant': activity.activitiesType === 'restaurants',
+                                    'bg-hotel': activity.activitiesType === 'hotels',
+                                    'bg-attraction': activity.activitiesType === 'attractions'
+                                    }">
+            <!--<p class="plan-char">{{ plan.destName | getDestNameInitial }}</p>-->
+            <i class="icon  " ng-class="{
+                                    'ion-fork': activity.activitiesType === 'restaurants',
+                                    'ion-ios-moon': activity.activitiesType === 'hotels',
+                                    'ion-camera': activity.activitiesType === 'attractions'
+                                    }"></i>
+          </div>
+          <h2>{{activity.title}}</h2>
+          <p>{{activity.start | date:'MM/dd/yyyy @ h:mma' }}</p>
+          <p>{{activity.end | date:'MM/dd/yyyy @ h:mma'}}</p>
+
+          <ion-option-button class="button-assertive" ng-click="remove(plan)">
+            Delete
+          </ion-option-button>
+        </ion-item>
+      </ion-list>
+
+    </div>
   </ion-content>
 </ion-view>

@@ -72,7 +72,7 @@ angular.module('iTravelApp', ['ionic', 'ngMap', 'underscore',
   })
 
   .state('tab.plan-detail', {
-    url: '/plans/:planId',
+    url: '/plans/:id',
     views: {
       'tab-plans': {
         templateUrl: 'templates/plan-detail.html',

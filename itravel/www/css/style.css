@@ -1,4 +1,19 @@
 
+.body-container {
+  margin: 10px;
+}
+
+.bg-restaurant {
+  background-color: #f0ca45 !important;
+}
+
+.bg-attraction {
+  background-color: #1abc9c !important;
+}
+
+.bg-hotel {
+  background-color: #c03b44 !important;
+}
 
 /************** Plans page  *****************/
 
@@ -22,3 +37,9 @@
   font-weight: bolder;
   margin-top: 10px;
 }
+
+.activity-icon {
+  font-size: 25px;
+  padding-top: 7px;
+}
+
