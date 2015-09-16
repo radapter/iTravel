@@ -1,10 +1,10 @@
 (function() {
 	//'use strict';
 
-	UserFactory.$inject = ['$http', '$q', '$rootScope', 'Plan', 'Activity', 'Venue', 'host', '_'];
+	UserFactory.$inject = ['$http', '$q', '$rootScope', '$window', 'Plan', 'Activity', 'Venue', 'host', '_'];
 	angular.module('iTravelApp.service.user', []).factory('User', UserFactory);
 
-	function UserFactory($http, $q, $rootScope, Plan, Activity, Venue, host, _) {
+	function UserFactory($http, $q, $rootScope, $window, Plan, Activity, Venue, host, _) {
 		
 		// constructor
 		function User(config) {
@@ -75,6 +75,8 @@
 				}
 			}).then(function succeed(res) {
 				populateData(res.data);
+				// console.log('res.headers()', res.headers());
+				setAccessToken(res.headers()['x-access-token']);
 				$rootScope.$broadcast('userLoginSuccess', User.currentUser);
 				return User.currentUser;
 			}, function fail(err) {
@@ -95,7 +97,7 @@
 			    console.log(res);
 				if (res.status === 200) {
 					User.currentUser = null;
-
+					destroyAccessToken();
 					$rootScope.$broadcast('userLogout');
 				}
 				return res;
@@ -115,6 +117,7 @@
 				}
 			}).then(function succeed(res) {
 				populateData(res.data);
+				setAccessToken(res.headers()['x-access-token']);
 				$rootScope.$broadcast('userLoginSuccess', User.currentUser);
 				return User.currentUser;
 			}, function fail(err) {
@@ -133,12 +136,12 @@
 			$http({
 				url: host + 'restore',
 				method: 'POST',
+				headers: {'x-access-token': loadAccessToken()},
 				nointercept: initRun ? true : false // if restore is called when app initiates, don't intercept 401 error
 			}).then(function(res) {
 				if (res.status === 200) {
 					populateData(res.data);
-
-					// TODO: populate other models
+					setAccessToken(res.headers()['x-access-token']);
 					$rootScope.$broadcast('userLoginSuccess', User.currentUser);
 					deferred.resolve(User.currentUser);
 				}
@@ -197,10 +200,22 @@
 		}
 
 		function populateData(data) {
-			console.log('user raw data', data);
 			User.currentUser = new User(data);
-			console.log('user populated data', User.currentUser);
 			// TODO: populate other models
+		}
+
+		function loadAccessToken() {
+			return $window.localStorage.getItem('token');
+		}
+
+		function setAccessToken(token) {
+			$window.localStorage.setItem('token', token);
+			$http.defaults.headers.common['x-access-token'] = token;
+		}
+
+		function destroyAccessToken() {
+			$window.localStorage.removeItem('token');
+			$http.defaults.headers.common['x-access-token'] = undefined;
 		}
 
 		return User;
