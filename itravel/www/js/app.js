@@ -16,7 +16,9 @@ angular.module('iTravelApp', ['ionic', 'ngMap', 'underscore',
     'iTravelApp.service.plan',
     'iTravelApp.service.user',
     'iTravelApp.service.venue'
-]).constant('host', 'http://localhost:3000/')
+])
+
+.constant('host', 'http://localhost:3000/')
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -105,4 +107,9 @@ angular.module('iTravelApp', ['ionic', 'ngMap', 'underscore',
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');
 
-});
+})
+
+.run(['User', function(User) {
+    // detect if there is valid user token upon app start, and load user data if there is one
+    User.restore(true);
+}]);
