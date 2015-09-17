@@ -34,10 +34,17 @@ module.exports = authManager;
  */
 function authMiddleware(req, res, next) {
 	// check / verify token, set req.user 
-	var token = req.cookies.token;
+	var token;
 	var payload;
 	var userId;
 	var expirationTime;
+
+	// for compatibility of web/mobile client, accept both cookie-based token and header-based token
+	if (req.cookies.token) {
+		token = req.cookies.token;
+	} else if (req.get('x-access-token')) {
+		token = req.get('x-access-token');
+	}
 
 	console.log('authMiddleware is called. token:', token);
 	if (typeof token === 'undefined') {
@@ -72,6 +79,8 @@ function authMiddleware(req, res, next) {
 						exp: Date.now() + TOKEN_EXPIRATION_TIME_IN_MINUTE * 60 * 1000
 					}, secrets.jwtKey);
 					res.cookie('token', token, { expires: new Date(expirationTime), httpOnly: true });
+					res.set('Access-Control-Expose-Headers', 'x-access-token');
+					res.set('x-access-token', token);
 
 					// set req.user
 					req.user = user;
@@ -105,7 +114,11 @@ function signInUser(user, req, res, next) {
 			sub: user._id,
 			exp: Date.now() + TOKEN_EXPIRATION_TIME_IN_MINUTE * 60 * 1000
 		}, secrets.jwtKey);
-		res.cookie('token', token, { expires: new Date(expirationTime), httpOnly: true });
+		// for web apps
+		res.cookie('token', token, { expires: new Date(expirationTime), httpOnly: true }); 
+		// for mobile apps that do not support cookies
+		res.set('Access-Control-Expose-Headers', 'x-access-token');
+		res.set('x-access-token', token);
 	  	req.user = user;
 
 	  	next();

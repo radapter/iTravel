@@ -106,4 +106,9 @@ angular.module('iTravelApp', ['ionic', 'ngMap', 'underscore',
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');
 
-});
+})
+
+.run(['User', function(User) {
+    // detect if there is valid user token upon app start, and load user data if there is one
+    User.restore(true);
+}]);
