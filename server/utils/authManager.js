@@ -47,7 +47,7 @@ function authMiddleware(req, res, next) {
 	}
 
 	console.log('authMiddleware is called. token:', token);
-	if (typeof token === 'undefined') {
+	if (!token) {
 		res.status(401).json({ errorMsg: 'SessionNotEstablished' });
 	} else {
 		try {
@@ -55,6 +55,8 @@ function authMiddleware(req, res, next) {
 			payload = jwt.decode(token, secrets.jwtKey);
 			userId = payload.sub;
 			expirationTime = payload.exp;
+
+			console.log('token decoded. Expiration time:', new Date(expirationTime));
 
 			// console.log('decoded payload:', payload);
 			// check if token is expired
