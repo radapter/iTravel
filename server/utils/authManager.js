@@ -63,6 +63,7 @@ function authMiddleware(req, res, next) {
 				signOutUser(req, res, function() {
 			  		res.status(401).json({ errorMsg: 'SessionExpired' });
 				});
+				return;
 			}
 
 			// check if the user exist
@@ -70,6 +71,7 @@ function authMiddleware(req, res, next) {
 				if (err || !user) {
 					// console.log('can\'t find user in authentication')
 					res.status(400).json({ errorMsg: 'UserNotExist' });
+					return;
 				}
 
         // refresh token and cookie
