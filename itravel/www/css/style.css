@@ -1,6 +1,7 @@
 
 .body-container {
   margin: 10px;
+  height: 100%;
 }
 
 .bg-restaurant {
@@ -50,10 +51,21 @@
   color: #fff;
   font-weight: bolder;
 }
+#plan-detail-map {
+  height: 102%;
+}
 
 #plan_map_canvas {
-  height: 100%;
+  height: 100% !important;
   width: 100%;
-  /*background-color: #CCC;*/
-  /*margin: 2% auto;*/
+}
+
+.scroll {
+  height: 100%;
+}
+
+.pull-top-right {
+  position: absolute;
+  right: 3%;
+  top: -1%;
 }

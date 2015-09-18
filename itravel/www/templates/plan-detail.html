@@ -1,12 +1,12 @@
-<ion-view view-title="PlanDetail" scroll="false" data-tap-disabled="true">
+<ion-view view-title="PlanDetail">
   <ion-content>
     <div class="body-container">
-      <h3>Trip: {{plan.destName}}</h3>
-      <button ng-click="setMapMode()" ng-show="!mapMode">Map</button>
-      <button ng-click="unSetMapMode()" ng-show="mapMode">List</button>
+      <h4 class="col-90">Trip: {{plan.destName}}</h4>
+      <button class="button button-small icon ion-map pull-top-right" ng-click="setMapMode()" ng-show="!mapMode"></button>
+      <button class="button button-small icon ion-navicon-round pull-top-right" ng-click="unSetMapMode()" ng-show="mapMode"></button>
 
       <div class="button-bar">
-        <button class="button" ng-repeat="day in days" ng-click="changeDayRoute(day)"
+        <button class="button button-small" ng-repeat="day in days" ng-click="changeDayRoute(day)"
                 ng-class="{ 'day-btn-clicked': day.date == currDate}"> {{day.date}}
         </button>
       </div>
@@ -35,23 +35,16 @@
         </ion-list>
       </div>
 
-      <div id="plan-detail-map">
+      <div id="plan-detail-map" scroll="false" data-tap-disabled="true">
         <!--google map show route-->
-        <!--ng-map lib-->
-        <map ng-show="mapMode" zoom="10" id="plan_map_canvas" pan-control="false" scale-control="false" styles="{{styles}}" zoom-to-include-markers="auto">
-          <!--venue markers-->
-          <!--<marker position="[{{currlat}}, {{currlng}}]" icon="./img/mappin/currloc.png"></marker>-->
-
-          <!--route - directions-->
-          <div >
-            <directions panel="directions-panel"
-                        travel-mode="DRIVING"
-                        waypoints="{{waypoints}}"
-                        optimizeWaypoints ="true"
-                        origin="{{origin}}"
-                        destination="{{destination}}">
-            </directions>
-          </div>
+        <map ng-if="mapMode"  id="plan_map_canvas" center="-34.397, 150.644" zoom="10" pan-control="false" styles="{{styles}}">
+          <directions panel="directions-panel"
+                      travel-mode="DRIVING"
+                      waypoints="{{waypoints}}"
+                      optimizeWaypoints ="true"
+                      origin="{{origin}}"
+                      destination="{{destination}}">
+          </directions>
         </map>
       </div>
 
