@@ -1,11 +1,16 @@
 'use strict';
 
-httpInterceptorFactory.$inject = ['$injector', '$q', 'Session'];
+httpInterceptorFactory.$inject = ['$injector', '$q', '$location', 'Session'];
 angular.module('iTravelApp.service.httpInterceptor', []).factory('httpInterceptor', httpInterceptorFactory);
 
-function httpInterceptorFactory($injector, $q, Session) { // use $injector instead of $http to avoid circular dependency
+function httpInterceptorFactory($injector, $q, $location, Session) { // use $injector instead of $http to avoid circular dependency
 	var loginModal;
 	return {
+		/**
+		 * Run before each $http request is sending out
+		 * @param  {object} req Angular $http request object
+		 * @return {object}     the same res object
+		 */
 		'request': function(req) {
 			var token = Session.loadAccessToken();
 
@@ -17,8 +22,9 @@ function httpInterceptorFactory($injector, $q, Session) { // use $injector inste
 		},
 
 		/**
-		 * Run when Ajax calls return any response
-		 * @return {object} [description]
+		 * Run after $http request return any response
+		 * @param  {object} res Angular $http response object
+		 * @return {object} 	the same res object
 		 */
 		'response': function(res) {
 			var headers;
@@ -37,7 +43,7 @@ function httpInterceptorFactory($injector, $q, Session) { // use $injector inste
 		},
 
 		/**
-		 * Run when Ajax calls return an error status code
+		 * Run after $http request return any response that contains an error code
 		 * @param  {object} originalRes Angular $http response object
 		 * @return {object}            	A promise object that represents the result of error resulotion
 		 */
@@ -52,8 +58,9 @@ function httpInterceptorFactory($injector, $q, Session) { // use $injector inste
 				if (originalRes.config.nointercept) {
 					deferred.resolve(originalRes);
 				} else {
-					console.log('401 error detected. do nothing for now.');
-					deferred.resolve(originalRes);
+					console.log('401 error detected. redirect to login page for now.');
+					$location.path("/login");
+					deferred.reject(originalRes);
 				}
 			} else if (originalRes.status >= 400) {
 				// $location.url(xxx);
