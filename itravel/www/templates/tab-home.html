@@ -29,7 +29,10 @@
 
             <label class="item item-input">
               <span class="input-label dest-input">Date:</span>
-              <input type="date" ng-model="newplan.start"/>
+              <!--<input type="date" ng-model="newplan.start"/>-->
+              <ionic-datepicker input-obj="datepickerObject">
+                <button class="button button-block button-positive"> {{datepickerObject.inputDate | date:'dd - MMMM - yyyy'}}</button>
+              </ionic-datepicker>
             </label>
 
             <label class="item item-input">

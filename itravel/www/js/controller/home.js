@@ -91,76 +91,110 @@ angular.module('iTravelApp.controller.home', [])
         $scope.autoplan = function (newplan) {
             console.log(newplan);
 
-            $scope.loading = $ionicLoading.show({
-                content: 'Getting current location...',
-                showBackdrop: false
-            });
-
             if($scope.useCurrLoc) {
               if(!newplan) {
                   newplan = {}
               }
               newplan.destination = $scope.currLocation;
               console.log(newplan);
+            } else if(!newplan || !newplan.destination) {
+                alert('Please choose a destination.');
+                return;
             }
 
-            if( (!newplan.start && newplan.duration)||(!newplan.duration && newplan.start) ) {
-                alert("please input start date and duration");
+            if(!newplan.duration) {
+                newplan.duration = 2; //set default duration
+            }
+
+            $scope.loading = $ionicLoading.show({
+                content: 'Getting current location...',
+                showBackdrop: false
+            });
+
+            var destName = newplan.destination.address;
+            var destlat = newplan.destination.location.lat;
+            var destLng = newplan.destination.location.lng;
+            if($scope.datepickerObject.inputDate) {
+                var startDate = $scope.datepickerObject.inputDate;
+                var endDate = new Date();
+                endDate.setDate(startDate.getDate() + newplan.duration);
+                var param = {
+                    ll: destlat +"," + destLng,
+                    startDate: startDate,
+                    endDate: endDate
+                };
             } else {
-
-                var destName = newplan.destination.address;
-                var destlat = newplan.destination.location.lat;
-                var destLng = newplan.destination.location.lng;
-                if(newplan.start) {
-                    var startDate = newplan.start;
-                    var endDate = new Date();
-                    endDate.setDate(startDate.getDate() + newplan.duration);
-                    var param = {
-                        ll: destlat +"," + destLng,
-                        startDate: startDate,
-                        endDate: endDate
-                    };
-                } else {
-                    //use default startDate and endDate
-                    var param = {
-                        ll: destlat +"," + destLng
-                    };
-                }
-
-                Plan.autoPlan(param)
-                    .then(function success(res) {
-
-                        var autoplan = res;
-                        //complete autoplan
-                        autoplan.destName = destName;
-                        autoplan.destLat = destlat;
-                        autoplan.destLng = destLng;
-                        autoplan.signatureTs = Date.now();
-
-                        if (User.currentUser) {
-                            User.currentUser.plans.push(autoplan);
-                            User.currentUser.save()
-                                .then(_.bind(User.currentUser.refresh, User.currentUser))
-                                .then(function() {
-                                    console.log('user info saved. User:', User.currentUser);
-                                    var newPlan1 = _.findWhere(User.currentUser.plans, {signatureTs: autoplan.signatureTs});
-                                    $scope.planModal.hide();
-                                    $ionicLoading.hide();
-                                    $location.path('/tab/plans');
-                                }, function(err){
-                                    console.log('network err', err);
-                                });
-
-                        } else {
-                            console.log('not handle user not login situation');
-                            $scope.planModal.hide();
-                            $location.path('/login');
-                        }
-
-                    }, function fail(err) {
-                        console.log('get searchedResult failed. res:', err);
-                    });
+                //use default startDate and endDate
+                var param = {
+                    ll: destlat +"," + destLng
+                };
             }
-        }
+
+            console.log(param);
+            Plan.autoPlan(param)
+                .then(function success(res) {
+
+                    var autoplan = res;
+                    //complete autoplan
+                    autoplan.destName = destName;
+                    autoplan.destLat = destlat;
+                    autoplan.destLng = destLng;
+                    autoplan.signatureTs = Date.now();
+
+                    if (User.currentUser) {
+                        User.currentUser.plans.push(autoplan);
+                        User.currentUser.save()
+                            .then(_.bind(User.currentUser.refresh, User.currentUser))
+                            .then(function() {
+                                console.log('user info saved. User:', User.currentUser);
+                                var newPlan1 = _.findWhere(User.currentUser.plans, {signatureTs: autoplan.signatureTs});
+                                console.log(newPlan1);
+                                $scope.planModal.hide();
+                                $ionicLoading.hide();
+                                $location.path('/tab/plans');
+                            }, function(err){
+                                console.log('network err', err);
+                            });
+
+                    } else {
+                        console.log('not handle user not login situation');
+                        $scope.planModal.hide();
+                        $location.path('/login');
+                    }
+
+                }, function fail(err) {
+                    console.log('get searchedResult failed. res:', err);
+                });
+        };
+
+        //datepicker
+        $scope.datepickerObject = {
+            titleLabel: 'Title',  //Optional
+            todayLabel: 'Today',  //Optional
+            closeLabel: 'Close',  //Optional
+            setLabel: 'Set',  //Optional
+            setButtonType : 'button-assertive',  //Optional
+            todayButtonType : 'button-assertive',  //Optional
+            closeButtonType : 'button-assertive',  //Optional
+            inputDate: new Date(),    //Optional
+            mondayFirst: true,    //Optional
+            templateType: 'popup', //Optional
+            modalHeaderColor: 'bar-positive', //Optional
+            modalFooterColor: 'bar-positive', //Optional
+            from: new Date(2012, 8, 2),   //Optional
+            to: new Date(2018, 8, 25),    //Optional
+            callback: function (val) {    //Mandatory
+                datePickerCallback(val);
+            }
+        };
+
+        var datePickerCallback = function (val) {
+            if (typeof(val) === 'undefined') {
+                console.log('No date selected');
+            } else {
+                $scope.datepickerObject.inputDate = val;
+                console.log('Selected date is : ', val)
+            }
+        };
 
     });

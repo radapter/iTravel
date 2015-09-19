@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "ngmap": "~1.13.4",
-    "ion-autocomplete": "~0.3.0"
+    "ion-autocomplete": "~0.3.0",
+    "ionic-datepicker": "~0.9.0"
   }
 }
