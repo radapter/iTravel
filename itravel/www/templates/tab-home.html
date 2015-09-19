@@ -1,6 +1,50 @@
 
 <ion-view view-title="Home">
-  <ion-content>
-    <h3>this is homepage</h3>
+  <ion-content class="body-container">
+    <h3>Plan a new trip</h3>
+    <button class="button" ng-click="planModal.show()">Auto Plan</button>
+
+    <!--navigate input modal-->
+    <script id="templates/planModal.html" type="text/ng-template">
+      <ion-modal-view id="planModal">
+        <ion-header-bar class="bar bar-header bar-stable">
+          <h1 class="title">Plan a trip</h1>
+          <button class="button button-clear button-primary" ng-click="planModal.hide()">Cancel</button>
+        </ion-header-bar>
+        <ion-content class="padding">
+          <div class="list">
+            <label class="item item-input">
+              <span class="input-label dest-input">To:</span>
+              <input ng-show="useCurrLoc" type="text" value="{{currLocation.address}}" id="currentloc-input"/>
+              <input ion-autocomplete type="text" readonly="readonly" id="auto-complete-input" class="ion-autocomplete" autocomplete="off"
+                     ng-hide="useCurrLoc"
+                     ng-model="newplan.destination"
+                     item-view-value-key="address"
+                     items-method="getTestItems(query)"
+                     placeholder="Enter destination"
+                     items-clicked-method="toLocSelect(callback)"/>
+            </label>
+            <button ng-click="setUseCurrLoc()" class="button button-small loc-pull-right" ng-hide="useCurrLoc">Use Current loc</button>
+            <button ng-show="useCurrLoc" class="button button-small loc-pull-right" ng-click="unsetUseCurrLoc()">Choose other</button>
+
+            <label class="item item-input">
+              <span class="input-label dest-input">Date:</span>
+              <input type="date" ng-model="newplan.start"/>
+            </label>
+
+            <label class="item item-input">
+              <span class="input-label dest-input">Days:</span>
+              <input type="number" ng-model="newplan.duration"/>
+            </label>
+
+            <button class="button button-full button-positive btn-nav" ng-model="navigate" ng-click="autoplan(newplan)">Auto Plan</button>
+          </div>
+        </ion-content>
+      </ion-modal-view>
+    </script>
+
+    <!--panel for stats: XX plans. XX active plans-->
+    <div>
+    </div>
   </ion-content>
 </ion-view>

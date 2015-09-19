@@ -1,4 +1,10 @@
 {
   "name": "itravel",
-  "app_id": ""
+  "app_id": "",
+  "proxies": [
+      {
+        "path": "/api/google-map",
+        "proxyUrl": "https://maps.googleapis.com/maps/api"
+      }
+    ]
 }

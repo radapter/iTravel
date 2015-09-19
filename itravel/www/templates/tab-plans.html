@@ -1,5 +1,11 @@
 <ion-view view-title="Plans">
   <ion-content>
+
+    <div ng-show="hasNoPlan" class="body-container">
+      <h4 >You dont have any plan</h4>
+      <button>Plan</button>
+    </div>
+
     <!--<h3>Plans</h3>-->
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="plan in currentUser.plans" type="item-text-wrap" href="#/tab/plans/{{plan._id}}">

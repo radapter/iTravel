@@ -7,6 +7,7 @@
     "angular-underscore-module": "~1.0.1"
   },
   "dependencies": {
-    "ngmap": "~1.13.4"
+    "ngmap": "~1.13.4",
+    "ion-autocomplete": "~0.3.0"
   }
 }

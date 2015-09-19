@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('iTravelApp', ['ionic', 'ngMap', 'underscore',
+angular.module('iTravelApp', ['ionic', 'ngMap', 'underscore', 'ion-autocomplete',
     'iTravelApp.controller.account',
     'iTravelApp.controller.home',
     'iTravelApp.controller.plans',
@@ -18,6 +18,10 @@ angular.module('iTravelApp', ['ionic', 'ngMap', 'underscore',
     'iTravelApp.service.venue',
     'iTravelApp.filter.getDestNameInitial'
 ]).constant('host', 'http://localhost:3000/')
+
+.constant('ApiEndpoint', {
+        url: 'http://localhost:8100/api/google-map'
+    })
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

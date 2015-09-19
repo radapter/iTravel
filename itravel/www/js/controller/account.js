@@ -7,11 +7,15 @@ angular.module('iTravelApp.controller.account', [])
 
   $scope.currentUser = User.currentUser;
 
+  //if(!User.currentUser) {
+  //    $location.path('/login');
+  //}
+
   $rootScope.$on('userLoginSuccess', function (event, data) {
       console.log(data);
       $scope.currentUser = data;
   });
-        
+
   $scope.logout = function () {
     if(User.currentUser) {
         User.currentUser.logout()

@@ -52,7 +52,7 @@
   font-weight: bolder;
 }
 #plan-detail-map {
-  height: 102%;
+  height: 98%;
 }
 
 #plan_map_canvas {
@@ -68,4 +68,19 @@
   position: absolute;
   right: 3%;
   top: -1%;
+}
+
+.loc-pull-right {
+  position: absolute;
+  right: 3%;
+  top: 5%;
+  z-index: 999;
+}
+
+.dest-input {
+  max-width: 5%;
+}
+
+.plan-name {
+  max-height: 10%;
 }

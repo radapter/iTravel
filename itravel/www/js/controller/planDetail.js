@@ -1,7 +1,9 @@
 
 angular.module('iTravelApp.controller.planDetail', [])
 
-    .controller('PlanDetailCtrl', function($scope, User, $rootScope, $stateParams) {
+    .controller('PlanDetailCtrl', function($scope, User, $rootScope, $stateParams, $location) {
+
+        console.log('plan detail ctrl');
         init();
 
         function init() {
@@ -20,7 +22,11 @@ angular.module('iTravelApp.controller.planDetail', [])
                     }
                 }
 
-                parseDays();
+                if($scope.plan) {
+                    parseDays();
+                }
+            } else {
+                //$location.path('/login');
             }
         }
 
@@ -56,6 +62,7 @@ angular.module('iTravelApp.controller.planDetail', [])
              * }
          * **/
         function parseDays(){
+
             $scope.days = [];
 
             var day = {

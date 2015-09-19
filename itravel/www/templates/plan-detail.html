@@ -1,7 +1,9 @@
 <ion-view view-title="PlanDetail">
   <ion-content>
     <div class="body-container">
-      <h4 class="col-90">Trip: {{plan.destName}}</h4>
+      <div class="col-90 plan-name">
+        <h4>Trip: {{plan.destName}}</h4>
+      </div>
       <button class="button button-small icon ion-map pull-top-right" ng-click="setMapMode()" ng-show="!mapMode"></button>
       <button class="button button-small icon ion-navicon-round pull-top-right" ng-click="unSetMapMode()" ng-show="mapMode"></button>
 

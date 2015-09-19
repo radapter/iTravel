@@ -1,9 +1,9 @@
 'use strict';
 
-PlanFactory.$inject = ['$http', '$q', 'Activity'];
+PlanFactory.$inject = ['$http', '$q', 'Activity', 'host'];
 angular.module('iTravelApp.service.plan',[]).factory('Plan', PlanFactory);
 
-function PlanFactory($http, $q, Activity) {
+function PlanFactory($http, $q, Activity, host) {
 	
 	// constructor
 	function Plan(config) {
@@ -56,7 +56,7 @@ function PlanFactory($http, $q, Activity) {
 	function autoPlan(params) {
 		var deferred = $q.defer();
 
-		$http.get('foursquare/autoplan', {
+		$http.get(host+'foursquare/autoplan', {
 			cache: true,
 			params: params
 		}).then(function(res) {
