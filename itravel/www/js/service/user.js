@@ -1,10 +1,10 @@
 (function() {
 	//'use strict';
 
-	UserFactory.$inject = ['$http', '$q', '$rootScope', '$window', 'Plan', 'Activity', 'Venue', 'host', '_'];
+	UserFactory.$inject = ['$http', '$q', '$rootScope', 'Session', 'Plan', 'Activity', 'Venue', 'host', '_'];
 	angular.module('iTravelApp.service.user', []).factory('User', UserFactory);
 
-	function UserFactory($http, $q, $rootScope, $window, Plan, Activity, Venue, host, _) {
+	function UserFactory($http, $q, $rootScope, Session, Plan, Activity, Venue, host, _) {
 		
 		// constructor
 		function User(config) {
@@ -76,7 +76,6 @@
 			}).then(function succeed(res) {
 				populateData(res.data);
 				// console.log('res.headers()', res.headers());
-				setAccessToken(res.headers()['x-access-token']);
 				$rootScope.$broadcast('userLoginSuccess', User.currentUser);
 				return User.currentUser;
 			}, function fail(err) {
@@ -97,7 +96,7 @@
 			    console.log(res);
 				if (res.status === 200) {
 					User.currentUser = null;
-					destroyAccessToken();
+					Session.destroyAccessToken();
 					$rootScope.$broadcast('userLogout');
 				}
 				return res;
@@ -117,7 +116,6 @@
 				}
 			}).then(function succeed(res) {
 				populateData(res.data);
-				setAccessToken(res.headers()['x-access-token']);
 				$rootScope.$broadcast('userLoginSuccess', User.currentUser);
 				return User.currentUser;
 			}, function fail(err) {
@@ -133,22 +131,27 @@
 				return $q.when(User.currentUser);
 			}
 
-			$http({
-				url: host + 'restore',
-				method: 'POST',
-				headers: {'x-access-token': loadAccessToken()},
-				nointercept: initRun ? true : false // if restore is called when app initiates, don't intercept 401 error
-			}).then(function(res) {
-				if (res.status === 200) {
-					populateData(res.data);
-					setAccessToken(res.headers()['x-access-token']);
-					$rootScope.$broadcast('userLoginSuccess', User.currentUser);
-					deferred.resolve(User.currentUser);
-				}
-			}, function() {
-				console.log('no user can be restored, fail block called');
-				deferred.reject('error');
-			});
+			if (Session.loadAccessToken()) {
+				$http({
+					url: host + 'restore',
+					method: 'POST',
+					nointercept: initRun ? true : false // if restore is called when app initiates, don't intercept 401 error
+				}).then(function(res) {
+					if (res.status === 200) {
+						populateData(res.data);
+						$rootScope.$broadcast('userLoginSuccess', User.currentUser);
+						deferred.resolve(User.currentUser);
+					}
+				}, function() {
+					console.log('user retore failed');
+					deferred.reject('no user can be restored');
+				});
+			} else {
+				console.log('no user can be restored');
+				deferred.reject('no user can be restored');
+			}
+
+
 
 			return deferred.promise;
 		}
@@ -202,20 +205,6 @@
 		function populateData(data) {
 			User.currentUser = new User(data);
 			// TODO: populate other models
-		}
-
-		function loadAccessToken() {
-			return $window.localStorage.getItem('token');
-		}
-
-		function setAccessToken(token) {
-			$window.localStorage.setItem('token', token);
-			$http.defaults.headers.common['x-access-token'] = token;
-		}
-
-		function destroyAccessToken() {
-			$window.localStorage.removeItem('token');
-			$http.defaults.headers.common['x-access-token'] = undefined;
 		}
 
 		return User;
