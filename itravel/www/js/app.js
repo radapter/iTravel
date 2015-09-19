@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('iTravelApp', ['ionic', 'ngMap', 'underscore', 'ion-autocomplete',
+angular.module('iTravelApp', ['ionic', 'ngMap', 'underscore', 'ion-autocomplete', 'ionic-datepicker',
     'iTravelApp.controller.account',
     'iTravelApp.controller.home',
     'iTravelApp.controller.plans',
