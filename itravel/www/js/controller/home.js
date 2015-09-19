@@ -111,13 +111,22 @@ angular.module('iTravelApp.controller.home', [])
                 showBackdrop: false
             });
 
+            Date.prototype.addDays = function(days)
+            {
+                var dat = new Date(this.valueOf());
+                dat.setDate(dat.getDate() + days);
+                return dat;
+            };
+
             var destName = newplan.destination.address;
             var destlat = newplan.destination.location.lat;
             var destLng = newplan.destination.location.lng;
             if($scope.datepickerObject.inputDate) {
                 var startDate = $scope.datepickerObject.inputDate;
-                var endDate = new Date();
-                endDate.setDate(startDate.getDate() + newplan.duration);
+                //var endDate = new Date();
+                var endDate = startDate.addDays(newplan.duration);
+                //endDate.setDate(startDate.getDate() + newplan.duration);
+                console.log(endDate);
                 var param = {
                     ll: destlat +"," + destLng,
                     startDate: startDate,
