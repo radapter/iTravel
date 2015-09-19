@@ -12,12 +12,21 @@ angular.module('iTravelApp.controller.plans', [])
 
         $scope.hasNoPlan = false;
 
-        $rootScope.$on('userLoginSuccess', function (event, data) {
-            $scope.hasNoPlan = false;
-            console.log(data);
-            $scope.currentUser = data;
-            if($scope.currentUser.plans.length == 0) {
-              $scope.hasNoPlan = true;
-            }
+        $rootScope.$on('userLoginSuccess', function (event, user) {
+            refreshUser(user);
         });
+
+        $rootScope.$on('userNewPlanSaved', function (event, user) {
+            refreshUser(user);
+        });
+
+        function refreshUser(user){
+            $scope.hasNoPlan = false;
+            console.log(user);
+            $scope.currentUser = user;
+            if($scope.currentUser.plans.length == 0) {
+                $scope.hasNoPlan = true;
+            }
+        }
+
     });

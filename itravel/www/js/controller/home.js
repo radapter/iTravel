@@ -1,7 +1,7 @@
 
 angular.module('iTravelApp.controller.home', [])
 
-    .controller('HomeCtrl', function($scope, $ionicModal, $http, ApiEndpoint, Plan, $location, User, _, $ionicLoading) {
+    .controller('HomeCtrl', function($scope, $ionicModal, $http, ApiEndpoint, Plan, $location, User, _, $ionicLoading, $rootScope) {
 
         console.log('HomeCtrl loaded');
 
@@ -158,9 +158,13 @@ angular.module('iTravelApp.controller.home', [])
                                 console.log('user info saved. User:', User.currentUser);
                                 var newPlan1 = _.findWhere(User.currentUser.plans, {signatureTs: autoplan.signatureTs});
                                 console.log(newPlan1);
+
+                                $rootScope.$broadcast('userNewPlanSaved', User.currentUser);
+
                                 $scope.planModal.hide();
                                 $ionicLoading.hide();
-                                $location.path('/tab/plans');
+                                //$location.path('/tab/plans');
+                                $location.path('/tab/plans/'+newPlan1._id);
                             }, function(err){
                                 console.log('network err', err);
                             });
