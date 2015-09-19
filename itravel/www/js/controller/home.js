@@ -1,23 +1,65 @@
 
 angular.module('iTravelApp.controller.home', [])
 
-    .controller('HomeCtrl', function($scope, $ionicModal, $http, ApiEndpoint, Plan, $location, User, _, $ionicLoading) {
+    .controller('HomeCtrl', function($scope, $ionicModal, $http, ApiEndpoint, Plan, $location, User, _, $ionicLoading, $rootScope) {
 
         console.log('HomeCtrl loaded');
 
-        getCurrLoc();
+        init();
 
-        //if(!User.currentUser) {
-        //   $location.path('/login');
-        //}
+        function init() {
+            $scope.currLocation = {
+                location: {
+                    lat: null,
+                    lng: null
+                },
+                address: null
+            };
+            getCurrLoc();
+            $scope.useCurrLoc = false;
+            $scope.planCount = 0;
+            $scope.activityCount = 0;
+            $scope.destinationCount = 0;
+            $scope.hasNoPlan = true;
+            $scope.nextTrip = {};
+        }
 
-        $scope.currLocation = {
-          location: {
-            lat: null,
-            lng: null
-          },
-          address: null
-        };
+        /*************** Get user related infomation ************/
+        $rootScope.$on('userLoginSuccess', function (event, user) {
+            refreshUser(user);
+        });
+
+        $rootScope.$on('userNewPlanSaved', function (event, user) {
+            refreshUser(user);
+        });
+
+        function refreshUser(user){
+            $scope.hasNoPlan = true;
+            console.log(user);
+            $scope.currentUser = user;
+
+            if($scope.currentUser) {
+                $scope.planCount = $scope.currentUser.plans.length;
+                $scope.activityCount = countActivities($scope.currentUser);
+                $scope.destinationCount = countDestinations($scope.currentUser);
+            }
+
+            if($scope.planCount != 0) {
+                $scope.hasNoPlan = false;
+                findNextTrip();
+            }
+        }
+
+        function findNextTrip(){
+            var currDate = new Date();
+            var i = 0;
+            while(User.currentUser.plans[i].startDate < currDate || !User.currentUser.plans[i].active ) {
+                i++;
+            }
+            $scope.nextTrip = User.currentUser.plans[i];
+            console.log($scope.nextTrip);
+        }
+
         function getCurrLoc(){
             navigator.geolocation.getCurrentPosition(function(pos) {
                 $scope.currLocation.location.lat = pos.coords.latitude;
@@ -41,6 +83,27 @@ angular.module('iTravelApp.controller.home', [])
             }, function(error) {
                 alert('Unable to get location: ' + error.message);
             }, { enableHighAccuracy: true });
+        }
+
+        /********* calculate user plans stats **********/
+        function countActivities(user) {
+            if(!user) return 0;
+            var activityCount = 0;
+            for(var i=0; i< user.plans.length; i++){
+                activityCount += user.plans[i].activities.length;
+            }
+            return activityCount;
+        }
+
+        function countDestinations(user) {
+            if(!user) return 0;
+            var destinations = [];
+            for(var i=0; i< user.plans.length; i++){
+                if(!_.contains(destinations, user.plans[i].destName) ) {
+                    destinations.push(user.plans[i].destName);
+                }
+            }
+            return destinations.length;
         }
 
         //prepare ion-complete for navigate inout, with auto complete address
@@ -70,15 +133,13 @@ angular.module('iTravelApp.controller.home', [])
                 });
         };
 
-        //show plan modal
+        /*************  auto plan modal related *********************/
         $ionicModal.fromTemplateUrl('templates/planModal.html', {
             scope: $scope
         }).then(function(modal) {
             $scope.planModal = modal;
         });
 
-        $scope.useCurrLoc = false;
-        console.log($scope.useCurrLoc);
         $scope.setUseCurrLoc = function () {
             console.log("scole");
             $scope.useCurrLoc = true;
@@ -158,9 +219,13 @@ angular.module('iTravelApp.controller.home', [])
                                 console.log('user info saved. User:', User.currentUser);
                                 var newPlan1 = _.findWhere(User.currentUser.plans, {signatureTs: autoplan.signatureTs});
                                 console.log(newPlan1);
+
+                                $rootScope.$broadcast('userNewPlanSaved', User.currentUser);
+
                                 $scope.planModal.hide();
                                 $ionicLoading.hide();
-                                $location.path('/tab/plans');
+                                //$location.path('/tab/plans');
+                                $location.path('/tab/plans/'+newPlan1._id);
                             }, function(err){
                                 console.log('network err', err);
                             });

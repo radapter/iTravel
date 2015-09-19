@@ -8,11 +8,11 @@ angular.module('iTravelApp.controller.planDetail', [])
 
         function init() {
             if(User.currentUser) {
-                $scope.user = User.currentUser;
-                console.log($scope.user);
+                $scope.currentUser = User.currentUser;
+                console.log($scope.currentUser);
 
                 var planid = $stateParams.id;
-                var plans = $scope.user.plans;
+                var plans = $scope.currentUser.plans;
                 for(var i = 0; i< plans.length; i++){
                     //console.log(plans[i]);
                     if(plans[i]._id == planid) {
@@ -28,6 +28,19 @@ angular.module('iTravelApp.controller.planDetail', [])
             } else {
                 //$location.path('/login');
             }
+        }
+
+        $rootScope.$on('userLoginSuccess', function (event, user) {
+            refreshUser(user);
+        });
+
+        $rootScope.$on('userNewPlanSaved', function (event, user) {
+            refreshUser(user);
+        });
+
+        function refreshUser(user){
+            console.log(user);
+            $scope.currentUser = user;
         }
 
         $scope.mapMode = false;

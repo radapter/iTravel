@@ -1,53 +1,104 @@
 
 <ion-view view-title="Home">
-  <ion-content class="body-container">
-    <h3>Plan a new trip</h3>
-    <button class="button" ng-click="planModal.show()">Auto Plan</button>
-
-    <!--navigate input modal-->
-    <script id="templates/planModal.html" type="text/ng-template">
-      <ion-modal-view id="planModal">
-        <ion-header-bar class="bar bar-header bar-stable">
-          <h1 class="title">Plan a trip</h1>
-          <button class="button button-clear button-primary" ng-click="planModal.hide()">Cancel</button>
-        </ion-header-bar>
-        <ion-content class="padding">
-          <div class="list">
-            <label class="item item-input">
-              <span class="input-label dest-input">To:</span>
-              <input ng-show="useCurrLoc" type="text" value="{{currLocation.address}}" id="currentloc-input"/>
-              <input ion-autocomplete type="text" readonly="readonly" id="auto-complete-input" class="ion-autocomplete" autocomplete="off"
-                     ng-hide="useCurrLoc"
-                     ng-model="newplan.destination"
-                     item-view-value-key="address"
-                     items-method="getTestItems(query)"
-                     placeholder="Enter destination"
-                     items-clicked-method="toLocSelect(callback)"/>
-            </label>
-            <button ng-click="setUseCurrLoc()" class="button button-small loc-pull-right" ng-hide="useCurrLoc">Use Current loc</button>
-            <button ng-show="useCurrLoc" class="button button-small loc-pull-right" ng-click="unsetUseCurrLoc()">Choose other</button>
-
-            <label class="item item-input">
-              <span class="input-label dest-input">Date:</span>
-              <!--<input type="date" ng-model="newplan.start"/>-->
-              <ionic-datepicker input-obj="datepickerObject">
-                <button class="button button-block button-positive"> {{datepickerObject.inputDate | date:'dd - MMMM - yyyy'}}</button>
-              </ionic-datepicker>
-            </label>
-
-            <label class="item item-input">
-              <span class="input-label dest-input">Days:</span>
-              <input type="number" ng-model="newplan.duration"/>
-            </label>
-
-            <button class="button button-full button-positive btn-nav" ng-model="navigate" ng-click="autoplan(newplan)">Auto Plan</button>
-          </div>
-        </ion-content>
-      </ion-modal-view>
-    </script>
-
-    <!--panel for stats: XX plans. XX active plans-->
-    <div>
+  <ion-content>
+    <div id="plan-new-trip" class="container">
+      <h3>Plan a new trip</h3>
+      <button class="button" ng-click="planModal.show()">Auto Plan</button>
     </div>
+
+    <!--panel next trip-->
+    <div id="next-trip" class="container">
+      <h3>Your Next Trip</h3>
+      <div class="list card next-trip-card">
+        <div ng-show="hasNoPlan" class="container">
+          <p>You don't have any plan</p>
+        </div>
+
+        <div ng-hide="hasNoPlan">
+          <div class="row">
+            <i class="icon ion-paper-airplane next-trip-icon"></i>
+            <h4>{{nextTrip.destName}}</h4>
+          </div>
+
+          <div class="row">
+            <i class="icon ion-calendar next-trip-icon"></i>
+            <h4>{{nextTrip.startDate| date:'MM/dd/yyyy @ h:mma'}}</h4>
+          </div>
+
+          <div class="row">
+            <i class="icon ion-location next-trip-icon"></i>
+            <h4 class="acitvity-text">{{nextTrip.activities.length}} Activities</h4>
+            <a href="#/tab/plans/{{nextTrip._id}}" class="button icon ion-chevron-right pull-icon-right"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Panel plans statics-->
+    <div id="plan-stat" class="container">
+      <h3>Your Trips</h3>
+      <div class="list card">
+        <div class="item tabs tabs-secondary tabs-icon-left">
+          <p class="tab-item stat-num">
+            <i class="icon ion-paper-airplane"></i>
+            <span class="align-right-tight">{{planCount}}</span>
+            <span class="text-small">Trips</span>
+          </p>
+          <p class="tab-item stat-num" >
+            <i class="icon ion-location"></i>
+            <span class="align-right-tight">{{activityCount}}</span>
+            <span class="text-small">Activities</span>
+          </p>
+          <p class="tab-item stat-num">
+            <i class="icon ion-flag"></i>
+            <span class="align-right-tight">{{destinationCount}}</span>
+            <span class="text-small">Locations</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
   </ion-content>
 </ion-view>
+
+<!--navigate input modal-->
+<script id="templates/planModal.html" type="text/ng-template">
+  <ion-modal-view id="planModal">
+    <ion-header-bar class="bar bar-header bar-stable">
+      <h1 class="title">Plan a trip</h1>
+      <button class="button button-clear button-primary" ng-click="planModal.hide()">Cancel</button>
+    </ion-header-bar>
+    <ion-content class="padding">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label dest-input">To:</span>
+          <input ng-show="useCurrLoc" type="text" value="{{currLocation.address}}" id="currentloc-input"/>
+          <input ion-autocomplete type="text" readonly="readonly" id="auto-complete-input" class="ion-autocomplete" autocomplete="off"
+                 ng-hide="useCurrLoc"
+                 ng-model="newplan.destination"
+                 item-view-value-key="address"
+                 items-method="getTestItems(query)"
+                 placeholder="Enter destination"
+                 items-clicked-method="toLocSelect(callback)"/>
+        </label>
+        <button ng-click="setUseCurrLoc()" class="button button-small loc-pull-right" ng-hide="useCurrLoc">Use Current loc</button>
+        <button ng-show="useCurrLoc" class="button button-small loc-pull-right" ng-click="unsetUseCurrLoc()">Choose other</button>
+
+        <label class="item item-input">
+          <span class="input-label dest-input">Date:</span>
+          <!--<input type="date" ng-model="newplan.start"/>-->
+          <ionic-datepicker input-obj="datepickerObject">
+            <button class="button button-block button-positive"> {{datepickerObject.inputDate | date:'dd - MMMM - yyyy'}}</button>
+          </ionic-datepicker>
+        </label>
+
+        <label class="item item-input">
+          <span class="input-label dest-input">Days:</span>
+          <input type="number" ng-model="newplan.duration"/>
+        </label>
+
+        <button class="button button-full button-positive btn-nav" ng-model="navigate" ng-click="autoplan(newplan)">Auto Plan</button>
+      </div>
+    </ion-content>
+  </ion-modal-view>
+</script>

@@ -3,6 +3,9 @@
   margin: 10px;
   height: 100%;
 }
+.container {
+  margin: 10px 10px 20px;
+}
 
 .bg-restaurant {
   background-color: #f0ca45 !important;
@@ -83,4 +86,34 @@
 
 .plan-name {
   max-height: 10%;
+}
+
+/**************** next trip styling  ******************/
+.next-trip-icon {
+  margin: 10px 10px 10px 5px;
+  font-size: 30px;
+  color: #1abc9c;
+  width: 30px;
+  text-align: center;
+}
+
+.next-trip-card {
+  border: solid 1px #1abc9c;
+}
+
+.acitvity-text {
+  width: 80%;
+}
+
+.stat-num {
+  font-size: 25px !important;
+}
+
+.text-small {
+  font-size: 12px !important;
+}
+
+.align-right-tight {
+  margin-right: -5px;
+  margin-left: -5px;
 }
