@@ -58,6 +58,7 @@ Tuo Lei: leituo56@gmail.com
 ### 4. ```ionic serve``` starts the app in the browser
 - If prompted to select address, enter 2 for localhost
 - If not automatically redirected, navigate to http://localhost:8100
+- !! ionic app is using itravel node server, need to run ```glup``` under ```/server``` folder
 
 ### 5. build and emulate the app
 - ```ionic platform add ios```
