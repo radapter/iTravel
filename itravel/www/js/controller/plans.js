@@ -10,7 +10,7 @@ angular.module('iTravelApp.controller.plans', [])
         //    $location.path('/login');
         //}
 
-        $scope.hasNoPlan = false;
+        $scope.hasNoPlan = true;
 
         $rootScope.$on('userLoginSuccess', function (event, user) {
             refreshUser(user);
@@ -21,11 +21,11 @@ angular.module('iTravelApp.controller.plans', [])
         });
 
         function refreshUser(user){
-            $scope.hasNoPlan = false;
+            $scope.hasNoPlan = true;
             console.log(user);
             $scope.currentUser = user;
-            if($scope.currentUser.plans.length == 0) {
-                $scope.hasNoPlan = true;
+            if($scope.currentUser.plans.length != 0) {
+                $scope.hasNoPlan = false;
             }
         }
 
