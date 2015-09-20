@@ -5,11 +5,11 @@ angular.module('iTravelApp.controller.account', [])
 
   console.log('load account ctrl');
 
-  $scope.currentUser = User.currentUser;
-
-  //if(!User.currentUser) {
-  //    $location.path('/login');
-  //}
+  if(User.currentUser) {
+      $scope.currentUser = User.currentUser;
+  } else {
+      //$location.path('/login');
+  }
 
   $rootScope.$on('userLoginSuccess', function (event, data) {
       console.log(data);
