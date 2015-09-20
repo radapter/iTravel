@@ -22,6 +22,13 @@ angular.module('iTravelApp.controller.home', [])
             $scope.destinationCount = 0;
             $scope.hasNoPlan = true;
             $scope.nextTrip = {};
+            if(User.currentUser) {
+                refreshUser(User.currentUser);
+            } else {
+                console.log('no curr user');
+                //$location.path('/login');
+            }
+
         }
 
         /*************** Get user related infomation ************/
