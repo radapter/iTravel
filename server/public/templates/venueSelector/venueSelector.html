@@ -1,0 +1,35 @@
+<<!-->
+ This new template is meant to serve the same purpose of venueSelect.html 
+</!-->
+<h1>Places to go in {{searchParams.destination}}</h1>
+<div id="venue-selector-container" class="container-fluid">
+	<div class="row">
+
+	</div>
+	<div class="row">
+		<div id="venue-selector" class="container-fluid col-md-9">
+			<div class="row">
+				<div id="venue-filters" class="col-md-12">
+					
+				</div>
+			</div>
+			<div class="row">
+				<div id="venue-options" class="col-md-7 clearfix">
+					<div venue-option="venue" ng-repeat="venue in allVenues | venuesFilter"></div>	
+				</div>
+				<div id="venue-map" class="col-md-6">
+					
+				</div>
+			</div>
+		</div>
+
+		<div id="venue-selections" class="col-md-3">
+			<div class="venue-categories">
+				<div class="venue-selected" venue-choice="venue"  ng-repeat="venue in selectedVenues"></div>
+			</div>
+		</div>
+		<div id="venue-detials">
+			
+		</div>
+	</div>
+</div>
