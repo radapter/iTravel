@@ -101,6 +101,14 @@ h6 {
   border-radius: 0;
 }
 
+.works-btn {
+    color: white;
+}
+
+.modal-body p.autoplan-label {
+    margin-bottom: 0;
+}
+
 /*styling of selector input*/
 .ui-select-toggle,
 .home-search .btn-default,
@@ -108,6 +116,11 @@ h6 {
 .home-search .btn-default:hover {
   background-color: transparent;
   border:none;
+}
+
+.error-text {
+    margin-top: 1px;
+    clear: both;
 }
 
 .home-search i.caret {
@@ -127,6 +140,70 @@ h6 {
 
 .modal-title {
   font-size: medium;
+}
+
+.hot-places {
+    background: white;
+}
+
+.hot-places p {
+
+    z-index: 2;
+}
+
+.hot-places .thumbnail-sf {
+    background: url("../img/city-imgs/sf.jpg") no-repeat center center;
+    background-size: 100%;
+}
+
+.hot-places .thumbnail-sc {
+    background: url("../img/city-imgs/santa_cruz.jpg") no-repeat center center;
+    background-size: 100%;
+}
+
+.hot-places .thumbnail-monterey {
+    background: url("../img/city-imgs/monterey.jpg") no-repeat center center;
+    background-size: 100%;
+}
+
+.hot-places .thumbnail-sj {
+    background: url("../img/city-imgs/sj.jpg") no-repeat center center;
+    background-size: 100%;
+}
+
+.hot-places .thumbnail-gilroy {
+    background: url("../img/city-imgs/gilroy.jpg") no-repeat center center;
+    background-size: 100%;
+}
+
+.hot-places .thumbnail-rc {
+    background: url("../img/city-imgs/rc.jpg") no-repeat center center;
+    background-size: 100%;
+}
+
+.hot-places .thumbnail {
+    height: 300px;
+    padding: 0;
+    margin: 0 auto 15px;
+    border: none;
+    overflow: hidden;
+}
+
+.hot-places .thumbnail-sm {
+    height: 150px;
+}
+
+.hot-places .thumbnail p {
+    color: white;
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: bolder;
+    padding-top: 30%;
+    text-shadow: 1px 1px 8px black;
+}
+
+.hot-places .thumbnail-sm p {
+    padding-top: 25%;
 }
 
 /*for smaller viewports*/
