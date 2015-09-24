@@ -50,6 +50,21 @@
                     });
             };
 
+            $scope.getAddress = function(address) {
+                $scope.selectStat = true;
+                console.log(address);
+                var params = {address: address, sensor: false};
+                //console.log(params);
+                return $http.get(
+                    'https://maps.googleapis.com/maps/api/geocode/json',
+                    {params: params}
+                ).then(function(response) {
+                        console.log(response);
+                        $scope.selectedAddress = response.data.results[0];
+                        $scope.openAutoplanModal($scope.selectedAddress);
+                    });
+            };
+
             $scope.explore = function(selectedAddress) {
                 console.log(selectedAddress);
 

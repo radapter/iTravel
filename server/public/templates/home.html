@@ -16,7 +16,9 @@
                            theme="bootstrap"
                            reset-search-input="false"
                            search-enabled="!gettingCurrLoc">
-                    <ui-select-match placeholder="{{ EnterDestination | translate }}">{{$select.selected.formatted_address}}</ui-select-match>
+                    <ui-select-match placeholder="{{ EnterDestination | translate }}">
+                        {{$select.selected.formatted_address}}
+                    </ui-select-match>
                     <ui-select-choices repeat="address in addresses track by $index"
                                        refresh="refreshAddresses($select.search)"
                                        refresh-delay="0">
@@ -29,30 +31,33 @@
                 <input type="submit" value="{{' Auto Plan' | translate}}"
                        class="btn btn-danger float-left plan-btn" ng-click="openAutoplanModal(address.selected)">
                 <input type="submit" value="{{isSubmitting ? 'Searching' : '  Custom  ' | translate}}"
-                       class="btn btn-primary float-left plan-btn" ng-click="explore(address.selected)" ng-disabled="isSubmitting">
+                       class="btn btn-primary float-left plan-btn" ng-click="explore(address.selected)"
+                       ng-disabled="isSubmitting">
 
                 <p class="error-text text-danger" ng-show="selectStat==false">Please choose a place first!</p>
             </div>
 
             <script type="text/ng-template" id="autoplanModal.html">
                 <div class="modal-header">
-                    <h4 class="modal-title">One step left for your plan...</h4>
+                    <h2 class="modal-title">One more step!</h2>
                 </div>
                 <div class="modal-body">
-                    Destination : <b>{{ selectedAddress.formatted_address }}</b> <br/>
-                    Choos a start date:
+                    Destination: <b>{{ selectedAddress.formatted_address || 'test' }}</b> <br/>
+                    <p class="autoplan-label">Choose a start date:</p>
                     <div style="display:inline-block; min-height:290px;">
                         <datepicker ng-model="plan.start" min-date="minDate"
                         show-weeks="true" class="well well-sm"
                         custom-class="getDayClass(date, mode)"></datepicker>
                     </div>
                     <br/>
-                    Duration: <input type="number" ng-model="plan.duration"/>
+                    <p class="autoplan-label">Duration:</p>
+                    <input class="form-control" type="number" ng-model="plan.duration" placeholder="# of days"
+                               name="days"/>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
                     <!--<button class="btn btn-primary" type="button" ng-click="autoplan(plan)">Plan</button>-->
-                    <input type="submit" value="{{isAutoSubmitting ? 'Planning' : '  Auto Plann  ' | translate}}"
+                    <input type="submit" value="{{isAutoSubmitting ? 'Planning' : '  Auto Plan  ' | translate}}"
                            class="btn btn-primary" ng-click="autoplan(plan)" ng-disabled="isAutoSubmitting">
                 </div>
             </script>
@@ -65,32 +70,32 @@
             <h1 class="text-center">Hot Places</h1>
             <div class="row">
                 <div class="col-md-6 col-xs-12">
-                    <div class="thumbnail thumbnail-sf">
+                    <div class="thumbnail thumbnail-sf" ng-click="getAddress('san francisco')">
                         <p>San Francisco</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-xs-12">
-                    <div class="thumbnail thumbnail-sc">
+                    <div class="thumbnail thumbnail-sc" ng-click="getAddress('santa cruz ca')">
                         <p>Santa Cruz</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="thumbnail thumbnail-sm thumbnail-monterey">
+                    <div class="thumbnail thumbnail-sm thumbnail-monterey" ng-click="getAddress('monterey ca')">
                         <p>Monterey</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="thumbnail thumbnail-sm thumbnail-sj">
+                    <div class="thumbnail thumbnail-sm thumbnail-sj" ng-click="getAddress('san jose ca')">
                         <p>San Jose</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="thumbnail thumbnail-sm thumbnail-gilroy">
+                    <div class="thumbnail thumbnail-sm thumbnail-gilroy" ng-click="getAddress('gilroy ca')">
                         <p>Gilroy</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="thumbnail thumbnail-sm thumbnail-rc">
+                    <div class="thumbnail thumbnail-sm thumbnail-rc" ng-click="getAddress('redwood city ca')">
                         <p>Redwood City</p>
                     </div>
                 </div>

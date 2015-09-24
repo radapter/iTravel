@@ -105,6 +105,10 @@ h6 {
     color: white;
 }
 
+.modal-body p.autoplan-label {
+    margin-bottom: 0;
+}
+
 /*styling of selector input*/
 .ui-select-toggle,
 .home-search .btn-default,
