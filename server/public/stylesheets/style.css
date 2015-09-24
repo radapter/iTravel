@@ -114,6 +114,11 @@ h6 {
   border:none;
 }
 
+.error-text {
+    margin-top: 1px;
+    clear: both;
+}
+
 .home-search i.caret {
   display: none;
 }

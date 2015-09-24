@@ -31,6 +31,7 @@
                 <input type="submit" value="{{isSubmitting ? 'Searching' : '  Custom  ' | translate}}"
                        class="btn btn-primary float-left plan-btn" ng-click="explore(address.selected)" ng-disabled="isSubmitting">
 
+                <p class="error-text text-danger" ng-show="selectStat==false">Please choose a place first!</p>
             </div>
 
             <script type="text/ng-template" id="autoplanModal.html">
