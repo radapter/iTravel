@@ -79,7 +79,7 @@
 				return User.currentUser;
 			}, function fail(err) {
 				console.log('login failed');
-				return err;
+				return $q.reject(err);
 			});
 		}
 
