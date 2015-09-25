@@ -117,3 +117,59 @@
   margin-right: -5px;
   margin-left: -5px;
 }
+
+/**************** sliders styling  ******************/
+.slider {
+  min-height: 85% !important;
+  height: 85% !important;
+}
+
+.slider-slide > div {
+  margin: 50% auto;
+}
+
+h2.app-title {
+  font-size: 4em;
+}
+
+.app-tagline {
+  font-size: 1.5em;
+  margin: 45% 10%;
+}
+
+.slide-subtitle {
+  font-size: 15px;
+}
+
+.welcome-btns {
+  height: 55px;
+  background: #149c82;
+  padding: 0;
+  margin: 0;
+}
+
+.welcome-btns a.welcome {
+  width: 50%;
+  background: #149c82;
+  color: white;
+  font-size: 1.1em;
+  border: 1px solid white;
+  border-radius: 0;
+  padding-top: 2%;
+  position: relative;
+}
+
+.bar > .button + .button:last-child {
+  top: 0;
+  right : 0;
+  bottom: 0;
+}
+
+.icon.ion-record {
+  color: white;
+}
+
+.slider-pager {
+  bottom: 60px;
+  font-size: 0.7em;
+}

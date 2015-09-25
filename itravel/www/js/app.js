@@ -12,6 +12,7 @@ angular.module('iTravelApp', ['ionic', 'ngMap', 'underscore', 'ion-autocomplete'
     'iTravelApp.controller.planDetail',
     'iTravelApp.controller.login',
     'iTravelApp.controller.signup',
+    'iTravelApp.controller.help',
     'iTravelApp.service.activity',
     'iTravelApp.service.plan',
     'iTravelApp.service.user',
@@ -49,10 +50,16 @@ angular.module('iTravelApp', ['ionic', 'ngMap', 'underscore', 'ion-autocomplete'
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
+  .state('tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
+  })
+
+  .state('help', {
+    url: '/help',
+    templateUrl: 'templates/help.html',
+    controller: 'HelpCtrl'
   })
 
   // Each tab has its own nav history stack:
