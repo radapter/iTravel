@@ -238,3 +238,106 @@ a.link {
 input:-moz-placeholder, input::-webkit-input-placeholder {
   color: #989DBB;
 }
+
+/**************** user profile styling  ******************/
+.account {
+  margin-top: 25px;
+  background: #F4F4F8;
+  color: #4A4F70;
+}
+
+span.vers {
+  float: right;
+  padding-right: 20px;
+  color: #989DBB;
+}
+
+.account .icon {
+  margin: 8px 10px;
+  max-height: 70%;
+  padding: 4px;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.5em;
+}
+
+.ion-social-twitter {
+  background: #55ACEE;
+}
+
+.ion-social-facebook {
+  background: #3B5998;
+}
+
+.ion-social-googleplus {
+  background: #DD4B39;
+}
+
+.account .item {
+  line-height: 20px;
+}
+
+.account span.title {
+  padding-left: 20px;
+  color: #4A4F70;
+}
+
+.account .list p {
+  margin-left: 20px;
+  text-transform: uppercase;
+  color: #4A4F70;
+}
+
+.account .col.email h3{
+  margin: 15% auto;
+  text-align: left;
+}
+
+.account .list .item.vers {
+  padding-left: 20px;
+}
+
+.account .button-block {
+  background: #1ABC9C;
+  border: 1px solid #979797;
+  color: white;
+}
+
+.account .list {
+  margin-bottom: 10px;
+}
+
+.toggle.toggle-custom input:checked + .track {
+  background: #1ABC9C;
+  border-color: #1ABC9C;
+}
+
+.account img {
+  border-radius: 50px;
+}
+
+/**************** nav tabs styling  ******************/
+.tab-nav {
+  background: #4A4F70;
+}
+
+.tab-nav * {
+  color: white;
+}
+
+.tab-item-active * {
+  color: #1ABC9C;
+}
+
+/**************** nav tabs styling  ******************/
+.nav-bar-container * {
+  background: #1ABC9C !important;
+  height: 75px;
+}
+
+.nav-bar-container .title {
+  margin-top: 25px;
+  background: none;
+  padding: 0;
+  font-size: 2em;
+}
