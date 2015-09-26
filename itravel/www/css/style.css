@@ -73,12 +73,16 @@
 .loc-pull-right {
   position: absolute;
   right: 3%;
-  top: 5%;
+  top: 19%;
   z-index: 999;
+  background: #FA9D4C;
+  color: white;
+  border: none;
+  border-radius: 2px;
 }
 
 .dest-input {
-  max-width: 5%;
+  max-width: 15%;
 }
 
 .plan-name {
@@ -395,6 +399,54 @@ span.vers {
   font-size: 2em;
 }
 
+/**************** plan a trip styling  ******************/
+.modal-backdrop {
+  background: #F4F4F8;
+}
+
+.modal-backdrop .scroll-content {
+  margin-top: 50px;
+}
+
+.modal-backdrop .btn-nav {
+  margin-top: 15px;
+  background: #1ABC9C;
+  color: white;
+}
+
+.modal-backdrop .item-input {
+  background: #F4F4F8;
+  border: 1px solid #C1C4D6;
+  border-radius: 3px;
+}
+
+.modal-backdrop .button-date {
+  margin: 0 auto;
+  line-height: 30px;
+  min-height: 33px;
+}
+
+.popup {
+  border-radius: 5px !important;
+  width: 300px !important;
+}
+
+.popup-head {
+  background: #1ABC9C;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.popup-head * {
+  color: white;
+  font-size: 1.4em;
+}
+
+.popup-body .calendar_grid > .row {
+  margin-left: 9px;
+}
+
+
 /**************** top nav tabs styling  ******************/
 .tab-nav {
   background: #4A4F70;
@@ -409,14 +461,21 @@ span.vers {
 }
 
 /**************** bottom nav tabs styling  ******************/
-.nav-bar-container * {
+.nav-bar-container *, .bar-header {
   background: #1ABC9C !important;
   height: 75px;
 }
 
-.nav-bar-container .title {
+.nav-bar-container .title, .bar-header .title, .bar-header button {
   margin-top: 25px;
   background: none;
   padding: 0;
   font-size: 2em;
+  color: white !important;
 }
+
+.item-input-wrapper {
+  margin-top: 25px !important;
+}
+
+

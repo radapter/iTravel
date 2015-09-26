@@ -250,12 +250,12 @@ angular.module('iTravelApp.controller.home', [])
 
         //datepicker
         $scope.datepickerObject = {
-            titleLabel: 'Title',  //Optional
+            titleLabel: 'Starting Date',  //Optional
             todayLabel: 'Today',  //Optional
             closeLabel: 'Close',  //Optional
             setLabel: 'Set',  //Optional
-            setButtonType : 'button-assertive',  //Optional
-            todayButtonType : 'button-assertive',  //Optional
+            setButtonType : 'button-balanced',  //Optional
+            todayButtonType : 'button-positive',  //Optional
             closeButtonType : 'button-assertive',  //Optional
             inputDate: new Date(),    //Optional
             mondayFirst: true,    //Optional
