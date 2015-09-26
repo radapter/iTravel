@@ -173,13 +173,21 @@ h2.app-title {
   font-size: 0.7em;
 }
 
-/**************** login page styling  ******************/
-.login-page {
+/**************** login + signin page styling  ******************/
+.login-page, .signup-page {
   background: #363951;
+}
+
+.login-page input, .signup-page input {
+  color: white;
 }
 
 .login-page .heading {
   margin: 80px auto 60px;
+}
+
+.signup-page .heading {
+  margin: 38px auto 45px;
 }
 
 .heading h1 {
@@ -190,14 +198,15 @@ h2.app-title {
   color: white;
 }
 
-.login-page .list-inset {
+.login-page .list-inset, .signup-page .list-inset {
   margin: 10px 14px;
   background: none;
 }
 
-.login-page .list-inset .item-input {
+.login-page .list-inset .item-input, .signup-page .list-inset .item-input {
   background-color: #4A4F70;
   border: 1px solid #262839;
+  color: white;
 }
 
 .login-btn.button-block {
@@ -208,7 +217,7 @@ h2.app-title {
   margin: 5px auto;
 }
 
-.login-page i {
+.login-page i, .signup-page i {
   font-size: 1.5em;
   padding-right: 10px;
   color: #989DBB;
