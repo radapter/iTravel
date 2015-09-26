@@ -19,7 +19,6 @@
 }
 
 /************** Plans page  *****************/
-
 .plan-icon {
   position: absolute;
   top: 16px;
@@ -45,7 +44,6 @@
   font-size: 25px;
   padding-top: 7px;
 }
-
 
 /************** Plan detail page  *****************/
 .day-btn-clicked {
@@ -85,36 +83,6 @@
 
 .plan-name {
   max-height: 10%;
-}
-
-/**************** next trip styling  ******************/
-.next-trip-icon {
-  margin: 10px 10px 10px 5px;
-  font-size: 30px;
-  color: #1abc9c;
-  width: 30px;
-  text-align: center;
-}
-
-.next-trip-card {
-  border: solid 1px #1abc9c;
-}
-
-.acitvity-text {
-  width: 80%;
-}
-
-.stat-num {
-  font-size: 25px !important;
-}
-
-.text-small {
-  font-size: 12px !important;
-}
-
-.align-right-tight {
-  margin-right: -5px;
-  margin-left: -5px;
 }
 
 /**************** sliders styling  ******************/
@@ -240,7 +208,7 @@ input:-moz-placeholder, input::-webkit-input-placeholder {
 }
 
 /**************** user profile styling  ******************/
-.account {
+.account, .home {
   margin-top: 25px;
   background: #F4F4F8;
   color: #4A4F70;
@@ -288,7 +256,7 @@ span.vers {
   color: #4A4F70;
 }
 
-.account .col.email h3{
+.col.email h3{
   margin: 15% auto;
   text-align: left;
 }
@@ -316,7 +284,118 @@ span.vers {
   border-radius: 50px;
 }
 
-/**************** nav tabs styling  ******************/
+/**************** itravel home styling  ******************/
+.home .col.email h3{
+  margin: 18px auto;
+  padding: 0;
+}
+
+#plan-stat {
+  margin: -15px -5px;
+}
+
+#plan-stat .col {
+  margin: 0 10px;
+  border-radius: 5px;
+  color: white;
+  padding: 0;
+}
+
+#plan-stat .col .count {
+  padding-top: 10px;
+  font-size: 2em;
+}
+
+#plan-stat .col .count-tag {
+  margin-bottom: -2px;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 3px;
+}
+
+#plan-stat .col:nth-of-type(1) {
+  background: #F39C12;
+}
+
+#plan-stat .col:nth-of-type(2) {
+  background: #E74C3C;
+}
+
+#plan-stat .col:nth-of-type(3) {
+  background: #3498DB;
+}
+
+#plan-stat .col:nth-of-type(1) .count-tag {
+  background: #E67E22;
+}
+
+#plan-stat .col:nth-of-type(2) .count-tag {
+  background: #C0392B;
+}
+
+#plan-stat .col:nth-of-type(3) .count-tag {
+  background: #2980B9;
+}
+
+.home .plan-new-btn {
+  background: #1ABC9C;
+  color: white;
+}
+
+#next-trip {
+  margin: 25px 10px 5px;
+  background: white;
+  border: 1px solid #C1C4D6;
+  border-radius: 5px;
+  padding: 15px 10px 2px;
+}
+
+#next-trip h3 {
+  color: #4A4F70;
+}
+
+#next-trip .row {
+  margin: 5px auto;
+}
+
+#next-trip .icon {
+  font-size: 1.7em;
+  padding: 8px 10px;
+  color: white;
+  border-radius: 50px;
+  text-align: center;
+  width: 40px;
+  height: 41px;
+}
+
+#next-trip .ion-paper-airplane {
+  background: #F39C12;
+}
+
+#next-trip .ion-calendar {
+  background: #1ABC9C;
+}
+
+#next-trip .ion-location {
+  background: #344E5F;
+}
+
+#next-trip .row h4 {
+  margin: 10px;
+  color: #9B9B9B;
+}
+
+#next-trip .ion-chevron-right {
+  background: none;
+  border: none;
+  margin: 0 0 0 100px;
+  color: #1ABC9C;
+  font-size: 2em;
+}
+
+/**************** top nav tabs styling  ******************/
 .tab-nav {
   background: #4A4F70;
 }
@@ -329,7 +408,7 @@ span.vers {
   color: #1ABC9C;
 }
 
-/**************** nav tabs styling  ******************/
+/**************** bottom nav tabs styling  ******************/
 .nav-bar-container * {
   background: #1ABC9C !important;
   height: 75px;
