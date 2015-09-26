@@ -1,20 +1,35 @@
-<ion-view title="Login">
-  <ion-content class="has-header login-page" scroll="false">
+<ion-view title="Login" hide-nav-bar="true">
+  <ion-content class="login-page" scroll="false">
+    <div class="heading text-center">
+      <img id="logo-icon" src="" height="100"  width="100" alt="need icon here">
+      <h1>iTravel</h1>
+      <h5>Your personal travel companion</h5>
+    </div>
+
+
+
+
     <div class="row error" ng-show="loginStat==false">
       <p class="text-center text-danger">Login failed. Incorrect email/password combo.</p>
     </div>
 
-    <div class="list login-input">
+    <div class="list list-inset login-input">
       <label class="item item-input">
         <input type="email" placeholder="Email" ng-model="uiModel.email">
+        <i class="icon icon-right ion-ios-email-outline"></i>
       </label>
+    </div>
+
+    <div class="list list-inset login-input">
       <label class="item item-input">
         <input type="password" placeholder="Password" ng-model="uiModel.password">
+        <i class="icon ion-ios-locked-outline"></i>
       </label>
     </div>
     <div class="padding text-center">
-      <button class="button button-block login-btn" ng-click="login()">Login</button>
-      <p class="link">Don't have an account? <a class="link" href="#/signup">Sign Up</a></p>
+      <button class="button button-block login-btn" ng-click="login()">LOGIN</button>
+      <p class="link">Don't have an account?</p>
+      <a class="link" href="#/signup">Sign Up</a>
     </div>
   </ion-content>
 </ion-view>

@@ -1,4 +1,3 @@
-
 .body-container {
   margin: 10px;
   height: 100%;
@@ -172,4 +171,61 @@ h2.app-title {
 .slider-pager {
   bottom: 60px;
   font-size: 0.7em;
+}
+
+/**************** login page styling  ******************/
+.login-page {
+  background: #363951;
+}
+
+.login-page .heading {
+  margin: 80px auto 60px;
+}
+
+.heading h1 {
+  margin-top: 8px;
+}
+
+.heading * {
+  color: white;
+}
+
+.login-page .list-inset {
+  margin: 10px 14px;
+  background: none;
+}
+
+.login-page .list-inset .item-input {
+  background-color: #4A4F70;
+  border: 1px solid #262839;
+}
+
+.login-btn.button-block {
+  background: #1ABC9C;
+  color: white;
+  border: none;
+  width: 97%;
+  margin: 5px auto;
+}
+
+.login-page i {
+  font-size: 1.5em;
+  padding: 0;
+  color: #989DBB;
+}
+
+p.link {
+  margin-top: 30px;
+  color: #989DBB;
+  font-size: 0.9em;
+}
+
+a.link {
+  color: #1ABC9C;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+input:-moz-placeholder, input::-webkit-input-placeholder {
+  color: #989DBB;
 }
