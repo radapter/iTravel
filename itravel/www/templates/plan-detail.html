@@ -21,7 +21,7 @@
         <ion-list ng-repeat="day in days" ng-show="day.date == currDate">
           <ion-item class="item-remove-animate item-avatar" ng-repeat="activity in day.activities" type="item-text-wrap">
             <!--<img ng-src="{{plan.face}}">-->
-            <div class="plan-icon activity-icon" ng-class="{
+            <div class="activity-icon" ng-class="{
                                     'bg-restaurant': activity.activitiesType === 'restaurants',
                                     'bg-hotel': activity.activitiesType === 'hotels',
                                     'bg-attraction': activity.activitiesType === 'attractions'
@@ -33,9 +33,28 @@
                                     'ion-camera': activity.activitiesType === 'attractions'
                                     }"></i>
             </div>
-            <h2>{{activity.title}}</h2>
-            <p>{{activity.start | date:'MM/dd/yyyy @ h:mma' }}</p>
-            <p>{{activity.end | date:'MM/dd/yyyy @ h:mma'}}</p>
+
+            <h2>{{activity.start | date:'h:mma' }} - {{activity.end | date:'h:mma'}}</h2>
+
+            <div class="plan-activity">
+              <!--add venue picture here-->
+              <img src="" alt="venue pic" height="80" width="80">
+
+              <h2>{{activity.title}}</h2>
+              <div class="row activity-stats">
+                <div class="col stat-like">
+                    <i class="icon ion-ios-heart"></i> 1 <!--replace with value in activity.venue -->
+                </div>
+                <div class="col stat-checkin">
+                    <i class="icon ion-android-star"></i> 20 <!--replace with value in activity.venue -->
+                </div>
+                <div class="col stat-tip">
+                    <i class="icon ion-chatbubble"></i> 55 <!--replace with value in activity.venue -->
+                </div>
+              </div>
+              <div class="timeline-bar"></div>
+            </div>
+
           </ion-item>
         </ion-list>
       </div>

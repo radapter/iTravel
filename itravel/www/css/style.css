@@ -25,10 +25,10 @@
 
 .plan-icon {
   position: absolute;
-  top: 16px;
-  left: 16px;
-  max-width: 40px;
-  max-height: 40px;
+  top: 10px;
+  left: 12px;
+  max-width: 50px;
+  max-height: 50px;
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -41,12 +41,12 @@
   color: #fff !important;
   font-size: larger !important;
   font-weight: bolder;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
-.activity-icon {
-  font-size: 25px;
-  padding-top: 7px;
+.plan-icon i {
+  margin-top: 20px;
+  font-size: 2em;
 }
 
 /************** Plan detail page  *****************/
@@ -111,9 +111,106 @@
 #plan-detail span.plan-name {
   margin: 25% auto;
 }
-/*.plan-name {*/
-  /*max-height: 10%;*/
-/*}*/
+
+#plan-detail .ion-map {
+  background: #1ABC9C;
+  border-radius: 50%;
+  color: white;
+  border: none;
+  margin-top: 5px;
+}
+
+#plan-detail .ion-navicon-round {
+  background: #FA9D4C;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  margin-top: 5px;
+}
+
+#plan-detail .plan-activity {
+  background: #F4F4F8;
+  border-radius: 2px;
+}
+
+#plan-detail .activity-icon {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 50%;
+  color: white;
+}
+
+#plan-detail .activity-icon i {
+  position: absolute;
+  font-size: 2em;
+  margin: 7px -12px;
+}
+
+#plan-detail i.ion-ios-moon {
+  margin: 6px -6px;
+  font-size: 2.3em;
+}
+
+#plan-detail i.ion-fork {
+  margin: 8px -3px;
+}
+
+.plan-activity {
+  padding: 10px;
+  min-height: 100px;
+}
+
+.plan-activity .activity-stats {
+  width: 55%;
+  padding: 0;
+  position: absolute;
+  left: 157px;
+  top: 100px;
+}
+
+.plan-activity .stat-like {
+  color: #E74C3C;
+}
+
+.plan-activity .stat-checkin {
+  color: #F39C12;
+}
+
+.plan-activity .stat-tip {
+  color: #3498DB;
+}
+
+.plan-activity img {
+  border-radius: 10px;
+  float: left;
+  margin-right: 10px;
+}
+
+.plan-activity .timeline-bar {
+  height: 70px;
+  width: 3px;
+  background: #E0E1EA;
+  position: absolute;
+  left: 27px;
+  top: 60px;
+}
+
+#plan-detail .item-avatar {
+  border: none;
+  padding: 15px 3px 3px 60px;
+}
+
+#plan-detail .item-avatar:last-of-type {
+  margin-bottom: 20px;
+}
+
+#plan-detail .item h2{
+  white-space: normal;
+}
 
 /**************** sliders styling  ******************/
 .slider {
@@ -420,7 +517,7 @@ span.vers {
 #next-trip .ion-chevron-right {
   background: none;
   border: none;
-  margin: 0 0 0 100px;
+  margin: 0 0 0 120px;
   color: #1ABC9C;
   font-size: 2em;
 }
