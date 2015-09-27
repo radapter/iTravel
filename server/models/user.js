@@ -53,7 +53,20 @@ var userSchema = mongoose.Schema({
                     },
                     primary: Boolean
                 }],
-                url: String
+                url: String,
+                featuredPhotos: {
+                    items: [{
+                        prefix: String,
+                        suffix: String,
+                    }]
+                },
+                rating: Number,
+                ratingColor: String,
+                stats: {
+                    checkinsCount: Number,
+                    tipCount: Number,
+                    usersCount: Number,
+                },
             },
             start: Date,
             end: Date,
