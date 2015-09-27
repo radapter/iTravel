@@ -1,7 +1,7 @@
 
 angular.module('iTravelApp.controller.home', [])
 
-    .controller('HomeCtrl', function($scope, $ionicModal, $http, ApiEndpoint, Plan, $location, User, _, $ionicLoading, $rootScope) {
+    .controller('HomeCtrl', function($scope, $state, $ionicModal, $http, ApiEndpoint, Plan, $location, User, _, $ionicLoading, $rootScope) {
 
         console.log('HomeCtrl loaded');
 
@@ -26,7 +26,7 @@ angular.module('iTravelApp.controller.home', [])
                 refreshUser(User.currentUser);
             } else {
                 console.log('no curr user');
-                //$location.path('/login');
+                $state.go('login');
             }
 
         }
