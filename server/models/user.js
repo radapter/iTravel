@@ -61,6 +61,7 @@ var userSchema = mongoose.Schema({
                     }]
                 },
                 rating: Number,
+                checkin: Number,
                 ratingColor: String,
                 stats: {
                     checkinsCount: Number,
