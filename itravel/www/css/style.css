@@ -99,17 +99,17 @@
   max-width: 15%;
 }
 
-#plan-detail .plan-name {
+#plan-detail .plan {
   padding: 0;
 }
 
-#plan-detail .plan-name i {
+#plan-detail .plan i {
   font-size: 1.7em;
   color: #FA9D4C;
 }
 
-#plan-detail span.plan-name {
-  margin: 25% auto;
+#plan-detail .plan span.plan-name {
+  vertical-align: -webkit-baseline-middle;
 }
 
 #plan-detail .ion-map {
@@ -547,6 +547,13 @@ span.vers {
   margin: 0 auto;
   line-height: 30px;
   min-height: 33px;
+}
+
+.loc-pull-right {
+  position: absolute;
+  right: 3%;
+  top: 20%;
+  z-index: 999;
 }
 
 .popup {
