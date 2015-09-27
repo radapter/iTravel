@@ -41,7 +41,7 @@ angular.module('iTravelApp.controller.signup', [])
                             $scope.signupStat = true;
                             $scope.pwMatch = true;
                             console.log(User.currentUser);
-                            $location.path("/tab/home");
+                            $state.go("tab.home");
                         }
                     });
             }

@@ -1,10 +1,10 @@
-<ion-view view-title="PlanDetail">
+<ion-view view-title="Plan Detail">
   <ion-content id="plan-detail">
     <div class="body-container">
       <h4 class="row plan-name">
         <div class="col-10"><i class="icon ion-ios-location"></i></div>
         <div class="col-80"><span class="plan-name">{{plan.destName}}</span></div>
-        <div class="col-10 text-right">
+        <div class="col-10 text-center">
           <button class="button button-small icon ion-map" ng-click="setMapMode()" ng-show="!mapMode"></button>
           <button class="button button-small icon ion-navicon-round" ng-click="unSetMapMode()" ng-show="mapMode"></button>
         </div>
@@ -40,9 +40,9 @@
         </ion-list>
       </div>
 
-      <div id="plan-detail-map" scroll="false" data-tap-disabled="true">
+      <div id="plan-detail-map" scroll="false" data-tap-disabled="true" ng-show="mapMode">
         <!--google map show route-->
-        <map ng-if="mapMode"  id="plan_map_canvas" center="-34.397, 150.644" zoom="10" pan-control="false" styles="{{styles}}">
+        <map ng-if="mapMode" id="plan_map_canvas" center="-34.397, 150.644" zoom="10" pan-control="false" styles="{{styles}}">
           <directions panel="directions-panel"
                       travel-mode="DRIVING"
                       waypoints="{{waypoints}}"

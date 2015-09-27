@@ -1,13 +1,13 @@
 
 angular.module('iTravelApp.controller.plans', [])
 
-    .controller('PlansCtrl', function($scope, $rootScope, $location, User) {
+    .controller('PlansCtrl', function($scope, $state, $rootScope, $location, User) {
         console.log('load plans ctrl');
 
         if(User.currentUser) {
             refreshUser(User.currentUser);
         } else {
-            //$location.path('/login');
+            $state.go('login');
         }
 
         $rootScope.$on('userLoginSuccess', function (event, user) {

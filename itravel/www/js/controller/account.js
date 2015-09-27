@@ -26,7 +26,7 @@ angular.module('iTravelApp.controller.account', [])
                 console.log(res);
                 if(res.status == 200) {
                     console.log('user logged out successfully');
-                    $location.path("/login");
+                    $state.go("login");
                 } else {
                     console.log('user logout failed. res:', res.data);
                 }

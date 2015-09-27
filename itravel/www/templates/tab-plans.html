@@ -8,7 +8,7 @@
     <!--<h3>Plans</h3>-->
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right"
-                ng-repeat="plan in currentUser.plans" type="item-text-wrap" href="#/tab/plans/{{plan._id}}">
+                ng-repeat="plan in currentUser.plans | orderBy: '-startDate'" type="item-text-wrap" href="#/tab/plans/{{plan._id}}">
         <!--<img ng-src="{{plan.face}}">-->
         <div class="plan-icon">
          <p class="plan-char">{{ plan.destName | getDestNameInitial }}</p>

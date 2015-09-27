@@ -240,7 +240,7 @@ angular.module('iTravelApp.controller.home', [])
                     } else {
                         console.log('not handle user not login situation');
                         $scope.planModal.hide();
-                        $location.path('/login');
+                        $state.go('login');
                     }
 
                 }, function fail(err) {
