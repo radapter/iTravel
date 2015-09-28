@@ -278,4 +278,12 @@ angular.module('iTravelApp.controller.home', [])
             }
         };
 
+        $scope.toUpcoming = function(_id){
+          $state.go('tab.plans');
+          console.log(_id);
+          //$location.path('/tab/plans/' + _id);
+          $state.go('tab.plan-detail', {id: _id});
+          console.log('after state change');
+        }
+
     });

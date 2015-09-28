@@ -52,7 +52,8 @@
           <div class="row">
             <i class="icon ion-location"></i>
             <h4 class="acitvity-text">{{nextTrip.activities.length}} Activities</h4>
-            <a href="#/tab/plans/{{nextTrip._id}}" class="button ion-chevron-right"></a>
+            <button class="button ion-chevron-right" ng-click="toUpcoming(nextTrip._id)"></button>
+            <!--<a href="#/tab/plans/{{nextTrip._id}}" class="button ion-chevron-right"></a>-->
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 
 angular.module('iTravelApp.controller.signup', [])
 
-    .controller('SignupCtrl', function($scope,$location, User) {
+    .controller('SignupCtrl', function($scope, $state, $location, User) {
         $scope.uiModel = {
             email: '',
             password: '',
