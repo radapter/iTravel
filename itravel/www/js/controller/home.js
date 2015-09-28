@@ -1,7 +1,7 @@
 
 angular.module('iTravelApp.controller.home', [])
 
-    .controller('HomeCtrl', function($scope, $ionicModal, $http, ApiEndpoint, Plan, $location, User, _, $ionicLoading, $rootScope) {
+    .controller('HomeCtrl', function($scope, $state, $ionicModal, $http, ApiEndpoint, Plan, $location, User, _, $ionicLoading, $rootScope) {
 
         console.log('HomeCtrl loaded');
 
@@ -26,7 +26,7 @@ angular.module('iTravelApp.controller.home', [])
                 refreshUser(User.currentUser);
             } else {
                 console.log('no curr user');
-                //$location.path('/login');
+                $state.go('login');
             }
 
         }
@@ -240,7 +240,7 @@ angular.module('iTravelApp.controller.home', [])
                     } else {
                         console.log('not handle user not login situation');
                         $scope.planModal.hide();
-                        $location.path('/login');
+                        $state.go('login');
                     }
 
                 }, function fail(err) {
@@ -250,12 +250,12 @@ angular.module('iTravelApp.controller.home', [])
 
         //datepicker
         $scope.datepickerObject = {
-            titleLabel: 'Title',  //Optional
+            titleLabel: 'Starting Date',  //Optional
             todayLabel: 'Today',  //Optional
             closeLabel: 'Close',  //Optional
             setLabel: 'Set',  //Optional
-            setButtonType : 'button-assertive',  //Optional
-            todayButtonType : 'button-assertive',  //Optional
+            setButtonType : 'button-balanced',  //Optional
+            todayButtonType : 'button-positive',  //Optional
             closeButtonType : 'button-assertive',  //Optional
             inputDate: new Date(),    //Optional
             mondayFirst: true,    //Optional

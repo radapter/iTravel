@@ -13,6 +13,7 @@ angular.module('iTravelApp', ['ionic', 'ngMap', 'underscore', 'ion-autocomplete'
     'iTravelApp.controller.login',
     'iTravelApp.controller.signup',
     'iTravelApp.controller.help',
+    'iTravelApp.controller.venue',
     'iTravelApp.service.activity',
     'iTravelApp.service.plan',
     'iTravelApp.service.user',
@@ -93,6 +94,16 @@ angular.module('iTravelApp', ['ionic', 'ngMap', 'underscore', 'ion-autocomplete'
     }
   })
 
+  .state('tab.venue', {
+    url: '/plans/:id/venue/:v_id',
+    views: {
+      'tab-plans': {
+        templateUrl: 'templates/venue.html',
+        controller: 'VenueCtrl'
+      }
+    }
+  })
+
   .state('login', {
     url: "/login",
     templateUrl: "templates/login.html",
@@ -116,7 +127,7 @@ angular.module('iTravelApp', ['ionic', 'ngMap', 'underscore', 'ion-autocomplete'
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/home');
+  $urlRouterProvider.otherwise('/help');
 
   $httpProvider.interceptors.push('httpInterceptor');
 
