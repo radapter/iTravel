@@ -19,7 +19,7 @@
 }
 
 /************** Plans page  *****************/
-#plans, #plan-detail {
+#plans, #plan-detail, #venue-detail {
   margin-top: 30px;
 }
 
@@ -210,6 +210,11 @@
 
 #plan-detail .item h2{
   white-space: normal;
+}
+
+#plan-detail a {
+  text-decoration: none;
+  color: #4A4F70;
 }
 
 /**************** sliders styling  ******************/
@@ -520,6 +525,8 @@ span.vers {
   margin: 0 0 0 120px;
   color: #1ABC9C;
   font-size: 2em;
+  padding: 0;
+  text-align: right;
 }
 
 /**************** plan a trip styling  ******************/
@@ -576,6 +583,59 @@ span.vers {
   margin-left: 9px;
 }
 
+/**************** venut detail page styling  ******************/
+#venue-detail .container {
+  margin: 15px;
+}
+
+#venue-detail .venue-pics {
+  height: 200px;
+  background: #363951;
+  margin: 0;
+}
+
+#venue-detail .venue-pics img {
+  margin: 10px auto;
+  height: 180px;
+  width: 180px;
+}
+
+#venue-detail .rating {
+  width: 50px;
+  height: 50px;
+  background: #F39C12;
+  border-radius: 50%;
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#venue-detail .venue-name {
+  color: #1ABC9C;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin: 5px auto;
+}
+
+#venue-detail .venue-info {
+  background: #F4F4F8;
+  margin: 0;
+  padding: 15px;
+}
+
+#venue-detail .venue-address *, #venue-detail .venue-phone * {
+  color: #4A4F70;
+}
+
+#venue-detail .venue-address i {
+  font-size: 1.1em;
+}
+
+.venue-address *, .venue-phone * {
+  font-size: 1em;
+  margin: 2px auto;
+}
 
 /**************** top nav tabs styling  ******************/
 .tab-nav {

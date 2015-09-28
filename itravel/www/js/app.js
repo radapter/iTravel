@@ -13,6 +13,7 @@ angular.module('iTravelApp', ['ionic', 'ngMap', 'underscore', 'ion-autocomplete'
     'iTravelApp.controller.login',
     'iTravelApp.controller.signup',
     'iTravelApp.controller.help',
+    'iTravelApp.controller.venue',
     'iTravelApp.service.activity',
     'iTravelApp.service.plan',
     'iTravelApp.service.user',
@@ -89,6 +90,16 @@ angular.module('iTravelApp', ['ionic', 'ngMap', 'underscore', 'ion-autocomplete'
       'tab-plans': {
         templateUrl: 'templates/plan-detail.html',
         controller: 'PlanDetailCtrl'
+      }
+    }
+  })
+
+  .state('tab.venue', {
+    url: '/plans/:id/venue/:v_id',
+    views: {
+      'tab-plans': {
+        templateUrl: 'templates/venue.html',
+        controller: 'VenueCtrl'
       }
     }
   })

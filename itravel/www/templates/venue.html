@@ -1,0 +1,37 @@
+<ion-view view-title="Venue Detail">
+  <ion-content id="venue-detail">
+    <div class="container venue-pics text-center">
+      <img src="" alt="venue-img" height="100">
+    </div>
+
+    <div class="rating">
+      <!--TODO: need venue rating here-->
+    </div>
+
+    <div class="container venue-info">
+      <h2 class="venue-name">{{venue.name}}</h2>
+      <div class="row venue-address" ng-show="venue.location">
+        <div class="col-10"><h4><i class="icon ion-ios-location"></i></h4></div>
+        <div class="col-90">
+          <h4>{{venue.location.address}}, {{venue.location.city}}, {{venue.location.state}}
+            {{venue.location.postalCode}}</h4>
+        </div>
+      </div>
+      <div class="row venue-phone" ng-show="venue.contact.phone">
+        <div class="col-10"><h4><i class="icon ion-ios-telephone"></i></h4></div>
+        <div class="col-90">
+          <h4><a ng-href="tel:{{venue.contact.phone}}">{{venue.contact.formattedPhone}}</a></h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h3>Tips</h3>
+      <ion-list ng-repeat="tip in venue.tips">
+        <!--TODO: need tips object-->
+      </ion-list>
+    </div>
+
+
+  </ion-content>
+</ion-view>

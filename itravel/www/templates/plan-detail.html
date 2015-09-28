@@ -37,19 +37,19 @@
             <h2>{{activity.start | date:'h:mma' }} - {{activity.end | date:'h:mma'}}</h2>
 
             <div class="plan-activity">
-              <!--add venue picture here-->
+              <!--TODO: add venue picture here-->
               <img src="" alt="venue pic" height="80" width="80">
 
-              <h2>{{activity.title}}</h2>
+              <h2><a href="#/tab/plans/{{plan._id}}/venue/{{activity.venue.id}}">{{activity.title}}</a></h2>
               <div class="row activity-stats">
                 <div class="col stat-like">
-                    <i class="icon ion-ios-heart"></i> 1 <!--replace with value in activity.venue -->
+                    <i class="icon ion-ios-heart"></i> 1 <!--TODO: replace with value in activity.venue -->
                 </div>
                 <div class="col stat-checkin">
-                    <i class="icon ion-android-star"></i> 20 <!--replace with value in activity.venue -->
+                    <i class="icon ion-android-star"></i> 20 <!--TODO: replace with value in activity.venue -->
                 </div>
                 <div class="col stat-tip">
-                    <i class="icon ion-chatbubble"></i> 55 <!--replace with value in activity.venue -->
+                    <i class="icon ion-chatbubble"></i> 55 <!--TODO: replace with value in activity.venue -->
                 </div>
               </div>
               <div class="timeline-bar"></div>

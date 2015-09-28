@@ -11,7 +11,8 @@ navigation history that also transitions its views in and out.
   </ion-tab>
 
   <!-- Plans Tab -->
-  <ion-tab title="Plans" icon-off="ion-ios-bookmarks-outline" icon-on="ion-ios-bookmarks" href="#/tab/plans">
+  <ion-tab title="Plans" icon-off="ion-ios-bookmarks-outline" icon-on="ion-ios-bookmarks" href="#/tab/plans"
+    on-deselect="clearHistory()">
     <ion-nav-view name="tab-plans"></ion-nav-view>
   </ion-tab>
 
