@@ -43,4 +43,11 @@ angular.module('iTravelApp.controller.plans', [])
           return true;
         }
 
+        $scope.endDate = function(date){
+          //this is a hack to get the proper end date for plans
+          var dt = Date.parse(date) / 1000;
+          var newD = dt - 25201; //subtract 7 hours + 1 second (endDate seems to always be next day at 7am UTC)
+          return newD * 1000;
+        }
+
     });
