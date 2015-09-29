@@ -25,7 +25,7 @@
 
 .plan-icon {
   position: absolute;
-  top: 10px;
+  top: 13px;
   left: 12px;
   max-width: 50px;
   max-height: 50px;
@@ -35,6 +35,10 @@
   background-color: #F39C12;
   color: #fff;
   text-align: center;
+}
+
+#plans .item-content h2{
+  margin-top: 3px;
 }
 
 .plan-char {
@@ -228,12 +232,13 @@
 
 /**************** sliders styling  ******************/
 .slider {
-  min-height: 85% !important;
-  height: 85% !important;
+  background: #F4F4F8;
+  min-height: 55% !important;
+  height: 55% !important;
 }
 
 .slider-slide > div {
-  margin: 50% auto;
+  margin: 50% auto 0;
 }
 
 h2.app-title {
@@ -274,11 +279,11 @@ h2.app-title {
 }
 
 .icon.ion-record {
-  color: white;
+  color: black;
 }
 
 .slider-pager {
-  bottom: 60px;
+  bottom: 90px;
   font-size: 0.7em;
 }
 
@@ -704,3 +709,23 @@ span.vers {
 .back-text, .previous-title {
   height: 35px;
 }
+
+/**************** help btn styling  ******************/
+div.buttons-right, div.buttons-right * {
+  background: none !important;
+}
+
+div.buttons-right {
+  margin-top: 24px;
+}
+
+a.button-help {
+  text-align: right;
+  position: absolute;
+  right: 0px;
+}
+
+.button-help-close {
+  margin-right: 5px;
+}
+

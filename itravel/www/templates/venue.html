@@ -1,4 +1,10 @@
 <ion-view view-title="Venue Detail">
+  <ion-nav-buttons side="right">
+    <a class="button button-clear button-help" ng-click="helpModal.show()">
+      <i class="icon ion-ios-help-outline"></i>
+    </a>
+  </ion-nav-buttons>
+
   <ion-content id="venue-detail">
     <div class="container venue-pics text-center">
       <img src="{{venue.featuredPhotos.items[0].prefix}}150x150{{venue.featuredPhotos.items[0].suffix}}"

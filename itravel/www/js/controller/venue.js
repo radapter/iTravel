@@ -1,7 +1,7 @@
 
 angular.module('iTravelApp.controller.venue', [])
 
-  .controller('VenueCtrl', function($scope, $state, $stateParams, $rootScope, $location, User) {
+  .controller('VenueCtrl', function($scope, $state, $stateParams, $rootScope, $location, User, $ionicModal) {
     console.log('load venue ctrl');
     init();
 
@@ -40,5 +40,11 @@ angular.module('iTravelApp.controller.venue', [])
       //  $state.go('login');
       //}
     }
+
+    $ionicModal.fromTemplateUrl('templates/help.html', {
+      scope: $scope
+    }).then(function(modal) {
+      $scope.helpModal = modal;
+    });
 
   });
