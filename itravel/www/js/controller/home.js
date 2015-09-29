@@ -58,12 +58,19 @@ angular.module('iTravelApp.controller.home', [])
         }
 
         function findNextTrip(){
-            var currDate = new Date();
-            var i = 0;
-            while(User.currentUser.plans[i].startDate < currDate || !User.currentUser.plans[i].active ) {
-                i++;
+            var currDate = new Date().getTime(); //utc time
+            var upcoming;
+
+            for(var i = 0; i < User.currentUser.plans.length; i++){
+              var utcDate = Date.parse(User.currentUser.plans[i].startDate);
+              if(utcDate >= currDate){
+                if( (upcoming === undefined) || (utcDate <= Date.parse(upcoming.startDate)) ){
+                  upcoming = User.currentUser.plans[i];
+                }
+              }
             }
-            $scope.nextTrip = User.currentUser.plans[i];
+
+            $scope.nextTrip = upcoming;
             console.log($scope.nextTrip);
         }
 
