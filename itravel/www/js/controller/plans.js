@@ -27,4 +27,20 @@ angular.module('iTravelApp.controller.plans', [])
             }
         }
 
+        $scope.filterUpcoming = function(plan){
+          var today = new Date().getTime();
+          if(Date.parse(plan.endDate) > today){
+            return true;
+          }
+          return false;
+        }
+
+        $scope.filterPast = function(plan){
+          var today = new Date().getTime();
+          if(Date.parse(plan.endDate) > today){
+            return false;
+          }
+          return true;
+        }
+
     });
