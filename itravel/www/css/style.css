@@ -49,6 +49,14 @@
   font-size: 2em;
 }
 
+#plans {
+  background: #F4F4F8;
+}
+
+#plans .no-plans {
+  margin: 20px;
+}
+
 /************** Plan detail page  *****************/
 .day-btn-clicked {
   background: #F39C12;
@@ -522,11 +530,11 @@ span.vers {
 #next-trip .ion-chevron-right {
   background: none;
   border: none;
-  margin: 0 0 0 120px;
   color: #1ABC9C;
   font-size: 2em;
   padding: 0;
-  text-align: right;
+  position: absolute;
+  right: 5px;
 }
 
 /**************** plan a trip styling  ******************/

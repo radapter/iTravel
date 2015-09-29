@@ -42,6 +42,7 @@ angular.module('iTravelApp.controller.home', [])
 
         function refreshUser(user){
             $scope.hasNoPlan = true;
+            $scope.currentTrip = false;
             console.log(user);
             $scope.currentUser = user;
 
@@ -58,13 +59,23 @@ angular.module('iTravelApp.controller.home', [])
         }
 
         function findNextTrip(){
-            var currDate = new Date();
-            var i = 0;
-            while(User.currentUser.plans[i].startDate < currDate || !User.currentUser.plans[i].active ) {
-                i++;
+            var currDate = new Date().getTime(); //utc time
+            var upcoming;
+
+            for(var i = 0; i < User.currentUser.plans.length; i++){
+              var utcDate = Date.parse(User.currentUser.plans[i].endDate);
+              if(utcDate >= currDate){
+                if( (upcoming === undefined) || (utcDate <= Date.parse(upcoming.endDate)) ){
+                  upcoming = User.currentUser.plans[i];
+                }
+              }
             }
-            $scope.nextTrip = User.currentUser.plans[i];
+
+            $scope.nextTrip = upcoming;
             console.log($scope.nextTrip);
+            if(Date.parse($scope.nextTrip.startDate) < currDate){
+              $scope.currentTrip = true;
+            }
         }
 
         function getCurrLoc(){
@@ -277,5 +288,20 @@ angular.module('iTravelApp.controller.home', [])
                 console.log('Selected date is : ', val)
             }
         };
+
+        $scope.toUpcoming = function(_id){
+          $state.go('tab.plans');
+          console.log(_id);
+          //$location.path('/tab/plans/' + _id);
+          $state.go('tab.plan-detail', {id: _id});
+          console.log('after state change');
+        };
+
+        $scope.endDate = function(date){
+          //this is a hack to get the proper end date for plans
+          var dt = Date.parse(date) / 1000;
+          var newD = dt - 25201; //subtract 7 hours + 1 second (endDate seems to always be next day at 7am UTC)
+          return newD * 1000;
+        }
 
     });

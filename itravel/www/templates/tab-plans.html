@@ -1,20 +1,23 @@
 <ion-view view-title="Plans">
   <ion-content id="plans">
-    <div ng-show="hasNoPlan" class="body-container">
+    <div ng-show="hasNoPlan" class="no-plans">
       <h4>No Plans Yet</h4>
-      <a class="button" ng-href="#/tab/home">Plan</a>
     </div>
 
-    <!--<h3>Plans</h3>-->
+    <!--upcoming trip-->
+    <div class="item item-divider">
+      Current / Upcoming
+    </div>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right"
-                ng-repeat="plan in currentUser.plans | orderBy: '-startDate'" type="item-text-wrap" href="#/tab/plans/{{plan._id}}">
+                ng-repeat="plan in currentUser.plans | filter: filterUpcoming | orderBy: '-startDate'"
+                type="item-text-wrap" href="#/tab/plans/{{plan._id}}">
         <!--<img ng-src="{{plan.face}}">-->
         <div class="plan-icon">
          <p class="plan-char">{{ plan.destName | getDestNameInitial }}</p>
         </div>
         <h2>{{plan.destName}}</h2>
-        <p>{{plan.startDate | date:'MM/dd/yyyy' }} - {{plan.endDate | date:'MM/dd/yyyy'}}</p>
+        <p>{{plan.startDate | date:'MM/dd/yyyy' : 'utc' }} - {{ endDate(plan.endDate) | date: 'MM/dd/yyyy'}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
 
         <ion-option-button class="button-assertive" ng-click="remove(plan)">
@@ -22,5 +25,28 @@
         </ion-option-button>
       </ion-item>
     </ion-list>
+
+    <!--past trips-->
+    <div class="item item-divider">
+      Past
+    </div>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right"
+                ng-repeat="plan in currentUser.plans | filter: filterPast | orderBy: '-startDate'"
+                type="item-text-wrap" href="#/tab/plans/{{plan._id}}">
+        <!--<img ng-src="{{plan.face}}">-->
+        <div class="plan-icon">
+          <p class="plan-char">{{ plan.destName | getDestNameInitial }}</p>
+        </div>
+        <h2>{{plan.destName}}</h2>
+        <p>{{plan.startDate | date:'MM/dd/yyyy' }} - {{endDate(plan.endDate) | date: 'MM/dd/yyyy'}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(plan)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+
   </ion-content>
 </ion-view>
