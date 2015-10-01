@@ -1,11 +1,17 @@
 <ion-view view-title="iTravel">
+  <ion-nav-buttons side="right">
+    <a class="button button-clear button-help" ng-click="helpModal.show()">
+      <i class="icon ion-ios-help-outline"></i>
+    </a>
+  </ion-nav-buttons>
+
   <ion-content class="account">
-    <div class="padding text-center">
+    <div class="padding user">
       <div class="row">
-        <div class="col">
-          <img src="" alt="user prof pic" height="70" width="70">
+        <div class="col col-33">
+          <i class="icon ion-person"></i>
         </div>
-        <div class="col email">
+        <div class="col col-77 text-left email">
           <h3>{{currentUser.email}}</h3>
         </div>
       </div>

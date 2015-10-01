@@ -1,7 +1,7 @@
 
 angular.module('iTravelApp.controller.login', [])
 
-    .controller('LoginCtrl', function($scope, $state, $location, User) {
+    .controller('LoginCtrl', function($scope, $state, $location, User, $ionicModal) {
 
         console.log('LoginCtrl loaded');
 
@@ -38,4 +38,11 @@ angular.module('iTravelApp.controller.login', [])
                     }
                 });
         };
+
+        $ionicModal.fromTemplateUrl('templates/help.html', {
+          scope: $scope
+        }).then(function(modal) {
+          $scope.helpModal = modal;
+        });
+
     });

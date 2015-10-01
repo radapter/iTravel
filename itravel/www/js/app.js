@@ -42,7 +42,7 @@ angular.module('iTravelApp', ['ionic', 'ngMap', 'underscore', 'ion-autocomplete'
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider, $ionicConfigProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -127,9 +127,11 @@ angular.module('iTravelApp', ['ionic', 'ngMap', 'underscore', 'ion-autocomplete'
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/help');
+  $urlRouterProvider.otherwise('/login');
 
   $httpProvider.interceptors.push('httpInterceptor');
+
+  $ionicConfigProvider.backButton.previousTitleText(false).text('');
 
 })
 

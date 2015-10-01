@@ -1,7 +1,7 @@
 
 angular.module('iTravelApp.controller.signup', [])
 
-    .controller('SignupCtrl', function($scope, $state, $location, User) {
+    .controller('SignupCtrl', function($scope, $state, $location, User, $ionicModal) {
         $scope.uiModel = {
             email: '',
             password: '',
@@ -48,4 +48,12 @@ angular.module('iTravelApp.controller.signup', [])
 
 
         };
+
+
+        $ionicModal.fromTemplateUrl('templates/help.html', {
+          scope: $scope
+        }).then(function(modal) {
+          $scope.helpModal = modal;
+        });
+
     });

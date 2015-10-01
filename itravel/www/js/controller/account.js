@@ -1,7 +1,7 @@
 
 angular.module('iTravelApp.controller.account', [])
 
-.controller('AccountCtrl', function($scope, $state, $rootScope, $location, User) {
+.controller('AccountCtrl', function($scope, $state, $rootScope, $location, User, $ionicModal) {
 
   console.log('load account ctrl');
 
@@ -34,4 +34,12 @@ angular.module('iTravelApp.controller.account', [])
     }
 
   };
+
+
+  $ionicModal.fromTemplateUrl('templates/help.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.helpModal = modal;
+  });
+
 });

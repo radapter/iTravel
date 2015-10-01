@@ -1,7 +1,10 @@
-<ion-view title="Help" hide-nav-bar="true">
+<ion-modal-view id="helpModal">
+  <ion-header-bar class="bar bar-header">
+    <h1 class="title">About</h1>
+    <button class="button button-clear button-help-close" ng-click="helpModal.hide()">Close</button>
+  </ion-header-bar>
 
   <ion-slide-box class="has-header" on-slide-changed="slideHasChanged($index)">
-
     <ion-slide id="slide-1">
       <div class="padding text-center slide-bkgd">
         <h2 class="positive app-title">iTravel</h2>
@@ -36,10 +39,4 @@
     </ion-slide>
 
   </ion-slide-box>
-
-  <div class="bar bar-footer welcome-btns">
-    <a class="button welcome" href="#/signup">Sign Up</a>
-    <a class="button welcome" href="#/login">Login</a>
-  </div>
-
-</ion-view>
+</ion-modal-view>
