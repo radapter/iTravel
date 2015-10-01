@@ -1,9 +1,9 @@
 'use strict';
 
-VenueFactory.$inject = ['$http', '$q'];
+VenueFactory.$inject = ['$http', '$q', 'host', '_'];
 angular.module('iTravelApp.service.venue', []).factory('Venue', VenueFactory);
 
-function VenueFactory($http, $q) {
+function VenueFactory($http, $q, host) {
 
 	// constructor
 	function Venue(config) {
@@ -115,8 +115,8 @@ function VenueFactory($http, $q) {
 
 	function getDetails(venueId) {
 		var deferred = $q.defer();
-		$http.get('foursquare/venues/' + venueId, {
-			cache: true,
+		$http.get(host + 'foursquare/venues/' + venueId, {
+      cache: true
 		}).then(function(res) {
 			if(res.status > 399) {
 				deferred.reject(res.meta.message);

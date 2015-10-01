@@ -127,7 +127,7 @@ angular.module('iTravelApp', ['ionic', 'ngMap', 'underscore', 'ion-autocomplete'
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/help');
+  $urlRouterProvider.otherwise('/login');
 
   $httpProvider.interceptors.push('httpInterceptor');
 
