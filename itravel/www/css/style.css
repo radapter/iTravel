@@ -701,7 +701,7 @@ span.vers {
 .venue-tip .tip-text {
   clear: both;
   font-size: 0.8em;
-  overflow: auto;
+  white-space: normal;
 }
 
 /**************** top nav tabs styling  ******************/
