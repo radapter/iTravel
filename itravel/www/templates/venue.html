@@ -32,13 +32,19 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container venue-tips">
       <h3>Tips</h3>
-      <ion-list ng-repeat="tip in venue.tips">
-        <!--TODO: need tips object-->
+      <ion-list ng-repeat="tip in venue.tips | orderBy: '-createdAt'">
+        <ion-item class="item-remove-animate item-avatar" type="item-text-wrap">
+          <img src="{{tip.user.photo.prefix}}80x80{{tip.user.photo.suffix}}">
+          <div class="venue-tip">
+            <h5 class="tip-user">{{tip.user.firstName}} {{tip.user.lastName}} says:</h5>
+            <h6 class="tip-time">on {{tip.createdAt * 1000 | date: 'MM/dd/yyyy @ HH:mm'}}</h6>
+            <p class="tip-text">{{tip.text}}</p>
+          </div>
+        </ion-item>
       </ion-list>
     </div>
-
 
   </ion-content>
 </ion-view>

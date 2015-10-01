@@ -675,6 +675,35 @@ span.vers {
   margin: 2px auto;
 }
 
+.venue-tips .item {
+  border: none;
+  border-top: 1px solid #d0d0d0;
+}
+
+.venue-tips img {
+  max-width: 55px !important;
+  max-height: 55px !important;
+  top: 10px !important;
+  left: 8px !important;
+}
+
+.venue-tips .tip-user {
+  font-size: 0.7em;
+  color: #2980B9;
+  float: left;
+}
+
+.venue-tip .tip-time {
+  float: right;
+  color: #989DBB;
+}
+
+.venue-tip .tip-text {
+  clear: both;
+  font-size: 0.8em;
+  overflow: auto;
+}
+
 /**************** top nav tabs styling  ******************/
 .tab-nav {
   background: #4A4F70;
