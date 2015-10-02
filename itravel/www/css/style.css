@@ -231,61 +231,81 @@
 }
 
 /**************** sliders styling  ******************/
-.slider {
-  background: #F4F4F8;
-  min-height: 55% !important;
-  height: 55% !important;
+#helpModal {
+  margin: 0;
+  background: #363951;
 }
 
-.slider-slide > div {
-  margin: 50% auto 0;
+#helpModal .slider {
+  clear: both;
+}
+
+#helpModal .slider-slide {
+  height: 500px;
 }
 
 h2.app-title {
-  font-size: 4em;
+  color: white;
+  font-size: 2.5em;
 }
 
-.app-tagline {
-  font-size: 1.5em;
-  margin: 45% 10%;
+h4.app-tagline {
+  margin-top: 30px;
+  color: #D8D8D8;
+  font-size: 1.3em;
+}
+
+h2.app-title2 {
+  color: white;
+  font-size: 1.8em;
+}
+
+h4.app-tagline2 {
+  margin: 20px auto 10px;
+  color: #D8D8D8;
+  font-size: 1.1em;
+  width: 300px;
 }
 
 .slide-subtitle {
   font-size: 15px;
 }
 
-.welcome-btns {
-  height: 55px;
-  background: #149c82;
-  padding: 0;
-  margin: 0;
-}
-
-.welcome-btns a.welcome {
-  width: 50%;
-  background: #149c82;
-  color: white;
-  font-size: 1.1em;
-  border: 1px solid white;
-  border-radius: 0;
-  padding-top: 2%;
-  position: relative;
-}
-
-.bar > .button + .button:last-child {
-  top: 0;
-  right : 0;
-  bottom: 0;
-}
-
 .icon.ion-record {
-  color: black;
+  color: white;
 }
 
 .slider-pager {
-  bottom: 90px;
+  bottom: 40px;
   font-size: 0.7em;
 }
+
+.slide-img {
+  margin-top: 100px;
+  margin-bottom: 35px;
+}
+
+.slide-img-bk {
+  background: #4A4F70;
+  height: 170px;
+  width: 170px;
+  border-radius: 50%;
+  position: absolute;
+  top: 78px;
+  left: 102px;
+  z-index: -1;
+}
+
+.bk-3{
+  background: #2980B9;
+}
+
+.bk-4 {
+  background: #262839;
+}
+
+
+
 
 /**************** login + signin page styling  ******************/
 .login-page, .signup-page {
@@ -755,6 +775,11 @@ a.button-help {
 }
 
 .button-help-close {
+  float: right;
   margin-right: 5px;
+  background: #363951 !important;
 }
 
+.click-block, .modal-backdrop {
+  background: #363951;
+}
