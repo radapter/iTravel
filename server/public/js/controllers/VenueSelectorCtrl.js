@@ -1,8 +1,8 @@
 (function() {
     'use strict';
     angular.module("iTravelApp")
-        .controller("VenueSelectorCtrl", ['$scope', 'Venue', 'Plan', 'Activity', '$location', 'User',
-            function ($scope, Venue, Plan, Activity, $location, User) {
+        .controller("VenueSelectorCtrl", ['$scope', 'Venue', 'Plan', 'Activity', '$location', 'User', 'venueDetailsModal',
+            function ($scope, Venue, Plan, Activity, $location, User, venueDetailsModal) {
 
                 $scope.destination = Plan.tempPlan;
                 $scope.venues = Venue.searchResults;
@@ -176,6 +176,11 @@
                             }
                         });
 
+                }
+
+                // README: for POC use
+                $scope.showVenueDetails = function(venue) {
+                    venueDetailsModal.showModal(venue);
                 }
 
 

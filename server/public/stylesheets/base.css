@@ -11,3 +11,8 @@
 .rd-transition-all.rd-top-n100 {
 	top: -100px;
 }
+
+.rd-clickable-text {
+	display: inline-block;
+	cursor: pointer;
+}

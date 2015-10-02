@@ -20,6 +20,7 @@
 		};
 
 		(function init() {
+			console.log('targetVenue:', targetVenue);
 			Venue.getDetails(targetVenue.id).then(function(venueData) {
 				$scope.uiModel.venueData = venueData;
 			}, function() {

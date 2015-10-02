@@ -1,17 +1,19 @@
 'use strict';
 
-venueDetailsModalFactory.$inject = ['$q', '$rootScope', '$modal', '$location'];
+venueDetailsModalFactory.$inject = ['$q', '$rootScope', '$modal'];
 angular.module('iTravelApp').factory('venueDetailsModal', venueDetailsModalFactory);
 
-function venueDetailsModalFactory($q, $rootScope, $modal, $location) {
+function venueDetailsModalFactory($q, $rootScope, $modal) {
 	return {
 		'showModal': function(targetVenue) {
+			console.log('venueDetailsModal.showModal is called, targetVenue:', targetVenue);
 			$modal.open({
 				animation: true,
-				templateUrl: 'templates/venueDetailsModal.html',
+				templateUrl: 'templates/venues/venueDetailsModal.html',
+				size: 'lg',
 				controller: 'VenueDetailsModalCtrl',
 				resolve: {
-					venue: function() { return targetVenue; }
+					targetVenue: function() { return targetVenue; }
 				}
 			});
 		}
