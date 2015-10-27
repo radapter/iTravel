@@ -16,3 +16,9 @@
 	display: inline-block;
 	cursor: pointer;
 }
+
+/*  */
+.rd-bfc {
+	overflow: hidden;
+	zoom: 1;
+}
