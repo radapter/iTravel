@@ -304,4 +304,10 @@ angular.module('iTravelApp.controller.home', [])
           return newD * 1000;
         }
 
+        $ionicModal.fromTemplateUrl('templates/help.html', {
+          scope: $scope
+        }).then(function(modal) {
+          $scope.helpModal = modal;
+        });
+
     });

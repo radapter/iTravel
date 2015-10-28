@@ -1,7 +1,7 @@
 
 angular.module('iTravelApp.controller.plans', [])
 
-    .controller('PlansCtrl', function($scope, $state, $rootScope, $location, User) {
+    .controller('PlansCtrl', function($scope, $state, $rootScope, $location, User, $ionicModal) {
         console.log('load plans ctrl');
 
         if(User.currentUser) {
@@ -49,5 +49,11 @@ angular.module('iTravelApp.controller.plans', [])
           var newD = dt - 25201; //subtract 7 hours + 1 second (endDate seems to always be next day at 7am UTC)
           return newD * 1000;
         }
+
+        $ionicModal.fromTemplateUrl('templates/help.html', {
+          scope: $scope
+        }).then(function(modal) {
+          $scope.helpModal = modal;
+        });
 
     });
