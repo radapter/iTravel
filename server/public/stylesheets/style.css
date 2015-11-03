@@ -424,7 +424,7 @@ div.schedule-it {
 
 @media(max-height: 990px){
     .angular-google-map-container {
-        height: 70%;
+        height: 80%;
         width: 95%;
         position: absolute;
     }
@@ -494,12 +494,6 @@ div.schedule-it {
 .venue-img {
     background-color: #ccc;
     width: 150px;
-    height: 150px;
-}
-
-.venue-map {
-    /*background-color: #ccc;*/
-    width: 100%;
     height: 150px;
 }
 
@@ -618,6 +612,192 @@ div.selected-venues.float-venue{
 
 .venue-contact{
     font-size: smaller;
+}
+
+/******************** venue detail modal **********************/
+.venue-details-modal {
+  position: relative;
+  padding: 10px 0px 0px;
+}
+
+.venue-details-header, .venue-details-body {
+  padding-left: 375px;
+  padding-bottom: 10px;
+
+  font-size: 15px;
+}
+
+.venue-details-header {
+  border-bottom: solid 1px #ccc;
+}
+
+.venue-details-body {
+  padding-top: 10px;
+  background-color: #eee;
+}
+
+.venue-details-header h3 {
+  font-size: 2em;
+}
+
+.venue-details-body h4 {
+  font-size: 1.2em;
+}
+
+.venue-details-body h4:first-child {
+  margin-top: 0px
+}
+
+.venue-address, .venue-contact, .venue-stats, .venue-categories {
+  margin-bottom: 5px;
+}
+
+.venue-stats > span {
+  margin-right: 20px;
+}
+
+.venue-category-icon:not(:first-child) {
+  margin-left: 10px;
+}
+
+.venue-details-photos {
+  position: absolute;
+  top: 35px;
+  left: 35px;
+
+  width: 320px;
+  height: 380px;
+  
+  background-color: #fff;
+  border: solid 1px #ccc;
+  -webkit-box-shadow: 1px 1px 8px #aaa;
+  box-shadow: 1px 1px 8px #aaa;
+}
+
+.photo-main-display {
+  margin: 10px auto;
+  width: 300px;
+  height: 300px;
+
+  overflow: hidden;
+
+  /** 
+   * TODO: use background-size to hold the picture
+   * https://css-tricks.com/almanac/properties/b/background-size/
+   */
+}
+
+.photo-main-display > img {
+  width: 100%;
+  height: auto;
+}
+
+.photo-thumbnails {
+  margin: 10px auto;
+  padding: 5px 12px;
+  width: 300px;
+  height: 60px;
+
+  border-top: solid 1px #eee;
+  overflow: hidden;
+  list-style: none;
+}
+
+.photo-thumbnail-item {
+  display: inline-block;
+
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+
+  overflow: hidden;
+}
+
+.photo-thumbnail-item > img {
+  width: 100%;
+  height: auto;
+  opacity: 0.5;
+
+  cursor: pointer;
+}
+
+.photo-thumbnail-item > img:hover {
+  opacity: 1;
+}
+
+.venue-description, .venue-map, .venue-tips {
+  margin: 20px auto;
+}
+
+.venue-description, .venue-map {
+  border-bottom: solid 1px #dfdfdf;
+}
+
+.venue-description > p {
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+.venue-map {
+  position: relative;
+
+  width: 100%;
+  height: 320px;
+}
+
+.venue-tips-wrapper {
+  padding-right: 10px;
+
+}
+
+.venue-tips {
+  margin-bottom: 0px;
+  padding: 0px;
+  
+  max-height: 400px;
+  overflow-y: auto;
+
+  list-style: none;
+}
+
+.venue-tip-item {
+  position: relative;
+  display: block;
+  padding: 30px 20px 20px 0px;
+}
+
+.venue-tip-item:not(:last-child) {
+  border-bottom: solid 1px #e3e3e3; 
+}
+
+.tip-user {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 60px;
+  height: 60px;
+
+  text-align: center;
+}
+
+.tip-user > img {
+  -webkit-border-radius: 50%;
+   -moz-border-radius: 50%;
+   -ms-border-radius: 50%;
+   -o-border-radius: 50%;
+   border-radius: 50%; 
+}
+
+.tip-user > span {
+
+}
+
+.tip-text {
+  margin-left: 100px;
+
+  font-size: 1em;
+  line-height: 1.4;
 }
 
 /******************** user profile page **********************/

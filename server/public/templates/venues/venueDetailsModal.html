@@ -1,42 +1,83 @@
-<div class="modal-body container-fluid">
+<div class="modal-body venue-details-modal">
     <div class="venue-details-header">
         <header>
-            <h3>{{venue.name}}</h3>
+            <h3>{{uiModel.venueDetails.name}}</h3>
         </header>
         <div class="venue-address">
-            
+            <i class="fa fa-map-marker"></i>
+            <span>
+                {{uiModel.venueDetails.location.formattedAddress[0]}},
+                {{uiModel.venueDetails.location.formattedAddress[1]}},
+                {{uiModel.venueDetails.location.formattedAddress[2]}}
+            </span>
         </div>
-        <div class="venue-categories">
-            <span class="venue-category-icon" ng-repeat></span>
+        <div class="venue-contact" ng-show="uiModel.venueDetails.contact.formattedPhone">
+            <i class="fa fa-phone-square"></i>
+            <span>
+                {{uiModel.venueDetails.contact.formattedPhone}}
+            </span>
         </div>
         <div class="venue-stats">
-            <div class="venue-stat-rating">
-                
-            </div>
-            <div class="venue-stat-checkins">
-
-            </div>
-            <div class="venue-stat-likes">
-                
-            </div>
+            <span ng-show="uiModel.venueDetails.rating!=-1">
+                <i class="fa fa-star-o"></i>
+                <span>
+                    {{uiModel.venueDetails.rating}}
+                </span>
+            </span>
+            <span ng-show="uiModel.venueDetails.stats.checkinsCount!=-1">
+                <i class="fa fa-foursquare"></i>
+                <span >
+                    {{uiModel.venueDetails.stats.checkinsCount}}
+                </span>
+            </span>
+        </div>
+        <div class="venue-categories">
+<!--             <img class="venue-category-icon" ng-repeat="category in uiModel.venueDetails.categories | limitTo: 2" alt="{{category.name}}" title="{{category.name}}" src="{{category.icon.prefix}}bg_32{{category.icon.suffix}}"> -->
+            <span class="label label-info" ng-repeat="category in uiModel.venueDetails.categories">
+                {{category.name}}
+            </span>
         </div>
     </div>
     <div class="venue-details-photos">
         <div class="photo-main-display">
-            
+            <img src="{{uiModel.targetVenue.featuredPhotos.items[0].prefix}}original{{uiModel.targetVenue.featuredPhotos.items[0].suffix}}" alt="{{uiModel.venueDetails.name}}">
         </div>
         <ul class="photo-thumbnails">
-            <li class="photo-thumbnail-item" ng-repeat></li>
+            <li class="photo-thumbnail-item" ng-repeat="photo in uiModel.venueDetails.photos.groups[0].items | limitTo: 5" ng-click="setMainDisplay(photo)">
+                <img src="{{photo.prefix}}45x45{{photo.suffix}}">
+            </li>
         </ul>
     </div>
     <div class="venue-details-body">
-        <div class="venue-map">
-            
+        <div class="venue-description">
+            <h4>About this venue</h4>
+            <p ng-show="uiModel.venueDetails.description && uiModel.venueDetails.description !== ''">
+                {{uiModel.venueDetails.description}}
+            </p>
+            <p ng-hide="uiModel.venueDetails.description && uiModel.venueDetails.description !== ''">This venue does not have a description.</p>
         </div>
-        <ul class="venue-tips">
-            <li class="venue-tip-item">
-                
-            </li>
-        </ul>
+        <div class="venue-map">
+            <h4>Map</h4>
+            <ui-gmap-google-map
+                center='map.center'
+                 zoom='map.zoom' options="map.options">
+                <ui-gmap-marker coords="marker.coords" options="marker.options" idkey="marker.id">
+                </ui-gmap-marker>
+            </ui-gmap-google-map>
+        </div>
+        <div class="venue-tips-wrapper">
+            <h4>What people say about it</h4>
+            <ul class="venue-tips" ng-show="uiModel.venueDetails.tips.groups[0].items.length">
+                <li class="venue-tip-item" ng-repeat="tip in uiModel.venueDetails.tips.groups[0].items | orderBy: '-createdAt' | limitTo:20">
+                    <div class="tip-user">
+                        <img src="{{tip.user.photo.prefix}}50x50{{tip.user.photo.suffix}}" alt="user pic">
+                        <span>
+                            {{tip.user.firstName}}
+                        </span>  
+                    </div>
+                    <p class="tip-text">{{tip.text}}</p>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
