@@ -19,10 +19,6 @@
 			$modalInstance.dismiss();
 		};
 
-		$scope.setMainDisplay = function(photo) {
-			console.log("main display photo: ", photo);
-		};
-
 		(function init() {
 			console.log('targetVenue:', targetVenue);
 			Venue.getDetails(targetVenue.id).then(function(venueDetails) {

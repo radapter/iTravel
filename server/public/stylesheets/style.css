@@ -620,6 +620,18 @@ div.selected-venues.float-venue{
   padding: 10px 0px 0px;
 }
 
+.btn-close-modal {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+
+  cursor: pointer;
+}
+
+.btn-close-modal:hover {
+  color: #18bc9c;
+}
+
 .venue-details-header, .venue-details-body {
   padding-left: 375px;
   padding-bottom: 10px;
@@ -646,6 +658,11 @@ div.selected-venues.float-venue{
 
 .venue-details-body h4:first-child {
   margin-top: 0px
+}
+
+.venue-details-body p {
+  font-size: 1em;
+  line-height: 1.4;
 }
 
 .venue-address, .venue-contact, .venue-stats, .venue-categories {
@@ -680,11 +697,7 @@ div.selected-venues.float-venue{
   height: 300px;
 
   overflow: hidden;
-
-  /** 
-   * TODO: use background-size to hold the picture
-   * https://css-tricks.com/almanac/properties/b/background-size/
-   */
+  background-size: cover;
 }
 
 .photo-main-display > img {
@@ -692,15 +705,25 @@ div.selected-venues.float-venue{
   height: auto;
 }
 
-.photo-thumbnails {
+.photo-thumbnails-wrapper {
   margin: 10px auto;
-  padding: 5px 12px;
+  padding: 5px 0px;
   width: 300px;
   height: 60px;
 
-  border-top: solid 1px #eee;
+  border-top: solid 1px #e6e6e6;
+}
+
+.photo-thumbnails {
   overflow: hidden;
   list-style: none;
+
+  padding: 0px;
+  width: 250px;
+  height: 60px;
+
+  white-space: nowrap;
+
 }
 
 .photo-thumbnail-item {
@@ -708,7 +731,7 @@ div.selected-venues.float-venue{
 
   width: 45px;
   height: 45px;
-  margin-right: 10px;
+  margin-right: 6px;
 
   overflow: hidden;
 }
@@ -721,21 +744,30 @@ div.selected-venues.float-venue{
   cursor: pointer;
 }
 
-.photo-thumbnail-item > img:hover {
+.photo-thumbnail-item > img:hover,
+.photo-thumbnail-item > img.main-display {
   opacity: 1;
 }
 
-.venue-description, .venue-map, .venue-tips {
+.photo-thumbnails-wrapper > i {
+  cursor: pointer;
+
+  opacity: 0.5;
+}
+
+.photo-thumbnails-wrapper > i:hover {
+  opacity: 1;
+}
+
+.venue-description,
+.venue-map,
+.venue-tips,
+.venue-tips-wrapper {
   margin: 20px auto;
 }
 
 .venue-description, .venue-map {
   border-bottom: solid 1px #dfdfdf;
-}
-
-.venue-description > p {
-  font-size: 1em;
-  line-height: 1.4;
 }
 
 .venue-map {
@@ -753,9 +785,9 @@ div.selected-venues.float-venue{
 .venue-tips {
   margin-bottom: 0px;
   padding: 0px;
-  
-  max-height: 400px;
-  overflow-y: auto;
+
+/*  max-height: 400px;
+  overflow-y: auto;*/
 
   list-style: none;
 }
@@ -795,9 +827,6 @@ div.selected-venues.float-venue{
 
 .tip-text {
   margin-left: 100px;
-
-  font-size: 1em;
-  line-height: 1.4;
 }
 
 /******************** user profile page **********************/

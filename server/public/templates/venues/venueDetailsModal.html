@@ -1,4 +1,5 @@
 <div class="modal-body venue-details-modal">
+    <i class="fa fa-times btn-close-modal" ng-click="dismiss()"></i>
     <div class="venue-details-header">
         <header>
             <h3>{{uiModel.venueDetails.name}}</h3>
@@ -32,21 +33,13 @@
             </span>
         </div>
         <div class="venue-categories">
-<!--             <img class="venue-category-icon" ng-repeat="category in uiModel.venueDetails.categories | limitTo: 2" alt="{{category.name}}" title="{{category.name}}" src="{{category.icon.prefix}}bg_32{{category.icon.suffix}}"> -->
             <span class="label label-info" ng-repeat="category in uiModel.venueDetails.categories">
                 {{category.name}}
             </span>
         </div>
     </div>
     <div class="venue-details-photos">
-        <div class="photo-main-display">
-            <img src="{{uiModel.targetVenue.featuredPhotos.items[0].prefix}}original{{uiModel.targetVenue.featuredPhotos.items[0].suffix}}" alt="{{uiModel.venueDetails.name}}">
-        </div>
-        <ul class="photo-thumbnails">
-            <li class="photo-thumbnail-item" ng-repeat="photo in uiModel.venueDetails.photos.groups[0].items | limitTo: 5" ng-click="setMainDisplay(photo)">
-                <img src="{{photo.prefix}}45x45{{photo.suffix}}">
-            </li>
-        </ul>
+        <div venue-gallery photos="uiModel.venueDetails.photos.groups[0].items"></div>
     </div>
     <div class="venue-details-body">
         <div class="venue-description">
@@ -67,6 +60,7 @@
         </div>
         <div class="venue-tips-wrapper">
             <h4>What people say about it</h4>
+            <p ng-hide="uiModel.venueDetails.tips.groups[0].items.length">This venue does not have a description.</p>
             <ul class="venue-tips" ng-show="uiModel.venueDetails.tips.groups[0].items.length">
                 <li class="venue-tip-item" ng-repeat="tip in uiModel.venueDetails.tips.groups[0].items | orderBy: '-createdAt' | limitTo:20">
                     <div class="tip-user">
