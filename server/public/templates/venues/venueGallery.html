@@ -1,0 +1,11 @@
+<div class="photo-main-display">
+</div>
+<div class="photo-thumbnails-wrapper bfc">
+	<i class="fa fa-2x fa-angle-left pull-left" ng-show="photos.length > 5" ng-click="revealLeft()"></i>
+	<ul class="photo-thumbnails pull-left">
+	    <li class="photo-thumbnail-item" ng-repeat="photo in thumbnailsWindow" ng-click="setMainDisplay(photo)">
+	        <img src="{{photo.prefix}}45x45{{photo.suffix}}" ng-class="{'main-display': photo === mainDisplay}">
+	    </li>
+	</ul>
+	<i class="fa fa-2x fa-angle-right pull-right" ng-show="photos.length > 5" ng-click="revealRight()"></i>
+</div>

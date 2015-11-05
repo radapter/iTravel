@@ -1,0 +1,77 @@
+<div class="modal-body venue-details-modal">
+    <i class="fa fa-times btn-close-modal" ng-click="dismiss()"></i>
+    <div class="venue-details-header">
+        <header>
+            <h3>{{uiModel.venueDetails.name}}</h3>
+        </header>
+        <div class="venue-address">
+            <i class="fa fa-map-marker"></i>
+            <span>
+                {{uiModel.venueDetails.location.formattedAddress[0]}},
+                {{uiModel.venueDetails.location.formattedAddress[1]}},
+                {{uiModel.venueDetails.location.formattedAddress[2]}}
+            </span>
+        </div>
+        <div class="venue-contact" ng-show="uiModel.venueDetails.contact.formattedPhone">
+            <i class="fa fa-phone-square"></i>
+            <span>
+                {{uiModel.venueDetails.contact.formattedPhone}}
+            </span>
+        </div>
+        <div class="venue-stats">
+            <span ng-show="uiModel.venueDetails.rating!=-1">
+                <i class="fa fa-star-o"></i>
+                <span>
+                    {{uiModel.venueDetails.rating}}
+                </span>
+            </span>
+            <span ng-show="uiModel.venueDetails.stats.checkinsCount!=-1">
+                <i class="fa fa-foursquare"></i>
+                <span >
+                    {{uiModel.venueDetails.stats.checkinsCount}}
+                </span>
+            </span>
+        </div>
+        <div class="venue-categories">
+            <span class="label label-info" ng-repeat="category in uiModel.venueDetails.categories">
+                {{category.name}}
+            </span>
+        </div>
+    </div>
+    <div class="venue-details-photos">
+        <div venue-gallery photos="uiModel.venueDetails.photos.groups[0].items"></div>
+    </div>
+    <div class="venue-details-body">
+        <div class="venue-description">
+            <h4>About this venue</h4>
+            <p ng-show="uiModel.venueDetails.description && uiModel.venueDetails.description !== ''">
+                {{uiModel.venueDetails.description}}
+            </p>
+            <p ng-hide="uiModel.venueDetails.description && uiModel.venueDetails.description !== ''">This venue does not have a description.</p>
+        </div>
+        <div class="venue-map">
+            <h4>Map</h4>
+            <ui-gmap-google-map
+                center='map.center'
+                 zoom='map.zoom' options="map.options">
+                <ui-gmap-marker coords="marker.coords" options="marker.options" idkey="marker.id">
+                </ui-gmap-marker>
+            </ui-gmap-google-map>
+        </div>
+        <div class="venue-tips-wrapper">
+            <h4>What people say about it</h4>
+            <p ng-hide="uiModel.venueDetails.tips.groups[0].items.length">This venue does not have a description.</p>
+            <ul class="venue-tips" ng-show="uiModel.venueDetails.tips.groups[0].items.length">
+                <li class="venue-tip-item" ng-repeat="tip in uiModel.venueDetails.tips.groups[0].items | orderBy: '-createdAt' | limitTo:20">
+                    <div class="tip-user">
+                        <img src="{{tip.user.photo.prefix}}50x50{{tip.user.photo.suffix}}" alt="user pic">
+                        <span>
+                            {{tip.user.firstName}}
+                        </span>  
+                    </div>
+                    <p class="tip-text">{{tip.text}}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

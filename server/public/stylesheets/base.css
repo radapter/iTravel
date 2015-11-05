@@ -12,6 +12,17 @@
 	top: -100px;
 }
 
+.rd-clickable-text {
+	display: inline-block;
+	cursor: pointer;
+}
+
+/*  */
+.rd-bfc {
+	overflow: hidden;
+	zoom: 1;
+}
+
 .clearfix:before,
 .clearfix:after {
     content: "";

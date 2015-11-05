@@ -17,6 +17,8 @@ function VenueFactory($http, $q) {
 	// static properties/methods
 	Venue.searchResults = {};
 	Venue.categoryDict = {};
+	Venue.selectedVenues = {};
+	
 	Venue.explore = sectionedExplore;
 	Venue.getDetails = getDetails;
 
