@@ -37,6 +37,7 @@
             //select configs
             $scope.address = {};
             $scope.refreshAddresses = function(address) {
+                $scope.selectStat = true;
                 console.log(address);
                 var params = {address: address, sensor: false};
                 //console.log(params);
@@ -49,11 +50,26 @@
                     });
             };
 
+            $scope.getAddress = function(address) {
+                $scope.selectStat = true;
+                console.log(address);
+                var params = {address: address, sensor: false};
+                //console.log(params);
+                return $http.get(
+                    'https://maps.googleapis.com/maps/api/geocode/json',
+                    {params: params}
+                ).then(function(response) {
+                        console.log(response);
+                        $scope.selectedAddress = response.data.results[0];
+                        $scope.openAutoplanModal($scope.selectedAddress);
+                    });
+            };
+
             $scope.explore = function(selectedAddress) {
                 console.log(selectedAddress);
 
                 if(selectedAddress) {
-
+                    $scope.selectStat = true;
                     var destName = selectedAddress.formatted_address;
                     var destlat = selectedAddress.geometry.location.lat;
                     var destLng = selectedAddress.geometry.location.lng;
@@ -78,7 +94,8 @@
                             console.log('get searchedResult failed. res:', err);
                         });
                 } else {
-                    alert("Please choose a place you want to go...");
+                    $scope.selectStat = false;
+                    //alert("Please choose a place you want to go...");
                 }
 
             };
@@ -88,6 +105,7 @@
                 console.log(selectedAddress);
 
                 if(selectedAddress) {
+                    $scope.selectStat = true;
                   //open modal
                   var modalInstance = $modal.open({
                     templateUrl: 'autoplanModal.html',
@@ -99,7 +117,8 @@
                     }
                   });
                 } else {
-                  alert("Please choose a place you want to go...");
+                    $scope.selectStat = false;
+                  //alert("Please choose a place you want to go...");
                 }
             };
 

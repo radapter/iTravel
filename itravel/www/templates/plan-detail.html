@@ -1,11 +1,20 @@
-<ion-view view-title="PlanDetail">
-  <ion-content>
+<ion-view view-title="Plan Detail">
+  <ion-nav-buttons side="right">
+    <a class="button button-clear button-help" ng-click="helpModal.show()">
+      <i class="icon ion-ios-help-outline"></i>
+    </a>
+  </ion-nav-buttons>
+
+  <ion-content id="plan-detail">
     <div class="body-container">
-      <div class="col-90 plan-name">
-        <h4>Trip: {{plan.destName}}</h4>
-      </div>
-      <button class="button button-small icon ion-map pull-top-right" ng-click="setMapMode()" ng-show="!mapMode"></button>
-      <button class="button button-small icon ion-navicon-round pull-top-right" ng-click="unSetMapMode()" ng-show="mapMode"></button>
+      <h4 class="row plan">
+        <div class="col-10"><i class="icon ion-ios-location"></i></div>
+        <div class="col-80"><span class="plan-name">{{plan.destName}}</span></div>
+        <div class="col-10 text-center">
+          <button class="button button-small icon ion-map" ng-click="setMapMode()" ng-show="!mapMode"></button>
+          <button class="button button-small icon ion-navicon-round" ng-click="unSetMapMode()" ng-show="mapMode"></button>
+        </div>
+      </h4>
 
       <div class="button-bar">
         <button class="button button-small" ng-repeat="day in days" ng-click="changeDayRoute(day)"
@@ -18,7 +27,7 @@
         <ion-list ng-repeat="day in days" ng-show="day.date == currDate">
           <ion-item class="item-remove-animate item-avatar" ng-repeat="activity in day.activities" type="item-text-wrap">
             <!--<img ng-src="{{plan.face}}">-->
-            <div class="plan-icon activity-icon" ng-class="{
+            <div class="activity-icon" ng-class="{
                                     'bg-restaurant': activity.activitiesType === 'restaurants',
                                     'bg-hotel': activity.activitiesType === 'hotels',
                                     'bg-attraction': activity.activitiesType === 'attractions'
@@ -30,16 +39,35 @@
                                     'ion-camera': activity.activitiesType === 'attractions'
                                     }"></i>
             </div>
-            <h2>{{activity.title}}</h2>
-            <p>{{activity.start | date:'MM/dd/yyyy @ h:mma' }}</p>
-            <p>{{activity.end | date:'MM/dd/yyyy @ h:mma'}}</p>
+
+            <h2>{{activity.start | date:'h:mma' }} - {{activity.end | date:'h:mma'}}</h2>
+
+            <div class="plan-activity">
+              <img src="{{activity.venue.featuredPhotos.items[0].prefix}}80x80{{activity.venue.featuredPhotos.items[0].suffix}}"
+                   alt="venue pic" height="80" width="80">
+
+              <h2><a href="#/tab/plans/{{plan._id}}/venue/{{activity.venue.id}}">{{activity.title}}</a></h2>
+              <div class="row activity-stats">
+                <div class="col stat-like">
+                    <i class="icon ion-ios-heart"></i> {{activity.venue.stats.checkinsCount}}
+                </div>
+                <div class="col stat-checkin">
+                    <i class="icon ion-android-star"></i> {{activity.venue.stats.usersCount}}
+                </div>
+                <div class="col stat-tip">
+                    <i class="icon ion-chatbubble"></i> {{activity.venue.stats.tipCount}}
+                </div>
+              </div>
+              <div class="timeline-bar"></div>
+            </div>
+
           </ion-item>
         </ion-list>
       </div>
 
-      <div id="plan-detail-map" scroll="false" data-tap-disabled="true">
+      <div id="plan-detail-map" scroll="false" data-tap-disabled="true" ng-show="mapMode">
         <!--google map show route-->
-        <map ng-if="mapMode"  id="plan_map_canvas" center="-34.397, 150.644" zoom="10" pan-control="false" styles="{{styles}}">
+        <map ng-if="mapMode" id="plan_map_canvas" center="-34.397, 150.644" zoom="10" pan-control="false" styles="{{styles}}">
           <directions panel="directions-panel"
                       travel-mode="DRIVING"
                       waypoints="{{waypoints}}"

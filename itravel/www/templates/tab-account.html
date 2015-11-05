@@ -1,6 +1,46 @@
-<ion-view view-title="Account">
-  <ion-content class="body-container">
-    <h3>{{currentUser.email}}</h3>
-    <button ng-click="logout()">Logout</button>
+<ion-view view-title="iTravel">
+  <ion-nav-buttons side="right">
+    <a class="button button-clear button-help" ng-click="helpModal.show()">
+      <i class="icon ion-ios-help-outline"></i>
+    </a>
+  </ion-nav-buttons>
+
+  <ion-content class="account">
+    <div class="padding user">
+      <div class="row">
+        <div class="col col-33">
+          <i class="icon ion-person"></i>
+        </div>
+        <div class="col col-77 text-left email">
+          <h3>{{currentUser.email}}</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="list">
+      <p>Account</p>
+      <ion-toggle ng-model="twitter" toggle-class="toggle-custom" class="item-icon-left">
+        <i class="icon ion-social-twitter"></i>
+        <span class="title">Twitter</span>
+      </ion-toggle>
+      <ion-toggle ng-model="facebook" toggle-class="toggle-custom" class="item-icon-left">
+        <i class="icon ion-social-facebook"></i>
+        <span class="title">Facebook</span>
+      </ion-toggle>
+      <ion-toggle ng-model="googleplus" toggle-class="toggle-custom" class="item-icon-left">
+        <i class="icon ion-social-googleplus"></i>
+        <span class="title">Google+</span>
+      </ion-toggle>
+    </div>
+
+    <div class="list">
+      <p>About</p>
+      <li class="item vers">Version<span class="vers">1.0</span></li>
+    </div>
+
+    <div class="padding text-center">
+      <button class="button button-block" ng-click="logout()">Logout</button>
+    </div>
+
   </ion-content>
 </ion-view>

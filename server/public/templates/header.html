@@ -11,14 +11,9 @@
             </button>
             <a class="navbar-brand" href="#/" translate>iTravel</a>
         </div>
+
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <!--<ul class="nav navbar-nav">
-                <li><a href="#/attractionsSelect">Attractions</a></li>
-                <li><a href="#/restaurantsSelect">Restaurants</a></li>
-                <li><a href="#/hotelsSelect">Hotels</a></li>
-            </ul>-->
-
             <div class="nav navbar-nav">
                 <button class="btn btn-success navbar-btn" ng-click="changeLanguage('en')">English</button>
                 <button class="btn btn-info navbar-btn" ng-click="changeLanguage('cn')">中文</button>
@@ -26,12 +21,14 @@
 
             <!--if not login-->
             <div class="nav navbar-nav navbar-right" ng-show="!currentUser">
+                <a href="#/works" class="btn works-btn">How It Works</a>
                 <a href="#/login" class="btn btn-success navbar-btn" translate>LOGIN</a>
                 <a href="#/signup" class="btn btn-info navbar-btn" translate>SIGNUP</a>
             </div>
 
             <!--if logged in -->
             <div class="nav navbar-nav navbar-right" ng-show="currentUser">
+                <a href="#/works" class="btn works-btn">How It Works</a>
                 <div class="btn-group" dropdown is-open="status.isopen">
                     <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-disabled="disabled">
                         {{currentUser.email}} <span class="caret"></span>

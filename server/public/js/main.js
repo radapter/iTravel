@@ -17,6 +17,9 @@ angular.module('iTravelApp')
             controller: "HomeCtrl"
         })
 
+        //how it works page
+        .when("/works", { templateUrl: "templates/works.html" })
+
         //user pages
         .when("/login", {
             templateUrl: "templates/user/login.html",

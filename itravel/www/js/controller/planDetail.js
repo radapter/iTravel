@@ -1,7 +1,7 @@
 
 angular.module('iTravelApp.controller.planDetail', [])
 
-    .controller('PlanDetailCtrl', function($scope, User, $rootScope, $stateParams, $location) {
+    .controller('PlanDetailCtrl', function($scope, $state, User, $rootScope, $stateParams, $ionicModal) {
 
         console.log('plan detail ctrl');
         init();
@@ -26,7 +26,7 @@ angular.module('iTravelApp.controller.planDetail', [])
                     parseDays();
                 }
             } else {
-                //$location.path('/login');
+                $state.go('login');
             }
         }
 
@@ -192,6 +192,14 @@ angular.module('iTravelApp.controller.planDetail', [])
             }
         ];
         $scope.styles = styleArray;
-        
+
+
+        $ionicModal.fromTemplateUrl('templates/help.html', {
+          scope: $scope
+        }).then(function(modal) {
+          $scope.helpModal = modal;
+        });
+
+
 });
 

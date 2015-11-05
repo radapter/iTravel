@@ -1,7 +1,14 @@
 
 angular.module('iTravelApp.controller.login', [])
 
-    .controller('LoginCtrl', function($scope, $location, User) {
+    .controller('LoginCtrl', function($scope, $state, $location, User, $ionicModal) {
+
+        console.log('LoginCtrl loaded');
+
+        if(User.currentUser) {
+          $state.go('tab.home');
+        }
+
         $scope.uiModel = {
             email: '',
             password: ''
@@ -27,8 +34,15 @@ angular.module('iTravelApp.controller.login', [])
                         $scope.loginStat = true;
                         console.log('user logged in successfully');
                         console.log(User.currentUser);
-                        $location.path("/tab/home");
+                        $state.go('tab.home');
                     }
                 });
         };
+
+        $ionicModal.fromTemplateUrl('templates/help.html', {
+          scope: $scope
+        }).then(function(modal) {
+          $scope.helpModal = modal;
+        });
+
     });

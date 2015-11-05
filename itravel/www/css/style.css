@@ -1,4 +1,3 @@
-
 .body-container {
   margin: 10px;
   height: 100%;
@@ -20,42 +19,58 @@
 }
 
 /************** Plans page  *****************/
+#plans, #plan-detail, #venue-detail {
+  margin-top: 30px;
+}
 
 .plan-icon {
   position: absolute;
-  top: 16px;
-  left: 16px;
-  max-width: 40px;
-  max-height: 40px;
+  top: 13px;
+  left: 12px;
+  max-width: 50px;
+  max-height: 50px;
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: dimgrey;
+  background-color: #F39C12;
   color: #fff;
   text-align: center;
+}
+
+#plans .item-content h2{
+  margin-top: 3px;
 }
 
 .plan-char {
   color: #fff !important;
   font-size: larger !important;
   font-weight: bolder;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
-.activity-icon {
-  font-size: 25px;
-  padding-top: 7px;
+.plan-icon i {
+  margin-top: 20px;
+  font-size: 2em;
 }
 
+#plans {
+  background: #F4F4F8;
+}
+
+#plans .no-plans {
+  margin: 20px;
+}
 
 /************** Plan detail page  *****************/
 .day-btn-clicked {
-  background-color: #1abc9c;
-  color: #fff;
+  background: #F39C12;
+  color: white !important;
   font-weight: bolder;
+  border: 1px solid #F39C12;
 }
+
 #plan-detail-map {
-  height: 98%;
+  height: 78%;
 }
 
 #plan_map_canvas {
@@ -67,53 +82,704 @@
   height: 100%;
 }
 
-.pull-top-right {
+#plan-detail .button-bar {
+  margin-bottom: 10px;
+}
+
+#plan-detail .button-bar button.activated {
+  background: #F39C12;
+  border: 1px solid #F39C12;
+}
+
+#plan-detail .button-bar button {
+  color: #F39C12;
+  border: 1px solid #F39C12;
+  font-size: 1.2em;
+}
+
+#plan-detail .button-bar button:first-of-type {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+#plan-detail .button-bar button:last-of-type {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.dest-input {
+  max-width: 15%;
+}
+
+#plan-detail .plan {
+  padding: 0;
+}
+
+#plan-detail .plan i {
+  font-size: 1.7em;
+  color: #FA9D4C;
+}
+
+#plan-detail .plan span.plan-name {
+  vertical-align: -webkit-baseline-middle;
+}
+
+#plan-detail .ion-map {
+  background: #1ABC9C;
+  border-radius: 50%;
+  color: white;
+  border: none;
+  margin-top: 5px;
+}
+
+#plan-detail .ion-navicon-round {
+  background: #FA9D4C;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  margin-top: 5px;
+}
+
+#plan-detail .plan-activity {
+  background: #F4F4F8;
+  border-radius: 2px;
+}
+
+#plan-detail .activity-icon {
   position: absolute;
-  right: 3%;
-  top: -1%;
+  left: 2px;
+  top: 2px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 50%;
+  color: white;
+}
+
+#plan-detail .activity-icon i {
+  position: absolute;
+  font-size: 2em;
+  margin: 7px -12px;
+}
+
+#plan-detail i.ion-ios-moon {
+  margin: 6px -6px;
+  font-size: 2.3em;
+}
+
+#plan-detail i.ion-fork {
+  margin: 8px -3px;
+}
+
+.plan-activity {
+  padding: 10px;
+  min-height: 100px;
+}
+
+.plan-activity .activity-stats {
+  width: 55%;
+  padding: 0;
+  position: absolute;
+  left: 157px;
+  top: 100px;
+  font-size: 0.9em;
+}
+
+.plan-activity .stat-like {
+  color: #E74C3C;
+}
+
+.plan-activity .stat-checkin {
+  color: #F39C12;
+}
+
+.plan-activity .stat-tip {
+  color: #3498DB;
+}
+
+.plan-activity img {
+  border-radius: 10px;
+  float: left;
+  margin-right: 10px;
+}
+
+.plan-activity .timeline-bar {
+  height: 70px;
+  width: 3px;
+  background: #E0E1EA;
+  position: absolute;
+  left: 27px;
+  top: 60px;
+}
+
+#plan-detail .item-avatar {
+  border: none;
+  padding: 15px 3px 3px 60px;
+}
+
+#plan-detail .item-avatar:last-of-type {
+  margin-bottom: 20px;
+}
+
+#plan-detail .item h2{
+  white-space: normal;
+}
+
+#plan-detail a {
+  text-decoration: none;
+  color: #4A4F70;
+}
+
+/**************** sliders styling  ******************/
+#helpModal {
+  margin: 0;
+  background: #363951;
+}
+
+#helpModal .slider {
+  clear: both;
+}
+
+#helpModal .slider-slide {
+  height: 500px;
+}
+
+h2.app-title {
+  color: white;
+  font-size: 2.5em;
+}
+
+h4.app-tagline {
+  margin-top: 30px;
+  color: #D8D8D8;
+  font-size: 1.3em;
+}
+
+h2.app-title2 {
+  color: white;
+  font-size: 1.8em;
+}
+
+h4.app-tagline2 {
+  margin: 20px auto 10px;
+  color: #D8D8D8;
+  font-size: 1.1em;
+  width: 300px;
+}
+
+.slide-subtitle {
+  font-size: 15px;
+}
+
+.icon.ion-record {
+  color: white;
+}
+
+.slider-pager {
+  bottom: 40px;
+  font-size: 0.7em;
+}
+
+.slide-img {
+  margin-top: 100px;
+  margin-bottom: 35px;
+}
+
+.slide-img-bk {
+  background: #4A4F70;
+  height: 170px;
+  width: 170px;
+  border-radius: 50%;
+  position: absolute;
+  top: 78px;
+  left: 102px;
+  z-index: -1;
+}
+
+.bk-3{
+  background: #2980B9;
+}
+
+.bk-4 {
+  background: #262839;
+}
+
+
+
+
+/**************** login + signin page styling  ******************/
+.login-page, .signup-page {
+  background: #363951;
+}
+
+.login-page input, .signup-page input {
+  color: white;
+}
+
+.login-page .heading {
+  margin: 80px auto 60px;
+}
+
+.signup-page .heading {
+  margin: 38px auto 45px;
+}
+
+.heading h1 {
+  margin-top: 8px;
+}
+
+.heading * {
+  color: white;
+}
+
+.login-page .list-inset, .signup-page .list-inset {
+  margin: 10px 14px;
+  background: none;
+}
+
+.login-page .list-inset .item-input, .signup-page .list-inset .item-input {
+  background-color: #4A4F70;
+  border: 1px solid #262839;
+  color: white;
+}
+
+.login-btn.button-block {
+  background: #1ABC9C;
+  color: white;
+  border: none;
+  width: 97%;
+  margin: 5px auto;
+}
+
+.login-page i, .signup-page i {
+  font-size: 1.5em;
+  padding-right: 10px;
+  color: #989DBB;
+}
+
+p.link {
+  margin-top: 30px;
+  color: #989DBB;
+  font-size: 0.9em;
+}
+
+a.link {
+  color: #1ABC9C;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+input:-moz-placeholder, input::-webkit-input-placeholder {
+  color: #989DBB;
+}
+
+/**************** user profile styling  ******************/
+.account, .home {
+  margin-top: 25px;
+  background: #F4F4F8;
+  color: #4A4F70;
+}
+
+span.vers {
+  float: right;
+  padding-right: 20px;
+  color: #989DBB;
+}
+
+.account .icon {
+  margin: 8px 10px;
+  max-height: 70%;
+  padding: 4px;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.5em;
+}
+
+.ion-social-twitter {
+  background: #55ACEE;
+}
+
+.ion-social-facebook {
+  background: #3B5998;
+}
+
+.ion-social-googleplus {
+  background: #DD4B39;
+}
+
+.account .item {
+  line-height: 20px;
+}
+
+.account span.title {
+  padding-left: 20px;
+  color: #4A4F70;
+}
+
+.account .list p {
+  margin-left: 20px;
+  text-transform: uppercase;
+  color: #4A4F70;
+}
+
+.col.email h3{
+  margin: 15% auto;
+  text-align: left;
+}
+
+.account .list .item.vers {
+  padding-left: 20px;
+}
+
+.account .button-block {
+  background: #1ABC9C;
+  border: 1px solid #979797;
+  color: white;
+}
+
+.account .list {
+  margin-bottom: 10px;
+}
+
+.toggle.toggle-custom input:checked + .track {
+  background: #1ABC9C;
+  border-color: #1ABC9C;
+}
+
+.account img {
+  border-radius: 50px;
+}
+
+/**************** itravel home styling  ******************/
+.home .user .row, .account .user .row {
+  padding: 8px 0;
+  margin: 0;
+}
+
+.home .user .col, .account .user .col {
+  padding: 5px 0;
+}
+
+.home .ion-person, .account .ion-person {
+  color: white;
+  font-size: 4.5em;
+  background: #C7C8CE;
+  border-radius: 50%;
+  padding: 0 15px;
+  margin-left: 15px;
+}
+
+.col.email h3{
+  margin: 18px auto;
+  margin-left: 8px;
+  padding: 0;
+}
+
+#plan-stat {
+  margin: -15px -5px;
+}
+
+#plan-stat .col {
+  margin: 0 10px;
+  border-radius: 5px;
+  color: white;
+  padding: 0;
+}
+
+#plan-stat .col .count {
+  padding-top: 10px;
+  font-size: 2em;
+}
+
+#plan-stat .col .count-tag {
+  margin-bottom: -2px;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 3px;
+}
+
+#plan-stat .col:nth-of-type(1) {
+  background: #F39C12;
+}
+
+#plan-stat .col:nth-of-type(2) {
+  background: #E74C3C;
+}
+
+#plan-stat .col:nth-of-type(3) {
+  background: #3498DB;
+}
+
+#plan-stat .col:nth-of-type(1) .count-tag {
+  background: #E67E22;
+}
+
+#plan-stat .col:nth-of-type(2) .count-tag {
+  background: #C0392B;
+}
+
+#plan-stat .col:nth-of-type(3) .count-tag {
+  background: #2980B9;
+}
+
+.home .plan-new-btn {
+  background: #1ABC9C;
+  color: white;
+}
+
+#next-trip {
+  margin: 25px 10px 5px;
+  background: white;
+  border: 1px solid #C1C4D6;
+  border-radius: 5px;
+  padding: 15px 10px 2px;
+}
+
+#next-trip h3 {
+  color: #4A4F70;
+}
+
+#next-trip .row {
+  margin: 5px auto;
+}
+
+#next-trip .icon {
+  font-size: 1.7em;
+  padding: 8px 10px;
+  color: white;
+  border-radius: 50px;
+  text-align: center;
+  width: 40px;
+  height: 41px;
+}
+
+#next-trip .ion-paper-airplane {
+  background: #F39C12;
+}
+
+#next-trip .ion-calendar {
+  background: #1ABC9C;
+}
+
+#next-trip .ion-location {
+  background: #344E5F;
+}
+
+#next-trip .row h4 {
+  margin: 10px;
+  color: #9B9B9B;
+}
+
+#next-trip .ion-chevron-right {
+  background: none;
+  border: none;
+  color: #1ABC9C;
+  font-size: 2em;
+  padding: 0;
+  position: absolute;
+  right: 5px;
+}
+
+/**************** plan a trip styling  ******************/
+.modal-backdrop {
+  background: #F4F4F8;
+}
+
+.modal-backdrop .scroll-content {
+  margin-top: 50px;
+}
+
+.modal-backdrop .btn-nav {
+  margin-top: 15px;
+  background: #1ABC9C;
+  color: white;
+}
+
+.modal-backdrop .item-input {
+  background: #F4F4F8;
+  border: 1px solid #C1C4D6;
+  border-radius: 3px;
+}
+
+.modal-backdrop .button-date {
+  margin: 0 auto;
+  line-height: 30px;
+  min-height: 33px;
 }
 
 .loc-pull-right {
   position: absolute;
   right: 3%;
-  top: 5%;
+  top: 20%;
   z-index: 999;
 }
 
-.dest-input {
-  max-width: 5%;
+.popup {
+  border-radius: 5px !important;
+  width: 300px !important;
 }
 
-.plan-name {
-  max-height: 10%;
+.popup-head {
+  background: #1ABC9C;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
-/**************** next trip styling  ******************/
-.next-trip-icon {
-  margin: 10px 10px 10px 5px;
-  font-size: 30px;
-  color: #1abc9c;
-  width: 30px;
+.popup-head * {
+  color: white;
+  font-size: 1.4em;
+}
+
+.popup-body .calendar_grid > .row {
+  margin-left: 9px;
+}
+
+/**************** venut detail page styling  ******************/
+#venue-detail .container {
+  margin: 15px;
+}
+
+#venue-detail .venue-pics {
+  height: 200px;
+  background: #363951;
+  margin: 0;
+}
+
+#venue-detail .venue-pics img {
+  margin: 10px auto;
+  height: 180px;
+  width: 180px;
+}
+
+#venue-detail .rating {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#venue-detail .rating p {
   text-align: center;
+  font-size: 1.6em;
+  margin-top: 14px;
 }
 
-.next-trip-card {
-  border: solid 1px #1abc9c;
+#venue-detail .venue-name {
+  color: #1ABC9C;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin: 5px auto;
 }
 
-.acitvity-text {
-  width: 80%;
+#venue-detail .venue-info {
+  background: #F4F4F8;
+  margin: 0;
+  padding: 15px;
 }
 
-.stat-num {
-  font-size: 25px !important;
+#venue-detail .venue-address *, #venue-detail .venue-phone * {
+  color: #4A4F70;
 }
 
-.text-small {
-  font-size: 12px !important;
+#venue-detail .venue-address i {
+  font-size: 1.1em;
 }
 
-.align-right-tight {
-  margin-right: -5px;
-  margin-left: -5px;
+.venue-address *, .venue-phone * {
+  font-size: 1em;
+  margin: 2px auto;
+}
+
+.venue-tips .item {
+  border: none;
+  border-top: 1px solid #d0d0d0;
+}
+
+.venue-tips img {
+  max-width: 55px !important;
+  max-height: 55px !important;
+  top: 10px !important;
+  left: 8px !important;
+}
+
+.venue-tips .tip-user {
+  font-size: 0.7em;
+  color: #2980B9;
+  float: left;
+}
+
+.venue-tip .tip-time {
+  float: right;
+  color: #989DBB;
+}
+
+.venue-tip .tip-text {
+  clear: both;
+  font-size: 0.8em;
+  white-space: normal;
+}
+
+/**************** top nav tabs styling  ******************/
+.tab-nav {
+  background: #4A4F70;
+}
+
+.tab-nav * {
+  color: white;
+}
+
+.tab-item-active * {
+  color: #1ABC9C;
+}
+
+/**************** bottom nav tabs styling  ******************/
+.nav-bar-container *, .bar-header {
+  background: #1ABC9C !important;
+  height: 75px;
+}
+
+.nav-bar-container .title, .bar-header .title, .bar-header button {
+  margin-top: 25px;
+  background: none;
+  padding: 0;
+  font-size: 2em;
+  color: white !important;
+}
+
+.item-input-wrapper {
+  margin-top: 25px !important;
+}
+
+.back-text, .previous-title {
+  height: 35px;
+}
+
+/**************** help btn styling  ******************/
+div.buttons-right, div.buttons-right * {
+  background: none !important;
+}
+
+div.buttons-right {
+  margin-top: 24px;
+}
+
+a.button-help {
+  text-align: right;
+  position: absolute;
+  right: 0px;
+}
+
+.button-help-close {
+  float: right;
+  margin-right: 5px;
+  background: #363951 !important;
+}
+
+.click-block, .modal-backdrop {
+  background: #363951;
 }

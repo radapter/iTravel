@@ -1,0 +1,45 @@
+<ion-modal-view id="helpModal" hide-nav-bar="true">
+
+
+  <button class="button button-clear button-help-close" ng-click="helpModal.hide()">Close</button>
+  <ion-slide-box class="has-header" on-slide-changed="slideHasChanged($index)">
+    <ion-slide id="slide-1">
+      <div class="padding text-center slide-bkgd">
+        <img class="slide-img" src="../img/iTravel.png" width="120" height="120" alt="itravel logo">
+        <h2 class="app-title">iTravel</h2>
+        <h4 class="app-tagline">
+          Your Personal Travel Assistant
+        </h4>
+      </div>
+    </ion-slide>
+
+    <ion-slide id="slide-2">
+      <div class="padding text-center slide-value">
+        <div class="slide-img-bk bk-1"></div>
+        <img class="slide-img" src="../img/Clipboard.png" width="100" height="100" alt="clipboard icon">
+        <h2 class="app-title2">The world is your oyster</h2>
+        <h4 class="app-tagline2">Simply choose your destination or use your current location.</h4>
+      </div>
+    </ion-slide>
+
+    <ion-slide id="slide-3">
+      <div class="padding text-center slide-features">
+        <div class="slide-img-bk bk-3"></div>
+        <img class="slide-img" src="../img/Map.png" width="100" height="100" alt="map icon">
+        <h2 class="app-title2">Autoplanning</h2>
+        <h4 class="app-tagline2">We build your itinerary using hot spots and based on your interests.</h4>
+      </div>
+    </ion-slide>
+
+    <ion-slide id="slide-4">
+      <div class="padding text-center slide-features">
+        <div class="slide-img-bk bk-4"></div>
+        <img class="slide-img" src="../img/Compass.png" width="100" height="100" alt="compass icon">
+        <h2 class="app-title2">Travel Adaptively</h2>
+        <h4 class="app-tagline2">Hit the road and we track you on the go.
+          Adapt your plan due to delays or spontaneity.</h4>
+      </div>
+    </ion-slide>
+
+  </ion-slide-box>
+</ion-modal-view>

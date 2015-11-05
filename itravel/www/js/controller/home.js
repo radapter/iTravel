@@ -1,7 +1,7 @@
 
 angular.module('iTravelApp.controller.home', [])
 
-    .controller('HomeCtrl', function($scope, $ionicModal, $http, ApiEndpoint, Plan, $location, User, _, $ionicLoading, $rootScope) {
+    .controller('HomeCtrl', function($scope, $state, $ionicModal, $http, ApiEndpoint, Plan, $location, User, _, $ionicLoading, $rootScope) {
 
         console.log('HomeCtrl loaded');
 
@@ -26,7 +26,7 @@ angular.module('iTravelApp.controller.home', [])
                 refreshUser(User.currentUser);
             } else {
                 console.log('no curr user');
-                //$location.path('/login');
+                $state.go('login');
             }
 
         }
@@ -42,6 +42,7 @@ angular.module('iTravelApp.controller.home', [])
 
         function refreshUser(user){
             $scope.hasNoPlan = true;
+            $scope.currentTrip = false;
             console.log(user);
             $scope.currentUser = user;
 
@@ -58,13 +59,23 @@ angular.module('iTravelApp.controller.home', [])
         }
 
         function findNextTrip(){
-            var currDate = new Date();
-            var i = 0;
-            while(User.currentUser.plans[i].startDate < currDate || !User.currentUser.plans[i].active ) {
-                i++;
+            var currDate = new Date().getTime(); //utc time
+            var upcoming;
+
+            for(var i = 0; i < User.currentUser.plans.length; i++){
+              var utcDate = Date.parse(User.currentUser.plans[i].endDate);
+              if(utcDate >= currDate){
+                if( (upcoming === undefined) || (utcDate <= Date.parse(upcoming.endDate)) ){
+                  upcoming = User.currentUser.plans[i];
+                }
+              }
             }
-            $scope.nextTrip = User.currentUser.plans[i];
+
+            $scope.nextTrip = upcoming;
             console.log($scope.nextTrip);
+            if(Date.parse($scope.nextTrip.startDate) < currDate){
+              $scope.currentTrip = true;
+            }
         }
 
         function getCurrLoc(){
@@ -240,7 +251,7 @@ angular.module('iTravelApp.controller.home', [])
                     } else {
                         console.log('not handle user not login situation');
                         $scope.planModal.hide();
-                        $location.path('/login');
+                        $state.go('login');
                     }
 
                 }, function fail(err) {
@@ -250,12 +261,12 @@ angular.module('iTravelApp.controller.home', [])
 
         //datepicker
         $scope.datepickerObject = {
-            titleLabel: 'Title',  //Optional
+            titleLabel: 'Starting Date',  //Optional
             todayLabel: 'Today',  //Optional
             closeLabel: 'Close',  //Optional
             setLabel: 'Set',  //Optional
-            setButtonType : 'button-assertive',  //Optional
-            todayButtonType : 'button-assertive',  //Optional
+            setButtonType : 'button-balanced',  //Optional
+            todayButtonType : 'button-positive',  //Optional
             closeButtonType : 'button-assertive',  //Optional
             inputDate: new Date(),    //Optional
             mondayFirst: true,    //Optional
@@ -277,5 +288,26 @@ angular.module('iTravelApp.controller.home', [])
                 console.log('Selected date is : ', val)
             }
         };
+
+        $scope.toUpcoming = function(_id){
+          $state.go('tab.plans');
+          console.log(_id);
+          //$location.path('/tab/plans/' + _id);
+          $state.go('tab.plan-detail', {id: _id});
+          console.log('after state change');
+        };
+
+        $scope.endDate = function(date){
+          //this is a hack to get the proper end date for plans
+          var dt = Date.parse(date) / 1000;
+          var newD = dt - 25201; //subtract 7 hours + 1 second (endDate seems to always be next day at 7am UTC)
+          return newD * 1000;
+        }
+
+        $ionicModal.fromTemplateUrl('templates/help.html', {
+          scope: $scope
+        }).then(function(modal) {
+          $scope.helpModal = modal;
+        });
 
     });
