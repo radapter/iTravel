@@ -783,3 +783,18 @@ a.button-help {
 .click-block, .modal-backdrop {
   background: #363951;
 }
+
+/*put tool bar at the bottom for android*/
+.platform-android .tabs-top > .tabs{
+  top:93% !important ;
+  background-color: #363951 !important;
+}
+
+.platform-android .home,
+.platform-android #plans,
+.platform-android #plan-detail,
+.platform-android .account,
+.platform-android .scroll{
+  margin-top: 0px !important ;
+  height: 75% !important;
+}

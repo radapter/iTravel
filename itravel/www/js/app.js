@@ -20,10 +20,11 @@ angular.module('iTravelApp', ['ionic', 'ngMap', 'underscore', 'ion-autocomplete'
     'iTravelApp.service.venue',
     'iTravelApp.service.httpInterceptor',
     'iTravelApp.filter.getDestNameInitial'
-]).constant('host', 'http://localhost:3000/')
+]).constant('host', 'https://radapter-itravel.herokuapp.com/')
 
 .constant('ApiEndpoint', {
-        url: 'http://localhost:8100/api/google-map'
+        //url: 'http://localhost:8100/api/google-map' //not working on device
+        url: 'https://maps.googleapis.com/maps/api' //not working on chrome, working on device, can't use get current location
     })
 
 .run(function($ionicPlatform) {
