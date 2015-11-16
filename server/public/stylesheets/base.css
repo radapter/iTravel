@@ -17,10 +17,29 @@
 	cursor: pointer;
 }
 
-/*  */
+/* blcok format container */
 .rd-bfc {
 	overflow: hidden;
 	zoom: 1;
+}
+
+.rd-full-height {
+	height: 100%;
+}
+
+.rd-stretch-vertically {
+	position: relative;
+	top: 0;
+	bottom: 0;
+} 
+
+
+/* overwrite bootstrap grid padding between columns */
+.row-no-space {
+	padding: 0px;
+}
+.row-no-space > [class^='col-'] {
+	margin: 0px;
 }
 
 .clearfix:before,
@@ -28,9 +47,11 @@
     content: "";
     display: table;
 } 
+
 .clearfix:after {
     clear: both;
 }
+
 .clearfix {
     zoom: 1; /* For IE 6/7 (trigger hasLayout) */
 }

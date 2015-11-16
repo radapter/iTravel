@@ -89,7 +89,7 @@
                             Plan.create(destName, destlat, destLng);
                             console.log(Plan.tempPlan);
 
-                            $location.url('/venueSelect');
+                            $location.url('/venueSelector?'+$.param(param));
                         }, function fail(err) {
                             console.log('get searchedResult failed. res:', err);
                         });

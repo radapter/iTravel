@@ -1,32 +1,31 @@
-<<!-->
- This new template is meant to serve the same purpose of venueSelect.html 
-</!-->
-<h1>Places to go in {{searchParams.destination}}</h1>
-<div id="venue-selector-container" class="container-fluid">
-	<div class="row">
-		<div id="venue-selector" class="container-fluid col-md-9">
-			<div class="row">
-				<div id="venue-filters" class="col-md-12">
+<!-- 
+ This new template is meant to serve the same purpose of venueSelect.html
+ -->
+
+<div class="container-fluid rd-full-height venue-selector-container">
+	<div class="row row-no-space rd-full-height">
+		<div class="col-md-9 rd-full-height venue-selector">
+			<div class="row row-no-space">
+				<div class="col-md-12 venue-filters">
 					
 				</div>
 			</div>
-			<div class="row">
-				<div id="venue-options" class="col-md-7 clearfix">
-					<div venue-option="venue" ng-repeat="venue in allVenues | venuesFilter"></div>	
+			<div class="row row-no-space rd-full-height">
+				<div class="col-md-6 rd-full-height venue-options">
+					<div class="venue-card-container">
+						<div venue-option venue="venue" class="venue-option-card" ng-repeat="venue in venues" ng-click="showVenueDetails(venue)"></div>
+					</div>
 				</div>
-				<div id="venue-map" class="col-md-5">
+				<div class="col-md-6 rd-full-height venue-selector-map">
 					
 				</div>
 			</div>
 		</div>
 
-		<div id="venue-elections" class="col-md-3">
-			<div class="venue-categories">
+		<div class="col-md-3 rd-full-height venue-elections">
+			<div class="venue-categories rd-full-height">
 				<div venue-election="venue"  ng-repeat="venue in electedVenues"></div>
 			</div>
-		</div>
-		<div id="venue-detials-modal">
-			
 		</div>
 	</div>
 </div>

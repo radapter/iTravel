@@ -1,23 +1,104 @@
-#venue-selector-container {
-	
+.venue-selector-container {
+	position: absolute;
+	z-index: 1;
+
+	margin-top: -85px; /* pull up container by a magic number */
+	padding-top: 65px; /* push down content by a magic number */
+	width: 100%;
+
+	background-color: red;
 }
 
-#venue-options {
-	
+.venue-selector, .venue-elections {
+	background-color: #16a085;
+}
+
+.venue-filters {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+
+	width: 100%;
+	height: 120px;
+
+	background-color: #ecf0f1;
+	box-shadow: -2px 2px 2px #333;
+}
+
+
+.venue-options, .venue-selector-map {
+	padding: 120px 0px 0px; /* height of filter*/
+}
+
+.venue-options {
+	background-color: #34495e;
+}
+
+.venue-card-container {
+	width: 100%;
+	height: 100%;
+
+	overflow-y: auto;
+}
+
+.venue-selector-map {
+	background-color: green;
+
 }
 
 .venue-option-card {
-	float: left;
+	position: relative;
+	display: inline-block;
+
+	margin: 10px;
+	width: 220px;
+	height: 180px;
+
+	background-color: white;
+	background-size: cover;
 }
 
-#venue-map {
 
+.venue-featured-photo {
+	width: 100%;
+	height: 100%;
+	
 }
 
-#venue-selections {
+.venue-info {
+	position: absolute;
+	bottom: 0px;
 
+	width: 100%;
+	height: 50px;
+
+	background-color: #ecf0f1;
+	opacity: 0.9;
 }
 
-.venue-selection-card {
+.venue-info > h3 {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 
+
+	display: inline-block;
+
+	margin: 0;
+	padding: 0 60px 0 5px;
+	width: 100%;
+
+	font-size: 15px;
 }
+
+.venue-info > .select-btn {
+	position: absolute;
+	top: 13px;
+	right: 5px;
+
+	display: inline-block;
+	width: 50px;
+
+	opacity: 1;
+}
+
