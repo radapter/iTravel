@@ -38,8 +38,8 @@
 
     <!--panel next trip-->
     <div id="next-trip">
-      <h3 ng-show="!currentTrip">Upcoming Trip</h3>
-      <h3 ng-show="currentTrip">Current Trip</h3>
+      <h4 ng-show="!currentTrip">Upcoming Trip</h4>
+      <h4 ng-show="currentTrip">Current Trip</h4>
       <div class="next-trip-card">
         <div ng-show="nextTrip == undefined" class="container">
           <p>No plans yet</p>
@@ -48,17 +48,17 @@
         <div ng-hide="nextTrip == undefined">
           <div class="row">
             <i class="icon ion-paper-airplane"></i>
-            <h4>{{nextTrip.destName}}</h4>
+            <h5>{{nextTrip.destName | trimString }}</h5>
           </div>
 
           <div class="row">
             <i class="icon ion-calendar"></i>
-            <h4>{{nextTrip.startDate | date: 'MM/dd/yyyy': 'utc'}} - {{ endDate(nextTrip.endDate) | date: 'MM/dd/yyyy' }}</h4>
+            <h5>{{nextTrip.startDate | date: 'MM/dd/yyyy': 'utc'}}-{{ endDate(nextTrip.endDate) | date: 'MM/dd/yyyy' }}</h5>
           </div>
 
           <div class="row">
             <i class="icon ion-location"></i>
-            <h4 class="acitvity-text">{{nextTrip.activities.length}} Activities</h4>
+            <h5 class="acitvity-text">{{nextTrip.activities.length}} Activities</h5>
             <button class="button ion-chevron-right" ng-click="toUpcoming(nextTrip._id)"></button>
           </div>
         </div>

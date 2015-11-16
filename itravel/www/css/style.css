@@ -292,7 +292,7 @@ h4.app-tagline2 {
   border-radius: 50%;
   position: absolute;
   top: 78px;
-  left: 102px;
+  left: 26%;
   z-index: -1;
 }
 
@@ -790,11 +790,40 @@ a.button-help {
   background-color: #363951 !important;
 }
 
+.platform-android body {
+  color: #fff;
+}
+
 .platform-android .home,
 .platform-android #plans,
 .platform-android #plan-detail,
+.platform-android #venue-detail,
 .platform-android .account,
 .platform-android .scroll{
   margin-top: 0px !important ;
-  height: 75% !important;
+  color: #fff;
+  /*height: 75% !important;*/
+  top: 48px;
+}
+
+.platform-android .nav-bar-container *{
+  height: 50px;
+  margin-top: 0;
+}
+
+.platform-android div.buttons-right {
+  margin-top: 0;
+}
+
+.platform-android .has-tabs-top {
+  /*top: 50px;*/
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+.btn-plans {
+ float: right;
+ margin-top: 5px;
 }

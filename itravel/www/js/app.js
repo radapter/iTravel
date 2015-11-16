@@ -19,7 +19,8 @@ angular.module('iTravelApp', ['ionic', 'ngMap', 'underscore', 'ion-autocomplete'
     'iTravelApp.service.user',
     'iTravelApp.service.venue',
     'iTravelApp.service.httpInterceptor',
-    'iTravelApp.filter.getDestNameInitial'
+    'iTravelApp.filter.getDestNameInitial',
+    'iTravelApp.filter.trimString'
 ]).constant('host', 'https://radapter-itravel.herokuapp.com/')
 
 .constant('ApiEndpoint', {
