@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('iTravelApp')
-        .controller('PlansShowCtrl', ['$scope', '$routeParams', '$location', 'User', '$rootScope', function($scope, $routeParams, $location, User, $rootScope) {
+        .controller('PlansShowCtrl', ['$scope', '$routeParams', '$location', 'User', '$rootScope', 'venueDetailsModal', function($scope, $routeParams, $location, User, $rootScope, venueDetailsModal) {
 
             init();
 
@@ -98,6 +98,12 @@
             $scope.changeDayRoute = function(day){
                 buildWaypoints(day);
             };
+
+            $scope.onClickActivity = function(venue, event) {
+                event.preventDefault();
+                venueDetailsModal.showModal(venue);
+            };
+
 
             /***
              * method to show directions with waypoints on map
