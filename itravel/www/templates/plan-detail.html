@@ -9,7 +9,10 @@
     <div class="body-container">
       <h4 class="row plan">
         <div class="col-10"><i class="icon ion-ios-location"></i></div>
-        <div class="col-80"><span class="plan-name">{{plan.destName}}</span></div>
+        <div class="col-80">
+          <span class="plan-name">{{plan.destName}}</span>
+          <a href="#/tab/plans" class="button button-small btn-plans">Plans</a>
+        </div>
         <div class="col-10 text-center">
           <button class="button button-small icon ion-map" ng-click="setMapMode()" ng-show="!mapMode"></button>
           <button class="button button-small icon ion-navicon-round" ng-click="unSetMapMode()" ng-show="mapMode"></button>
