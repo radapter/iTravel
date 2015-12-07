@@ -6,8 +6,198 @@
 
                 $scope.tempPlan = Plan.tempPlan;
                 $scope.venues = [].concat(Venue.searchResults.restaurants, Venue.searchResults.attractions, Venue.searchResults.hotels);
+                $scope.selectedVenues = [];
                 $scope.venueCategories = Venue.categoryDict;
+                $scope.map = {
+                    center: { latitude: $scope.tempPlan.destLat, longitude: $scope.tempPlan.destLng},
+                    options:{
+                        scaleControl: true
+                    },
+                    zoom: 15,
+                    events: {
+                        'click': function(e) {
+                            var venue = e.model;
+                            venueDetailsModal.showModal(venue);
+                        },
+                        'mouseover': function(e) {
+                            var venue = e.model;
+                            $scope.map.activeMarker = venue;
+                            $scope.map.windowOptions.visible = true;
+                            $scope.focusOnVenue(venue);
 
+                            $scope.resetAllMakers();
+                            venue.activeIcon = 'img/blue_marker.png';
+                        },
+                        'mouseout': function() {
+                            $scope.map.windowOptions.visible = false;
+
+                            $scope.resetAllMakers();
+                        }
+                    },
+                    windowOptions: {
+                        visible: false
+                    },
+                    activeMarker: $scope.venues[0]
+                };
+
+                $scope.filterParams = {
+                    name: '',
+                    section: 'attractions'
+                };
+                $scope.filteredVenues = [];
+                console.log($scope.venues);
+
+                $scope.isFilterExpanded = false;
+
+                $scope.applyFilters = function() {
+                    var filteredVenues;
+                    if (!$scope.venues || !$scope.venues.length) {
+                        filteredVenues = [];
+                        return;
+                    }
+
+                    filteredVenues = _.filter($scope.venues, sectionFilter);
+                    filteredVenues = _.filter(filteredVenues, nameFilter);
+
+                    $scope.filteredVenues = filteredVenues;
+                };
+                $scope.applyFilters();
+
+                function sectionFilter(venue) {
+                    return $scope.filterParams.section === '' || venue.section === $scope.filterParams.section;
+                }
+
+                function nameFilter(venue) {
+                    var venueName = venue.name.toLowerCase(),
+                        filterValue = $scope.filterParams.name.toLowerCase();
+                    return filterValue === '' || venueName.indexOf(filterValue) > -1;
+                }
+
+                function foldFilters() {
+                    $scope.isFilterExpanded = false;
+                    $('.venue-filters').css('height', '80px');
+                    $('.venue-selector-adapter').css('padding-top', '80px');
+                    $('.filter-expand-button').find('i').removeClass('fa-angle-up');
+                    $('.filter-expand-button').find('i').addClass('fa-angle-down');
+                }
+
+                function expandFilters() {
+                    $scope.isFilterExpanded = true;
+                    $('.venue-filters').css('height', '160px');
+                    $('.venue-selector-adapter').css('padding-top', '160px');
+                    $('.filter-expand-button').find('i').removeClass('fa-angle-down');
+                    $('.filter-expand-button').find('i').addClass('fa-angle-up');
+                }
+
+                $scope.onClickSectionBtn = function(e) {
+                    console.log(e);
+                    var $btn = $(e.target),
+                        section = $btn[0].getAttribute('data-section');
+                    if (section === $scope.filterParams.section) {
+                        $scope.filterParams.section = '';
+                        clearAllActive();
+                    } else {
+                        $scope.filterParams.section = section;
+                        clearAllActive();
+                        $btn.addClass('active');
+                    }
+
+                    $scope.applyFilters();
+
+                    function clearAllActive() {
+                        $($btn[0].parentNode).find('.btn').removeClass('active');
+                    }
+
+                };
+
+                $scope.toggleFilterExpansion = function() {
+                    console.log($scope.isFilterExpanded);
+                    if ($scope.isFilterExpanded) {
+                        foldFilters();
+                    } else {
+                        expandFilters();
+                    }
+                };
+
+                $scope.onClickVenueOption = function(venue, event) {
+                    var $target = $(event.target);
+
+                    // If user clicks the venue option card, show details of the venue in a modal
+                    // If user clicks the select button however, the venueOption directive will pick up the event
+                    if ($target.hasClass('select-btn') || $target.hasClass('unselect-btn')) {
+                        return;
+                    }
+                    $scope.showVenueDetails(venue);
+                };
+
+                $scope.showVenueDetails = function(venue) {
+                    venueDetailsModal.showModal(venue);
+                };
+
+                $scope.centerAroundVenue = function(venue) {
+                    $scope.map.center = venue.coords;
+                    $scope.resetAllMakers();
+                    venue.activeIcon = 'img/blue_marker.png';
+                    // TODO HIGH yulin making the centered venue standing out
+                };
+
+                $scope.focusOnVenue = function(venue) {
+                    var $venueCard = $('[data-venue-id="'+venue.id+'"]');
+                    console.log($venueCard);
+                    $venueCard.get(0).scrollIntoView();
+                    $('[data-venue-id]').removeClass('focused');
+                    $venueCard.addClass('focused');
+                };
+
+                $scope.blurAllVenues = function() {
+                    $('[data-venue-id]').removeClass('focused');
+                };
+
+                $scope.resetAllMakers = function() {
+                    _.each($scope.venues, function(venue) {
+                        delete venue.activeIcon;
+                    });
+                };
+
+                $scope.selectVenue = function(venue) {
+                    console.log('selectVenue invoked inside controller. venue:', venue);
+                    if ($scope.selectedVenues.indexOf(venue) === -1) {
+                        $scope.selectedVenues.push(venue);
+                        venue.selected = true;
+                    }
+                };
+
+                $scope.unselectVenue = function(venue) {
+                    var idx = $scope.selectedVenues.indexOf(venue);
+                    if (idx !== -1) {
+                        $scope.selectedVenues.splice(idx, 1);
+                        venue.selected = false;
+                    }
+                };
+
+                $scope.toggleSelection = function(venue) {
+                    var idx = $scope.selectedVenues.indexOf(venue);
+                    if (idx !== -1) {
+                        $scope.selectedVenues.splice(idx, 1);
+                        venue.selected = false;
+                        return 'unselected';
+                    } else {
+                        $scope.selectedVenues.push(venue);
+                        venue.selected = true;
+                        return 'selected';
+                    }
+                };
+
+                $scope.goSchedule = function() {
+                    var activity;
+                    for(var i = 0; i < $scope.selectedVenues.length; i++) {
+                        var venue = $scope.selectedVenues[i];
+                        activity = Activity.create(venue, venue.section, venue.name);
+                        Plan.tempPlan.activities.push(activity);
+                    }
+
+                    $location.url('activityScheduler');
+                };
                 // $scope.tempSelectedVenues = {
                 //     "attractions": [],
                 //     "restaurants": [],
@@ -177,10 +367,6 @@
                 //         });
 
                 // }
-
-                $scope.showVenueDetails = function(venue) {
-                    venueDetailsModal.showModal(venue);
-                };
 
 
         }]);

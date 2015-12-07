@@ -7,25 +7,85 @@
 		<div class="col-md-9 rd-full-height venue-selector">
 			<div class="row row-no-space">
 				<div class="col-md-12 venue-filters">
-					
+					<div class="category-filter">
+						<div class="btn-group btn-group-sm category-btn-group" ng-click="onClickSectionBtn($event)">
+							<label class="btn btn-default active" ng-model="filterParams.section" data-section="attractions">Attractions</label>
+							<label class="btn btn-default" ng-model="filterParams.section" data-section="restaurants">Restaurants</label>
+							<label class="btn btn-default" ng-model="filterParams.section" data-section="hotels">Hotels</label>
+					    </div>
+					</div>
+					<div class="name-filter">
+						<div class="input-group input-group-sm">
+							<input class="form-control ng-pristine ng-valid ng-touched" type="text" name="name" placeholder="filter by venue name" ng-model="filterParams.name" ng-change="applyFilters()">
+							<span class="input-group-addon">
+								<i class="fa fa-filter fa-fw"></i>
+							</span>
+						</div>
+					</div>
+					<div class="filter-expand-button" ng-click="toggleFilterExpansion()">
+						<i class="fa fa-angle-down"></i>
+					</div>
 				</div>
 			</div>
-			<div class="row row-no-space rd-full-height">
+			<div class="row row-no-space rd-full-height venue-selector-adapter">
 				<div class="col-md-6 rd-full-height venue-options">
 					<div class="venue-card-container">
-						<div venue-option venue="venue" class="venue-option-card" ng-repeat="venue in venues" ng-click="showVenueDetails(venue)"></div>
+						<div venue-option venue="venue" class="venue-option-card" ng-repeat="venue in filteredVenues" ng-click="onClickVenueOption(venue, $event)" ng-mouseover="centerAroundVenue(venue)" ng-mouseleave="blurAllVenues()" data-venue-id="{{venue.id}}" on-click-select-btn="toggleSelection(venue)"></div>
 					</div>
 				</div>
 				<div class="col-md-6 rd-full-height venue-selector-map">
-					
+					<ui-gmap-google-map
+					    center='map.center'
+					     zoom='map.zoom' options="map.options">
+					    <ui-gmap-markers models="filteredVenues" coords="'coords'" idkey="'id'" icon="'activeIcon'" events="map.events">
+					    		<ui-gmap-window options="windowOptions">
+				                    <div>{{map.activeMarker.name}}</div>
+				                </ui-gmap-window>
+					    </ui-gmap-markers>
+					</ui-gmap-google-map>
 				</div>
 			</div>
 		</div>
 
 		<div class="col-md-3 rd-full-height venue-elections">
-			<div class="venue-categories rd-full-height">
-				<div venue-election="venue"  ng-repeat="venue in electedVenues"></div>
+			<div class="schedule-actions">
+				<span class="btn btn-block btn-warning btn-embossed" ng-click="goSchedule()" ng-disabled="!selectedVenues.length">
+					Done & Save
+				</span>
 			</div>
+			<div class="todo unscheduled-container rd-full-height">
+<!-- 				    <div class="todo-search">
+			        <input class="todo-search-field" type="search" value="" placeholder="Filter">
+			    </div> -->
+			    <ul class="unscheduled-list">
+			        <li class="unscheduled-item"
+			            ng-repeat="venue in selectedVenues"
+			            ng-click="onClickVenueOption(venue, $event)"
+			            ng-mouseover="centerAroundVenue(venue)"
+			            ng-mouseleave="blurAllVenues()" 
+			        >
+			            <div class="todo-icon">
+			                <i class="fa" ng-class="{
+			                    'fa-coffee': venue.section === 'restaurants',
+			                    'fa-bed': venue.section === 'hotels',
+			                    'fa-camera': venue.section === 'attractions'
+			                }"></i>
+			            </div>
+			            <div class="todo-content">
+			                <h4 class="todo-name">{{venue.name}}</h4>
+			                {{venue.categories[0] ? venue.categories[0].name : ''}}
+			            </div>
+			            <span class="unselect-btn fa fa-lg fa-times-circle" ng-click="unselectVenue(venue)"></span>
+			        </li>
+			    </ul>
+			</div>
+<!-- 				<nav class="navbar navbar-inverse" role="navigation">
+				</nav>
+				<div class="todo">
+					<ul>
+						<li venue-election="venue" ng-repeat="venue in electedVenues">
+					</ul>
+				</div> -->
 		</div>
 	</div>
 </div>

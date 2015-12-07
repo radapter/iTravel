@@ -1,6 +1,6 @@
-<div class="venue-option-card">
+<div class="venue-option-card" ng-class="{'selected': venue.selected}">
 	<div class="venue-info">
-		<h3>{{ venue.name 	}}</h3>
-		<span class="btn btn-xs btn-primary select-btn">Select</span>	
+		<h3>{{ venue.name }}</h3>
+		<span class="btn btn-xs btn-primary select-btn" ng-class="{'btn-primary': !venue.selected, 'btn-danger': venue.selected}">{{venue.selected ? 'Delete' : 'Select'}}</span>	
 	</div>
 </div>

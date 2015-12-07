@@ -18,20 +18,105 @@
 	z-index: 1;
 	top: 0;
 
+	/*TODO HIGH yulin Use the commented padding rule when expand button is shown*/
+	/*padding: 13px 0; */
+
+	padding: 24px 0;
 	width: 100%;
-	height: 120px;
+	height: 80px;
 
 	background-color: #ecf0f1;
-	box-shadow: -2px 2px 2px #333;
+	box-shadow: -1px 2px 10px #999;
+	overflow: hidden;
+	text-align: center;
+
+	transition: height 0.6s ease;
+}
+
+.venue-filters .filter-label {
+	display: inline-block;
+	color: #16A085;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.category-filter, .name-filter {
+	display: inline-block;
+	text-align: center;
+}
+
+.category-filter {
+	width: 60%;
+}
+
+.name-filter {
+	width: 30%;
+}
+
+.category-filter .category-btn-group {
+	vertical-align: inherit;
+	width: 100%;
+}
+
+.category-btn-group .btn {
+	width: 32%;
+
+	-webkit-box-shadow: inset 0 0 1px #95A5A6;
+	box-shadow: inset 0 0 1px #95A5A6;
+}
+
+.category-btn-group .btn.active {
+	background-color: #1ABC9C;
+	border-color: #1ABC9C;
+}
+
+.input-group.focus .input-group-addon {
+	background-color: #1ABC9C;
+	border-color: #1ABC9C;
+}
+
+
+.name-filter input {
+	width: 250px;
+}
+
+
+
+.filter-expand-button {
+	/*TODO HIGH yulin Add advanced fitlers and show this button */
+	display: none;
+
+	position: absolute;
+	bottom: 0px;
+	left: 50%;
+	transform: translateX(-50%);
+
+	width: 300px;
+	
+	text-align: center;
+	line-height: 20px;
+	border-top: solid 1px #CCC;
+
+	cursor: pointer;
+}
+
+.filter-expand-button i {
+	display: inline;
+}
+
+.venue-selector-adapter {
+	padding-top: 80px; /* height of filter*/
+
+	transition: padding-top 0.6s ease;
 }
 
 
 .venue-options, .venue-selector-map {
-	padding: 120px 0px 0px; /* height of filter*/
+	padding: 0px 0px; /* height of filter*/
 }
 
 .venue-options {
-	background-color: #34495e;
+	background-color: #ECF0F1;
 }
 
 .venue-card-container {
@@ -42,22 +127,38 @@
 }
 
 .venue-selector-map {
-	background-color: green;
+	background-color: #EEE;
 
+}
+
+.venue-selector-map .angular-google-map-container {
+	width: 100%;
+	height: 100%;
 }
 
 .venue-option-card {
 	position: relative;
 	display: inline-block;
 
-	margin: 10px;
-	width: 220px;
+	margin: 5px 8px 0 5px;
+	width: 230px;
 	height: 180px;
+	border: solid 2px rgba(0,0,0,0);
 
 	background-color: white;
 	background-size: cover;
+	background-clip: content-box;
+
+	-webkit-box-shadow: #7F8C8D 0 0 5px;
+	box-shadow: #7F8C8D 0 0 5px;
 }
 
+.venue-option-card:hover,
+.venue-option-card.focused,
+.venue-option-card.selected {
+	border: solid 2px #16a085;
+	cursor: pointer;
+}
 
 .venue-featured-photo {
 	width: 100%;
@@ -73,7 +174,14 @@
 	height: 50px;
 
 	background-color: #ecf0f1;
-	opacity: 0.9;
+	opacity: 0.85;
+	overflow: hidden;
+}
+
+.venue-option-card:hover .venue-info,
+.venue-option-card.focused .venue-info {
+	background-color: #E9D460;
+	opacity: 1;
 }
 
 .venue-info > h3 {
@@ -81,14 +189,11 @@
 	top: 50%;
 	transform: translateY(-50%);
 
-
-	display: inline-block;
-
 	margin: 0;
-	padding: 0 60px 0 5px;
+	padding: 0 60px 0 6px;
 	width: 100%;
 
-	font-size: 15px;
+	font-size: 14px;
 }
 
 .venue-info > .select-btn {
@@ -102,3 +207,42 @@
 	opacity: 1;
 }
 
+.venue-elections {
+	position: relative;
+	padding: 80px 0 0 0;
+}
+
+.schedule-actions {
+	position: absolute;
+	top: 0;
+
+	padding: 23px;
+	width: 100%;
+	height: 80px;
+}
+
+.todo {
+  margin-bottom: 0;
+}
+
+.venue-elections .unscheduled-item {
+	position: relative;
+	cursor: inherit;
+}
+
+.unselect-btn {
+	position: absolute;
+	top: 30px;
+	right: 15px;
+
+	cursor: pointer;
+}
+
+.unselect-btn:hover {
+	color: #1abc9c;
+}
+
+.venue-elections .unscheduled-list {
+  height: 100%;
+  overflow-y: auto;
+}

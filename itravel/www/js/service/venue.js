@@ -8,6 +8,7 @@ function VenueFactory($http, $q, host) {
 	// constructor
 	function Venue(config) {
 		angular.extend(this, config);
+
 	}
 
 	// instance properties/methods

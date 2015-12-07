@@ -8,6 +8,10 @@ function VenueFactory($http, $q) {
 	// constructor
 	function Venue(config) {
 		angular.extend(this, config);
+		this.coords = {
+			latitude: this.location.lat,
+			longitude: this.location.lng
+		};
 	}
 
 	// instance properties/methods
@@ -30,12 +34,12 @@ function VenueFactory($http, $q) {
 		angular.extend(params, {limit: 50});
 
 		var promiseHash = {
-			drinks: singleExplore(copyAndExtend(params, {section: 'drinks'})),
-			food: singleExplore(copyAndExtend(params, {section: 'food'})),
-			arts: singleExplore(copyAndExtend(params, {section: 'arts'})),
-			outdoors: singleExplore(copyAndExtend(params, {section: 'outdoors'})),
-			sights: singleExplore(copyAndExtend(params, {section: 'sights'})),
-			hotels: singleExplore(copyAndExtend(params, {query: 'Hotel'}))
+			drinks: singleExplore(copyAndExtend(params, {section: 'drinks'}), 'restaurants'),
+			food: singleExplore(copyAndExtend(params, {section: 'food'}), 'restaurants'),
+			arts: singleExplore(copyAndExtend(params, {section: 'arts'}), 'attractions'),
+			outdoors: singleExplore(copyAndExtend(params, {section: 'outdoors'}), 'attractions'),
+			sights: singleExplore(copyAndExtend(params, {section: 'sights'}), 'attractions'),
+			hotels: singleExplore(copyAndExtend(params, {query: 'Hotel'}), 'hotels')
 		};
 
 
@@ -44,9 +48,9 @@ function VenueFactory($http, $q) {
 			.then(function success(resultsHash) {
 				var sectionedresults = {};
 
-				sectionedresults.restaurants = _.uniq([].concat(resultsHash.drinks, resultsHash.food), 'id');
-				sectionedresults.attractions = _.uniq([].concat(resultsHash.arts, resultsHash.outdoors, resultsHash.sights), 'id');
-				sectionedresults.hotels = resultsHash.hotels;
+				sectionedresults.restaurants = _.uniq([].concat(resultsHash.drinks, resultsHash.food), 'id').slice(0, 20);
+				sectionedresults.attractions = _.uniq([].concat(resultsHash.arts, resultsHash.outdoors, resultsHash.sights), 'id').slice(0, 20);
+				sectionedresults.hotels = resultsHash.hotels.slice(0, 10);
 
 				Venue.searchResults = sectionedresults;
 				Venue.categoryDict = getCategoryDict(sectionedresults);
@@ -63,7 +67,7 @@ function VenueFactory($http, $q) {
 	 * call the backend foursquare proxy
 	 * @return {promise}
 	 */
-	function singleExplore(params) {
+	function singleExplore(params, section) {
 		var deferred = $q.defer();
 
 		$http.get('foursquare/explore', {
@@ -76,6 +80,7 @@ function VenueFactory($http, $q) {
 				deferred.reject(res.meta.message);
 			} else {
 				venueArray = _.map(res.data, function(venue){
+					venue.section = section;
 					return new Venue(venue);
 				});
 				deferred.resolve(venueArray);

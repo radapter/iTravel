@@ -27,7 +27,7 @@
           if(plan) {
             var startDate = plan.start;
             var endDate = new Date();
-            endDate.setDate(startDate.getDate() + plan.duration);
+            endDate.setDate(startDate.getDate() + plan.duration - 1);
             var param = {
               ll: destlat +"," + destLng,
               startDate: startDate,

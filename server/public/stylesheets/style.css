@@ -151,6 +151,10 @@ h6 {
     z-index: 2;
 }
 
+.hot-places .thumbnail {
+  cursor: pointer;
+}
+
 .hot-places .thumbnail-sf {
     background: url("../img/city-imgs/sf.jpg") no-repeat center center;
     background-size: 100%;
@@ -423,6 +427,7 @@ div.schedule-it {
 }
 
 @media(max-height: 990px){
+
     .angular-google-map-container {
         height: 80%;
         width: 95%;
@@ -977,6 +982,16 @@ div.mgmt p, div.stack p{
 
 
 /**************  activity scheduler page styling *****************/
+.scheduler-title {
+  padding: 0px 20px;
+  margin-top: 0;
+}
+
+.btn-save-plan {
+  width: 200px;
+  margin-top: 10px
+}
+
 .unscheduled-list {
   height: 400px;
   overflow-y: auto;
@@ -1004,10 +1019,6 @@ div.mgmt p, div.stack p{
 .calendar-container .fc table th {
   font-size: 14px;
   color: #34495E;
-}
-
-.schedule-activities .row{
-    margin: 20px auto;
 }
 
 .calendar-container {

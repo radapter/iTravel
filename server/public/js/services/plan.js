@@ -55,6 +55,7 @@ function PlanFactory($http, $q, Activity) {
 	 */
 	function autoPlan(params) {
 		var deferred = $q.defer();
+		console.log('auto plan params:', params);
 
 		$http.get('foursquare/autoplan', {
 			cache: true,
