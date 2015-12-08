@@ -29,6 +29,7 @@
     "gulp-rimraf": "^0.1.1",
     "gulp-uglify": "^1.1.0",
     "gulp-util": "^3.0.4",
+    "helmet": "^0.15.0",
     "jwt-simple": "^0.3.0",
     "karma": "^0.12.31",
     "karma-chai": "^0.1.0",
